@@ -1,10 +1,12 @@
 # DAT171 Object oriented programming in Python
 
 * Lecturers:
-    * Mikael Öhman, tel. 772 1301, mikael.ohman@chalmers.se 
-    * Thomas Svedberg, tel. 772 1522, thomas.svedberg@chalmers.se 
+    * Mikael Öhman, tel. 772 1301, <mikael.ohman@chalmers.se>
+      Postdoc at Applied Mechanics
+    * Thomas Svedberg, tel. 772 1522, <thomas.svedberg@chalmers.se>
 * Assistant:
-    * Kristoffer Carlsson, tel. 772 1492, kristoffer.carlsson@chalmers.se
+    * Kristoffer Carlsson, tel. 772 1492, <kristoffer.carlsson@chalmers.se>
+      PhD student at Applied Mechanics
 
 Course literature:
 
@@ -17,13 +19,19 @@ Course literature:
 # Prerequisites
 Good knowledge of basic programming structures such as variables, conditions, loops, and functions in any programming language.
 
-```matlab
-function [r] = norm(x)
-s = 0;
-for i = 1:length(x)
-    s = s + x(i) * x(i);
-r = sqrt(s);
-```
++-------------------------------+-------------------------------------+
+| Matlab                        | Python                      |
++===============================+=============================+
+| ```matlab                     | ```python                   |
+| function [r] = norm(x)        | def norm(x):                |
+| s = 0;                        |     s = 0                   |
+| for i = 1:length(x)           |     for i in range(len(x)): |
+|    s = s + x(i)^2;            |         s += x[i]**2        |
+| end                           |                             |
+| r = sqrt(s);                  |     return sqrt(s)          |
+| ```                           | ```                         |
++-------------------------------+-----------------------------+
+
 
 
 # Course evaluation
@@ -32,6 +40,7 @@ r = sqrt(s);
 * Course evaluated at 3 occurrences
 * Course survey after exam.
 * Course board representatives (please stand up)
+
 
 
 # Content
@@ -71,7 +80,6 @@ Will take place in computer rooms at 19th of March 2015 in the afternoon. The re
 3 compulsory assignments worth 1hp each which represents 26 hours of work per student.
 Assignments may be done alone of in groups of 2.
 
-### Cheating
 Please do not cheat! Ask each other questions, but don't share sections of code directly.
 _DETECTED CHEATING WILL BE REPORTED_
 
@@ -108,7 +116,7 @@ Software will be available on the windows machines in M and E building.
 * NumPy, SciPy, Matplotlib
 * Recommended IDE: PyCharm (community edition)
 * Laptops:
-    * Windows: Anaconda [http://continuum.io/downloads](http://continuum.io/downloads)
+    * Windows: Anaconda <http://continuum.io/downloads>
     * Linux: Use your package manager
     * Mac: Try macports
     * Make sure to get version 3.4!
@@ -136,5 +144,78 @@ Software will be available on the windows machines in M and E building.
 | 15-17 | CS |     |     |     |    |
 
 
-# Lectures
+# Lecture overview
+
+| W | Content |
+|---|---------|
+| 1 | Introduction, lists and loops, functions, libraries |
+| 2 | CA1, files and strings, NumPy and SciPy |
+| 3 | Matplotlib, common data structures, writing libraries |
+| 4 | CA2, Classes and object oriented design |
+| 5 | More on classes, exceptions |
+| 6 | CA3, GUI: PySide |
+| 7 | Leftovers, reserve (if needed)|
+| 8 | Repetition and questions, review of example exam |
+| 9 | Exam, final deadline on assignment corrections |
+
+
+
+# Computer session
+
+* Bring laptops if you need help installing software
+* Practice problems 
+* 
+
+
+# Python versions
+
+## Python 3 vs Python 2
+
+* A few incompatible syntax changes
+* We'll be sticking to Python 3
+
+## Python vs IPython
+
+* IPython has convenient macros outside the Python language
+    * Similar to matlab
+    * Syntax highlighting warnings/errors
+    * Magic functions
+```
+In [1]: %timeit x = sqrt(37)
+10000000 loops, best of 3: 52.4 ns per loop
+```
+
+* IPython notebooks; "*The IPython Notebook is a web-based interactive computational environment where you can combine code execution, text, mathematics, plots and rich media into a single document*"
+
+
+# IPython
+
+* Starting a notebook session
+        $ ipython cmd notebook
+  Connect with web browser or using PyCharm
+
+
+
+# Identation
+
+Identation determines scopes in Python!
+
++------------------------+-------------------------+
+| Matlab                 | Python                  |
++========================+=========================+
+| ```matlab              | ```python               |
+| if x                   | if x:                   |
+|     f();               |     f()                 |
+| elif y                 | elif y:                 |
+|     g();               |     g()                 |
+| end                    |                         |
+| for x = y              | for x in y:             |
+|     disp('foo');       |     print('foo')        |
+| end                    |                         |
+| if q                   | if q:                   |
+| end                    |     pass                |
+| ```                    | ```                     |
++------------------------+-------------------------+
+
+
 
