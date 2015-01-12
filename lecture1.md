@@ -166,7 +166,7 @@ Software will be available on the windows machines in M and E building.
 
 # Computer session
 * Bring laptops if you need help installing software
-* Practice problems
+* Practice problems (not obligatory)
 * First assignment is available if you want to start early
 
 
@@ -196,7 +196,7 @@ Software will be available on the windows machines in M and E building.
  * Has concept of references (like Java, unlike Matlab)
  * Interactive interpreter (like Matlab, unlike Java)
  * Compact syntax (like Matlab, unlike Java)
- * Built in 
+ * Scripting support in many applications
 
 
 
@@ -208,7 +208,7 @@ Software will be available on the windows machines in M and E building.
   * Common scripting language in applications, e.g.
 
     `[C library] <-> [Python wrapper] <-> [GUI code]`
-    A program calling a user supplied Python script for enhancements
+    `[C++ program] <-> [Evaluate python code from user]`
 
 
 
@@ -239,6 +239,40 @@ Software will be available on the windows machines in M and E building.
 
 
 
+# Using an IDE (PyCharm)
+
+  * An Integrated Development Environment (IDE) is a pimped up text editor that integrates the toolchain.
+  * Running a script
+      1. Create a small script `foobar.py`
+      2. Run $\to$ Edit Configurations: Press + and select your script.
+      3. Name the configuration and press OK.
+      4. Run $\to$ Run 'Your script'
+
+  * Python console at the bottom for convenience
+
+  * PyCharm can read IPython notebooks (you need to start the notebook server on your computer)
+
+  * Learn the keyboard shortcuts!
+
+  * Ctrl + Mouse click for code navigation
+
+  * You are free to use any IDE you want, but PyCharm is the best tool you will have access to during the exam. Learn it!
+
+
+
+# Short note on VCS
+
+  * Version control systems (VCS) is a key component when developing and collaborating on larger projects
+      * Subversion (a.k.a SVN) - Common centralized VCS
+      * GIT -  Distributed version control system. <www.github.com> is a popular hosting service.
+      * Any decent IDE will integrate support for VCS. 
+      * Dropbox is not a VCS.
+  * Not critical in this course
+      * Your programs will mostly be short, and a learning experience
+      * If you are interested, feel free to ask about it more during the computer session
+
+
+
 # Variables and printing
 
   * Python tries to be smart about printing, and doesn't print on assignments
@@ -264,16 +298,20 @@ Software will be available on the windows machines in M and E building.
 
 # IPython
 
-* IPython has convenient macros outside the Python language
+  * IPython has convenient macros outside the Python language
     * Similar to the Matlab console
     * Syntax highlighting warnings/errors (inside the console!)
-    * Magic functions
-```
+      * Magic functions
+```python
 %timeit x = sqrt(37)
 10000000 loops, best of 3: 52.4 ns per loop
 ```
 
-* IPython notebooks; "*The IPython Notebook is a web-based interactive computational environment where you can combine code execution, text, mathematics, plots and rich media into a single document*"
+  * IPython notebooks; "*The IPython Notebook is a web-based interactive computational environment where you can combine code execution, text, mathematics, plots and rich media into a single document*"
+
+    [SymPy](http://nbviewer.ipython.org/github/ipython/ipython/blob/2.x/examples/Notebook/SymPy.ipynb)
+
+    [Plotly](https://plot.ly/python/3d-plots-tutorial/)
 
 
 
@@ -307,6 +345,32 @@ x          int     3
     Connect with web browser or using PyCharm
 
 
+# Using the built in help
+
+  * The `help()` function
+```python
+In [1]: help(43)
+Help on int object:
+...
+In [2]: help(math)
+Help on module math:
+...
+    acos(...)
+```
+
+
+  * Tab completion on most things (find what is available)
+
+    ```python
+In [1]: x = 'Hello World'
+In [2]: x.[TAB]
+x.capitalize  x.decode  x.expandtabs  x.index  ...
+In [2]: foobar = 'Goodbye World'
+In [3]: foo[TAB]
+In [3]: foobar
+    ```       
+
+
 
 # Libraries
   * Importing libraries:
@@ -331,42 +395,11 @@ Out[9]: 2.23606797749979
     ```
 
 
-# Using an IDE (PyCharm)
 
-  * An Integrated Development Environment (IDE) is a pimped up text editor that integrates the toolchain.
-  * Running a script
-      1. Create a small script `foobar.py`
-      2. Run $\to$ Edit Configurations: Press + and select your script.
-      3. Name the configuration and press OK.
-      4. Run $\to$ Run 'Your script'
+#  Identation
 
-  * Python console at the bottom for convenience
-
-  * PyCharm can read IPython notebooks (you need to start the notebook server on your computer)
-
-  * Learn the keyboard shortcuts!
-
-  * Ctrl + Mouse click for code navigation
-
-  * You are free to use any IDE you want, but PyCharm is the best tool you will have access to during the exam. Learn it!
-
-
-# VCS
-
-  * Version control systems (VCS) is a key component when developing and collaborating on larger projects
-      * Subversion (a.k.a SVN) - Common centralized VCS
-      * GIT -  Distributed version control system. <www.github.com> is a popular hosting service.
-      * Any decent IDE will integrate support for VCS. 
-      * Dropbox is not a VCS.
-  * Not critical in this course
-      * Your programs will mostly be short, and a learning experience
-      * If you are interested, feel free to ask about it more during the computer session
-
-
-
-# Identation
-
-Identation determines control flow scopes in Python!
+Identation is not optional in Python.
+It determines control flow scopes in Python!
 
 +----------------------------+------------------------+-------------------------+
 | C++                        | Matlab                 | Python                  |
@@ -385,5 +418,121 @@ Identation determines control flow scopes in Python!
 | ```                        | ```                    | ```                     |
 +--------------------------+------------------------+-------------------------+
 
+# Basic strings and lists
+  * Strings as you would expect
 
+    ```python
+In [1]: x = 'Hello\nWorld'
+In [2]: x
+Out[2]: 'Hello\nWorld'
+In [3]: print(x)
+Out[3]: 
+Hello
+World
+    ```
+  * Lists
+
+In [1]: x = [43, 10, 15]
+In [2]: len(x)
+Out[2]: 3
+    
+
+
+# Indexing
+
+  * Indexing uses the hard brackets
+    
+    ```python
+In [1]: x = [43, 10, 15]
+In [2]: x[1]
+Out[2]: 10
+    ```
+  * Note that indexing starts from 0! (Index measures distance from start)
+
+    ```python
+In [1]: x = [43, 10, 15]
+In [2]: x[1]
+Out[2]: 10
+    ```
+
+
+
+# Common operators
+
+  * Binary operators
+
+    ```python
+    +  -  *  //  /  %  **  <  <=  ==  !=  >=  >
+    ```
+
+    For scalars 
+      * `a**b` $= a^b$
+      * `a//b` $= \lfloor a/b \rfloor$
+      * `a%b ` $= a \,\text{mod}\, b$
+
+  * Extended assignments
+
+    ```python
+    +=  -=  *=  /=  //=  %=  **=
+    ```
+
+    These give the same result
+
+      * `reallyLongName += 1`
+      * `reallyLongName = reallyLongName + 1`
+
+    but slightly different behind the scenes
+
+
+# Bitwise operators
+
+  * Binary representations of numbers:
+
+    ```
+    41 = 2^5 + 2^3 + 2^0 = 101001b
+    ```
+
+  * Binary operators
+
+    ```python
+    <<  >>  &  *  |
+    ```
+
+    ```
+    41 >> 2 = 101001b >> 2 = 001010b = 10
+    a >> b = a // (2**b)
+    ```
+  * Extended assignments
+    
+    ```python
+    <<=  >>=  &=  ^=  |= 
+    ```
+  * You probably won't end up using these in the scope of this course.
+
+
+# Operators acting on objects
+
+  * Operators are not the same as in Matlab
+  * Different objects work differently with operators
+  * Strings
+    
+    ```python
+In [1]: 'Hello World' * 3
+Out[1]: 'Hello WorldHello WorldHello World'
+In [2]: 'Hello World' + '!'
+Out[2]: 'Hello World!'
+    ```
+
+  * Lists (same behavior as strings)
+
+    ```python
+In [1]: [1, 2, 3] * 3
+Out[1]: [1, 2, 3, 1, 2, 3, 1, 2, 3]
+In [2]: [1, 2, 3] + [4, 5]
+Out[2]: [1, 2, 3, 4, 5]
+    ```
+
+  * NumPy arrays will overload operators and do different things!
+    Test in the interpreter whenever you are unsure.
+     
 
