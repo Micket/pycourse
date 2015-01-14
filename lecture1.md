@@ -35,10 +35,18 @@ Good knowledge of basic programming structures such as variables, conditions, lo
 
 
 # Course evaluation
-* **New course: Continuous feedback is especially appreciated!**
-* Course evaluated at 3 occurrences
-* Course survey after exam
-* Course board representatives (please stand up)
+  * **New course: Continuous feedback is especially appreciated!**
+  * Course evaluated at 3 occurrences
+  * Course survey after exam
+  * Course board representatives (please stand up)
+      * Arvin Bahmani        arvinb@student.chalmers.se
+      * Alexander Björk      albjork@student.chalmers.se
+      * Yuli Hua             yulih@student.chalmers.se
+      * Marcus Jour          jourm@student.chalmers.se
+      * Mattias Naarttijärvi matnaa@student.chalmers.se
+      * Alexander Osika      osika@student.chalmers.se
+      * Gustaf Rasmusson     gusras@student.chalmers.se
+      * John Wikström        wjohn@student.chalmers.se
 
 
 
@@ -368,7 +376,7 @@ x.capitalize  x.decode  x.expandtabs  x.index  ...
 In [2]: foobar = 'Goodbye World'
 In [3]: foo[TAB]
 In [3]: foobar
-    ```       
+    ```
 
 
 
@@ -407,7 +415,7 @@ It determines control flow scopes in Python!
 | ```cpp                     | ```matlab              | ```python               |
 | if (x) {                   | if x                   | if x:                   |
 |     f();                   |     f();               |     f()                 |
-| } else if (y) {            | elif y                 | elif y:                 |
+| } else if (y) {            | elseif y               | elif y:                 |
 |     g();                   |     g();               |     g()                 |
 | }                          | end                    |                         |
 | for (auto &x: y) {         | for x = y              | for x in y:             |
@@ -418,7 +426,46 @@ It determines control flow scopes in Python!
 | ```                        | ```                    | ```                     |
 +--------------------------+------------------------+-------------------------+
 
-# Basic strings and lists
+```cpp                     | ```matlab              | ```python
+if (x) {                   | if x                   | if x:
+    f();                   |     f();               |     f()
+} else if (y) {            | elif y                 | elif y:
+    g();                   |     g();               |     g()
+}                          | end
+for (auto &x: y) {         | for x = y              | for x in y:
+    puts("foo\n");         |     disp('foo');       |     print('foo')
+}                          | end
+if (q) {                   | if q                   | if q:
+}                          | end                    |     pass
+```                        | ```                    | ```
+
+```matlab
+if x
+    f();
+elif y
+    g();
+end
+for x = y
+    disp('foo');
+end
+if q
+end
+```
+
+```python
+if x:
+    f()
+elif y:
+    g()
+for x in y:
+    print('foo')
+if q:
+    pass
+```
+
+
+
+# Basic string
   * Strings as you would expect
 
     ```python
@@ -430,12 +477,23 @@ Out[3]:
 Hello
 World
     ```
+
+# Basic lists
   * Lists
 
+    ```python
 In [1]: x = [43, 10, 15]
 In [2]: len(x)
 Out[2]: 3
-    
+    ```
+
+  * Can store anything
+
+    ```python
+In [1]: x = [[1, 2, 3], [4, 2], [9, 4, 2]]
+In [2]: y = ['Hello', 'World', '!']
+
+    ```
 
 
 # Indexing
@@ -534,5 +592,89 @@ Out[2]: [1, 2, 3, 4, 5]
 
   * NumPy arrays will overload operators and do different things!
     Test in the interpreter whenever you are unsure.
-     
 
+
+
+# Basic for-loops
+  * Looping over ranges
+```python
+for i = range(5):
+   print(i)
+
+# Will print 0, 1, 2, 3, 4
+
+for i = range(1, 10, 2):
+   print(i)
+# Will print 1, 3, 4, 
+```
+  * Similar to Matlabs colon operator
+    `range(a, b, c) == a : c : (b-1) `
+
+
+
+# Conditionals
+
+```python
+if x and (y or z):
+    print('1')
+elif z:
+    print('2')
+else:
+    print('3')
+```
+
+
+
+# Functions applied to data
+
+  * Some functions are connected to the data
+```python
+In [1]: x = [34, 10, 15]
+In [2]: x.sort()
+In [3]: x
+Out[3]: [10, 15, 34]
+```
+    Note that the data was modified inside x!
+    `sort()` has no return value
+
+  * Function applied to data may return values as well of course
+```python
+In [1]: x = 'Hello cruel World'
+In [2]: w = x.split()
+Int[3]: w
+['Hello', 'cruel', 'World']
+```
+
+
+# Multiple return values
+  * Group values using paranthesis when returning more than one
+
+```python
+def foo():
+    return (1, 2, 3)
+
+x = foo()        # OK  x = (1, 2, 3)
+a, b, c = foo()  # OK  a = 1, b = 2, c = 3
+a, b = foo()     # ValueError: too many values to unpack
+```
+
+# Named arguments and optional arguments
+
+  * You set function parameters by name
+
+```python
+def myFunction(a, b=2, c=3):
+   return a + b**c
+
+myFunction(1, 2, 3)
+myFunction(1, 2)
+myFunction(1)
+
+myFunction(a=1, b=2, c=3)
+myFunction(1, b=2, c=3)
+myFunction(1, 2, c=3)
+myFunction(1, c=3, b=2)
+
+myFunction(a=1, 2, 3) # Not OK!
+myFunction(1, b=2, 3) # Not OK!
+```
