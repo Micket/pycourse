@@ -252,7 +252,7 @@ Software will be available on the windows machines in M and E building.
 
   * PyCharm can read IPython notebooks (you need to start the notebook server on your computer)
 
-  * Learn the keyboard shortcuts!
+  * Learn the [keyboard shortcuts](http://blog.jetbrains.com/pycharm/files/2010/07/PyCharm_Reference_Card.pdf)!
 
   * Ctrl + Mouse click for code navigation
 
