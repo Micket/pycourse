@@ -73,7 +73,7 @@ Furthermore, the student should be able to read reference literature for the Pyt
 Will take place in computer rooms at 19th of March 2015 in the afternoon. The re-exam will be in august.
 
 * Book is allowed...
-* but there will also be reference materials will be available on the computers
+* but there will also be reference materials available on the computers
 * 4 hours examination
 * 5 questions $\times$ 5 points per question
     * 10 points for passing grade
@@ -131,7 +131,7 @@ Software will be available on the windows machines in M and E building.
 * Recommended IDE: PyCharm (community edition)
 * Laptops:
     * Windows: Anaconda <http://continuum.io/downloads>
-    * Linux: Use your package manager
+    * Linux: Use your package manager or get Anaconda for Linux
     * Mac: Try macports
     * Make sure to get version 3.4!
 
@@ -260,7 +260,7 @@ Software will be available on the windows machines in M and E building.
 
   * PyCharm can read IPython notebooks (you need to start the notebook server on your computer)
 
-  * Learn the keyboard shortcuts!
+  * Learn the [keyboard shortcuts](http://blog.jetbrains.com/pycharm/files/2010/07/PyCharm_Reference_Card.pdf)!
 
   * Ctrl + Mouse click for code navigation
 
@@ -272,7 +272,7 @@ Software will be available on the windows machines in M and E building.
 
   * Version control systems (VCS) is a key component when developing and collaborating on larger projects
       * Subversion (a.k.a SVN) - Common centralized VCS
-      * GIT -  Distributed version control system. <www.github.com> is a popular hosting service.
+      * GIT - Distributed version control system. <www.github.com> is a popular hosting service.
       * Any decent IDE will integrate support for VCS. 
       * Dropbox is not a VCS.
   * Not critical in this course
@@ -334,7 +334,7 @@ In [2]: 31536000 / Out[1]
 Out[2]: 214896.0817717206
         ```
 
-        Like `'ans'` but better
+        Like `'ans'` in Matlab but better
 
   * Run a script similar to Matlab console
     
@@ -404,9 +404,9 @@ Out[9]: 2.23606797749979
 
 
 
-#  Identation
+#  Indentation
 
-Identation is not optional in Python.
+Indentation is not optional in Python.
 It determines control flow scopes in Python!
 
 +----------------------------+------------------------+-------------------------+
