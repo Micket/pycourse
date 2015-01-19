@@ -2,11 +2,10 @@
 
 * Lecturers:
     * Mikael Öhman, tel. 772 1301, <mikael.ohman@chalmers.se>
-      Postdoc at Applied Mechanics
     * Thomas Svedberg, tel. 772 1522, <thomas.svedberg@chalmers.se>
 * Assistant:
     * Kristoffer Carlsson, tel. 772 1492, <kristoffer.carlsson@chalmers.se>
-      PhD student at Applied Mechanics
+ * Fincd us at Material & Computational Mechanics (third floor M-building)
 
 Course literature:
 
@@ -175,7 +174,7 @@ Software will be available on the windows machines in M and E building.
 # Computer session
 * Bring laptops if you need help installing software
 * Practice problems (not obligatory)
-* First assignment is available if you want to start early
+* First assignment will be available on thursday if you want to start early
 
 
 
@@ -184,9 +183,9 @@ Software will be available on the windows machines in M and E building.
 ## You ...
  1. know another Object Oriented programming langauge already
  2. have tried another OO-programming langauge already
- 2. thought the matlab course was easy
- 3. can manage matlab decently
- 4. didn't even satisfy the course prerequisites
+ 3. thought the matlab course was easy
+ 4. can manage matlab decently
+ 5. didn't even satisfy the course prerequisites
 
 ## You will be using ...
  1. a laptop with Windows
@@ -194,6 +193,7 @@ Software will be available on the windows machines in M and E building.
  3. a laptop with OSX
  4. the school computers
  5. something else
+
 
 # About Python
 
@@ -212,7 +212,7 @@ Software will be available on the windows machines in M and E building.
 
   * Simple syntax
   * Easy to get started on all platforms
-  * Similar concepts as other popular procedural languages (Java, C++, C#)
+  * Similar concepts as other popular procedural languages (Java, C++, C#).
   * Common scripting language in applications, e.g.
 
     `[C library] <-> [Python wrapper] <-> [GUI code]`
@@ -226,6 +226,7 @@ Software will be available on the windows machines in M and E building.
   * A few incompatible syntax changes
   * A few noteable differences:
       - Printing: `print x`{.python} $\leadsto$ `print(x)`{.python}
+      - Integer division `a / b` $\leadsto$ `a // b`
       - Proper unicode
       - Dictionaries: `x.has_key(y)`{.py} $\leadsto$ `y in x`{.python}
       - Iterators: `y.iteritems()`{.python} $\leadsto$ `y.items()`{.python}
@@ -275,33 +276,9 @@ Software will be available on the windows machines in M and E building.
       * GIT - Distributed version control system. <www.github.com> is a popular hosting service.
       * Any decent IDE will integrate support for VCS. 
       * Dropbox is not a VCS.
-  * Not critical in this course
+  * Not really critical in this course
       * Your programs will mostly be short, and a learning experience
       * If you are interested, feel free to ask about it more during the computer session
-
-
-
-# Variables and printing
-
-  * Python tries to be smart about printing, and doesn't print on assignments
-
-    ```python
->>> x = sqrt(3)
->>> sqrt(3)
-1.7320508075688772
->>> 2**3
-8
->>> print(x)
-1.7320508075688772
-    ```
-  * Semicolons do nothing
-
-    ```python
->>> x = sqrt(3);
->>> sqrt(3);
-1.7320508075688772
-    ```
-
 
 
 # IPython
@@ -348,333 +325,9 @@ x          int     3
 
   * Starting a notebook session
 
-        $ ipython cmd notebook
+      * `$ ipython cmd notebook`
+      * Windows: Run *IPython3 notebook* from start menu
 
     Connect with web browser or using PyCharm
 
 
-# Using the built in help
-
-  * The `help()` function
-```python
-In [1]: help(43)
-Help on int object:
-...
-In [2]: help(math)
-Help on module math:
-...
-    acos(...)
-```
-
-
-  * Tab completion on most things (find what is available)
-
-    ```python
-In [1]: x = 'Hello World'
-In [2]: x.[TAB]
-x.capitalize  x.decode  x.expandtabs  x.index  ...
-In [2]: foobar = 'Goodbye World'
-In [3]: foo[TAB]
-In [3]: foobar
-    ```
-
-
-
-# Libraries
-  * Importing libraries:
-
-    ```python
-In [1]: import math
-In [2]: math.sqrt(5)
-Out[2]: 2.23606797749979
-    -
-In [3]: import math as m
-In [4]: m.sqrt(5)
-Out[4]: 2.23606797749979
-    -
-In [5]: from math import cos, pi
-In [6]: cos(1.5*pi)
-Out[6]: -1.8369701987210297e-16
-In [7]: sqrt(5)
-        ( error message here )
-In [8]: from math import *
-In [9]: sqrt(5)
-Out[9]: 2.23606797749979
-    ```
-
-
-
-#  Indentation
-
-Indentation is not optional in Python.
-It determines control flow scopes in Python!
-
-+----------------------------+------------------------+-------------------------+
-| C++                        | Matlab                 | Python                  |
-+============================+========================+=========================+
-| ```cpp                     | ```matlab              | ```python               |
-| if (x) {                   | if x                   | if x:                   |
-|     f();                   |     f();               |     f()                 |
-| } else if (y) {            | elseif y               | elif y:                 |
-|     g();                   |     g();               |     g()                 |
-| }                          | end                    |                         |
-| for (auto &x: y) {         | for x = y              | for x in y:             |
-|     puts("foo\n");         |     disp('foo');       |     print('foo')        |
-| }                          | end                    |                         |
-| if (q) {                   | if q                   | if q:                   |
-| }                          | end                    |     pass                |
-| ```                        | ```                    | ```                     |
-+--------------------------+------------------------+-------------------------+
-
-```cpp                     | ```matlab              | ```python
-if (x) {                   | if x                   | if x:
-    f();                   |     f();               |     f()
-} else if (y) {            | elif y                 | elif y:
-    g();                   |     g();               |     g()
-}                          | end
-for (auto &x: y) {         | for x = y              | for x in y:
-    puts("foo\n");         |     disp('foo');       |     print('foo')
-}                          | end
-if (q) {                   | if q                   | if q:
-}                          | end                    |     pass
-```                        | ```                    | ```
-
-```matlab
-if x
-    f();
-elif y
-    g();
-end
-for x = y
-    disp('foo');
-end
-if q
-end
-```
-
-```python
-if x:
-    f()
-elif y:
-    g()
-for x in y:
-    print('foo')
-if q:
-    pass
-```
-
-
-
-# Basic string
-  * Strings as you would expect
-
-    ```python
-In [1]: x = 'Hello\nWorld'
-In [2]: x
-Out[2]: 'Hello\nWorld'
-In [3]: print(x)
-Out[3]: 
-Hello
-World
-    ```
-
-# Basic lists
-  * Lists
-
-    ```python
-In [1]: x = [43, 10, 15]
-In [2]: len(x)
-Out[2]: 3
-    ```
-
-  * Can store anything
-
-    ```python
-In [1]: x = [[1, 2, 3], [4, 2], [9, 4, 2]]
-In [2]: y = ['Hello', 'World', '!']
-
-    ```
-
-
-# Indexing
-
-  * Indexing uses the hard brackets
-    
-    ```python
-In [1]: x = [43, 10, 15]
-In [2]: x[1]
-Out[2]: 10
-    ```
-  * Note that indexing starts from 0! (Index measures distance from start)
-
-    ```python
-In [1]: x = [43, 10, 15]
-In [2]: x[1]
-Out[2]: 10
-    ```
-
-
-
-# Common operators
-
-  * Binary operators
-
-    ```python
-    +  -  *  //  /  %  **  <  <=  ==  !=  >=  >
-    ```
-
-    For scalars 
-      * `a**b` $= a^b$
-      * `a//b` $= \lfloor a/b \rfloor$
-      * `a%b ` $= a \,\text{mod}\, b$
-
-  * Extended assignments
-
-    ```python
-    +=  -=  *=  /=  //=  %=  **=
-    ```
-
-    These give the same result
-
-      * `reallyLongName += 1`
-      * `reallyLongName = reallyLongName + 1`
-
-    but slightly different behind the scenes
-
-
-# Bitwise operators
-
-  * Binary representations of numbers:
-
-    ```
-    41 = 2^5 + 2^3 + 2^0 = 101001b
-    ```
-
-  * Binary operators
-
-    ```python
-    <<  >>  &  *  |
-    ```
-
-    ```
-    41 >> 2 = 101001b >> 2 = 001010b = 10
-    a >> b = a // (2**b)
-    ```
-  * Extended assignments
-    
-    ```python
-    <<=  >>=  &=  ^=  |= 
-    ```
-  * You probably won't end up using these in the scope of this course.
-
-
-# Operators acting on objects
-
-  * Operators are not the same as in Matlab
-  * Different objects work differently with operators
-  * Strings
-    
-    ```python
-In [1]: 'Hello World' * 3
-Out[1]: 'Hello WorldHello WorldHello World'
-In [2]: 'Hello World' + '!'
-Out[2]: 'Hello World!'
-    ```
-
-  * Lists (same behavior as strings)
-
-    ```python
-In [1]: [1, 2, 3] * 3
-Out[1]: [1, 2, 3, 1, 2, 3, 1, 2, 3]
-In [2]: [1, 2, 3] + [4, 5]
-Out[2]: [1, 2, 3, 4, 5]
-    ```
-
-  * NumPy arrays will overload operators and do different things!
-    Test in the interpreter whenever you are unsure.
-
-
-
-# Basic for-loops
-  * Looping over ranges
-```python
-for i = range(5):
-   print(i)
-
-# Will print 0, 1, 2, 3, 4
-
-for i = range(1, 10, 2):
-   print(i)
-# Will print 1, 3, 4, 
-```
-  * Similar to Matlabs colon operator
-    `range(a, b, c) == a : c : (b-1) `
-
-
-
-# Conditionals
-
-```python
-if x and (y or z):
-    print('1')
-elif z:
-    print('2')
-else:
-    print('3')
-```
-
-
-
-# Functions applied to data
-
-  * Some functions are connected to the data
-```python
-In [1]: x = [34, 10, 15]
-In [2]: x.sort()
-In [3]: x
-Out[3]: [10, 15, 34]
-```
-    Note that the data was modified inside x!
-    `sort()` has no return value
-
-  * Function applied to data may return values as well of course
-```python
-In [1]: x = 'Hello cruel World'
-In [2]: w = x.split()
-Int[3]: w
-['Hello', 'cruel', 'World']
-```
-
-
-# Multiple return values
-  * Group values using paranthesis when returning more than one
-
-```python
-def foo():
-    return (1, 2, 3)
-
-x = foo()        # OK  x = (1, 2, 3)
-a, b, c = foo()  # OK  a = 1, b = 2, c = 3
-a, b = foo()     # ValueError: too many values to unpack
-```
-
-# Named arguments and optional arguments
-
-  * You set function parameters by name
-
-```python
-def myFunction(a, b=2, c=3):
-   return a + b**c
-
-myFunction(1, 2, 3)
-myFunction(1, 2)
-myFunction(1)
-
-myFunction(a=1, b=2, c=3)
-myFunction(1, b=2, c=3)
-myFunction(1, 2, c=3)
-myFunction(1, c=3, b=2)
-
-myFunction(a=1, 2, 3) # Not OK!
-myFunction(1, b=2, 3) # Not OK!
-```
