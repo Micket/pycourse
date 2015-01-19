@@ -51,9 +51,9 @@ Good knowledge of basic programming structures such as variables, conditions, lo
 
 # Content
 * Basic building blocks of a Python program (variables, conditional statements, loops, libraries, functions, errors)
-* Data structures (trees, dictionaries, tuples)
+* Data structures (lists, sets, dictionaries, tuples)
 * Object Oriented programming (classes, objects, inheritance, polymorphism, abstract classes)
-* PyQt for creating graphical user interfaces
+* PySide for creating graphical user interfaces (newer PyQt)
 * NumPy (Matrices, vectors, linear algebra)
 * SciPy (Package for numerical computations)
 * Matplotlib (Plotting)
@@ -117,7 +117,7 @@ Create a simple drawing application from scratch.
 There will be a few drawing tools required to be implemented (e.g. a rectangle tool and a freehand brush).
 
 * Creating a GUI with PySide
-* Creating classes with multiple inheritance
+* Creating classes with inheritance
 
 
 
@@ -144,8 +144,12 @@ Software will be available on the windows machines in M and E building.
 
 
 # Schedule
-* L = Lectures
-* CS = Computer lab session
+  * L = Lectures (HA1)
+  * CS = Computer lab session
+
+    Mo+Thu = ES61+63
+
+    Fr = ED5352+MT14
 
 | Time  | Mo | Tue | Wed | Thu | Fr |
 |-------|----|-----|-----|-----|----|
@@ -216,7 +220,7 @@ Software will be available on the windows machines in M and E building.
   * Common scripting language in applications, e.g.
 
     `[C library] <-> [Python wrapper] <-> [GUI code]`
-    `[C++ program] <-> [Evaluate python code from user]`
+    `[C++ program] <-> [Evaluate user scripts]`
 
 
 
@@ -229,9 +233,8 @@ Software will be available on the windows machines in M and E building.
       - Integer division `a / b` $\leadsto$ `a // b`
       - Proper unicode
       - Dictionaries: `x.has_key(y)`{.py} $\leadsto$ `y in x`{.python}
-      - Iterators: `y.iteritems()`{.python} $\leadsto$ `y.items()`{.python}
-
-        (we will get to these later in the course)
+      - Renamed functions: `y.iteritems()`{.python} $\leadsto$ `y.items()`{.python}
+  * Python 2.6-2.7 very much widespread, but Python 3.x is the future.
 
 
 # Running Python code
@@ -263,9 +266,11 @@ Software will be available on the windows machines in M and E building.
 
   * Learn the [keyboard shortcuts](http://blog.jetbrains.com/pycharm/files/2010/07/PyCharm_Reference_Card.pdf)!
 
-  * Ctrl + Mouse click for code navigation
+      * Ctrl + Mouse click for code navigation
+      * Ctrl + Shift + arrow to move lines around
+      * Many other useful things
 
-  * You are free to use any IDE you want, but PyCharm is the best tool you will have access to during the exam. Learn it!
+  * You are free to use any IDE you want, but PyCharm is the best tool you will have access to during the exam.
 
 
 
