@@ -124,15 +124,20 @@ There will be a few drawing tools required to be implemented (e.g. a rectangle t
 # Software
 Software will be available on the windows machines in M and E building.
 
-* Python 3.4
+* Python 3.4 (make sure to get 3.4!)
 * PySide (Qt)
 * NumPy, SciPy, Matplotlib
 * Recommended IDE: PyCharm (community edition)
 * Laptops:
     * Windows: Anaconda <http://continuum.io/downloads>
-    * Linux: Use your package manager or get Anaconda for Linux
-    * Mac: Try macports
-    * Make sure to get version 3.4!
+    * Linux: Use your package manager
+    * Mac: Install macports.org, then install packages with:
+
+      `sudo ports install python34 py34-ipython py34-scipy py34-numpy py34-matplotlib py34-pyside`
+
+
+
+
 
 
 
@@ -144,7 +149,7 @@ Software will be available on the windows machines in M and E building.
 
 
 # Schedule
-  * L = Lectures (HA1)
+  * L = Lectures Mo: HA1, Thu: HB2
   * CS = Computer lab session
 
     Mo+Thu = ES61+63
@@ -331,8 +336,9 @@ x          int     3
   * Starting a notebook session
 
       * `$ ipython cmd notebook`
-      * Windows: Run *IPython3 notebook* from start menu
+      * Windows: Run IPython 3.4 notebook from start menu
+      * School windows: Copy the shortcut IPython 3.4 notebook from start menu to the desktop. Go to properties to change it to run from Z: instead of C:
 
-    Connect with web browser or using PyCharm
+    Use web browser or PyCharm to work with documents
 
 
