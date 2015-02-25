@@ -34,8 +34,8 @@ class CardView(QGraphicsView):
         self.back_cards = dict()
         for suit in 'HDSC':
             for value in ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']:
-                id = value + suit
-                self.all_cards[id] = QSvgRenderer('cards/' + id + '.svg')
+                file = value + suit
+                self.all_cards[file] = QSvgRenderer('cards/' + file + '.svg')
         self.back_card = QSvgRenderer('cards/Red_Back_2.svg')
 
     def paintEvent(self, painter):
@@ -54,6 +54,7 @@ class CardView(QGraphicsView):
 
             c.setPos(i * self.card_spacing*scale, 0)
             c.setScale(scale)
+            # This is useful for selecting which cards to throw away (in 5 card draw)
             c.setOpacity(0.5 if self.player.marked_cards[i] else 1.0)
             self.scene.addItem(c)
 
@@ -138,9 +139,17 @@ class Player:
     def marked(self, id):
         return self.marked_cards[id]
 
+
+# Lets test it out
 app = QApplication(sys.argv)
 p = Player()
 game_state = GameState([p])
-view = CardView(game_state, p)
-view.show()
+
+card_view = CardView(game_state, p)
+box = QVBoxLayout()
+box.addWidget(card_view)
+player_view = QGroupBox("Player 1")
+player_view.setLayout(box)
+player_view.show()
+
 app.exec_()
