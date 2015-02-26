@@ -5,6 +5,7 @@ import sys
 
 
 class TableScene(QGraphicsScene):
+    """ A scene with a table cloth background """
     def __init__(self):
         super().__init__()
         self.tile = QPixmap('cards/table.png')
@@ -12,6 +13,7 @@ class TableScene(QGraphicsScene):
 
 
 class CardSvgItem(QGraphicsSvgItem):
+    """ A simple overloaded QGraphicsSvgItem that also stores the card position """
     def __init__(self, renderer, id):
         super().__init__()
         self.setSharedRenderer(renderer)
@@ -19,52 +21,71 @@ class CardSvgItem(QGraphicsSvgItem):
 
 
 class CardView(QGraphicsView):
+
+    # Underscores indicate a private function!
+    def __read_cards(): # Ignore the PyCharm warning on this line. It's correct.
+        """
+        Reads all the 52 cards from files.
+        :return: Dictionary of SVG renderers
+        """
+        all_cards = dict()
+        for suit in 'HDSC':
+            for value in ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']:
+                file = value + suit
+                # Since everyone did their PlayingCard differently, I'm just using a string for now.
+                all_cards[file] = QSvgRenderer('cards/' + file + '.svg')
+        return all_cards
+
+    # We read all the card graphics as static class variables
+    back_card = QSvgRenderer('cards/Red_Back_2.svg')
+    all_cards = __read_cards()
+
     def __init__(self, game_state, player, card_spacing=250, padding=10):
 
         self.scene = TableScene()
         super().__init__(self.scene)
 
-        self.game_state = game_state
         self.player = player
         self.card_spacing = card_spacing
         self.padding = padding
+        player.set_callback(self.change_cards)
 
-        # Cache all the SVG renderers:
-        self.all_cards = dict()
-        self.back_cards = dict()
-        for suit in 'HDSC':
-            for value in ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']:
-                file = value + suit
-                self.all_cards[file] = QSvgRenderer('cards/' + file + '.svg')
-        self.back_card = QSvgRenderer('cards/Red_Back_2.svg')
+        self.change_cards()  # Add the cards the first time around to represent the initial state.
 
-    def paintEvent(self, painter):
-        # This method is called whenever the view needs to be repainted (e.g. re-sized window).
-
-        # Add the cards from scratch:
+    def change_cards(self):
+        # Add the cards from scratch
         self.scene.clear()
         for i, c_ref in enumerate(self.player.cards):
-            renderer = self.back_card if self.player.flipped else self.all_cards[c_ref]
-
+            renderer = self.back_card if self.player.marked_cards[i] else self.all_cards[c_ref]
             c = CardSvgItem(renderer, i)
-
-            # Lets have the cards take up almost the (current) full height
-            card_height = c.boundingRect().bottom()
-            scale = (self.height()-3*self.padding)/card_height
-
-            c.setPos(i * self.card_spacing*scale, 0)
-            c.setScale(scale)
-            # This is useful for selecting which cards to throw away (in 5 card draw)
-            c.setOpacity(0.5 if self.player.marked_cards[i] else 1.0)
             self.scene.addItem(c)
 
-        # Put the scene bounding box (the -5 is because the width include the window borders)
-        self.scene.setSceneRect(-self.padding, -self.padding, self.width() - 5, self.height() - 5)
+        self.update_view()
 
-        # Call the paint event for QGraphicsView
-        super().paintEvent(painter)
+    def update_view(self):
+        for c in self.scene.items():
+            # Lets have the cards take up almost the (current) full height
+            card_height = c.boundingRect().bottom()
+            scale = (self.height()-2*self.padding)/card_height
 
+            c.setPos(c.position * self.card_spacing*scale, 0)
+            c.setScale(scale)
+            #c.setOpacity(0.5 if self.player.marked_cards[c.position] else 1.0)
+
+        # Put the scene bounding box
+        self.scene.setSceneRect(-self.padding, -self.padding, self.viewport().width(), self.viewport().height())
+
+
+    def resizeEvent(self, painter):
+        # This method is called when the window is resized.
+        # If the widget is resize, we gotta adjust the card sizes.
+        # QGraphicsView automatically re-paints everything when we modify the scene.
+        self.update_view()
+        super().resizeEvent(painter)
+
+    # This is the Controller part of the GUI, handling input events that modify the Model
     def mousePressEvent(self, event):
+        # We can check which item, if any, that we clicked on by fetching the scene items (neat!)
         item = self.scene.itemAt(event.pos())
         if item is not None:
             # Report back that the user clicked on the card at given position:
@@ -124,20 +145,27 @@ class GameState:
 
 class Player:
     def __init__(self):
+        # Lets use some hardcoded values for most of this to start with
         self.cards = ['QS', 'AD', '7C']
         self.marked_cards = [False]*len(self.cards)
         self.flipped = False
         self.credits = 100
         self.folded = False
+        self.cb = None
+
+    def set_callback(self, cb):
+        # Instead of the sophisticated signal system, I have a simple callback here.
+        # This only works if there is just one viewer!
+        # But I want to reduce the complexity in this example to make it clear why things occur.
+        self.cb = cb
 
     def active(self):
         return credits > 0 and not self.folded
 
-    def mark_position(self, id):
-        self.marked_cards[id] = not self.marked_cards[id]
-
-    def marked(self, id):
-        return self.marked_cards[id]
+    def mark_position(self, i):
+        # Mark the card as position "i" to be thrown away
+        self.marked_cards[i] = not self.marked_cards[i]
+        if self.cb is not None: self.cb()
 
 
 # Lets test it out
