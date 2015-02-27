@@ -12,12 +12,12 @@ class TableScene(QGraphicsScene):
         self.setBackgroundBrush(self.tile)
 
 
-class CardSvgItem(QGraphicsSvgItem):
+class CardItem(QGraphicsSvgItem):
     """ A simple overloaded QGraphicsSvgItem that also stores the card position """
-    def __init__(self, renderer, id):
+    def __init__(self, renderer, position):
         super().__init__()
         self.setSharedRenderer(renderer)
-        self.position = id
+        self.position = position
 
 
 class CardView(QGraphicsView):
@@ -57,6 +57,8 @@ class CardView(QGraphicsView):
         self.card_spacing = card_spacing
         self.padding = padding
 
+        # Whenever the this window should update, it should call the "change_cards" method.
+        # This can, for example, be done by connecting it to a signal.
         # The view should listen to changes:
         cards_model.data_changed.connect(self.change_cards)
         # Add the cards the first time around to represent the initial state.
@@ -71,7 +73,17 @@ class CardView(QGraphicsView):
             # TODO: See the __read_cards method for what mapping are used.
             graphics_key = (card.value, card.suit)
             renderer = self.back_card if self.model.flipped(i) else self.all_cards[graphics_key]
-            c = CardSvgItem(renderer, i)
+            c = CardItem(renderer, i)
+
+            # Shadow effects are cool!
+            shadow = QGraphicsDropShadowEffect(c)
+            shadow.setBlurRadius(10.)
+            shadow.setOffset(5, 5)
+            shadow.setColor(QColor(0, 0, 0, 180)) # Semi-transparent black!
+            c.setGraphicsEffect(shadow)
+
+            # Place the cards on the default positions
+            c.setPos(c.position * self.card_spacing, 0)
             # Sets the opacity of cards if they are marked.
             c.setOpacity(0.5 if self.model.marked(c.position) else 1.0)
             self.scene.addItem(c)
@@ -79,17 +91,12 @@ class CardView(QGraphicsView):
         self.update_view()
 
     def update_view(self):
-        for c in self.scene.items():
-            # Lets have the cards take up almost the (current) full height
-            card_height = c.boundingRect().bottom()
-            scale = (self.height()-2*self.padding)/card_height
-
-            c.setPos(c.position * self.card_spacing*scale, 0)
-            c.setScale(scale)
-
+        scale = (self.viewport().height()-2*self.padding)/313
+        self.resetTransform()
+        self.scale(scale, scale)
         # Put the scene bounding box
-        self.setSceneRect(-self.padding, -self.padding, self.viewport().width(), self.viewport().height())
-
+        self.setSceneRect(-self.padding//scale, -self.padding//scale,
+                          self.viewport().width()//scale, self.viewport().height()//scale)
 
     def resizeEvent(self, painter):
         # This method is called when the window is resized.
@@ -101,7 +108,8 @@ class CardView(QGraphicsView):
     # This is the Controller part of the GUI, handling input events that modify the Model
     def mousePressEvent(self, event):
         # We can check which item, if any, that we clicked on by fetching the scene items (neat!)
-        item = self.scene.itemAt(event.pos())
+        pos = self.mapToScene(event.pos())
+        item = self.scene.itemAt(pos)
         if item is not None:
             # Report back that the user clicked on the card at given position:
             # The model can choose to do whatever it wants with this information.
@@ -113,64 +121,12 @@ class CardView(QGraphicsView):
         self.model.flip() # Another possible event. Lets add it to the flip functionality for fun!
 
 
-class GameState:
-    def __init__(self, players):
-        self.players = players
-        self.starting_player = -1
-        self.player_turn = 0
-        self.player_raise = 0
-        self.table_cards = []
-        self.pot = 0
-        self.last_bet = 0
-        #self.deck = pc.Deck()
-
-    def start_round(self):
-        self.deck = pc.Deck()
-        self.deck.shuffle()
-        self.table_cards = []
-
-        self.starting_player += 1
-        self.player_turn = self.starting_player
-        self.player_raise = self.starting_player
-
-        for p in self.players:
-            p.hand.clear()
-            p.folded = False
-            for i in range(2):
-                p.hand.add_card(self.deck.pop())
-
-    def player_fold(self, player):
-        self.players[player].folded = True
-
-    def player_bet(self, player, amount):
-        if player != self.player_turn:
-            # Should not try to bet when it's not your turn!
-            return
-
-        if amount != self.last_bet:
-            self.last_bet = amount
-            self.player_raise = self.player_turn
-
-        self.pot += amount
-
-        # Go to next active player
-        self.player_turn += 1
-        while self.players[self.player_turn].active():
-            self.player_turn += 1
-
-    def distribute_pot(self, winners):
-        # TODO
-        for p in self.players:
-            p.add_credits(self.pot / len(self.players))
-
-
-# Example code below for how to connect to your game state:
-
 # A trivial card class (you should use the stuff you made in your library instead!
 class MySimpleCard:
     def __init__(self, value, suit):
         self.value = value
         self.suit = suit
+
 
 # You have made a class like this (hopefully). I'm just using a simple version here:
 class Hand:
