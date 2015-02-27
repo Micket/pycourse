@@ -34,7 +34,7 @@ class CardView(QGraphicsView):
         for suit_file, suit in zip('HDSC', range(4)): # Check the order of the suits here!!!
             for value_file, value in zip(['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'], range(2, 15)):
                 file = value_file + suit_file
-                key = (value, suit) # I'm choosing this tuple to be the key for this dictionary
+                key = (value, suit)  # I'm choosing this tuple to be the key for this dictionary
                 all_cards[key] = QSvgRenderer('cards/' + file + '.svg')
         return all_cards
 
@@ -50,7 +50,6 @@ class CardView(QGraphicsView):
         :param card_spacing: Spacing between the visualized cards.
         :param padding: Padding of table area around the visualized cards.
         """
-
         self.scene = TableScene()
         super().__init__(self.scene)
 
