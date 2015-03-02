@@ -59,8 +59,11 @@ class CardView(QGraphicsView):
 
         # Whenever the this window should update, it should call the "change_cards" method.
         # This can, for example, be done by connecting it to a signal.
-        # The view should listen to changes:
+        # The view can listen to changes:
         cards_model.data_changed.connect(self.change_cards)
+        # It is completely optional if you want to do it this way, or have some overreaching Player/GameState
+        # call the "change_cards" method instead. z
+
         # Add the cards the first time around to represent the initial state.
         self.change_cards()
 
@@ -128,7 +131,7 @@ class MySimpleCard:
         self.suit = suit
 
 
-# You have made a class like this (hopefully). I'm just using a simple version here:
+# You have made a class similar to this (hopefully):
 class Hand:
     def __init__(self):
         # Lets use some hardcoded values for most of this to start with
@@ -138,6 +141,10 @@ class Hand:
         self.cards.append(card)
 
 
+# We can extend this class to create a model, which updates the view whenever it has changed.
+# NOTE: You do NOT have to do it this way.
+# You might find it easier to make a Player-model, or a whole GameState-model instead.
+# This is just to make a small demo that you can use. You are free to modify
 class HandModel(Hand, QObject):
     data_changed = Signal()
 
