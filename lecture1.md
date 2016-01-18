@@ -5,13 +5,14 @@
     * Thomas Svedberg, tel. 772 1522, <thomas.svedberg@chalmers.se>
 * Assistant:
     * Kristoffer Carlsson, tel. 772 1492, <kristoffer.carlsson@chalmers.se>
- * Fincd us at Material & Computational Mechanics (third floor M-building)
+ * Find us at Material & Computational Mechanics (third floor M-building)
 
 Course literature:
 
-* C. Horstmann: Python for everyone
+* C. Horstmann: Python for everyone (optional, permitted on exam))
 * Python.org tutorial
-* Reference manuals
+* Reference manuals (available on exam)
+* Lecture material (available on exam)
 
 
 
@@ -35,25 +36,16 @@ Good knowledge of basic programming structures such as variables, conditions, lo
 
 # Course evaluation
   * **New course: Continuous feedback is especially appreciated!**
-  * Course evaluated at 3 occurrences
+  * Course evaluated at 2-3 occurrences
   * Course survey after exam
-  * Course board representatives (please stand up)
-      * Arvin Bahmani        arvinb@student.chalmers.se
-      * Alexander Björk      albjork@student.chalmers.se
-      * Yuli Hua             yulih@student.chalmers.se
-      * Marcus Jour          jourm@student.chalmers.se
-      * Mattias Naarttijärvi matnaa@student.chalmers.se
-      * Alexander Osika      osika@student.chalmers.se
-      * Gustaf Rasmusson     gusras@student.chalmers.se
-      * John Wikström        wjohn@student.chalmers.se
-
+  * Course board representatives (please stand up) ?
 
 
 # Content
 * Basic building blocks of a Python program (variables, conditional statements, loops, libraries, functions, errors)
 * Data structures (lists, sets, dictionaries, tuples)
 * Object Oriented programming (classes, objects, inheritance, polymorphism, abstract classes)
-* PySide for creating graphical user interfaces (newer PyQt)
+* Qt for creating graphical user interfaces and *interactive* programs
 * NumPy (Matrices, vectors, linear algebra)
 * SciPy (Package for numerical computations)
 * Matplotlib (Plotting)
@@ -64,22 +56,22 @@ Good knowledge of basic programming structures such as variables, conditions, lo
 # Learning outcome
 After successfully passing the course, the student should be able to independently write object oriented software using Python.
 
-Furthermore, the student should be able to read reference literature for the Python programming language as well as being able to use the SciPy/NumPy package for numerical computations and PySide (Qt) for writing graphical user interfaces.
+Furthermore, the student should be able to read reference literature for the Python programming language as well as being able to use the SciPy/NumPy package for numerical computations and Qt for writing graphical user interfaces.
 
 
 
 # Examination
-Will take place in computer rooms at 19th of March 2015 in the afternoon. The re-exam will be in august.
+Will take place in computer rooms. The re-exams are taken in easter and in august.
 
 * Book is allowed...
-* but there will also be reference materials available on the computers
+* but there will also be manuals and lecture notes available on the computers
 * 4 hours examination
-* 5 questions $\times$ 5 points per question
+* 25 points, 4-5 questions
     * 10 points for passing grade
     * 15 points for grade 4
     * 20 points for grade 5
 
-* Will get back to you later when rooms are booked and precisely what documents will be available.
+* Will get back to you later when rooms are booked.
 * The exam will not contain anything on the GUI (4 hours would be insufficient)
 
 
@@ -88,7 +80,7 @@ Will take place in computer rooms at 19th of March 2015 in the afternoon. The re
 Assignments may be done alone of in groups of 2.
 
 Please do not cheat! Ask each other questions, but don't share sections of code directly.
-_DETECTED CHEATING WILL BE REPORTED_
+_WE'RE REQUIRED TO REPORT CHEATING_
 
 
 
@@ -98,17 +90,20 @@ and find the shortest path between the given start and end point.
 
 * Getting familiar with Python
 * Reading files
+* Parsing text
+* Using libraries
 * Using NumPy for numerics
 * Using more advanced data structures (KDTree and sparse graph library from SciPy)
 * Matplotlib
 
 
 
-# Assignment 2: Playing card library + Game
-The first part of the task is to create a library for making card games, then use it to create a simple card game.
+# Assignment 2: Playing card library
+The first part of the task is to create a library for making card games.
 
 * Creating a library
 * Creating classes
+* Operator overloading
 
 
 
@@ -116,24 +111,25 @@ The first part of the task is to create a library for making card games, then us
 Create a simple drawing application from scratch.
 There will be a few drawing tools required to be implemented (e.g. a rectangle tool and a freehand brush).
 
-* Creating a GUI with PySide
+* Creating a GUI with Qt
 * Creating classes with inheritance
 
 
 
 # Software
-Software will be available on the windows machines in M and E building.
+Software will be available on the windows machines in E building.
 
-* Python 3.4 (make sure to get 3.4!)
-* PySide (Qt)
+* Python 3.5 or 3.4 (make sure to get at least 3.4!)
+* PyQt
 * NumPy, SciPy, Matplotlib
-* Recommended IDE: PyCharm (community edition)
+* Recommended Integrated Programming Environment (IDE): PyCharm (community edition)
 * Laptops:
-    * Windows: Anaconda <http://continuum.io/downloads>
-    * Linux: Use your package manager
-    * Mac: Install macports.org, then install packages with:
+    * Anaconda <http://continuum.io/downloads>
+    * Windows: Use Anaconda 
+    * Linux: Use Anaconda or your package manager
+    * Mac: Use Anaconda or install macports.org, then install packages with:
 
-      `sudo ports install python34 py34-ipython py34-scipy py34-numpy py34-matplotlib py34-pyside`
+      `sudo ports install python34 py34-ipython py34-scipy py34-numpy py34-matplotlib py34-pyqt`
 
 
 
@@ -143,25 +139,25 @@ Software will be available on the windows machines in M and E building.
 
 # Consultation
 * Email is preferred before the Pingpong PM system
-* 3 computer sessions per week
-* Office on third floor in M building (Material & Beräkningsmekanik)
+* 3 computer sessions per week (you're expected to work on the assignments on your own inbetween sessions)
+* Office on third floor in M building (Material & Computational Mechanics / Material & Beräkningsmekanik).
+  Open door policy!
 
 
 
 # Schedule
-  * L = Lectures Mo: HA1, Thu: HB2
+  * L = Lectures Mo: HB1, Thu: HB2
   * CS = Computer lab session
-
-    Mo+Thu = ES61+63
-
-    Fr = ED5352+MT14
+    ES61, 62, 63
 
 | Time  | Mo | Tue | Wed | Thu | Fr |
 |-------|----|-----|-----|-----|----|
 | 8-10  |    |     |     | L   |    |
 | 10-12 |    |     |     | CS  |    |
-| 13-15 | L  |     |     |     | CS |
-| 15-17 | CS |     |     |     |    |
+| 13-15 | L  |     |     |     |    |
+| 15-17 | CS |     |     |     | CS |
+
+  * Extra lecture on Friday 15-17 (Room MB) first week!
 
 
 
@@ -183,11 +179,10 @@ Software will be available on the windows machines in M and E building.
 # Computer session
 * Bring laptops if you need help installing software
 * Practice problems (not obligatory)
-* First assignment will be available on thursday if you want to start early
+* We don't expect you to finish the assignments in only schedules time.
 
 
-
-# Questionnaire
+# Diagnostic questionnaire
 
 ## You ...
  1. know another Object Oriented programming langauge already
@@ -195,13 +190,6 @@ Software will be available on the windows machines in M and E building.
  3. thought the matlab course was easy
  4. can manage matlab decently
  5. didn't even satisfy the course prerequisites
-
-## You will be using ...
- 1. a laptop with Windows
- 2. a laptop with Linux
- 3. a laptop with OSX
- 4. the school computers
- 5. something else
 
 
 # About Python
@@ -216,12 +204,11 @@ Software will be available on the windows machines in M and E building.
  * Scripting support in many applications
 
 
-
 # Why Python
 
   * Simple syntax
   * Easy to get started on all platforms
-  * Similar concepts as other popular procedural languages (Java, C++, C#).
+  * Similar concepts as other popular OO languages (Java, C++, C#).
   * Common scripting language in applications, e.g.
 
     `[C library] <-> [Python wrapper] <-> [GUI code]`
@@ -249,6 +236,9 @@ Software will be available on the windows machines in M and E building.
     where `inputarguments` are typically filenames or options used in command line interfaces.
     (on windows, this is what happens when you choose "open with" python.exe on a python script)
   * First time running a script will generate a `pyc` file. This is compiled bytecode that is cached (safe to remove).
+  * Running a single program Matlab-style
+    `$ ipython`
+    `> In [1]: %run myscript.py`
   * Running only
     `$ python`
     starts an interactive interpreter.
@@ -335,10 +325,9 @@ x          int     3
 
   * Starting a notebook session
 
-      * `$ ipython cmd notebook`
-      * Windows: Run IPython 3.4 notebook from start menu
-      * School windows: Copy the shortcut IPython 3.4 notebook from start menu to the desktop. Go to properties to change it to run from Z: instead of C:
+      * `$ ipython notebook`
+      * Windows: Run IPython notebook from start menu
 
-    Use web browser or PyCharm to work with documents
+    Use web browser or PyCharm to work with documents (browser opens automatically as you open ipython notebook)
 
 
