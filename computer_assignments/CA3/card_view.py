@@ -9,7 +9,7 @@ class TableScene(QGraphicsScene):
     def __init__(self):
         super().__init__()
         self.tile = QPixmap('cards/table.png')
-        self.setBackgroundBrush(self.tile)
+        self.setBackgroundBrush(QBrush(self.tile))
 
 
 class CardItem(QGraphicsSvgItem):
