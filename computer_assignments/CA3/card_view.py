@@ -1,6 +1,9 @@
-from PySide.QtCore import *
-from PySide.QtGui import *
-from PySide.QtSvg import *
+#from PySide.QtCore import *
+#from PySide.QtGui import *
+#from PySide.QtSvg import *
+from PyQt4.QtCore import *
+from PyQt4.QtGui import *
+from PyQt4.QtSvg import *
 import sys
 #import card_game as cg
 
