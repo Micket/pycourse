@@ -1,11 +1,20 @@
 #from PySide.QtCore import *
 #from PySide.QtGui import *
 #from PySide.QtSvg import *
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
-from PyQt4.QtSvg import *
+#from PyQt4.QtCore import *
+#from PyQt4.QtGui import *
+#from PyQt4.QtSvg import *
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtSvg import *
+from PyQt5.QtWidgets import *
 import sys
-#import card_game as cg
+#import pycards as pc
+
+# NOTE: This is just given as an example of how to use CardView.
+# It is expected that you will need to adjust things to make a game out of it. 
+# Some things can be removed, other things modified.
+
 
 class TableScene(QGraphicsScene):
     """ A scene with a table cloth background """
@@ -24,8 +33,7 @@ class CardItem(QGraphicsSvgItem):
 
 
 class CardView(QGraphicsView):
-    """ A View widget that represents the
-    """
+    """ A View widget that represents the table area displaying a players cards. """
 
     # Underscores indicate a private function/method!
     def __read_cards(): # Ignore the PyCharm warning on this line. It's correct.
@@ -115,7 +123,7 @@ class CardView(QGraphicsView):
     def mousePressEvent(self, event):
         # We can check which item, if any, that we clicked on by fetching the scene items (neat!)
         pos = self.mapToScene(event.pos())
-        item = self.scene.itemAt(pos)
+        item = self.scene.itemAt(pos, self.transform())
         if item is not None:
             # Report back that the user clicked on the card at given position:
             # The model can choose to do whatever it wants with this information.
@@ -149,7 +157,7 @@ class Hand:
 # You might find it easier to make a Player-model, or a whole GameState-model instead.
 # This is just to make a small demo that you can use. You are free to modify
 class HandModel(Hand, QObject):
-    data_changed = Signal()
+    data_changed = pyqtSignal()
 
     def __init__(self):
         Hand.__init__(self)
