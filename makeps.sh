@@ -2,6 +2,9 @@
 
 # Usage: makeps.sh /path/to/exams/
 
+# Then you can print with:
+# lpr -Pam-m-3168d-color1 -o fit-to-page *.ps
+
 cd $1
 echo "Scanning through all pythong scripts in `pwd`"
 find * -type f -name \*.py | while read f ; do
