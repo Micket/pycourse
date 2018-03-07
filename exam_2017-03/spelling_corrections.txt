@@ -1,0 +1,23 @@
+you : {you, u }
+you're : {yuore, youre}
+neighbour : {nieghbour, neigbour, neighbourh}
+wanted : {wantid}
+dead : { daed}
+wanted: { wantid }
+there : {tere}
+words: {werds}
+word : { werd}
+conscious : { concious , consious, conscius}
+difficult : {dificult, diffecult}
+that : {thet}
+definite : {definit}
+height : { hieght, heigth, hiegth}
+the : {teh}
+fact : {fect}
+contains : {conteins, countains}
+occasionally : { ocasionally, occasionaly, ocasionaly, occassionally, ocassionally, occassionaly, ocassionaly}
+appear : {apear, apper}
+beginning : {begining}
+sentence : {sentance, santence}
+misspelled : {misspeled, missspelled}
+typos : {typoes}

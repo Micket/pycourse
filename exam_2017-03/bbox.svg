@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 744.09448819 1052.3622047"
+   id="svg6788"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="bbo.svg"
+   inkscape:export-filename="/home/kristoffer/Dropbox/PhD/Courses/OOP Python/2017/Exam/bounding_box.svg.png"
+   inkscape:export-xdpi="299"
+   inkscape:export-ydpi="299">
+  <defs
+     id="defs6790" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="202.63696"
+     inkscape:cy="782.46283"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata6793">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#020000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path6798"
+       cx="205.56604"
+       cy="273.02951"
+       r="9.5964489"
+       inkscape:export-xdpi="299"
+       inkscape:export-ydpi="299" />
+    <circle
+       style="fill:#020000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path6798-1"
+       cx="342.94678"
+       cy="284.64627"
+       r="9.5964489"
+       inkscape:export-xdpi="299"
+       inkscape:export-ydpi="299" />
+    <circle
+       style="fill:#020000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path6798-5"
+       cx="249.50768"
+       cy="339.69958"
+       r="9.5964489"
+       inkscape:export-xdpi="299"
+       inkscape:export-ydpi="299" />
+    <circle
+       style="fill:#020000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path6798-9"
+       cx="284.86301"
+       cy="201.81377"
+       r="9.5964489"
+       inkscape:export-xdpi="299"
+       inkscape:export-ydpi="299" />
+    <circle
+       style="fill:#020000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path6798-4"
+       cx="130.81476"
+       cy="164.43811"
+       r="9.5964489"
+       inkscape:export-xdpi="299"
+       inkscape:export-ydpi="299" />
+    <circle
+       style="fill:#020000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path6798-90"
+       cx="147.48227"
+       cy="309.90009"
+       r="9.5964489"
+       inkscape:export-xdpi="299"
+       inkscape:export-ydpi="299" />
+    <circle
+       style="fill:#020000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path6798-91"
+       cx="197.48482"
+       cy="207.3696"
+       r="9.5964489"
+       inkscape:export-xdpi="299"
+       inkscape:export-ydpi="299" />
+    <circle
+       style="fill:#020000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path6798-7"
+       cx="388.40366"
+       cy="222.52188"
+       r="9.5964489"
+       inkscape:export-xdpi="299"
+       inkscape:export-ydpi="299" />
+    <circle
+       style="fill:#020000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path6798-71"
+       cx="375.77673"
+       cy="332.62851"
+       r="9.5964489"
+       inkscape:export-xdpi="299"
+       inkscape:export-ydpi="299" />
+    <circle
+       style="fill:#020000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path6798-15"
+       cx="318.70312"
+       cy="154.84167"
+       r="9.5964489"
+       inkscape:export-xdpi="299"
+       inkscape:export-ydpi="299" />
+    <rect
+       style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect7407"
+       width="276.27673"
+       height="203.54573"
+       x="121.72338"
+       y="145.24522"
+       inkscape:export-xdpi="299"
+       inkscape:export-ydpi="299" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="183.84776"
+       y="383.64124"
+       id="text7409"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="299"
+       inkscape:export-ydpi="299"><tspan
+         sodipodi:role="line"
+         id="tspan7411"
+         x="183.84776"
+         y="383.64124"
+         style="font-size:22.5px">Bounding Box</tspan></text>
+  </g>
+</svg>
