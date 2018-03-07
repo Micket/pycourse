@@ -1,3 +1,5 @@
 *.ps
 *.zip
 .idea
+.ipynb*
+*.pdf
