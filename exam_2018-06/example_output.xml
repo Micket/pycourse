@@ -1,0 +1,8 @@
+<directory name="Directories can also have &quot;escaped&quot; characters">
+    <file name="Important data.dat" binary="yes" />
+    <file name="&quot;Quotes&quot; &amp; jokes.txt" binary="no" />
+    <directory name="Code">
+        <file name="important_python_code.py" binary="no" />
+        <file name="cheat_sheet.py" binary="no" />
+    </directory>
+</directory>
