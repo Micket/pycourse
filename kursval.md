@@ -4,7 +4,7 @@
 * Tentamen i datorsal   (4.5hp)
 * Förkunskapskrav: Grundläggande kunskap i programmering, såsom variabler, villkor, loopar, och funktioner i något programmeringsspråk.
 * Kurslitteratur: Föreläsningsanteckningar, onlinematerial, bok "Python for everyone"
-* 2 föreläsningar / vecka
+* 2 föreläsningar / vecka. Ges på Engelska
 * 3 handledda datorlabbstillfällen / vecka
 * Föreläsningar hålls av
     * Thomas Svedberg, <thomas.svedberg@chalmers.se>, C3SE (examinator)
@@ -47,13 +47,14 @@
 
 # Examination
 
-* 3 obligatoriska inlämningsuppgifter där ni kommer att få:
+* 3 obligatoriska inlämningsuppgifter i grupp om 2 där ni kommer att få:
     1. använda IPython + Numpy + Matplotlib ~ Matlab-ersättare
     2. skriva egna datastrukturer med hjälp av klasser, och göra ett eget bibliotek
     3. göra interaktiva program med grafiska användargränssnitt
 
 * Tentamen som betygsätter kursen
     * ges i datorsal
-    * består av mindre uppgifter, där minst en uppgift har ett interaktivt GUI.
-    * tillåter all kurslitteratur + allt referensmaterial för python, numpy, scipy offline
+    * består typiskt av 4 uppgifter (7p filer och text, 5p numpy/scipy, 6p klasser, 7p klasshierarkier med arv) 
+    * 10p = 3:a, 15p = 4:a, 20p = 5:a
+    * tillåter all kurslitteratu, inkl föreläsningsnteckningar + allt referensmaterial för python, numpy, scipy offline
 
