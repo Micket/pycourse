@@ -83,7 +83,9 @@ Lecture 13 - Signals and Qt Widgets
 
 Lecture 14 - Does not exist
 
-Lecture 15 - Example exam
+Lecture 15 - Repetition
+
+Lecture 16 - Example exam
   - Strings and files
   - NumPy and Scipy
   - Classes with inheritance
