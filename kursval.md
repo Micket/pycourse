@@ -3,25 +3,22 @@
 * 3 Inlämningsuppgifter (3.0hp)
 * Tentamen i datorsal   (4.5hp)
 * Förkunskapskrav: Grundläggande kunskap i programmering, såsom variabler, villkor, loopar, och funktioner i något programmeringsspråk.
-* Kurslitteratur: Föreläsningsanteckningar, onlinematerial, bok "Python for everyone"
+* Kurslitteratur: Föreläsningsanteckningar, onlinematerial, frivillig bok "Python for everyone"
 * 2 föreläsningar / vecka. Ges på Engelska
 * 3 handledda datorlabbstillfällen / vecka
-* Föreläsningar hålls av
+* Lärare
     * Thomas Svedberg, <thomas.svedberg@chalmers.se>, C3SE (examinator)
     * Mikael Öhman, <mikael.ohman@chalmers.se>, C3SE
+    * Hugo Strand, <hugo.strand@chalmers.se>, C3SE
 
 # Varför Python
 
 * Kan köras interaktivt, enkel syntax, enkel debugging
 * Många programmeringstekniker; objektoreinterad, funktionell, imperativ
 * Används som scriptspråk i många applikationer (e.g. Abaqus, Salome, Autodesk)
-* Många bibliotek skrivna i andra språk har bindningar till Python (Qt, OpenFOAM, ...)
-* Lämpligt val för många program
-    * Applied mechanics (e.g. beräkningar)
-    * System contorl and mechatronics (e.g. robotar)
-    * Production engineering (e.g. simuleringar)
-    * Product development (e.g. automatisering CAD)
+* Många bibliotek skrivna i andra språk har bindningar till Python (Qt, OpenFOAM, TensorFlow, ...)
 * Alumnankät frågar efter mer programmering
+* Volvo frågar efter python-programmerare
 
 # Varför Objektorienterad programmering
 
