@@ -19,8 +19,13 @@
    - Lambda functions
    - References and copies
 
-## [Lecture 3: Strings and NumPy](./Lecture03/Lecture03.ipynb)
- 
+## [Lecture 3: Core features and NumPy intro](./Lecture03/Lecture03.ipynb)
+   - Printing
+   - Strings
+   - File IO
+   - NumPy multidimensional arrays
+   - Computer Assignment 1
+
 ## Lecture 4: Working with NumPy + Matplotlib
    - Arrays, slicing
    - Examples of numerical tools from the NumPy library 
