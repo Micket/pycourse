@@ -7,8 +7,10 @@ Monday lectures are held in HA3 and the computer sessions in ES61+ES62. Thursday
 
 Week | Date | Time | Class | Contents
 --- | --- | --- | --- | --- 
-W1 | Mon 20/1 | 13 - 17 | L1/CS | Course Introduction <br> Introduction to Python​: Software installation and documentation. <br> Introduction to Python, IPython, PyCharm, terminology <br> Practice problems for the computer session: <br> [1]: 1.3-1.6, 2.1-2.4, 3.* <br> [2]: Section 1, 2 and 3, 6.1, 6.4.1
-W1 | Thu 23/1 | 08 - 12 | L2/CS | Python Core
-W1 | Fri 24/1 | 13 - 15 | L3 | Python Core, NumPy Intro
-W2 | Mon 27/1 | 13 - 15 | L4/CS | NumPy, Matplotlib
-W2 | Thu 30/1 | 08 - 12 | L5/CS | SciPy
+W1 | Mon 20/1 | 13 - 17 | L1/CS | **Course Introduction** <br> **Introduction to Python​:** Software installation and documentation. <br> Introduction to Python, IPython, PyCharm, terminology <br> Practice problems for the computer session: <br> [1]: 1.3-1.6, 2.1-2.4, 3.* <br> [2]: Section 1, 2 and 3, 6.1, 6.4.1
+W1 | Thu 23/1 | 08 - 12 | L2/CS | **Python syntax:**​ Conditionals, loops, functions, lists, sets, dictionaries. <br> Importing libraries and namespaces. <br> Practice problems for the computer session. <br> [1] 1.6, 2.1-2.2, 3, 4, 5, 6, 8 [2] 3, 4, 5
+W1 | Fri 24/1 | 13 - 15 | L3 | **Text:** ​Files and string parsing, printing and formatting. <br> **Data structures:** ​NumPy <br> Review of **Computer assignment 1** <br> [1]: 2.4, 2.5.3, 7.1 - 7.4 [4]
+W2 | Mon 27/1 | 13 - 15 | L4/CS | **More data structures:** More NumPy, Matplotlib <br> [4], [5]
+W2 | Thu 30/1 | 08 - 12 | L5/CS | **SciPy:** Trees, sparse graph/matrix <br> [4]
+ 
+
