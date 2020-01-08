@@ -104,7 +104,7 @@
 
 ## [Lecture 15: Repetition](./Lecture15/Lecture15.ipynb)
 
-## [Lecture 16: Example exam](./Lecture10/Lecture16.ipynb)
+## [Lecture 16: Example exam](./Lecture16/Lecture16.ipynb)
   - Strings and files
   - NumPy and Scipy
   - Classes with inheritance
