@@ -55,7 +55,7 @@
   - Folder structure, namespace and scope
   - Command line arguments
 
-## Lecture 7: Object Oriented Programming (OOP)
+## [Lecture 7: Object Oriented Programming (OOP)](./Lecture07/Lecture07.ipynb)
   - Motivation (Why OOP?)
   - Writing classes and init methods
   - Creating instances
@@ -64,7 +64,7 @@
   - Class variables / Static variables (same thing)
   - Private variables
 
-## Lecture 8: More OOP
+## [Lecture 8: More OOP](./Lecture08/Lecture08.ipynb)
   - More on self-argument and init.
   - Basic examples
   - Polymorphism
@@ -78,7 +78,7 @@
   - Enums
   - Examples
 
-## Lecture 9: Operator overloading, iterators
+## [Lecture 9: Operator overloading, iterators](./Lecture09/Lecture09.ipynb)
   - Unary operators: repr-, len-, abs-, and neg
   - Conversion: str, int, float, complex, bool
   - Binary operator overloading: + * - / // | & << ** ...
@@ -88,7 +88,7 @@
   - Methods vs operators
   - Iterators: next() and iter() with examples
 
-## Lecture 10: Exceptions, decorators and static methods
+## [Lecture 10: Exceptions, decorators and static methods](./Lecture10/Lecture10.ipynb)
   - Try and except
   - Finally and else
   - Creating custom exceptions
