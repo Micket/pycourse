@@ -35,7 +35,7 @@
    - Styling, colors, markers, linestyles
    - Plots, error bars, histograms, contour plots, 3D plotting
 
-## Lecture 5: Scientific Python (SciPy)
+## [Lecture 5: Scientific Python (SciPy)](./Lecture05/Lecture05.ipynb)
   - Integration
   - Ordinary Differential Equations (ODEs)
   - Interpolation
