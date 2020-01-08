@@ -1,6 +1,10 @@
 # Lectures
 
 ## Lecture 1: Course information
+  - Course litterature
+  - Lectures and exam
+  - Computer assignments
+  - Python, PyCharm and Jupyter
 
 ## Lecture 2: Core features
    - Help and documentation
