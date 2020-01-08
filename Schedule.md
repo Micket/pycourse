@@ -22,7 +22,7 @@ W3 | Mon  3/2 | 13 - 15 | L6  | Writing a library, documentation
 |  | Thu  6/2 | 08 - 10 | L7  | Object Oriented Programming (OOP) <br> **Review of Computer Assignment 2**
 |  |          | 10 - 12 | CS  | Computer Assignment 1
 |  | Fri  7/2 | 13 - 15 | CS  | Computer Assignment 1
-|  | Sun  9/2 |         |     | **Deadline** Computer Assignment 1 
+|  | Sun  9/2 |         |     | **DEADLINE** Computer Assignment 1 
 W4 | Mon 10/2 | 13 - 15 | L8  | More OOP
 |  |          | 15 - 17 | CS  | Computer Assignment 2
 |  | Thu 13/2 | 08 - 10 | L9  | Operator overloading, iterators
@@ -33,7 +33,7 @@ W5 | Mon 17/2 | 13 - 15 | L10 | Exceptions, decorators and static methods
 |  | Thu 20/2 | 08 - 10 | L11 | Main and command line arguments + basic GUI <br> **Review of Computer Assignment 3**
 |  |          | 10 - 12 | CS  | Computer Assignment 3
 |  | Fri 21/2 | 13 - 15 | CS  | Computer Assignment 3
-|  | Sun 23/2 |         |     | **Deadline** Computer Assignment 2
+|  | Sun 23/2 |         |     | **DEADLINE** Computer Assignment 2
 W6 | Mon 24/2 | 13 - 15 | L12 | Qt using Model View Controller design
 |  |          | 15 - 17 | CS  | Computer Assignment 3
 |  | Thu 27/2 | 08 - 10 | L13 | Signals and Qt Widgets
@@ -44,7 +44,7 @@ W7 | Mon  2/3 | 13 - 15 | L14 | MISSING LECTURE?!
 |  | Thu  5/3 | 08 - 10 | L15 | Repetition
 |  |          | 10 - 12 | CS  | Computer Assignment 3
 |  | Fri  6/3 | 13 - 15 | CS  | Computer Assignment 3
-|  | Sun  8/2 |         |     | **Deadline** Computer Assignment 3
+|  | Sun  8/2 |         |     | **DEADLINE** Computer Assignment 3
 W8 | Mon  9/3 | 13 - 15 | L16 | Example exam
 |  |          | 15 - 17 | CS  |
 |  | Thu 12/3 | 08 - 10 | L17 | MISSING LECTURE?!
