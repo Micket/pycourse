@@ -36,19 +36,18 @@
    - Plots, error bars, histograms, contour plots, 3D plotting
 
 ## [Lecture 5: Scientific Python (SciPy)](./Lecture05/Lecture05.ipynb)
-  - Integration
+  - Integration, adaptive quadrature
   - Ordinary Differential Equations (ODEs)
   - Interpolation
   - Linear algebra
-  - Optimization
+  - Optimization, root finding
   - Sparse matrices
-  - Triangulations
+  - Graph algorithms, triangulation
   - Statistics
-  - Signal processing
-  - Image processing
-  - File Input Output (I/O)
+  - Signal and image processing
+  - File IO
 
-## Lecture 6: Writing a library, documentation
+## [Lecture 6: Writing a library, documentation](./Lecture06/Lecture06.ipynb)
 
 ## Lecture 7: Object Oriented Programming (OOP)
   - Motivation (Why OOP?)
