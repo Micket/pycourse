@@ -19,16 +19,21 @@
    - Lambda functions
    - References and copies
 
-## [Lecture 3: Core features and NumPy intro](./Lecture03/Lecture03.ipynb)
+## [Lecture 3: Core features and NumPy Intro](./Lecture03/Lecture03.ipynb)
    - Printing
    - Strings
    - File IO
    - NumPy multidimensional arrays
    - Computer Assignment 1
 
-## Lecture 4: Working with NumPy + Matplotlib
-   - Arrays, slicing
-   - Examples of numerical tools from the NumPy library 
+## [Lecture 4: NumPy and Matplotlib](./Lecture04/Lecture04.ipynb)
+   - Arrays, indexing, slicing
+   - Reductions, sum, product, integration
+   - Linear algebra, tensor contractions
+   - Plotting, figure components
+   - Subplots, limits, legends, titles
+   - Styling, colors, markers, linestyles
+   - Plots, error bars, histograms, contour plots, 3D plotting
 
 ## Lecture 5: Scientific Python (SciPy)
   - Integration
