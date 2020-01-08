@@ -1,12 +1,12 @@
 # Lectures
 
-## [Lecture 1: Course information](./Lecture01/Lecture1.md)
+## [Lecture 1: Course information](./Lecture01/Lecture01.md)
   - Course litterature
   - Lectures and exam
   - Computer assignments
   - Python, PyCharm and Jupyter
 
-## [Lecture 2: Core features](./Lecture02/Lecture2.ipynb)
+## [Lecture 2: Core features](./Lecture02/Lecture02.ipynb)
    - Help and documentation
    - Errors
    - Types
