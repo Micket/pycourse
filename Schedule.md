@@ -12,9 +12,11 @@ W1 | Mon 20/1 | 13 - 15 | L1 | Course Introduction
 |  | Thu 23/1 | 08 - 10 | L2 | Python Core
 |  |          | 10 - 12 | CS | Practice problems for the computer session
 |  | Fri 24/1 | 13 - 15 | L3 | Python Core, NumPy Intro <br> **Review of Computer Assignment 1**
-W2 | Mon 27/1 | 13 - 15 | L4/CS | **More data structures:** More NumPy, Matplotlib <br> [4], [5]
-|  | Thu 30/1 | 08 - 12 | L5/CS | **SciPy:** Trees, sparse graph/matrix <br> [4]
-| | Fri 31/1 | 13 - 15 | CS | 
+W2 | Mon 27/1 | 13 - 15 | L4 | NumPy and Matplotlib
+|  |          | 15 - 17 | CS | Computer Assignment 1
+|  | Thu 30/1 | 08 - 10 | L5 | SciPy
+|  |          | 10 - 12 | CS | Computer Assignment 1
+|  | Fri 31/1 | 13 - 15 | CS | Computer Assignment 1
 W3 | Mon  3/2 | 13 - 17 | L6/CS |
 |  | Thu  6/2 | 08 - 12 | L7/CS |
 |  | Fri  7/2 | 13 - 15 | CS |
