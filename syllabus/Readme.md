@@ -1,7 +1,11 @@
 ## Course-PM
 
 DAT171 Object-oriented programming in Python lp3 VT20 (7.5 hp)
+
 The course is offered by the department of Industrial and Materials Science
+
+- Schedule @ [TimeEdit](https://cloud.timeedit.net/chalmers/web/public/s.html?sid=3%26object=course_DAT171%26type=course%26p=0.m%2C2.w)
+- Student Portal [Course page](https://student.portal.chalmers.se/en/chalmersstudies/courseinformation/Pages/SearchCourse.aspx?course_id=29440&parsergrp=3)
 
 ### Contact details
 
@@ -11,15 +15,8 @@ The course is offered by the department of Industrial and Materials Science
 
 ### Course purpose
 
-The aim of the course is to provide the students with good opportunities to develop a fundamental understanding of object-oriented programming, particular in Python and how to use standard libraries for development of  graphical user interfaces, numerical computations and plotting.
+The aim of the course is to provide the students with good opportunities to develop a fundamental understanding of object-oriented programming, particular in Python and how to use standard libraries for development of graphical user interfaces, numerical computations and plotting.
 
-### Schedule
-
-[TimeEdit](https://cloud.timeedit.net/chalmers/web/public/s.html?sid=3%26object=course_DAT171%26type=course%26p=0.m%2C2.w)
-
-### The Student Portal
-
-[Course page](https://student.portal.chalmers.se/en/chalmersstudies/courseinformation/Pages/SearchCourse.aspx?course_id=29440&parsergrp=3)
 
 ### Course literature
 
