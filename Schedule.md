@@ -9,8 +9,8 @@ Week | Date | Time | Class | Contents
 --- | --- | --- | --- | --- 
 W1 | Mon 20/1 | 13 - 15 | L1 | Course Introduction 
 |  |          | 15 - 17 | CS | Introduction to Python, IPython, PyCharm, software installation
-|  | Thu 23/1 | 08 - 12 | L2 | Python Core
-|  |          | 08 - 12 | CS |  Practice problems for the computer session
+|  | Thu 23/1 | 08 - 10 | L2 | Python Core
+|  |          | 10 - 12 | CS | Practice problems for the computer session
 W1 | Fri 24/1 | 13 - 15 | L3 | **Text:** ​Files and string parsing, printing and formatting. <br> **Data structures:** ​NumPy <br> Review of **Computer assignment 1** <br> [1]: 2.4, 2.5.3, 7.1 - 7.4 [4]
 W2 | Mon 27/1 | 13 - 15 | L4/CS | **More data structures:** More NumPy, Matplotlib <br> [4], [5]
 W2 | Thu 30/1 | 08 - 12 | L5/CS | **SciPy:** Trees, sparse graph/matrix <br> [4]
