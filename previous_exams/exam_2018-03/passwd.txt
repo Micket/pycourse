@@ -1,0 +1,9 @@
+sys:x:3:3:sys:/dev/:/usr/bin/nologin
+mail:x:8:8:mail:/dev/:/usr/bin/nologin
+huey:quack:500:500:Hubert Duck:/home/huey:/bin/bash
+dewey:quacky:501:501:Deuteronomy Duck:/home/huey:/bin/bash
+louie:quackers:502:502:Louis Duck:/home/huey:/bin/bash
+gizmoduck:x:503:503:Fenton Crackshell:/home/gizmo:/bin/bash
+goofy:x:504:504:George G. Geef:/home/goofy/:/bin/bash
+chip:x:600:600:Chip:/home/goofy/:/bin/bash
+dale:x:600:600:Dale:/home/goofy/:/bin/bash
