@@ -24,7 +24,7 @@
    - Strings
    - File IO
    - NumPy multidimensional arrays
-   - Computer Assignment 1
+   - **Computer Assignment 1**
 
 ## [Lecture 4: NumPy and Matplotlib](./Lecture04/Lecture04.ipynb)
    - Arrays, indexing, slicing
@@ -63,6 +63,7 @@
   - Some special methods: str, exit
   - Class variables / Static variables (same thing)
   - Private variables
+  - **Computer Assignment 2**
 
 ## [Lecture 8: More OOP](./Lecture08/Lecture08.ipynb)
   - More on self-argument and init.
@@ -95,15 +96,15 @@
   - Using decurators, e.g. @staticmethod, @enum.unique
   - Creating custom decorators
 
-## Lecture 11: Main and command line arguments + basic GUI
-## Lecture 12: Qt using Model View Controller design
-## Lecture 13: Signals and Qt Widgets
+## [Lecture 11: Main and command line arguments + basic GUI](./Lecture11/Lecture11.ipynb)
+## [Lecture 12: Qt using Model View Controller design](./Lecture12/Lecture12.ipynb)
+## [Lecture 13: Signals and Qt Widgets](./Lecture13/Lecture13.ipynb)
 
 ## Lecture 14: Does not exist
 
-## Lecture 15: Repetition
+## [Lecture 15: Repetition](./Lecture15/Lecture15.ipynb)
 
-## Lecture 16: Example exam
+## [Lecture 16: Example exam](./Lecture10/Lecture16.ipynb)
   - Strings and files
   - NumPy and Scipy
   - Classes with inheritance
