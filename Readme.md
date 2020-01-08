@@ -6,8 +6,10 @@ Given at the Automation and Mechatronics Engineering programme at [Chalmers Univ
 - Examiner: Thomas Svedberg
 - Lecturers: Hugo Strand and Mikael Öhman
 - [Syllabus](Syllabus.md)
-- [Course home page](https://chalmers.instructure.com/courses/8757)
+
 - [Lectures](./lectures/)
-- [Previous Exams](./previous_exams/)
 - [Computer assignments](./computer_assignments/)
+
+- [Internal course page @ Chalmers](https://chalmers.instructure.com/courses/8757)
+- [Previous Exams](./previous_exams/)
 
