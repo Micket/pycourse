@@ -19,7 +19,7 @@
    - Lambda functions
    - References and copies
 
-## Lecture 3: Strings and NumPy
+## [Lecture 3: Strings and NumPy](./Lecture03/Lecture03.ipynb)
  
 ## Lecture 4: Working with NumPy + Matplotlib
    - Arrays, slicing
