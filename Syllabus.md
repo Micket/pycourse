@@ -15,7 +15,7 @@ The course is offered by the department of Industrial and Materials Science
 
 ### Course literature
 
-- [1] C. Horstmann: Python for everyone, ISBN: 978-1-118-62613-9
+- [1] C. Horstmann: Python for everyone 3rd ed., ISBN: 978-1-119-63829-2
 - [2] [Tutorial part of the Python documentation](https://docs.python.org/3/tutorial)
 - [3] [Another Python tutorial](http://www.python-course.eu/python3_course.php)
 - [4] NumPy and SciPy references: ​<http://docs.scipy.org/doc/>
