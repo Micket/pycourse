@@ -1,19 +1,18 @@
 # DAT171 Object oriented programming in Python
 
-* Lecturers:
+* Teachers:
     * Thomas Svedberg, tel. 772 1522, <thomas.svedberg@chalmers.se>
     * Mikael Öhman, tel. 772 3191, <mikael.ohman@chalmers.se>
-* Assistant:
-    * Sebastian Everett Eriksson	<sebastian.vasser@gmail.com>
+    * Hugo Strand, tel. 772 1112 <hugo.strand@chalmers.se>
 * Find Thomas Material & Computational Mechanics (3rd floor M-building)
-* Find Mikael at Physics / C3SE office (5Th floor Origo building)
+* Find Mikael and Hugo at Physics / C3SE office (5Th floor Origo building)
 
 Course literature:
 
 * C. Horstmann: Python for everyone (*optional*, permitted on exam)
-* Python.org tutorial
 * Reference manuals (available on exam)
 * Lecture notes (available on exam)
+* Python.org tutorial
 
 
 # Prerequisites
@@ -36,14 +35,7 @@ Good knowledge of basic programming structures such as variables, conditions, lo
 # Course evaluation
   * Course evaluated at 2 occurrences
   * Course survey after exam
-  * Course board representatives (please stand up)
-
-    --------------------------  ----------------------------
-    Hugo Brokelind			    hugobr@student.chalmers.se	
-    Jayesh Rajendrabhai Gharte	gharte@student.chalmers.se	
-    Bowen Jiang			        bowen9314@163.com	
-    Gabriel Skoghäll			skoghall@student.chalmers.se
-    --------------------------  ----------------------------
+  * Course board representatives will be listed on homepage
 
 
 # Content
@@ -54,7 +46,7 @@ Good knowledge of basic programming structures such as variables, conditions, lo
 * SciPy (Package for numerical computations)
 * Matplotlib (Plotting)
 * Qt for creating graphical user interfaces and *interactive* programs
-* Interactive Python (IPython)
+* Interactive Python (IPython/Jupyter notebook) via lecture notes.
 
 
 # Learning outcome
@@ -103,14 +95,12 @@ and find the cheapest path between the given start and end point.
 * Writing _well structured_ and documented Python code
 
 
-
 # Assignment 2: Playing card library
 The task of this assignment is to create a library for making card games.
 
 * Creating a library
-* Creating classes
+* Creating classes with inheritance
 * Operator overloading
-
 
 
 # Assignment 3: Simple interactive application
@@ -118,22 +108,20 @@ Create a simple interactive graphical application from scratch.
 
 * Create an interactive application
 * Creating a GUI with Qt
-* Creating classes with inheritance
+* Creating yet more classes to specialize GUI widgets
 
 
 # Software
 Software will be available on the Windows machines in ES61/62, E-Studion and MT0 (we will primarily be in the
 E-building!).
 
-* Python 3.5 (or later)
-* PyQt
+* Python 3
 * NumPy, SciPy, Matplotlib
+* PyQt
 * Recommended Integrated Programming Environment (IDE): PyCharm (community edition) <https://www.jetbrains.com/pycharm/download/>
 * Laptops:
     * Anaconda <http://continuum.io/downloads>
-    * Linux: Use your regular package manager (or Anaconda)
-    * Mac, Windows: Use Anaconda
-
+    * You will have to use the school windows computers to 
 
 
 # Consultation
@@ -141,7 +129,6 @@ E-building!).
 * 3 computer sessions each week (you're expected to work on the assignments on your own in-between sessions!)
 * Thomas office on 3rd floor in the M-building (Material & Computational Mechanics / Material & Beräkningsmekanik).
 * Mikaels office at Physics / C3SE office (5Th floor Origo building)
-
 
 
 # Schedule
@@ -159,7 +146,6 @@ E-building!).
   * Extra lecture on Friday 13-15 (Room HA3) first week!
 
 
-
 # Lecture overview
 | W | Content |
 |---|---------|
@@ -172,7 +158,6 @@ E-building!).
 | 7 | More GUI. leftovers, reserve (if needed)|
 | 8 | Repetition and questions, review of example exam |
 | 9 | Exam, final deadline on assignment corrections |
-
 
 
 # Computer sessions
@@ -216,7 +201,6 @@ E-building!).
     `[C++ program] <-> [Evaluate user scripts]`
 
 
-
 # Python 3 vs Python 2
 
   * We'll be sticking to Python 3 (3.5 / 3.6 / 3.7)
@@ -227,7 +211,7 @@ E-building!).
       - Proper Unicode
       - Dictionaries: `x.has_key(y)`{.py} $\leadsto$ `y in x`{.python}
       - Renamed functions: `y.iteritems()`{.python} $\leadsto$ `y.items()`{.python}
-  * Python 2.6-2.7 very much widespread, but Python 3.x is the future!
+  * Python 2.6-2.7 very much widespread, but Python 3.x is the future! Python 2.7 reached end-of-life 2020-01-01.
 
 
 # Running Python code
@@ -246,7 +230,6 @@ E-building!).
   * More convenient to run scripts through an IDE when developing.
 
 
-
 # Using an IDE (PyCharm)
 
   * An Integrated Development Environment (IDE) is a pimped up text editor that integrates the tool-chain.
@@ -258,14 +241,13 @@ E-building!).
 
   * PyCharm can read IPython notebooks (you might need to start the notebook server on your computer)
 
-  * Learn the [keyboard shortcuts](http://blog.jetbrains.com/pycharm/files/2010/07/PyCharm_Reference_Card.pdf)!
+  * Learn the [keyboard shortcuts](https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard.pdf)!
 
       * Ctrl + Mouse click for code navigation
       * Ctrl + Shift + arrow to move lines around
       * Many other useful things
 
   * You are free to use any IDE you want, but PyCharm is the best tool you will have access to during the exam.
-
 
 
 # Short note on VCS
@@ -280,7 +262,7 @@ E-building!).
       * If you are interested, feel free to ask about it more during the computer session
 
 
-# IPython
+# Jupyter / IPython
 
   * IPython has convenient macros outside the Python language
     * Similar to the Matlab console
@@ -301,6 +283,17 @@ E-building!).
 
 
 # IPython
+
+  * Run a script similar to Matlab console
+    
+    ```python
+In [1]: %run myscript.py
+In [2]: whos
+Variable   Type    Data/Info
+----------------------------
+x          int     3
+    ```
+
   * Use as a calculator
       - Using previous outputs:
 
@@ -313,23 +306,17 @@ Out[2]: 214896.0817717206
 
         Like `'ans'` in Matlab but better!
 
-  * Run a script similar to Matlab console
-    
-    ```python
-In [1]: %run myscript.py
-In [2]: whos
-Variable   Type    Data/Info
-----------------------------
-x          int     3
-    ```
+# Jupyter
 
-// # ... IPython
   * Starting a notebook session
 
-      * `$ ipython notebook` (older versions)
-      * `$ jupyter notebook` (newer versions)
-      * Windows: Run IPython notebook from start menu
+      - `$ jupyter notebook`
+      - Windows: Start the jupyter notebook from start menu
 
-    Use web browser or PyCharm to work with documents (browser opens automatically as you open IPython notebook)
+    Use web browser or PyCharm to work with documents.
+
+  * You will access all the lecture notes this way
+
+
 
 
