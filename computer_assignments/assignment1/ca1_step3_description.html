@@ -13087,18 +13087,16 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Step-3:-Simulation-of-particle-system-dynamics">Step 3: Simulation of particle system dynamics<a class="anchor-link" href="#Step-3:-Simulation-of-particle-system-dynamics">&#182;</a></h1><p>In Step 2 you build a powerful analysis tool for particle dynamics. Hence, in Step 3 you are tasked with writing a small simulator that will produce results similar to the experimental data that we worked with in Step 1 and 2, but with even more interesting dynamics!</p>
-<p>In the end you will repeat the statistical analysis from Step 2 on your own simulation results and study the effect of particle collisions on the particle dynamics.
-|
-Implement and hand in your simulation in a single file with the name <code>ca1_step3_solution.py</code>, please also hand in a plot of the statistical analysis with the name <code>ca1_step3_figure_summary.svg</code> and a movie of the final particle dynamics named <code>ca1_step3_movie4.mp4</code>.</p>
-<p>The goal is to design a simulator that (approximately) describes both hard walls and collisions between particles. You want to simulate a system of 400 particles in two dimension on the square $x,y \in [-1, 1]$ with a random initial condition.</p>
+<h1 id="Step-3:-Simulation-of-particle-dynamics">Step 3: Simulation of particle dynamics<a class="anchor-link" href="#Step-3:-Simulation-of-particle-dynamics">&#182;</a></h1><p>Here, in Step 3, you are tasked with writing a simulator that will produce results similar to the experimental data that we worked with in Step 1 and 2, but with more intricate dynamics. In the end you will repeat the statistical analysis from Step 2 on your own simulation results and study the effect of particle collisions on the particle dynamics.</p>
+<p>The goal is to design a simulator that (approximately) describes both hard walls and collisions between particles. You want to simulate a system of 400 particles in two dimensions on the square $x,y \in [-1, 1]$ with a random initial condition.</p>
+<p>Implement and hand in your simulation in a single file with the name <code>ca1_step3_solution.py</code>, please also hand in a plot of the statistical analysis with the name <code>ca1_step3_figure_summary.svg</code> and a movie of the final particle dynamics named <code>ca1_step3_movie4.mp4</code>.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Particle-system-initialization">Particle system initialization<a class="anchor-link" href="#Particle-system-initialization">&#182;</a></h2><p>Generate starting position array <code>r0</code> for all the particles using uniformly distributed random numbers on the interval $[-1, 1]$. Let <code>r0</code> be two dimensional with the first index being the cartesian direction ($x$ and $y$) and the second index being the particle number.</p>
+<h2 id="Particle-system-initialization">Particle system initialization<a class="anchor-link" href="#Particle-system-initialization">&#182;</a></h2><p>Generate a starting position array <code>r0</code> for the 400 particles using uniformly distributed random numbers on the interval $[-1, 1]$. Let <code>r0</code> be two dimensional, with the first index being the cartesian direction ($x$ and $y$) and the second index being the particle number.</p>
 <p>Similarly generate an initial velocity array <code>v0</code> with gaussian distributed $x$ and $y$ velocities having a variance equal to $0.1$.</p>
 <p>Generate the positions and velocities for the particles using the <code>np.random</code> module and its helper functions. Define the variables <code>N_particles</code> and <code>v_variance</code> to keep track of the number of particles and the velocity component variance.</p>
 <p>The final shapes of <code>r0</code> and <code>v0</code> should thus be:</p>
