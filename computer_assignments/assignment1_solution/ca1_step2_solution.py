@@ -131,7 +131,7 @@ def animate_particles(R, time_step, filename='movie.mp4'):
     plt.xlim([-1.0, 1.0])
     plt.ylim([-1.0, 1.0])
 
-    markers = ax.scatter([], [], s=40, alpha=0.5)
+    markers = ax.scatter([], [], s=200, alpha=0.5)
     text = plt.text(-0.9, 0.9, 'frame =', ha='left')
 
     def update(frame, markers, text):
