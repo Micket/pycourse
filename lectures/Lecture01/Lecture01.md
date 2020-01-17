@@ -203,7 +203,7 @@ E-building!).
 
 # Python 3 vs Python 2
 
-  * We'll be sticking to Python 3 (3.5 / 3.6 / 3.7)
+  * We'll be sticking to recent Python 3
   * A few incompatible syntax changes (compared to Python 2)
   * A few notable differences:
       - Printing: `print x`{.python} $\leadsto$ `print(x)`{.python}
