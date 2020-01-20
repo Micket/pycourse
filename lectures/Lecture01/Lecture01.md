@@ -5,7 +5,7 @@
     * Mikael Öhman, tel. 772 3191, <mikael.ohman@chalmers.se>
     * Hugo Strand, tel. 772 1112 <hugo.strand@chalmers.se>
 * Find Thomas Material & Computational Mechanics (3rd floor M-building)
-* Find Mikael and Hugo at Physics / C3SE office (5Th floor Origo building)
+* Find Mikael and Hugo at Physics / C3SE office (5th floor Origo building)
 
 Course literature:
 
@@ -126,7 +126,7 @@ E-building!).
 * E-mail is preferred before the Ping-Pong PM system
 * 3 computer sessions each week (you're expected to work on the assignments on your own in-between sessions!)
 * Thomas office on 3rd floor in the M-building (Material & Computational Mechanics / Material & Beräkningsmekanik).
-* Mikaels office at Physics / C3SE office (5Th floor Origo building)
+* Mikaels and Hugos offices at Physics / C3SE office (5th floor Origo building)
 
 
 # Schedule
@@ -237,7 +237,7 @@ E-building!).
 
   * Python console at the bottom for convenience
 
-  * PyCharm can read IPython notebooks (you might need to start the notebook server on your computer)
+  * PyCharm can read Jupyter notebooks (you might need to start the notebook server on your computer)
 
   * Learn the [keyboard shortcuts](https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard.pdf)!
 
@@ -316,5 +316,39 @@ Out[2]: 214896.0817717206
   * You will access all the lecture notes this way
 
 
+# Starting a PyCharm project
+
+  * Virtual environments (venv) and Conda environments (conda) are methods keeping per-project installations of python packages. While it can be useful in some situations, we want to use have access to the full list of packages from our Anaconda installations when working through the course.
+
+
+# Expand project interpreter menu
+![pycharm project step 0](pycharm-project-0.png) \
+
+# Select existing interpreter
+![pycharm project step 1](pycharm-project-1.png) \
+
+# Select system interpreter
+![pycharm project step 2](pycharm-project-2.png) \
+If listed, simply select your Anaconda python3 installation
+
+# Locate anaconda installation
+![pycharm project step 3](pycharm-project-3.png) \
+Press the ... to locate your `python` or `python.exe` binary from your Anaconda installation.
+
+# Finding your Anaconda installation
+
+Students seem to end up with many different paths to anaconda, so here are a few suggested areas to look if you can't find where it ended up:
+
+  * Mac:
+     - `/opt/anaconda3/bin/python`
+     - `/Users/username/opt/anaconda3/bin/python`
+     - `/Users/username/Appdata/anaconda3/bin/python`
+
+  * Windows:
+     - Often listed directly under system interpreters
+     - `C:\ProgramData\Anaconda3\python.exe`
+
+  * Linux:
+     - Wherever you unpacked the tarball
 
 
