@@ -97,12 +97,27 @@
   - Creating custom decorators
 
 ## [Lecture 11: Main and command line arguments + basic GUI](./Lecture11/Lecture11.ipynb)
+  - Main function
+  - Command line arguments
+  - Our first Qt app
+  - Connecting buttons to actions
+  - Building layouts
+  - Customizing widgets
+
 ## [Lecture 12: Qt using Model View Controller design](./Lecture12/Lecture12.ipynb)
+  - Movel View Controller concept
+  - Creating signals
+
 ## [Lecture 13: Signals and Qt Widgets](./Lecture13/Lecture13.ipynb)
+  - More on signals
+  - General design of interactive and graphical applications
+  - More complex examples
 
 ## Lecture 14: Does not exist
 
 ## [Lecture 15: Repetition](./Lecture15/Lecture15.ipynb)
+  - Repetition up until GUI
+  - General tips for the exam
 
 ## [Lecture 16: Example exam](./Lecture16/Lecture16.ipynb)
   - Strings and files
