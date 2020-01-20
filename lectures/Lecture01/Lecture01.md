@@ -81,9 +81,7 @@ It is OK to find inspiration from the internet, but for your own sake, please un
 code you are mimicking is doing!
 
 
-# Assignment 1: Creating a graph of adjacent points and finding the cheapest route
-From a file containing coordinates, the goal is to construct a adjacency graph of the coordinates
-and find the cheapest path between the given start and end point.
+# Assignment 1:
 
 * Getting familiar with Python
 * Reading files
@@ -95,12 +93,12 @@ and find the cheapest path between the given start and end point.
 * Writing _well structured_ and documented Python code
 
 
-# Assignment 2: Playing card library
-The task of this assignment is to create a library for making card games.
+# Assignment 2:
 
 * Creating a library
 * Creating classes with inheritance
 * Operator overloading
+* Testing
 
 
 # Assignment 3: Simple interactive application
