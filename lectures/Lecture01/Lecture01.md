@@ -123,7 +123,7 @@ E-building!).
 
 
 # Consultation
-* E-mail is preferred before the Ping-Pong PM system
+* E-mail is preferred before the Canvas message system
 * 3 computer sessions each week (you're expected to work on the assignments on your own in-between sessions!)
 * Thomas office on 3rd floor in the M-building (Material & Computational Mechanics / Material & Beräkningsmekanik).
 * Mikaels and Hugos offices at Physics / C3SE office (5th floor Origo building)
