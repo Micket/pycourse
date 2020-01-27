@@ -14049,7 +14049,7 @@ L 294.245313 7.2
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Time-propagation">Time propagation<a class="anchor-link" href="#Time-propagation">&#182;</a></h2><p>To simulate the propagation of time and the dynamics of the particles we are going to use a time discretized version of their equation of motion.</p>
+<h2 id="Time-propagation">Time propagation<a class="anchor-link" href="#Time-propagation">&#182;</a></h2><p>To simulate the propagation in time and the dynamics of the particles we are going to use a time discretized version of their equation of motion.</p>
 <p>To this end we divide time in finite steps of length $\Delta t$ seconds. Then, assuming that we know the position $\vec{r}_i(t)$ and velocity $\vec{v}_i(t)$ of particle $i$ at time $t$, the position $\vec{r}_i(t + \Delta t)$ of particle $i$ at time $t + \Delta t$ is given by
 $$
 \vec{r}_i(t + \Delta t ) = \vec{r}_i(t) + \Delta t \cdot \vec{v}_i(t)
@@ -14105,7 +14105,7 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Simulation-function">Simulation function<a class="anchor-link" href="#Simulation-function">&#182;</a></h2><p>Lets now implements a function <code>simulate</code> that uses the <code>time_propagation</code> function to compute the time evolution of the particles for a given number of <code>time_steps</code>.</p>
+<h2 id="Simulation-function">Simulation function<a class="anchor-link" href="#Simulation-function">&#182;</a></h2><p>Let us now implement a function <code>simulate</code> that uses the <code>time_propagation</code> function to compute the time evolution of the particles for a given number of <code>time_steps</code> and returns the positions <code>R</code> and velocities <code>V</code> of all particles for all time steps.</p>
 <p>In order to make the <code>simulate</code> function reusable (in the coming steps) we want to pass both the <code>time_propagation</code> function as well as a general key-word-argument dictionary to the function. Here is a skeleton for the function to start from:</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simulate</span><span class="p">(</span><span class="n">r0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">time_step</span><span class="p">,</span> <span class="n">time_steps</span><span class="p">,</span> <span class="n">update_function</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="c1"># Allocate R and V</span>
@@ -15074,9 +15074,10 @@ frame = 399
 <ul>
 <li>check if the position coordinates ($x$ and $y$) are out of bounds and </li>
 <li>the particle at the same time has a velocity component going in the wrong direction (relative to the "wall"). </li>
+<li>In this case change the sign of the corresponding velocity component ($v_x$ or $v_y$).</li>
 </ul>
-<p>In this case change the sign of the corresponding velocity component ($v_x$ or $v_y$). This is an approximate but for our purposes sufficient treatment of the boundary collisions.</p>
-<p>Write a function implements this with the arguments</p>
+<p>This is an approximate but for our purposes sufficient treatment of the boundary collisions.</p>
+<p>Write a function that implements this with the arguments</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">boundary_collisions</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
@@ -15107,7 +15108,7 @@ frame = 399
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Write a new <code>update_with_boundaries</code> function runs both the <code>time_propagation</code> and the new <code>boundary_collisions</code> and use it to simulate and animate the dynamis:</p>
+<p>Write a new <code>update_with_boundaries</code> function that calls both the <code>time_propagation</code> and the new <code>boundary_collisions</code> function and use it to simulate and animate the dynamics:</p>
 
 </div>
 </div>
