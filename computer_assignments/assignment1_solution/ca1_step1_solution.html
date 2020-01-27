@@ -13164,9 +13164,9 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Open-the-text-file-and-read-line-by-line">Open the text file and read line by line<a class="anchor-link" href="#Open-the-text-file-and-read-line-by-line">&#182;</a></h2><p>The first task is to read the text file into your Python program.</p>
-<p>To open the file <code>ca1_step1_input_data.txt</code> use the <code>open</code> function together with a <code>widh</code> statement to avoid having to explicitly close the file.</p>
+<p>To open the file <code>ca1_step1_input_data.txt</code> use the <code>open</code> function together with a <code>with</code> statement to avoid having to explicitly close the file.</p>
 <p>While it is possible to read every line of the file into a list of lines using the method <code>.readlines()</code>, this puts all the file contents into memory. In order to avoid this we want to use the <code>.readline()</code> and text-file iterator functionality of Python to only read the file line by line. This minimizes the memory required when reading the file.</p>
-<p>As a first step open the file and read and print the two first lines. Your code should produce something like:</p>
+<p>As a first step, open the file and read and print the two first lines. Your code should produce something like:</p>
 
 </div>
 </div>
@@ -13327,7 +13327,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As a preparatory step make your program print the five <code># time_step</code> headers. The output should look similar to:</p>
+<p>As a preparatory step make your program print the five first <code># time_step</code> headers. The output should look similar to:</p>
 
 </div>
 </div>
@@ -13462,7 +13462,7 @@ div#notebook {
 <p>The established coding style for using <code>numpy</code> is to import it using</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
-<p>and then access its functions by writing, e.g. <code>np.arrray</code>. The function <code>np.array</code> can directly convert from nested lists to <code>ndarray</code> so use it to re-define the <code>data</code> variable as an <code>ndarray</code>.</p>
+<p>and then access its functions by writing, e.g. <code>np.array</code>. The function <code>np.array</code> can directly convert from nested lists to <code>ndarray</code> so use it to re-define the <code>data</code> variable as an <code>ndarray</code>.</p>
 
 </div>
 </div>
@@ -14641,7 +14641,8 @@ L 290.245313 10.999219
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Storing-data-using-the-hdf5-file-format">Storing data using the hdf5 file format<a class="anchor-link" href="#Storing-data-using-the-hdf5-file-format">&#182;</a></h2><p>In order to do more analysis of the data we want to store it in a more compact format that is also faster to read. Instead of saving numerical data as plain text it is much more compact to store it in a binary format. The <code>hdf5</code> file format does exactly this. Import the <code>h5py</code> module and use its <code>h5py.File</code> class to together with the <code>with</code> statement to open the file <code>ca1_step1_output_data.h5</code> file. Use the <code>.create_dataset</code> method to store the <code>ndarrays</code> <code>R</code> and <code>V</code> and store the other parameters as attributes using the <code>.attrs.create</code> method.</p>
+<h2 id="Storing-data-using-the-hdf5-file-format">Storing data using the hdf5 file format<a class="anchor-link" href="#Storing-data-using-the-hdf5-file-format">&#182;</a></h2><p>In order to do more analysis of the data we want to store it in a more compact format that is also faster to read. Instead of saving numerical data as plain text it is much more compact to store it in a binary format.</p>
+<p>The <code>hdf5</code> file format does exactly this. Import the <code>h5py</code> module and use its <code>h5py.File</code> class together with the <code>with</code> statement to open the file <code>ca1_step1_output_data.h5</code> file. Use the <code>.create_dataset</code> method to store the <code>ndarrays</code> <code>R</code> and <code>V</code> and store the other parameters as attributes using the <code>.attrs.create</code> method.</p>
 <ul>
 <li><a href="https://docs.h5py.org/en/stable/quick.html">https://docs.h5py.org/en/stable/quick.html</a></li>
 </ul>
