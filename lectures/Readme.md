@@ -48,12 +48,12 @@
   - File IO
 
 ## [Lecture 6: Writing a library, documentation](./Lecture06/Lecture06.ipynb)
-  - Docstrings
-  - PyDoc syntax
-  - PyCharm, templates for documentation
-  - Modules (Libraries)
-  - Folder structure, namespace and scope
+  - Commenting and documenting code
+  - Python DocStrings
+  - Modules and packages
+  - Namespace and scope
   - Command line arguments
+  - The Zen of Python
 
 ## [Lecture 7: Object Oriented Programming (OOP)](./Lecture07/Lecture07.ipynb)
   - Motivation (Why OOP?)
