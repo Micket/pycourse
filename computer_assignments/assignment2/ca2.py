@@ -238,9 +238,11 @@ class Hand(object):
         return self._lay(cards, show=True)
 
     def show(self):
-        print(self.cards)
-        pass
+        print(self.__str__())
 
+    def __str__(self):
+        return str(self.cards)
+    
     def sort(self, reverse=False):
         self.cards.sort()
         if reverse:
@@ -360,7 +362,8 @@ class Player:
         self.poker_hand = None
 
     def __str__(self):
-        return 'Player: "{}", Wallet: {}, No. cards: {}'.format(self.name, self.wallet, self.hand.count())
+        return 'Player: "{}", Wallet: {}, No. cards: {} Hand: {}'.format(
+            self.name, self.wallet, self.hand.count(), self.hand)
 
     def add_money(self, amount):
         self.wallet += amount
@@ -399,8 +402,7 @@ def five_card_draw(no_players, rounds):
 
         for player in players:
             player.hand.sort()
-            print(player, end='  ')
-            player.hand.show()
+            print(player)
 
             input_ok = False
             while not input_ok:
@@ -430,15 +432,13 @@ def five_card_draw(no_players, rounds):
     print('\nResults:')
     for player in players:
         player.hand.sort()
-        print(player, end='  ')
-        player.hand.show()
+        print(player)
         player.find_poker_hand()
         print(' Hand:', player.poker_hand)
 
     print('\nSorted results:')
     for player in sorted(players, key=lambda x: x.poker_hand):
-        print(player, end='  ')
-        player.hand.show()
+        print(player)
         print(' Hand:', player.hand.best_combination())
 
 
@@ -456,29 +456,27 @@ def texas_holdem(no_players):
     for player in players:
         player.add_cards(deck.draw(2))
         player.hand.sort()
-        print(player, end='  ')
-        player.hand.show()
+        print(player)
 
     table = Hand()
     table.add_card(deck.draw(3))
-    print('Table:', end='  ')
-    table.show()
-    print()
+    print('\nTable:', table, end='\n\n')
 
     for player in players:
-        print(player, end='  ')
+        print(player)
         player.find_poker_hand(table.cards)
         print(player.poker_hand)
+
+    print()
 
     # BET
 
     for round in range(2):
         table.add_card(deck.draw())
-        print('\nTable:', end='  ')
-        table.show()
+        print('Table:', table, end='\n\n')
 
         for player in players:
-            print(player, end='  ')
+            print(player)
             player.find_poker_hand(table.cards)
             print(player.poker_hand)
 
@@ -486,13 +484,11 @@ def texas_holdem(no_players):
         # BET
 
     # SHOW
-    print('Table:', end='  ')
     table.sort()
-    table.show()
-    print('\nSorted results:')
+    print('Table:', table, end='\n\n')
+    print('Sorted results:')
     for player in sorted(players, key=lambda x: x.poker_hand):
-        print(player, end='  ')
-        player.hand.show()
+        print(player)
         print(' PokerHand:', player.poker_hand)
 
 
