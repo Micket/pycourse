@@ -1,7 +1,10 @@
+
 from abc import ABCMeta, abstractmethod
 from enum import IntEnum, unique
+
 import numpy as np
 
+from random import shuffle
 
 @unique
 class Suit(IntEnum):
@@ -129,8 +132,6 @@ class Deck(metaclass=ABCMeta):
     """
 
     def __init__(self, ordered=False):
-        self.deck_size = 0
-        self.no_cards = 0
         self.cards = []
         self._init(ordered)
 
@@ -138,23 +139,19 @@ class Deck(metaclass=ABCMeta):
     def _init(self, ordered):
         pass
 
+    @property
+    def no_cards(self):
+        return len(self.cards)
+    
     def draw(self, number=1):
         assert number <= self.no_cards
-
-        cards = [self.cards.pop()]
-        for i in range(1, number):
-            cards.append(self.cards.pop())
-
-        self.no_cards -= number
-
+        cards = [self.cards.pop() for no in range(number)]
         return cards
 
     def give_card(self):
         return self.draw()
 
     def shuffle(self):
-        from random import shuffle
-
         shuffle(self.cards)
 
     def sort(self):
@@ -177,13 +174,7 @@ class StandardDeck(Deck):
             self.cards.append(KingCard(suit))
             self.cards.append(AceCard(suit))
 
-        self.no_cards = 52
-
-        if not ordered:
-            from random import shuffle
-
-            self.shuffle()
-
+        if not ordered: self.shuffle()
 
 class PokerHand(object):
     def __init__(self, hand_type, cards):
