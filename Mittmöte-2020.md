@@ -1,4 +1,4 @@
-# Mittmlöte DATA171 2020-02-13
+# Mittmlöte DAT171 2020-02-13
 
 Elever på mötet:
 - Jonathan Bergendahl
@@ -18,7 +18,7 @@ Punkter som lyftes av eleverna:
 * Det är långa väntetider på hjälp på övningarna, speciellt nära deadline
   - Här får vi försöka undvika att "fastna" på en grupp för länge, utan i så fall istället ge lite hjälp o sen återkomma
 * CA1
-  - Skulle vara bra med en rekomenderad "deadline" för de olia stegen i uppgiften, för att hjälpa med egen planering
+  - Skulle vara bra med en rekomenderad "deadline" för de olika stegen i uppgiften, för att hjälpa med egen planering
   - Kanske se över hjälpen kring statistikplottarna här, en del fastnade onödigt länge på den delen
 
 Generellt bra betyg.
