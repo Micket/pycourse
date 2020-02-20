@@ -6,7 +6,6 @@ import sys
 
 # NOTE: This is just given as an example of how to use CardView.
 # It is expected that you will need to adjust things to make a game out of it. 
-# Some things can be removed, other things modified.
 
 
 class TableScene(QGraphicsScene):
@@ -25,28 +24,28 @@ class CardItem(QGraphicsSvgItem):
         self.position = position
 
 
+def read_cards():
+    """
+    Reads all the 52 cards from files.
+    :return: Dictionary of SVG renderers
+    """
+    all_cards = dict()  # Dictionaries let us have convenient mappings between cards and their images
+    for suit_file, suit in zip('HDSC', range(4)):  # Check the order of the suits here!!!
+        for value_file, value in zip(['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'], range(2, 15)):
+            file = value_file + suit_file
+            key = (value, suit)  # I'm choosing this tuple to be the key for this dictionary
+            all_cards[key] = QSvgRenderer('cards/' + file + '.svg')
+    return all_cards
+
+
 class CardView(QGraphicsView):
     """ A View widget that represents the table area displaying a players cards. """
 
-    # Underscores indicate a private function/method!
-    def __read_cards(): # Ignore the PyCharm warning on this line. It's correct.
-        """
-        Reads all the 52 cards from files.
-        :return: Dictionary of SVG renderers
-        """
-        all_cards = dict() # Dictionaries let us have convenient mappings between cards and their images
-        for suit_file, suit in zip('HDSC', range(4)): # Check the order of the suits here!!!
-            for value_file, value in zip(['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'], range(2, 15)):
-                file = value_file + suit_file
-                key = (value, suit)  # I'm choosing this tuple to be the key for this dictionary
-                all_cards[key] = QSvgRenderer('cards/' + file + '.svg')
-        return all_cards
-
     # We read all the card graphics as static class variables
     back_card = QSvgRenderer('cards/Red_Back_2.svg')
-    all_cards = __read_cards()
+    all_cards = read_cards()
 
-    def __init__(self, cards_model, card_spacing=250, padding=10):
+    def __init__(self, cards_model: CardModel, card_spacing: int = 250, padding: int = 10):
         """
         Initializes the view to display the content of the given model
         :param cards_model: A model that represents a set of cards.
@@ -74,25 +73,23 @@ class CardView(QGraphicsView):
     def change_cards(self):
         # Add the cards from scratch
         self.scene.clear()
-        for i, card in enumerate(self.model.cards):
+        for i, card in enumerate(self.model):
             # The ID of the card in the dictionary of images is a tuple with (value, suit), both integers
-            # TODO: YOU MUST CORRECT THE EXPRESSION TO MATCH YOUR PLAYING CARDS!!!
-            # TODO: See the __read_cards method for what mapping are used.
-            graphics_key = (card.value, card.suit)
-            renderer = self.back_card if self.model.flipped(i) else self.all_cards[graphics_key]
+            graphics_key = (card.get_value(), card.suit)
+            renderer = self.back_card if self.model.flipped() else self.all_cards[graphics_key]
             c = CardItem(renderer, i)
 
             # Shadow effects are cool!
             shadow = QGraphicsDropShadowEffect(c)
             shadow.setBlurRadius(10.)
             shadow.setOffset(5, 5)
-            shadow.setColor(QColor(0, 0, 0, 180)) # Semi-transparent black!
+            shadow.setColor(QColor(0, 0, 0, 180))  # Semi-transparent black!
             c.setGraphicsEffect(shadow)
 
             # Place the cards on the default positions
             c.setPos(c.position * self.card_spacing, 0)
-            # Sets the opacity of cards if they are marked.
-            c.setOpacity(0.5 if self.model.marked(c.position) else 1.0)
+            # We could also do cool things like marking card by making them transparent if we wanted to!
+            # c.setOpacity(0.5 if self.model.marked(c.position) else 1.0)
             self.scene.addItem(c)
 
         self.update_view()
@@ -113,19 +110,30 @@ class CardView(QGraphicsView):
         super().resizeEvent(painter)
 
     # This is the Controller part of the GUI, handling input events that modify the Model
-    def mousePressEvent(self, event):
-        # We can check which item, if any, that we clicked on by fetching the scene items (neat!)
-        pos = self.mapToScene(event.pos())
-        item = self.scene.itemAt(pos, self.transform())
-        if item is not None:
-            # Report back that the user clicked on the card at given position:
-            # The model can choose to do whatever it wants with this information.
-            self.model.clicked_position(item.position)
-
+    # def mousePressEvent(self, event):
+    #    # We can check which item, if any, that we clicked on by fetching the scene items (neat!)
+    #    pos = self.mapToScene(event.pos())
+    #    item = self.scene.itemAt(pos, self.transform())
+    #    if item is not None:
+    #        # Report back that the user clicked on the card at given position:
+    #        # The model can choose to do whatever it wants with this information.
+    #        self.model.clicked_position(item.position)
 
     # You can remove these events if you don't need them.
-    def mouseDoubleClickEvent(self, event):
-        self.model.flip() # Another possible event. Lets add it to the flip functionality for fun!
+    # def mouseDoubleClickEvent(self, event):
+    #    self.model.flip() # Another possible event. Lets add it to the flip functionality for fun!
+
+
+class CardModel(QObject):
+    new_cards = pyqtSignal()
+
+    @abc.abstractmethod
+    def __iter__(self):
+        """Returns an iterator of card objects"""
+
+    @abc.abstractmethod
+    def flipped(self):
+        """Returns true of cards should be drawn face down"""
 
 
 # A trivial card class (you should use the stuff you made in your library instead!
@@ -133,6 +141,9 @@ class MySimpleCard:
     def __init__(self, value, suit):
         self.value = value
         self.suit = suit
+
+    def get_value(self):
+        return self.value
 
 
 # You have made a class similar to this (hopefully):
@@ -149,39 +160,30 @@ class Hand:
 # NOTE: You do NOT have to do it this way.
 # You might find it easier to make a Player-model, or a whole GameState-model instead.
 # This is just to make a small demo that you can use. You are free to modify
-class HandModel(Hand, QObject):
-    data_changed = pyqtSignal()
+class HandModel(Hand, CardModel):
 
     def __init__(self):
         Hand.__init__(self)
-        QObject.__init__(self)
-
-        # Additional state needed by the UI, keeping track of the selected cards:
-        self.marked_cards = [False]*len(self.cards)
+        CardModel.__init__(self)
+        # Additional state needed by the UI
         self.flipped_cards = True
+
+    def __iter__(self):
+        return iter(self.cards)
 
     def flip(self):
         # Flips over the cards (to hide them)
         self.flipped_cards = not self.flipped_cards
         self.data_changed.emit()
 
-    def marked(self, i):
-        return self.marked_cards[i]
-
-    def flipped(self, i):
+    def flipped(self):
         # This model only flips all or no cards, so we don't care about the index.
         # Might be different for other games though!
         return self.flipped_cards
 
-    def clicked_position(self, i):
-        # Mark the card as position "i" to be thrown away
-        self.marked_cards[i] = not self.marked_cards[i]
-        self.data_changed.emit()
-
     def add_card(self, card):
         super().add_card(card)
         self.data_changed.emit()
-
 
 
 # Lets test it out
