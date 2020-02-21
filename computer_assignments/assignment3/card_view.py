@@ -2,10 +2,64 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtSvg import *
 from PyQt5.QtWidgets import *
+from abc import abstractmethod
 import sys
 
 # NOTE: This is just given as an example of how to use CardView.
 # It is expected that you will need to adjust things to make a game out of it. 
+
+
+class CardModel(QObject):
+    new_cards = pyqtSignal()
+
+    @abstractmethod
+    def __iter__(self):
+        """Returns an iterator of card objects"""
+
+    @abstractmethod
+    def flipped(self):
+        """Returns true of cards should be drawn face down"""
+
+
+# You have made a class similar to this (hopefully):
+class Hand:
+    def __init__(self):
+        # Lets use some hardcoded values for most of this to start with
+        self.cards = [MySimpleCard(13, 2), MySimpleCard(7, 0), MySimpleCard(13, 1)]
+
+    def add_card(self, card):
+        self.cards.append(card)
+
+
+# We can extend this class to create a model, which updates the view whenever it has changed.
+# NOTE: You do NOT have to do it this way.
+# You might find it easier to make a Player-model, or a whole GameState-model instead.
+# This is just to make a small demo that you can use. You are free to modify
+class HandModel(Hand, CardModel):
+    data_changed = pyqtSignal()
+
+    def __init__(self):
+        Hand.__init__(self)
+        CardModel.__init__(self)
+        # Additional state needed by the UI
+        self.flipped_cards = False
+
+    def __iter__(self):
+        return iter(self.cards)
+
+    def flip(self):
+        # Flips over the cards (to hide them)
+        self.flipped_cards = not self.flipped_cards
+        self.data_changed.emit()
+
+    def flipped(self):
+        # This model only flips all or no cards, so we don't care about the index.
+        # Might be different for other games though!
+        return self.flipped_cards
+
+    def add_card(self, card):
+        super().add_card(card)
+        self.data_changed.emit()
 
 
 class TableScene(QGraphicsScene):
@@ -45,7 +99,7 @@ class CardView(QGraphicsView):
     back_card = QSvgRenderer('cards/Red_Back_2.svg')
     all_cards = read_cards()
 
-    def __init__(self, cards_model: CardModel, card_spacing: int = 250, padding: int = 10):
+    def __init__(self, hand_model: HandModel, card_spacing: int = 250, padding: int = 10):
         """
         Initializes the view to display the content of the given model
         :param cards_model: A model that represents a set of cards.
@@ -56,14 +110,14 @@ class CardView(QGraphicsView):
         self.scene = TableScene()
         super().__init__(self.scene)
 
-        self.model = cards_model
+        self.model = hand_model
         self.card_spacing = card_spacing
         self.padding = padding
 
         # Whenever the this window should update, it should call the "change_cards" method.
         # This can, for example, be done by connecting it to a signal.
         # The view can listen to changes:
-        cards_model.data_changed.connect(self.change_cards)
+        hand_model.data_changed.connect(self.change_cards)
         # It is completely optional if you want to do it this way, or have some overreaching Player/GameState
         # call the "change_cards" method instead. z
 
@@ -124,18 +178,6 @@ class CardView(QGraphicsView):
     #    self.model.flip() # Another possible event. Lets add it to the flip functionality for fun!
 
 
-class CardModel(QObject):
-    new_cards = pyqtSignal()
-
-    @abc.abstractmethod
-    def __iter__(self):
-        """Returns an iterator of card objects"""
-
-    @abc.abstractmethod
-    def flipped(self):
-        """Returns true of cards should be drawn face down"""
-
-
 # A trivial card class (you should use the stuff you made in your library instead!
 class MySimpleCard:
     def __init__(self, value, suit):
@@ -144,46 +186,6 @@ class MySimpleCard:
 
     def get_value(self):
         return self.value
-
-
-# You have made a class similar to this (hopefully):
-class Hand:
-    def __init__(self):
-        # Lets use some hardcoded values for most of this to start with
-        self.cards = [MySimpleCard(13, 2), MySimpleCard(7, 0), MySimpleCard(13, 1)]
-
-    def add_card(self, card):
-        self.cards.append(card)
-
-
-# We can extend this class to create a model, which updates the view whenever it has changed.
-# NOTE: You do NOT have to do it this way.
-# You might find it easier to make a Player-model, or a whole GameState-model instead.
-# This is just to make a small demo that you can use. You are free to modify
-class HandModel(Hand, CardModel):
-
-    def __init__(self):
-        Hand.__init__(self)
-        CardModel.__init__(self)
-        # Additional state needed by the UI
-        self.flipped_cards = True
-
-    def __iter__(self):
-        return iter(self.cards)
-
-    def flip(self):
-        # Flips over the cards (to hide them)
-        self.flipped_cards = not self.flipped_cards
-        self.data_changed.emit()
-
-    def flipped(self):
-        # This model only flips all or no cards, so we don't care about the index.
-        # Might be different for other games though!
-        return self.flipped_cards
-
-    def add_card(self, card):
-        super().add_card(card)
-        self.data_changed.emit()
 
 
 # Lets test it out
