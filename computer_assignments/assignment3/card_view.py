@@ -8,9 +8,14 @@ import sys
 # NOTE: This is just given as an example of how to use CardView.
 # It is expected that you will need to adjust things to make a game out of it. 
 
+###################
+# Models
+###################
 
 class CardModel(QObject):
-    new_cards = pyqtSignal()
+    """ Base class that described what is expected from the CardView widget """
+
+    new_cards = pyqtSignal()  #: Signal should be emited when cards change.
 
     @abstractmethod
     def __iter__(self):
@@ -20,6 +25,15 @@ class CardModel(QObject):
     def flipped(self):
         """Returns true of cards should be drawn face down"""
 
+
+# A trivial card class (you should use the stuff you made in your library instead!
+class MySimpleCard:
+    def __init__(self, value, suit):
+        self.value = value
+        self.suit = suit
+
+    def get_value(self):
+        return self.value
 
 # You have made a class similar to this (hopefully):
 class Hand:
@@ -36,8 +50,6 @@ class Hand:
 # You might find it easier to make a Player-model, or a whole GameState-model instead.
 # This is just to make a small demo that you can use. You are free to modify
 class HandModel(Hand, CardModel):
-    data_changed = pyqtSignal()
-
     def __init__(self):
         Hand.__init__(self)
         CardModel.__init__(self)
@@ -50,7 +62,7 @@ class HandModel(Hand, CardModel):
     def flip(self):
         # Flips over the cards (to hide them)
         self.flipped_cards = not self.flipped_cards
-        self.data_changed.emit()
+        self.new_cards.emit()  # something changed, better emit the signal!
 
     def flipped(self):
         # This model only flips all or no cards, so we don't care about the index.
@@ -59,8 +71,11 @@ class HandModel(Hand, CardModel):
 
     def add_card(self, card):
         super().add_card(card)
-        self.data_changed.emit()
+        self.new_cards.emit()  # something changed, better emit the signal!
 
+###################
+# Card widget code:
+###################
 
 class TableScene(QGraphicsScene):
     """ A scene with a table cloth background """
@@ -99,25 +114,24 @@ class CardView(QGraphicsView):
     back_card = QSvgRenderer('cards/Red_Back_2.svg')
     all_cards = read_cards()
 
-    def __init__(self, hand_model: HandModel, card_spacing: int = 250, padding: int = 10):
+    def __init__(self, card_model: CardModel, card_spacing: int = 250, padding: int = 10):
         """
         Initializes the view to display the content of the given model
-        :param cards_model: A model that represents a set of cards.
-        The model should have: data_changed, cards, clicked_position, flipped,
+        :param cards_model: A model that represents a set of cards. Needs to support the CardModel interface.
         :param card_spacing: Spacing between the visualized cards.
         :param padding: Padding of table area around the visualized cards.
         """
         self.scene = TableScene()
         super().__init__(self.scene)
 
-        self.model = hand_model
         self.card_spacing = card_spacing
         self.padding = padding
 
+        self.model = card_model
         # Whenever the this window should update, it should call the "change_cards" method.
         # This can, for example, be done by connecting it to a signal.
         # The view can listen to changes:
-        hand_model.data_changed.connect(self.change_cards)
+        card_model.new_cards.connect(self.change_cards)
         # It is completely optional if you want to do it this way, or have some overreaching Player/GameState
         # call the "change_cards" method instead. z
 
@@ -143,7 +157,7 @@ class CardView(QGraphicsView):
             # Place the cards on the default positions
             c.setPos(c.position * self.card_spacing, 0)
             # We could also do cool things like marking card by making them transparent if we wanted to!
-            # c.setOpacity(0.5 if self.model.marked(c.position) else 1.0)
+            # c.setOpacity(0.5 if self.model.marked(i) else 1.0)
             self.scene.addItem(c)
 
         self.update_view()
@@ -178,15 +192,9 @@ class CardView(QGraphicsView):
     #    self.model.flip() # Another possible event. Lets add it to the flip functionality for fun!
 
 
-# A trivial card class (you should use the stuff you made in your library instead!
-class MySimpleCard:
-    def __init__(self, value, suit):
-        self.value = value
-        self.suit = suit
-
-    def get_value(self):
-        return self.value
-
+###################
+# Main test program
+###################
 
 # Lets test it out
 app = QApplication(sys.argv)
