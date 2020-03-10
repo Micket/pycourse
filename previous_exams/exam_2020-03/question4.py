@@ -63,6 +63,7 @@ coords = np.array([
 ])
 poly = Polygon(coords)
 print('Polygon with centre at {} and bounding box {}'.format(poly.centre, poly.bounding_box()))
+print('Its first coordinate is at {} relative to its centre'.format(poly.coords[0]))
 poly.move(np.array([-0.2, 0.3]))
 poly.resize(2.0)
 print('Polygon with centre at {} and bounding box {}'.format(poly.centre, poly.bounding_box()))
