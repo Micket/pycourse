@@ -47,7 +47,7 @@ def accumulate_degrees_per_school(degrees):
 # Part C
 
 
-def print_table(years, degrees_per_school):
+def print_degree_table(years, degrees_per_school):
 
     school_labels = [ ('CTH' if 'Chalmers' in school else 'KTH') for school in degrees_per_school.keys() ]
     
@@ -67,5 +67,5 @@ if __name__ == '__main__':
 
     degrees_per_school = accumulate_degrees_per_school(degrees)
 
-    print_table(years, degrees_per_school)
+    print_degree_table(years, degrees_per_school)
 
