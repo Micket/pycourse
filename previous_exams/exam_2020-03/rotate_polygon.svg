@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 57.957611 51.593746"
+   height="51.593746mm"
+   width="57.957611mm">
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstart"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path886" />
+    </marker>
+  </defs>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-54.14509,-83.915918)"
+     id="layer1">
+    <path
+       id="path815"
+       d="M 55.184523,131.06845 106.96726,120.10714 88.351934,114.343 71.059523,84.955355 Z"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <circle
+       r="1.0394347"
+       cy="84.955353"
+       cx="71.248512"
+       id="path832"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.17959186;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+    <circle
+       r="1.0394347"
+       cy="114.343"
+       cx="88.446419"
+       id="path832-3"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.17959186;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+    <circle
+       r="1.0394347"
+       cy="120.10715"
+       cx="106.77827"
+       id="path832-6"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.17959186;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+    <circle
+       r="1.0394347"
+       cy="131.06845"
+       cx="55.184525"
+       id="path832-7"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.17959186;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+    <circle
+       r="0.99218762"
+       cy="114.39026"
+       cx="78.855286"
+       id="path832-3-3"
+       style="fill:#fd0000;fill-opacity:1;stroke:none;stroke-width:0.17142862;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+    <path
+       d="M 79.880509,96.677876 A 15.119047,15.119047 0 0 1 91.52164,104.64781"
+       id="path882"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:0.4, 0.2;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#Arrow1Lstart);paint-order:stroke fill markers" />
+    <path
+       id="path815-5"
+       d="M 58.63334,134.67775 107.65735,114.72158 88.315574,112.34431 66.093324,86.482511 Z"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.45982145" />
+    <circle
+       r="1.0394347"
+       cy="86.157753"
+       cx="66.048981"
+       id="path832-62"
+       style="fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.17959186;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+    <circle
+       r="1.0394347"
+       cy="134.47023"
+       cx="58.586311"
+       id="path832-62-9"
+       style="fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.17959186;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+    <circle
+       r="1.0394347"
+       cy="114.72098"
+       cx="107.72321"
+       id="path832-62-1"
+       style="fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.17959186;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+    <circle
+       r="1.0394347"
+       cy="112.1224"
+       cx="88.399185"
+       id="path832-62-2"
+       style="fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.17959186;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers" />
+    <text
+       id="text1847"
+       y="117.27895"
+       x="74.191803"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73927963px;line-height:1.08704984px;font-family:'Brandon Grotesque';-inkscape-font-specification:'Brandon Grotesque';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.043482px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.043482px"
+         y="117.27895"
+         x="74.191803"
+         id="tspan1845">centrepoint</tspan></text>
+    <text
+       id="text1851"
+       y="120.9576"
+       x="108.50791"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.47801638px;line-height:2.17376041px;font-family:'Brandon Grotesque';-inkscape-font-specification:'Brandon Grotesque';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.08695041px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.08695041px"
+         y="120.9576"
+         x="108.50791"
+         id="tspan1849">v</tspan></text>
+    <text
+       transform="scale(1.0500535,0.9523324)"
+       id="text1855"
+       y="121.05852"
+       x="103.94984"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.64359784px;line-height:2.27724862px;font-family:'Brandon Grotesque';-inkscape-font-specification:'Brandon Grotesque';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.09108996px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.09108996px"
+         y="121.05852"
+         x="103.94984"
+         id="tspan1853">v'</tspan></text>
+    <text
+       id="text1859"
+       y="99.11953"
+       x="88.956398"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.05322361px;line-height:1.90826476px;font-family:'Brandon Grotesque';-inkscape-font-specification:'Brandon Grotesque';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.07633058px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.07633058px"
+         y="99.11953"
+         x="88.956398"
+         id="tspan1857">θ</tspan></text>
+  </g>
+</svg>
