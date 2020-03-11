@@ -36,14 +36,15 @@ import matplotlib.pyplot as plt
 
 from scipy.io import wavfile
 
-rate, sound = wavfile.read('violin.wav')
+rate, sound = wavfile.read('piano.wav')
 t = np.arange(len(sound)) / rate
 
-plt.figure()
+plt.figure(figsize=(8, 3))
 plt.plot(t, sound)
 plt.ylabel('Amplitude [arb. units]')
 plt.xlabel('Time [seconds]')
 plt.tight_layout()
+plt.savefig('figure_q2_time.png', dpi=300)
 
 
 # Part C
@@ -58,11 +59,12 @@ note = pitch(base_frequency)
 
 print('The frequency of the violin sound is', base_frequency, 'which correspond to the note', note)
 
-plt.figure()
+plt.figure(figsize=(8, 3))
 plt.plot(frequency, power_spectra)
 plt.ylabel('Power spectra [arb. units]')
 plt.xlabel('Frequency [Hertz]')
 plt.xlim([0, 3000])
 plt.tight_layout()
+plt.savefig('figure_q2_frequency.png', dpi=300)
 
 plt.show()
