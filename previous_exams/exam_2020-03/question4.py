@@ -76,5 +76,3 @@ circle.move(np.array([-0.5, 2.0]))
 circle.resize(2.0)
 circle.rotate(np.pi/6) # rotate 30 degrees
 print('Circle with centre at {} and bounding box {}'.format(circle.centre, circle.bounding_box()))
-
-

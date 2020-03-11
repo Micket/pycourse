@@ -66,5 +66,3 @@ plt.xlim([0, 3000])
 plt.tight_layout()
 
 plt.show()
-
-

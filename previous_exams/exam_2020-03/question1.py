@@ -28,11 +28,11 @@ with open(filename, 'r', encoding='ISO-8859-1') as file:
         degrees[key] = no_degrees + degrees[key] if key in degrees else no_degrees
 
 
-print('{:7s} | {:>5s}, {:>5s}'.format('Year', *degrees.keys()))
+print('{:7s} | {:>5s} {:>5s}'.format('Year', *degrees.keys()))
 print('-'*24)
 for item in zip(years, *degrees.values()):
     year, numbers = item[0], item[1:]
-    print('{:>7s} | {:5d}, {:5d}'.format(year, *numbers))
+    print('{:>7s} | {:5d} {:5d}'.format(year, *numbers))
 
 
 # Part B
@@ -50,4 +50,3 @@ plt.legend(loc='best')
 plt.ylim(bottom=0)
 plt.tight_layout()
 plt.show()
-    
