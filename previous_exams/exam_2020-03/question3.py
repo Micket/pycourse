@@ -26,7 +26,7 @@ class InventoryItem(object):
         self.unit = unit
 
     def __repr__(self):
-        return f"{self.name} {self.unit.name} ({self.storage.name})"
+        return f"{self.name} ({self.storage.name}) [{self.unit.name}]"
 
     def __hash__(self):
         return hash(self.name)
@@ -48,7 +48,7 @@ class Inventory(object):
 
     def remove(self, item: InventoryItem, count: float or int = 1):
         if item not in self.items:
-            raise NameError
+            raise KeyError
 
         if self.items[item] - count < 0:
             raise ValueError
@@ -58,7 +58,8 @@ class Inventory(object):
     def __repr__(self):
         text = "{}: ".format(self.name)
         for item in sorted(self.items):
-            text += str(item) + " [" + str(self.items[item]) + "] "
+            text += str(item) + ": " + str(self.items[item]) + ", "
+        text = text.rstrip(", ")
         return text
 
 
@@ -79,11 +80,11 @@ print(inv)
 try:
     inv.remove(InventoryItem('Concrete'))
     print(f'Wow, did we store concrete in the {inv.name}!')
-except NameError:
+except KeyError:
     print(f'No concrete in the {inv.name}!')
 
 try:
     inv.remove(egg, 10)
-    print(f'Wow, plenty eggs in the {inv.name}!')
+    print(f'Wow, plenty of eggs in the {inv.name}!')
 except ValueError:
     print(f'Not enough eggs in the {inv.name}!')
