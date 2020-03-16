@@ -17,7 +17,7 @@ Exam for the course DAT171 Object oriented programming in Python
 
 **Formalities**: In each file you hand in, you should write your full name and birth date. Due to the extraordinary situation the exam cannot be written anonymously. *Make sure you only hand in one solution for each question, otherwise you will receive **zero** points.* Complex sections of your code should have a descriptive comment of what is achieved.
 
-When you finish the exam please submit your solution to each question through Canvas as a `.py` file or a `.zip` archive.
+When you finish the exam please submit your solution to each question through Canvas as one `.py` file per question.
 
 **Corrections:** The results will be announced through Ladok, on or before April 2nd.
 The review will be the same day (April 2nd) 12:20-13:00 at Hörsalsvägen 7b, 3:rd floor.
