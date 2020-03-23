@@ -46,17 +46,17 @@ class Inventory(object):
 
         self.items[item] += amount
 
-    def remove(self, item: InventoryItem, count: float or int = 1):
+    def remove(self, item: InventoryItem, amount: float or int = 1):
         if item not in self.items:
             raise KeyError
 
         if amount < 0:
             raise ValueError
 
-        if self.items[item] - count < 0:
+        if self.items[item] - amount < 0:
             raise ValueError
 
-        self.items[item] -= count
+        self.items[item] -= amount
 
     def __repr__(self):
         text = "{}: ".format(self.name)
