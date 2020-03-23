@@ -50,6 +50,9 @@ class Inventory(object):
         if item not in self.items:
             raise KeyError
 
+        if amount < 0:
+            raise ValueError
+
         if self.items[item] - count < 0:
             raise ValueError
 
@@ -71,6 +74,7 @@ egg = InventoryItem('Egg', storage=StorageType.Cold)
 inv.add(beans, 4)
 inv.add(rice, 0.5)
 inv.add(egg, 6)
+inv.add(rice, 1)
 print(inv)
 
 inv.remove(beans, 2)
@@ -78,7 +82,7 @@ inv.remove(egg, 1)
 print(inv)
 
 try:
-    inv.remove(InventoryItem('Concrete'))
+    inv.remove(InventoryItem('Concrete'), 1)
     print(f'Wow, did we store concrete in the {inv.name}!')
 except KeyError:
     print(f'No concrete in the {inv.name}!')
