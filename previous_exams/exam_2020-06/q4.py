@@ -85,7 +85,7 @@ class Replacer(CharacterCrypto):
 message = 'Robber Bob robs ten banks'
 print('Original message:',  message)
 
-# Part A
+# Part B
 pcrypto = PirateLanguage()
 psecret = pcrypto.encode(message)
 print('Pirate encrypted:', psecret)
