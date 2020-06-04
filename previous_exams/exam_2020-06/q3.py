@@ -1,6 +1,14 @@
 from __future__ import annotations
 from datetime import date
 
+class InvalidPerson(Exception):
+    def __init__(self, msg):
+        self.msg = msg
+
+    def __str__(self):
+        return self.msg
+
+
 class Person(object):
     def __init__(self, firstname: str, lastname: str, born: date, dead: date = None):
         self.first = firstname
@@ -15,6 +23,8 @@ class Person(object):
         self._parents.add(parent)
 
     def add_child (self, child: Person):
+        if child in self._children:
+            raise InvalidPerson("You can only add a child once!")
         self._children.add(child)
 
     def set_spouse(self, spouse: Person):
@@ -51,16 +61,23 @@ class Person(object):
         if self._children:
             print(" Children:", ", ".join([str(c) for c in self._children]))
 
+
 class Family(object):
     def __init__(self, parent1: Person, parent2: Person = None):
         self.parents = [parent1]
         if parent2:
+            if parent1 == parent2:
+                raise InvalidPerson("You can't add a parent as a child to the same family!")
             self.parents.append(parent2)
             parent1.set_spouse(parent2)
             parent2.set_spouse(parent1)
 
     def add_child(self, child: Person):
         for p in self.parents:
+            if child == p:
+                raise InvalidPerson("A person can only occur once in a Family!")
+            if child.born <= p.born:
+                raise InvalidPerson("A child must be younger than its parent!")
             p.add_child(child)
             child.add_parent(p)
 
@@ -80,7 +97,28 @@ f2 = Family(p2, p1)
 f2.add_child(p3)
 f2.add_child(p4)
 
+
 p1.show()
 p3.show()
 
 print(p5, "Descendants:", p5.count_descendants())
+
+try:
+    f3 = Family(p1, p1)
+except InvalidPerson as e:
+    print(e)
+
+try:
+    f2.add_child(p2)
+except InvalidPerson as e:
+    print(e)
+
+try:
+    f2.add_child(p3)
+except InvalidPerson as e:
+    print(e)
+
+try:
+    f2.add_child(p5)
+except InvalidPerson as e:
+    print(e)
