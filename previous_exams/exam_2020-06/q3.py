@@ -88,7 +88,8 @@ p4 = Person("Knut", "Andersson", date(2015, 8, 29))
 
 p5 = Person("Lovisa", "Eriksson", date(1927, 7, 3), date(2003, 2, 9))
 
-print(p1, p2, p3, p4, sep=", ")
+print(p1, p2, sep=", ")
+print(p3, p4, sep=", ")
 
 f1 = Family(p5)
 f1.add_child(p2)
