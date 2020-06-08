@@ -67,7 +67,7 @@ class Family(object):
         self.parents = [parent1]
         if parent2:
             if parent1 == parent2:
-                raise InvalidPerson("You can't add a parent as a child to the same family!")
+                raise InvalidPerson("You can't add a parent twice to the same family!")
             self.parents.append(parent2)
             parent1.set_spouse(parent2)
             parent2.set_spouse(parent1)
