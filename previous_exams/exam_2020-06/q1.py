@@ -5,8 +5,11 @@
 
 filename = 'A_Journal_of_the_Plauge_Year.txt'
 
-word_occurence = dict()
+def filter_word(word):
+    """ Remove trailing separation characters and convert to lower case. """
+    return word.strip('.,!?;:)([]').lower()
 
+word_occurence = dict()
 N_words = 0
 
 with open(filename, 'r') as file:
@@ -18,7 +21,7 @@ with open(filename, 'r') as file:
             N_words += 1
 
             # -- Remove special characters from the beginning and end of the word
-            word = word.strip('.,!?;:)([]').lower()
+            word = filter_word(word)
 
             # -- Increase the number of occurences of the word by one
             if word not in word_occurence:
