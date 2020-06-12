@@ -30,17 +30,11 @@ class Person(object):
     def set_spouse(self, spouse: Person):
         self._spouse = spouse
 
-    def __eq__(self, other: Person):
-        return self.first == other.first and self.last == other.last and self.born == other.born
-
     def count_descendants(self) -> int:
         count = len(self._children)
         for c in self._children:
             count += c.count_descendants()
         return count
-
-    def __lt__(self, other: Person):
-        return (self.last, self.first, self.born) < (other.last, other.first, other.born)
 
     def __hash__(self):
         return hash((self.last, self.first, self.born))
