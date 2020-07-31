@@ -6,7 +6,7 @@ def test_vector(v):
     print("Collected:", v.collect())
 
     print("Adding 3")
-    v2 = 3 + v
+    v2 = v + 3
     print("Vector:", v2)
     print("Length:", len(v2))
     print("At pos 1 and 3:", v2[1], v2[3])
