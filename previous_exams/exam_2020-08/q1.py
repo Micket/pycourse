@@ -1,35 +1,35 @@
 
-import io
 import numpy as np
-import matplotlib.pyplot as plt
 
 
-def read_from_file(filename, header=None):
+def from_txt(filename, header=None, skiprows=0, comments=[]):
     with open(filename, 'r') as file:
         text = ''
         header_found = False
         for line in file:
             if header_found: text += line
             if header is not None and header in line: header_found = True
-    return text
+
+    data = []
+    for l in text.splitlines()[skiprows:]:
+        if any([c in l for c in comments]): continue
+        row = list(map(float, l.split()))
+        if len(row) != 0: data.append(row)
+
+    return np.array(data).T
 
 
 # -- Long time data
 
-text = read_from_file(
-    filename='edc-co2-2008.txt',
-    header='3. Composite CO2 record (0-800 kyr BP)')
-
-edc_yrBP, edc_co2_ppmv = np.loadtxt(io.StringIO(text), skiprows=11).T
+edc_yrBP, edc_co2_ppmv = from_txt(
+    filename='edc-co2-2008.txt', header='3. Composite CO2 record (0-800 kyr BP)', skiprows=11)
 edc_year = 2000 - edc_yrBP
 
 
 # -- Intermediate time data
 
-text = read_from_file(
-    filename='lawdome.combined.dat',
-    header=' Mean Air Age,    CO2, 20 Year Smoothed')
-law_year, law_co2_ppmv = np.loadtxt(io.StringIO(text), comments=['Mean', 'year']).T
+law_year, law_co2_ppmv = from_txt(
+    filename='lawdome.combined.dat', header=' Mean Air Age,    CO2, 20 Year Smoothed', comments=['Mean', 'year'])
 
 sidx = np.argsort(law_year)
 law_year, law_co2_ppmv = law_year[sidx], law_co2_ppmv[sidx]
@@ -37,20 +37,20 @@ law_year, law_co2_ppmv = law_year[sidx], law_co2_ppmv[sidx]
 
 # -- Atmospheric measurments from present day
 
-text = read_from_file(
+_, _, au_year, au_co2_ppm, _ = from_txt(
     filename='cfa_02D0_mm.co2', header='YYYY MM    Dec Date   CO2 (ppm)       SD')
-data = np.loadtxt(io.StringIO(text)).T
-_, _, au_year, au_co2_ppm, _ = data
 
 idx = np.argwhere(au_co2_ppm != -999.)
 au_year, au_co2_ppm = au_year[idx], au_co2_ppm[idx]
 
 
-def scale_year(year):
-    return (2020 - year) / 1000.
+# -- Plot result
 
+import matplotlib.pyplot as plt
 
 plt.figure(figsize=(8, 3))
+
+def scale_year(year): return (2020 - year) / 1000.
 
 plt.plot(scale_year(edc_year), edc_co2_ppmv, label='Composite ice core record')
 plt.plot(scale_year(law_year), law_co2_ppmv, label='Law Dome ice core record')
