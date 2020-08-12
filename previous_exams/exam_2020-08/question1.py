@@ -3,19 +3,39 @@ import numpy as np
 
 
 def from_txt(filename, header=None, skiprows=0, comments=[]):
+
+    # Read file and add all contents after the header line to `text`
+    
     with open(filename, 'r') as file:
+
         text = ''
         header_found = False
+
         for line in file:
-            if header_found: text += line
-            if header is not None and header in line: header_found = True
+
+            if header_found:
+                text += line
+
+            if header is not None and header in line:
+                header_found = True
+    
+    # for each row in `text` convert elements to float and add to list `data`
 
     data = []
-    for l in text.splitlines()[skiprows:]:
-        if any([c in l for c in comments]): continue
-        row = list(map(float, l.split()))
-        if len(row) != 0: data.append(row)
 
+    for l in text.splitlines()[skiprows:]: # Skip `skiprows` number of rows in `text`
+
+        # Skip lines containing any of the strings in the list `comments`
+        if any([c in l for c in comments]):
+            continue
+        
+        row = [ float(x) for x in l.split() ] # Convert line to list of floats
+
+        if len(row) != 0:
+            data.append(row) 
+
+    # Return a NumPy array with the data converted to float
+    
     return np.array(data).T
 
 
@@ -60,6 +80,7 @@ plt.ylabel('Concentration CO$_2$ (ppmv)')
 plt.xlabel('Thousand years before present (year 2020)')
 plt.legend(loc='best')
 plt.grid(True)
+plt.xlim([810, -30])
 plt.tight_layout()
 
 plt.savefig('figure_co2_concentration.png', dpi=600)
