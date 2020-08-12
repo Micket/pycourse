@@ -1,5 +1,8 @@
 
 import numpy as np
+import matplotlib.pyplot as plt
+from scipy.spatial import Voronoi, voronoi_plot_2d
+
 
 # -- Part A
 
@@ -7,6 +10,17 @@ def new_rotated_points(A, N_p, r):
     dA = 1.j * r * np.exp(1.j * 2*np.pi/N_p * np.arange(N_p))
     A_new = (A[:, None] + dA[None, :]).flatten()
     return A_new
+
+
+# -- Part B
+    
+def make_points(N_p=5, N_iter=3, r=0.5):
+    A = np.array([0.])
+    for m in range(N_iter):
+        A = new_rotated_points(A, N_p, r**m)
+    x, y = A.real, A.imag
+    #x, y = A.view(np.float).reshape((len(A), 2)).T
+    return x, y
 
 
 # -- Test Part A
@@ -18,25 +32,12 @@ for N_p in [2, 4, 6]:
     print(f'N_p = {N_p} : A = {A}')
 
 
-# -- Part B
-    
-def make_points(N_p=5, N_iter=3, r=0.5):
-    A = np.array([0.])
-    for m in range(N_iter):
-        A = new_rotated_points(A, N_p, r**m)
-    x, y = A.view(np.float).reshape((len(A), 2)).T
-    return x, y
-
-
 # -- Test Part B
 
 print('{0}\n{1}'.format(*make_points(N_p=4, N_iter=2, r=0.5)))
 
 
 # -- Part C
-
-import matplotlib.pyplot as plt
-from scipy.spatial import Voronoi, voronoi_plot_2d
 
 plt.figure(figsize=(5, 5))
 ax = plt.subplot()
