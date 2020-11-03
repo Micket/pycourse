@@ -7,9 +7,9 @@
 * 2 föreläsningar per vecka. Ges på Engelska
 * 3 handledda datorlabbstillfällen per vecka
 * Lärare från e-Commons (C3SE)
-    * Thomas Svedberg, <thomas.svedberg@chalmers.se> (examinator)
-    * Mikael Öhman, <mikael.ohman@chalmers.se>
-    * Hugo Strand, <hugo.strand@chalmers.se>
+    * Thomas Svedberg, <thomas.svedberg@chalmers.se> (e-Commons/C3SE) (examinator)
+    * Mikael Öhman, <mikael.ohman@chalmers.se> (e-Commons/C3SE)
+    * Fredrik Ekre, <fredrik.ekre@chalmers.se> (Material och beräkningsmekanik)
 
 # Varför Python
 
@@ -52,5 +52,14 @@
 * Tentamen betygsätter kursen:
     * består typiskt av 4 uppgifter (t.ex. 7p filer och text, 5p NumPy/SciPy, 6p klasser, 7p klasshierarkier med arv) 
     * 10p = 3:a, 15p = 4:a, 20p = 5:a
-    * ges i datorsal
+    * ges i datorsal (med möjlighet att köra koden innan man lämnar in)
     * tillåter all kurslitteratur, föreläsningsanteckningar och referensmaterial för Python, NumPy, SciPy & Matplotlib
+    * 5 timmar
+
+# Ändringar från förra året
+
+* Den nya första inlämningsuppgiften tog för mycket tid VT20 och kommer att justeras ned för att minska arbetsbelastningen.
+* Om epidimin fortsätter är det sannolikt att flera eller alla undervisningsmoment kommer att göras på distans, e.g.
+    * Förinspelade föreläsningar
+    * Frågor vid arbete på inlämningsuppgifter via zoom
+
