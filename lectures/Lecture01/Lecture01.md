@@ -3,9 +3,10 @@
 * Teachers:
     * Thomas Svedberg, tel. 772 1522, <thomas.svedberg@chalmers.se>
     * Mikael Öhman, tel. 772 3191, <mikael.ohman@chalmers.se>
-    * Hugo Strand, tel. 772 1112 <hugo.strand@chalmers.se>
-* Find Thomas Material & Computational Mechanics (3rd floor M-building)
-* Find Mikael and Hugo at Physics / C3SE office (5th floor Origo building)
+    * Kristoffer Carlsson, <kristoffer.carlsson@chalmers.se> 
+    * Fredrik Ekre, tel. 772 1227, <fredrik.ekre@chalmers.se>
+* Find Thomas, Kristoffer and Fredrik at Material & Computational Mechanics (3rd floor M-building)
+* Find Mikael at Physics / C3SE office (5th floor Origo building)
 
 Course literature:
 
@@ -110,28 +111,27 @@ Create a simple interactive graphical application from scratch.
 
 
 # Software
-Software will be available on the Windows machines in ES61/62, E-Studion and MT0 (we will primarily be in the
-E-building!).
+Software will be available on the Windows machines in ES61/62, E-Studion.
 
 * Python 3
 * NumPy, SciPy, Matplotlib
 * PyQt
 * Recommended Integrated Programming Environment (IDE): PyCharm (community edition) <https://www.jetbrains.com/pycharm/download/>
 * Laptops:
-    * Anaconda <http://continuum.io/downloads>
-    * You will have to use the school windows computers to 
+    * Anaconda <https://www.anaconda.com/products/individual>
+    * You will have to use the school windows computers too ...
 
 
 # Consultation
 * E-mail is preferred before the Canvas message system
 * 3 computer sessions each week (you're expected to work on the assignments on your own in-between sessions!)
-* Thomas office on 3rd floor in the M-building (Material & Computational Mechanics / Material & Beräkningsmekanik).
-* Mikaels and Hugos offices at Physics / C3SE office (5th floor Origo building)
+* Thomas, Kristoffer and Fredrik offices on 3rd floor in the M-building (Material & Computational Mechanics / Material & Beräkningsmekanik).
+* Mikaels office at Physics / C3SE office (5th floor Origo building)
 
 
 # Schedule
   * L = Lectures Mon: HA3, Thu: HA2
-  * CS = Computer lab session Mon, Thu: ES61 & ES62, Fri: E-studion & MT0
+  * CS = Computer lab session Mon, Thu: ES61 & ES62, Fri: E-studion
  
 
 | Time  | Mon| Tue | Wed | Thu | Fri |
@@ -209,7 +209,7 @@ E-building!).
       - Proper Unicode
       - Dictionaries: `x.has_key(y)`{.py} $\leadsto$ `y in x`{.python}
       - Renamed functions: `y.iteritems()`{.python} $\leadsto$ `y.items()`{.python}
-  * Python 2.6-2.7 very much widespread, but Python 3.x is the future! Python 2.7 reached end-of-life 2020-01-01.
+  * Python 2.6-2.7 very much widespread, but Python 3.x is the future! Python 2.7 reached end-of-life 2021-01-01!
 
 
 # Running Python code
@@ -350,5 +350,3 @@ Students seem to end up with many different paths to anaconda, so here are a few
 
   * Linux:
      - Wherever you unpacked the tarball
-
-
