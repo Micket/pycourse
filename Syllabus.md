@@ -1,17 +1,20 @@
 ## Course-PM
 
-DAT171 Object-oriented programming in Python lp3 VT20 (7.5 hp)
+DAT171 Object-oriented programming in Python lp3 VT21 (7.5 hp)
 
 The course is offered by the department of Industrial and Materials Science
 
 - [Schedule @ TimeEdit](https://cloud.timeedit.net/chalmers/web/public/s.html?sid=3%26object=course_DAT171%26type=course%26p=0.m%2C2.w)
-- [Student Portal Course page](https://student.portal.chalmers.se/en/chalmersstudies/courseinformation/Pages/SearchCourse.aspx?course_id=29440&parsergrp=3)
+
+- [Student Portal Course page](https://student.portal.chalmers.se/en/chalmersstudies/courseinformation/Pages/SearchCourse.aspx?course_id=30822&parsergrp=3)
 
 ### Contact details
 
 - Examiner: Thomas Svedberg, IMS, tel. 772 1522, ​thomas.svedberg@chalmers.se
-- Lecturer: Hugo Strand, Physics, tel. 772 1112, hugo.strand@chalmers.se
 - Lecturer: Mikael Öhman, Physics, tel. 772 3191, mikael.ohman@chalmers.se
+- Assistant: Kristoffer Carlsson, kristoffer.carlsson@chalmers.se, 
+- Assistant: Fredrik Ekre, IMS, tel. 772 1227, fredrik.ekre@chalmers.se
+
 
 ### Course literature
 
@@ -20,8 +23,8 @@ The course is offered by the department of Industrial and Materials Science
 - [3] [Another Python tutorial](http://www.python-course.eu/python3_course.php)
 - [4] NumPy and SciPy references: ​<http://docs.scipy.org/doc/>
 - [5] Matplotlib reference: ​<http://matplotlib.org/contents.html>
-- [6] PyQt 5 reference: ​<http://zetcode.com/gui/pyqt5/>​ and ​<http://doc.qt.io/qt-5.12>
-- [7] NumPy for Matlab users: ​<https://docs.scipy.org/doc/numpy-1.15.0/user/numpy-for-matlab-users.html>
+- [6] PyQt 5 reference: ​<http://zetcode.com/gui/pyqt5/>​ and ​<http://doc.qt.io/qt-5.14>
+- [7] NumPy for Matlab users: ​<https://numpy.org/doc/stable/user/numpy-for-matlab-users.html>
 
 All references to chapters and sections in the course material will also refer to free online material as well for those who choose not to buy the book.
 
@@ -33,7 +36,7 @@ The software will be available on the Windows machines in​ ​E-Studion, ES61-
 
 If you want to use your own computer then you have multiple options when installing Python. Make sure to get version 3.6 (or later) and a compatible version of NumPy, SciPy, PyQt, and IPython.
 
-If you are using a Linux machine, the packages should be available in the software repository. Mac and Windows users can get a hold of a Python 3 distribution such as Anaconda at <https://www.anaconda.com/download>
+If you are using a Linux machine, the packages should be available in the software repository. Mac and Windows users can get a hold of a Python 3 distribution such as Anaconda at <https://www.anaconda.com/products/individual>
 
 Installation support for personal laptops is given on the first computer lab.
 
@@ -110,7 +113,7 @@ In addition, there will be practice problems available that are not compulsory, 
 
 ### Examination dates
 
-​Will take place at 19th of March 2019 in the computer rooms in TO-BE-DETERMINED​ from 8:30-13:30. The re-exams will be on June 11 and August 20.
+​Will take place at 16th of March 2019 in the computer rooms in TO-BE-DETERMINED​ from 8:30-13:30. The re-exams will be on June 9 and August 17.
 
 The Python 3, NumPy, SciPy, and Matplotlib reference manuals as well as the Lecture Notes will be available on the computers.
 

@@ -50,4 +50,4 @@ W8 | Mon  8/3 | 13 - 15 | L16 | Example exam
 |  | Thu 11/3 | 08 - 10 | L17 | MISSING LECTURE?!
 |  |          | 10 - 12 | CS  |
 |  | Fri 12/3 | 13 - 15 | CS  |
-W9 | Tue 15/3 |         | Exam |
+W9 | Tue 16/3 |         | Exam |
