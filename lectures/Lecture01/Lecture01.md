@@ -7,6 +7,7 @@
     * Fredrik Ekre, tel. 772 1227, <fredrik.ekre@chalmers.se>
 * Find Thomas, Kristoffer and Fredrik at Material & Computational Mechanics (3rd floor M-building)
 * Find Mikael at Physics / C3SE office (5th floor Origo building)
+* This year we are mostly working from home! Better contact us through mail!
 
 Course literature:
 
@@ -130,8 +131,8 @@ Software will be available on the Windows machines in ES61/62, E-Studion.
 
 
 # Schedule
-  * L = Lectures Mon: HA3, Thu: HA2
-  * CS = Computer lab session Mon, Thu: ES61 & ES62, Fri: E-studion
+  * L = Lectures Mon: ~~HA3, Thu: HA2~~ Zoom
+  * CS = Computer lab session ~~Mon, Thu: ES61 & ES62, Fri: E-studion~~ Zoom
  
 
 | Time  | Mon| Tue | Wed | Thu | Fri |
@@ -141,7 +142,7 @@ Software will be available on the Windows machines in ES61/62, E-Studion.
 | 13-15 | L  |     |     |     | CS  |
 | 15-17 | CS |     |     |     |     |
 
-  * Extra lecture on Friday 13-15 (Room HA3) first week!
+  * Extra lecture on Friday 13-15 ~~(Room HA3)~~ first week!
 
 
 # Lecture overview
