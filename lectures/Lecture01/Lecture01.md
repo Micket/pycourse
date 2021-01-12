@@ -278,7 +278,7 @@ Software will be available on the Windows machines in ES61/62, E-Studion.
     
     [SymPy](https://nbviewer.jupyter.org/github/ipython/ipython/blob/4.0.x/examples/IPython%20Kernel/SymPy.ipynb)
 
-    [Plotly](https://plot.ly/python/3d-plots-tutorial/)
+    [Plotly](https://plotly.com/python/ipython-notebook-tutorial/)
 
 
 # IPython
