@@ -22,10 +22,12 @@ def read_coordinate_file(filename):
     return np.array(coordinates)
 
 
-def plot_points(coord_list, indices, path):
+def plot_points(coord_list, indices, path, savefig=True):
     x = coord_list[:, 0]
     y = coord_list[:, 1]
-    fig, ax = plt.subplots(dpi=250)
+    fig, ax = plt.subplots()
+    plt.title("Shortest path")
+
     ax.scatter(x, y, marker='.', color='red', zorder=0)
 
     lines = LineCollection(coord_list[indices, :], zorder=1, colors=(0.5, 0.5, 0.5), linewidths=0.5, alpha=0.75)
@@ -33,8 +35,9 @@ def plot_points(coord_list, indices, path):
 
     path_line = LineCollection([coord_list[path, :]], zorder=2)
     ax.add_collection(path_line)
-
     ax.axis('equal')
+    if savefig:
+        plt.savefig("final_path.pdf")
     plt.show()
 
 

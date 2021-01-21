@@ -87,7 +87,8 @@ Shortest path from 311 to 702 is: [311, 19, 460, 629, 269, 236, 781, 50, 193, 57
 Total distance: 0.1114486118821533
 ```
 
-![Final plot](final_path.png)
+![Final plot](final_path.pdf)
+\
 
 ## Additional instructions
 
