@@ -238,8 +238,6 @@ Software will be available on the Windows machines in ES61/62, E-Studion.
 
   * Python console at the bottom for convenience
 
-  * PyCharm can read Jupyter notebooks (you might need to start the notebook server on your computer)
-
   * Learn the [keyboard shortcuts](https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard.pdf)!
 
       * Ctrl + Mouse click for code navigation
@@ -312,7 +310,7 @@ Out[2]: 214896.0817717206
       - `$ jupyter notebook`
       - Windows: Start the jupyter notebook from start menu
 
-    Use web browser or PyCharm to work with documents.
+    Use web browser to work with documents.
 
   * You will access all the lecture notes this way
 
