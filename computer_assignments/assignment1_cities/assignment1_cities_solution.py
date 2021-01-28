@@ -4,7 +4,7 @@ import scipy.sparse as sp
 from scipy.spatial import cKDTree
 import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
-
+from time import time
 
 def mercator_projection(R, latitude, longitude):
     x = R * pi * longitude / 180
@@ -22,7 +22,7 @@ def read_coordinate_file(filename):
     return np.array(coordinates)
 
 
-def plot_points(coord_list, indices, path, savefig=True):
+def plot_points(coord_list, indices, path, savefig=True, show=False):
     x = coord_list[:, 0]
     y = coord_list[:, 1]
     fig, ax = plt.subplots()
@@ -38,7 +38,8 @@ def plot_points(coord_list, indices, path, savefig=True):
     ax.axis('equal')
     if savefig:
         plt.savefig("final_path.pdf")
-    plt.show()
+    if show:
+        plt.show()
 
 
 def construct_graph_connections(coord_list, radius):
@@ -86,18 +87,40 @@ def compute_path(predecessor_matrix, start_node, end_node):
 input_file, radius, start_city, end_city = 'HungaryCities.txt', 0.005, 311, 702
 #input_file, radius, start_city, end_city = 'GermanyCities.txt', 0.0025, 1573, 10584
 
-coordinates = read_coordinate_file(input_file)
-#indices, distances = construct_graph_connections(coordinates, radius)
-indices, distances = construct_fast_graph_connections(coordinates, radius)
+timings = {}
 
+t = time()
+coordinates = read_coordinate_file(input_file)
+timings["read_coordinate_file"] = time() - t
+
+t = time()
+indices, distances = construct_graph_connections(coordinates, radius)
+timings["construct_graph_connections"] = time() - t
+
+t = time()
+indices, distances = construct_fast_graph_connections(coordinates, radius)
+timings["construct_fast_graph_connections"] = time() - t
+
+t = time()
 graph = construct_graph(indices, distances, len(coordinates))
-path_distances, predecessors = sp.csgraph.shortest_path(graph, indices=start_city, method='D', directed=False, return_predecessors=True)
+timings["construct_graph"] = time() - t
+
+t = time()
+path_distances, predecessors = sp.csgraph.shortest_path(graph, indices=start_city, method='D', directed=False,
+                                                        return_predecessors=True)
 shortest_path = compute_path(predecessors, start_city, end_city)
+timings["task 6 + 7"] = time() - t
+
+t = time()
+plot_points(coordinates, indices, shortest_path)
+timings["plotting"] = time() - t
 
 shortest_path_cost = path_distances[end_city]
 
 print("Shortest path from {} to {} is: {}".format(start_city, end_city, shortest_path))
 print("Total distance: {}".format(shortest_path_cost))
 
-plot_points(coordinates, indices, shortest_path)
-
+print("Timings:")
+pad = max((len(section) for section in timings.keys()))
+for key, time in timings.items():
+    print("{}: {}s".format(key.rjust(pad), round(time, 5)))
