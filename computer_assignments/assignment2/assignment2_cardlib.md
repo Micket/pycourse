@@ -67,9 +67,15 @@ The library must be called “cardlib.py” and should contain classes with asso
 
 5. The poker hand (for a lack of a better name): A `PokerHand` must contain a hand type (high card, one pair, two pair, three of a kind, straight, flush, full house, four of a kind, straight flush) and the highest value(s). The `PokerHand` must overload the < operator in order to be able to compare which `PokerHand` is valued highest based on the hand type and value(s) of the cards in the best hand.
 
-6. Testing code for most of the functions you have written (see below for tutorial).
+6. Testing code for most of the functions you have written (see below for tutorial). A sample testing code is available in Canvas. Your code should pass these tests and in addition you must *at least* add tests for:
+    * More card types and their methods
+    * More hand methods
+    * Further testing the deck and its methods
+    * Card combinations giving the different poker hands
+    * Comparison between different pokerhands
+    * Comparison between hands with card combinations giving the same poker hand, but different card values for both the cards making up the poker hand (for example 2 kings in a pair of kings), and the remaining 3 cards
 
-7. HTML-documentation for everything above generated using Sphinx (see below for tutorial)
+7. HTML-documentation for everything above generated using Sphinx (see below for tutorial). This documentation must include documentation of *all the required and classes and methods*, including a brief description, input parameters and return values. Also include documentation for major classes / methods you add.
 
 You are free to introduce additional methods as you see fit. Simple types, like the `Suit` and the type of poker hand, **must** be represented by an `Enum` type, not raw integers or strings. All classes should be printable in a nice way. Hint: Unicode characters can be used: *[Wikipedia](https://en.wikipedia.org/wiki/Playing_cards_in_Unicode)*.
 
@@ -116,13 +122,15 @@ In addition to the normal documentation of the code, you must also generate a HT
 
 Start by going to `Tools -> Sphinx Quickstart`. The first time you run this in a project, it will ask for a working directory. For this project, choose “[project directory]/doc” by creating a new folder.
 
-![](images/sphinx1.png)
+![](images/sphinx1.png){width=80%}
 
-![](images/sphinx2-crop.png)
+![](images/sphinx2-crop.png){width=50%}
 
-![](images/sphinx3.png)
+![](images/sphinx3.png){width=50%}
 
-![](images/sphinx4.png)
+![](images/sphinx4.png){width=75%}
+
+\newpage
 
 Next, Sphinx Quickstart will ask some questions in a terminal. Most of them can be answered with the default answer (by pressing Enter), but the following questions should be answered like this:
 
@@ -146,26 +154,24 @@ We now need to tell Sphinx what to document. Here we will do the the simplest po
         :members:
                     
         :show-inheritance:
-![](images/sphinx5.png "doc/source/index.rst")
+![](images/sphinx5.png "doc/source/index.rst"){width=30%}
 
 Feel free to add some introduction, examples, whatever.
 
 This document uses the restructured text format, see *[http://www.sphinx-doc.org/en/stable/rest.html](http://www.sphinx-doc.org/en/stable/rest.html)*.
 
 Now to actually creating the manual. Create a new run configuration by going to `Run -> Edit configuration`. 
-![](images/sphinx6.png)
+![](images/sphinx6.png){width=40%}
 
 
 Press the `+` and chose `Python docs -> Sphinx task`.
-
-![](images/sphinx7.png)
+![](images/sphinx7.png){width=40%}
 
 Give the task a name and enter the paths for the input (source) and output (build) inside the doc folder. Here you can choose if you want to generate HTML or PDF (or many other formats) for the documentation. The easiest is HTML but if you have latex installed, feel free to try the PDF version.
-![](images/sphinx8.png)
+![](images/sphinx8.png){width=40%}
 
 Finally, go to `Tools -> Run…` and run the Sphinx task to generate the documentation.
-
-![](images/sphinx9.png)
+![](images/sphinx9.png){width=30%}
 
 To view the generated documentation, open the `doc/build/index.html` file in a web browser. This can be done by finding the file in the PyCharm file tree, right-clicking, and choosing `Open in Browser`.
-![](images/sphinx10.png)
+![](images/sphinx10.png){width=50%}
