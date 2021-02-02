@@ -52,18 +52,24 @@ The library must be called “cardlib.py” and should contain classes with asso
     
     Implement < so that it gives a strict, sensible ordering, but you will have to decide what to do with Aces and suits yourself (hint: look at how tuples handle <). The method `get_value` is intended to help you practice implementing an abstract method, i.e. it should be included even if the need isn’t obvious for this simple class.
 
-2. A class representing the hand: The `Hand` class must have methods for adding a new card, dropping several cards (based on an index list), and sorting the cards.
+2. The class representing the suit must be namne `Suit`, with the suits named `Clubs`, `Diamonds`, `Hearts` and `Spades`. The `Suit` class must be of an enum type.
+
+3. A class representing the hand, `Hand`, which must have methods for
+   * adding a new card
+   * dropping several cards based on an index list
+   * sorting the cards
+
    There must also be a method `best_poker_hand(self, cards=[])` which computes the best hand out of the cards in the hand and cards in the input argument.
 
    The `best_poker_hand` method returns a `PokerHand` object. It must be able to handle a total of more than 5 cards (as is the case in Texas Hold ’em).  See *[Wikipedia List of poker hands](https://en.wikipedia.org/wiki/List_of_poker_hands)*
 
-3. The deck: The class `StandardDeck()` must create a full deck of (52) cards. There must be functions for shuffling and taking the top card (which removes the card from the deck).
+4. The deck: The class `StandardDeck()` must create a full deck of (52) cards. There must be functions for shuffling and taking the top card (which removes the card from the deck).
 
-4. The poker hand (for a lack of a better name): A `PokerHand` must contain a hand type (high card, one pair, two pair, three of a kind, straight, flush, full house, four of a kind, straight flush) and the highest value(s). The `PokerHand` must overload the < operator in order to be able to compare which `PokerHand` is valued highest based on the hand type and value(s) of the cards in the best hand.
+5. The poker hand (for a lack of a better name): A `PokerHand` must contain a hand type (high card, one pair, two pair, three of a kind, straight, flush, full house, four of a kind, straight flush) and the highest value(s). The `PokerHand` must overload the < operator in order to be able to compare which `PokerHand` is valued highest based on the hand type and value(s) of the cards in the best hand.
 
-5. Testing code for most of the functions you have written (see below for tutorial)
+6. Testing code for most of the functions you have written (see below for tutorial).
 
-6. HTML-documentation for everything above generated using Sphinx (see below for tutorial)
+7. HTML-documentation for everything above generated using Sphinx (see below for tutorial)
 
 You are free to introduce additional methods as you see fit. Simple types, like the `Suit` and the type of poker hand, **must** be represented by an `Enum` type, not raw integers or strings. All classes should be printable in a nice way. Hint: Unicode characters can be used: *[Wikipedia](https://en.wikipedia.org/wiki/Playing_cards_in_Unicode)*.
 
