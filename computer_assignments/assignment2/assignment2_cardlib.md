@@ -5,7 +5,7 @@ header-includes:
 
 
 # DAT171 - Computer assignment 2
-### (2020-02-12)
+### (2021-02-02)
 
 This assignment will focus on Object Oriented Programming (OOP). The objective is to write a general library for standard playing cards (52 card decks). This library will be used in assignment 3 to build a simple Texas Hold’em poker game.
 
