@@ -3,7 +3,6 @@ header-includes:
         - \usepackage[left=1.9cm, right=1.9cm, top=1.5cm, bottom=1.9cm]{geometry}
 ---
 
-
 # DAT171 - Computer assignment 2
 ### (2021-02-02)
 
@@ -43,7 +42,7 @@ Optional step: Create a class to represent a `Player` for a Texas Hold’em poke
 
 The library must be called “cardlib.py” and should contain classes with associated methods and functions that are helpful for creating many types of card games. In particular, it must contain **_classes_** that represent:
 
-1. The playing cards: The classes listed below **must** inherit from an abstract base class `PlayingCard`. They must be comparable with the < and == operators, and a method `get_value()` must be overloaded in each subclass. The following constructors **must** exist:
+1. The playing cards: The classes listed below **must** inherit from an abstract base class `PlayingCard`. They must be comparable with the < and == operators, and a method `get_value()` must be overloaded in each subclass.  The following constructors **must** exist:
     1. `NumberedCard(value: int, suit: Suit)`
     2. `JackCard(suit: Suit)`
     3. `QueenCard(suit: Suit)`
@@ -52,7 +51,7 @@ The library must be called “cardlib.py” and should contain classes with asso
     
     Implement < so that it gives a strict, sensible ordering, but you will have to decide what to do with Aces and suits yourself (hint: look at how tuples handle <). The method `get_value` is intended to help you practice implementing an abstract method, i.e. it should be included even if the need isn’t obvious for this simple class.
 
-2. The class representing the suit must be namne `Suit`, with the suits named `Clubs`, `Diamonds`, `Hearts` and `Spades`. The `Suit` class must be of an enum type.
+2. The class representing the suit must be named `Suit`, with the suits named `Clubs`, `Diamonds`, `Hearts` and `Spades`. The `Suit` class must be of an enum type.
 
 3. A class representing the hand, `Hand`, which must have methods for
    * adding a new card
@@ -72,7 +71,7 @@ The library must be called “cardlib.py” and should contain classes with asso
     * More hand methods
     * Further testing the deck and its methods
     * Card combinations giving the different poker hands
-    * Comparison between different pokerhands
+    * Comparison between different poker-hands
     * Comparison between hands with card combinations giving the same poker hand, but different card values for both the cards making up the poker hand (for example 2 kings in a pair of kings), and the remaining 3 cards
 
 7. HTML-documentation for everything above generated using Sphinx (see below for tutorial). This documentation must include documentation of *all the required and classes and methods*, including a brief description, input parameters and return values. Also include documentation for major classes / methods you add.
