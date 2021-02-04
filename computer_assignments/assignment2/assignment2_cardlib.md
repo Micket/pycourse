@@ -42,15 +42,14 @@ Optional step: Create a class to represent a `Player` for a Texas Hold’em poke
 
 The library must be called “cardlib.py” and should contain classes with associated methods and functions that are helpful for creating many types of card games. In particular, it must contain **_classes_** that represent:
 
-
 1. The playing cards: The classes listed below **must** inherit from an abstract base class `PlayingCard`. They must be comparable with the `<` and `==` operators, and a method `get_value()` must be overloaded in each subclass. The following constructors **must** exist:
     1. `NumberedCard(value: int, suit: Suit)`
     2. `JackCard(suit: Suit)`
     3. `QueenCard(suit: Suit)`
     4. `KingCard(suit: Suit)`
     5. `AceCard(suit: Suit)`
- 
- Implement < so that it gives a strict, sensible ordering, but you will have to decide what to do with Aces and suits yourself (hint: look at how tuples handle <). The method `get_value` is intended to help you practice implementing an abstract method, i.e. it should be included even if the need isn’t obvious for this simple class.
+
+ Implement `<` so that it gives a strict, sensible ordering, but you will have to decide what to do with Aces and suits yourself (hint: look at how tuples handle `<`). The method `get_value` is intended to help you practice implementing an abstract method, i.e. it should be included even if the need isn’t obvious for this simple class.
 
 2. The class representing the suit must be named `Suit`, with the suits named `Clubs`, `Diamonds`, `Hearts` and `Spades`. The `Suit` class must be of an enum type.
 
@@ -120,7 +119,7 @@ Below are a few steps to help you get started.
 
 In addition to the normal documentation of the code, you must also generate an HTML (or PDF) manual for the API of your library, using the tool *[Sphinx](http://www.sphinx-doc.org/en/stable/)*. This section will give a short tutorial on how to generate such a manual from within PyCharm.
 
-Start by going to `Tools -> Sphinx Quickstart`. The first time you run this in a project, it will ask for a working directory. For this project, choose “[project directory]/doc” by creating a new folder.
+Start by going to `Tools -> Sphinx Quickstart` (you might need to install the Sphinx package). The first time you run this in a project, it will ask for a working directory. For this project, choose “[project directory]/doc” by creating a new folder.
 
 ![](images/sphinx1.png){width=80%}
 
@@ -134,45 +133,57 @@ Start by going to `Tools -> Sphinx Quickstart`. The first time you run this in a
 
 Next, Sphinx Quickstart will ask some questions in a terminal. Most of them can be answered with the default answer (by pressing Enter), but the following questions should be answered like this:
 
+```
  > Separate source and build directories (y/n) [n]: y
  > autodoc: automatically insert docstrings from modules (y/n) [n]: y
+```
 
 If you do not get the second question, please go to `doc/source/conf.py`, find the lines
 
- extensions = [\
- ]
+```
+extensions = [
+]
+```
 
 
 and change them to read:
 
- extensions = ['sphinx.ext.autodoc']
+```
+extensions = ['sphinx.ext.autodoc']
+```
 
 We now need to tell Sphinx what to document. Here we will do the simplest possible and just ask Sphinx to generate documentation for the whole module. Go to `doc/source/index.rst` and enter:
 
- .. automodule:: <MODULE NAME>
- 
- :members:
- 
- :show-inheritance:
+```
+.. automodule:: cardpy
+   :members:
+   :show-inheritance:
+```
+
 ![](images/sphinx5.png "doc/source/index.rst"){width=30%}
 
 Feel free to add some introduction, examples, whatever.
 
 This document uses the restructured text format, see *[http://www.sphinx-doc.org/en/stable/rest.html](http://www.sphinx-doc.org/en/stable/rest.html)*.
 
-Now to actually creating the manual. Create a new run configuration by going to `Run -> Edit configuration`. 
+Now to actually creating the manual. Create a new run configuration by going to `Run -> Edit configuration`.
+
 ![](images/sphinx6.png){width=40%}
 
 
 Press the `+` and chose `Python docs -> Sphinx task`.
+
 ![](images/sphinx7.png){width=40%}
 
 Give the task a name and enter the paths for the input (source) and output (build) inside the doc folder. Here you can choose if you want to generate HTML or PDF (or many other formats) for the documentation. The easiest is HTML but if you have latex installed, feel free to try the PDF version.
+
 ![](images/sphinx8.png){width=40%}
 
-Finally, go to `Tools -> Run…` and run the Sphinx task to generate the documentation.
+Finally, go to `Run -> Run…` and run the Sphinx task to generate the documentation.
+
 ![](images/sphinx9.png){width=30%}
 
 To view the generated documentation, open the `doc/build/index.html` file in a web browser. This can be done by finding the file in the PyCharm file tree, right-clicking, and choosing `Open in Browser`.
+
 ![](images/sphinx10.png){width=50%}
 
