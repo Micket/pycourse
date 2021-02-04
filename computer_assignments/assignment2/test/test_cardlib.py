@@ -1,5 +1,3 @@
-import pytest
-from collections import Counter
 from enum import Enum, unique
 from cardlib import *
 
