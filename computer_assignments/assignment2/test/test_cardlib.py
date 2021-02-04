@@ -1,6 +1,5 @@
 import pytest
-from collections import Counter
-from enum import Enum, unique
+from enum import Enum
 from cardlib import *
 
 
@@ -57,7 +56,7 @@ def test_hand():
 
 def test_pokerhands():
     h1 = Hand()
-    h1.add_card(QueenCard(Suit.Hearts))
+    h1.add_card(QueenCard(Suit.Diamonds))
     h1.add_card(KingCard(Suit.Hearts))
 
     h2 = Hand()
@@ -68,9 +67,10 @@ def test_pokerhands():
           NumberedCard(8, Suit.Clubs), NumberedCard(6, Suit.Spades)]
 
     ph1 = h1.best_poker_hand(cl)
+    assert isinstance(ph1, PokerHand)
     ph2 = h2.best_poker_hand(cl)
-    #assert ph1 == PokerHand( <insert your handtype class and data here> )
-    #assert ph2 == PokerHand( <insert your handtype class and data here> )
+    # assert ph1 == PokerHand( <insert your handtype class and data here> )
+    # assert ph2 == PokerHand( <insert your handtype class and data here> )
 
     assert ph1 < ph2
 
@@ -81,5 +81,9 @@ def test_pokerhands():
     assert ph3 < ph4
     assert ph1 < ph2
 
-    #assert ph3 == PokerHand( <insert your handtype class and data here> )
-    #assert ph4 == PokerHand( <insert your handtype class and data here> )
+    # assert ph3 == PokerHand( <insert your handtype class and data here> )
+    # assert ph4 == PokerHand( <insert your handtype class and data here> )
+
+    cl = [QueenCard(Suit.Clubs), QueenCard(Suit.Spades), KingCard(Suit.Clubs), KingCard(Suit.Spades)]
+    ph5 = h1.best_poker_hand(cl)
+    # assert ph5 == PokerHand( <insert yoyr handtype for a Full House and data here> )
