@@ -4,7 +4,7 @@ header-includes:
 ---
 
 # DAT171 - Computer assignment 2
-### (2021-02-02)
+### (2021-02-04)
 
 This assignment will focus on Object-Oriented Programming (OOP). The objective is to write a general library for standard playing cards (52 card decks). This library will be used in assignment 3 to build a simple Texas Hold’em poker game.
 
@@ -117,7 +117,7 @@ Below are a few steps to help you get started.
 
 ## Appendix B: Documentation guide
 
-In addition to the normal documentation of the code, you must also generate an HTML (or PDF) manual for the API of your library, using the tool *[Sphinx](http://www.sphinx-doc.org/en/stable/)*. This section will give a short tutorial on how to generate such a manual from within PyCharm.
+In addition to the normal documentation of the code, you must also generate a HTML (or PDF) manual for the API of your library, using the tool *[Sphinx](http://www.sphinx-doc.org/en/stable/)*. This section will give a short tutorial on how to generate such a manual from within PyCharm.
 
 Start by going to `Tools -> Sphinx Quickstart` (you might need to install the Sphinx package). The first time you run this in a project, it will ask for a working directory. For this project, choose “[project directory]/doc” by creating a new folder.
 
@@ -141,7 +141,7 @@ Next, Sphinx Quickstart will ask some questions in a terminal. Most of them can 
 If you do not get the second question, please go to `doc/source/conf.py`, find the lines
 
 ```
-extensions = [
+extensions = [\
 ]
 ```
 
@@ -155,7 +155,7 @@ extensions = ['sphinx.ext.autodoc']
 We now need to tell Sphinx what to document. Here we will do the simplest possible and just ask Sphinx to generate documentation for the whole module. Go to `doc/source/index.rst` and enter:
 
 ```
-.. automodule:: cardpy
+.. automodule:: <your module name>
    :members:
    :show-inheritance:
 ```
