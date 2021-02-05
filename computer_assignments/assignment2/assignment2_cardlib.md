@@ -78,7 +78,7 @@ The library must be called “cardlib.py” and should contain classes with asso
 
 You are free to introduce additional methods as you see fit. Simple types, like the `Suit` and the type of poker hand, **must** be represented by an `Enum` type, not raw integers or strings. All classes should be printable in a nice way. Hint: Unicode characters can be used: *[Wikipedia](https://en.wikipedia.org/wiki/Playing_cards_in_Unicode)*.
 
-You should hand in **a .zip file **with your library, your tests, and your manual (both the generated manual and the source files needed to run Sphinx to generate the output). Try to avoid non-essential/scrap files in the zip file.
+You should hand in **a .zip file** with your library, your tests, and your manual (both the generated manual and the source files needed to run Sphinx to generate the output). Try to avoid non-essential/scrap files in the zip file.
 
 
 ## Appendix A: Testing guide
@@ -141,7 +141,7 @@ Next, Sphinx Quickstart will ask some questions in a terminal. Most of them can 
 If you do not get the second question, please go to `doc/source/conf.py`, find the lines
 
 ```
-extensions = [\
+extensions = [
 ]
 ```
 
