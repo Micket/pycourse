@@ -71,7 +71,8 @@ Please stick to the given function prototypes, as it makes correcting reports mu
 8. Extend `plot_points(coord_list, indices, path)` to also include the shortest path. Make the shortest path more visible by making it stand out (thicker line width and a noticeable color for example).
 
 9. Record the total time for each of the functions (see the table below for reference).
-   Which routine consumes the most time?
+   Which routine consumes the most time? Do not add anything to your functions in this step,
+   just time things at the places where you call the functions.
    *Hints: Use time.time()*
 
 10. Create the function `construct_fast_graph_connections(coord_list, radius)` that computes all the connections between all the points in `coord_list` that are within the radius given.
