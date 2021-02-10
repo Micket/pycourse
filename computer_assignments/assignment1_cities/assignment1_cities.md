@@ -41,6 +41,8 @@ Please stick to the given function prototypes, as it makes correcting reports mu
    *Hints: Use the function `split` for the strings. Convert a string to a number with the function `float`. Make sure to use a NumPy array to store the data for performance (i.e. the function must return a 2D NumPy array).*
 
 2. Create the function `plot_points(coord_list)` that plots the data points read from the file.
+   Make sure you use a correct aspect ratio so that the countries look similar in your plot as
+   they do on a map.
    *Hints: Remember to call `plt.show()` after plot commands are finished.*
 
 3. Create the function `construct_graph_connections(coord_list, radius)` that computes all the connections between all the points in `coord_list` that are within the radius given.
