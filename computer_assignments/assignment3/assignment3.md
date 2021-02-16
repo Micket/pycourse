@@ -3,10 +3,10 @@ header-includes:
         - \usepackage[left=1.9cm, right=1.9cm, top=1.5cm, bottom=1.9cm]{geometry}
 ---
 
-# DAT171 - Computer assignment 3 (2020-02-19)
+# DAT171 - Computer assignment 3 (2021-02-15)
 
 The objective is to make use of the library from the previous assignment in a graphical user interface for a Texas Hold ‘em game.
-The design should follow the Model-View-Controller concept.
+The design must follow the Model-View-Controller concept.
 It should be possible to play the game until losing or winning.
 There needs to be at least 2 players.
 
@@ -15,8 +15,8 @@ The first step is to create a suitable layout for buttons, players, displaying c
 1. Make a sketch (on paper) of how you want to display your Poker game (do a simple "boxy" design).
    Add sections for all the data you wish to display, for example, each players hand and money, the cards on the table and the pot, bet and fold buttons and whatever you think you may need.
    Think through how you want this game to work on paper first instead of fixing things later.
-   You must make a reuseable view for each player.
-   *Tip: Use only one setup of input buttons (bet, fold etc.), representing the action for the active player.*
+   You must make a reuseable view for each player, so you should allocate a rectangular area that displays all the player information.
+   *Tip: It is easier to only have one setup of input buttons (bet, fold etc.), representing the action for the active player.*
 2. Find suitable QT-layouts to construct your sketch.
    Draw these on paper as well, in order to get a good idea of the hierarchies of the layouts and in what order to construct the widgets.
    You **must** make a (reusable) player view widget that displays a player model.
@@ -33,7 +33,7 @@ The second step is to model the game state, and connect it to the GUI code:
    Think of a game state as the information needed to save the game (who the active player is, which cards are on the table, the pot, etc.).
    Make methods for betting/folding etc. that manipulates this game state. E.g. a class `TexasHoldEm` with the methods `fold`, `call`, `bet` could be suitable.
    You must also create a class representing a player.
-2. Connect the GUI widgets to the model, and add update functions in the view which displays the current state of the model (player cards, money, pot, player turn, etc.).
+2. Connect the GUI widgets to the models, and add update functions in the view which displays the current state of the model (player cards, money, pot, player turn, etc.).
    You must use signals.
 3. Make the game playable, with a definite win/lose state (a popup message is sufficient for notifying losses/victories).
    It is recommended to make a signal for alerting the GUI that the game has ended.
