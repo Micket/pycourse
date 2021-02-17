@@ -128,17 +128,15 @@ class CardView(QGraphicsView):
         self.padding = padding
 
         self.model = card_model
-        # Whenever the this window should update, it should call the "change_cards" method.
+        # Whenever the this window should update, it should call the "__change_cards" method.
         # This can, for example, be done by connecting it to a signal.
         # The view can listen to changes:
-        card_model.new_cards.connect(self.change_cards)
-        # It is completely optional if you want to do it this way, or have some overreaching Player/GameState
-        # call the "change_cards" method instead. z
+        card_model.new_cards.connect(self.__change_cards)
 
         # Add the cards the first time around to represent the initial state.
-        self.change_cards()
+        self.__change_cards()
 
-    def change_cards(self):
+    def __change_cards(self):  # the double underscore is used to indicate that this is a private method.
         # Add the cards from scratch
         self.scene.clear()
         for i, card in enumerate(self.model):

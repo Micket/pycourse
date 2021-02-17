@@ -32,7 +32,7 @@ The second step is to model the game state, and connect it to the GUI code:
 1. Make a class (or classes) that describe the game state. You don't need to support more than 2 players, but some simple betting with win/lose conditions are required.
    Think of a game state as the information needed to save the game (who the active player is, which cards are on the table, the pot, etc.).
    Make methods for betting/folding etc. that manipulates this game state. E.g. a class `TexasHoldEm` with the methods `fold`, `call`, `bet` could be suitable.
-   You must also create a class representing a player.
+   You must also create a class representing a player. Avoid using enumerated variables such as `hand1, hand2, player1, player2`, use lists or tuples instead.
 2. Connect the GUI widgets to the models, and add update functions in the view which displays the current state of the model (player cards, money, pot, player turn, etc.).
    You must use signals.
 3. Make the game playable, with a definite win/lose state (a popup message is sufficient for notifying losses/victories).
