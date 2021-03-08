@@ -1,0 +1,12 @@
+p0 = Paragraph(["Text can be", ItalicText("cursive,"), BoldText("bold"), "or", ItalicText(BoldText("both"), style="color:red")])
+print("first paragraph as HTML:")
+print(p0)
+print()
+p1 = Paragraph(["Chalmers", Link('https://www.chalmers.se', "link", 'color:blue')])
+print("second paragraph as HTML:")
+print(p1)
+print()
+body = Body([p0, p1])
+print("whole body as HTML:")
+print(body)
+
