@@ -1,0 +1,85 @@
+# Question 1: SCB data files (7p)
+
+You have recieved a number of data files from SCB (Statistics Sweden https://www.scb.se/en/) and want to make a small program to
+read, process and display information from these.
+
+The files all have the same basic format, a varying number of words (call this the _label_ here), followed by a period field (on the format yyyyMmm, ex. "2021M03") and finally a field with a value.
+
+**Note:** ".." in the value field indicates no available data!
+
+See the example file `test-data.txt` that can be used for development / debugging, and the "real" file to be used `Energy.txt`. 
+
+
+Part A (2p)
+-------------
+
+**Task:** Write a function `read_data(filename: str)` that can parse files like the ones above and returns
+
+1. a dictionary with all the data and the period as key
+2. a dictionary with all the data and the label* as key
+
+* Let the label be everything but the period and value fields from the files.
+
+Part B (1p)
+-----------
+
+**Task:** Write a function `compute_total(data: dict)` that takes one of the dictionaries generated above and compures and adds the field "total".
+
+I.e. for the test data and the dict with period as key, `data["2020M01"]["total"]` will be `878`.
+
+
+Part C (1p)
+-----------
+
+**Task:** Write a function `sum_for_year(data: dict)` that takes the dictionary with period as key above and creates and returns a new dictionary where the year is the key and data is sumarized over the periods of the year.
+
+
+Part D (1.5p)
+-------------
+
+**Task:** Write a function that takes dictionary with label as key and prints a summary table, see below.
+
+* The heading for the labels can be a fixed variable in your code.
+* The unit for data can be fixed variable in your code. 
+* The width of the label-field must __not__ be a constant, it must be determined by your code. I.e. you should not need to modify the code here when switching between the to files provided.
+
+```
+Produktionsslag                                                    GWh
+----------------------------------------------------------------------
+vattenkraft (inkl pumpkraft), netto                          3046002.0
+vindkraft                                                     163460.0
+kÃ¤rnkraft (kondens), netto                                  2563225.0
+konventionell vÃ¤rmekraft, netto                              519311.0
+mottryck, industriellt                                        202418.0
+mottryck, kraftvÃ¤rmeverk                                     241528.0
+konventionell vÃ¤rmekraft, kondensproduktion                   59539.0
+konventionell vÃ¤rmekraft, gasturbin- och annan produktion      2592.0
+import                                                        473801.0
+```
+
+Part E (1.5p)
+-------------
+
+**Task:** Write a function that takes dictionary with year as key and prints the full table, see below.
+
+* The unit for data can be fixed variable in your code. 
+* The width of the label-field must __not__ be a constant, it must be determined by your code. I.e. you should not need to modify the code here when switching between the to files provided.
+
+First few columns of output:
+```
+ GWh                                                          1974     1975     1976
+------------------------------------------------------------------------------------
+import                                                      6681.0   6313.0   7868.0
+konventionell värmekraft, gasturbin- och annan produktion     35.0    121.0    124.0
+konventionell värmekraft, kondensproduktion                 8076.0   3485.0   7328.0
+konventionell värmekraft, netto                            14953.0  10195.0  14681.0
+kärnkraft (kondens), netto                                  1902.0  11429.0  15240.0
+mottryck, industriellt                                           0        0   3337.0
+mottryck, kraftvärmeverk                                         0        0   3892.0
+vattenkraft (inkl pumpkraft), netto                        56623.0  56978.0  54166.0
+vindkraft                                                        0        0        0
+------------------------------------------------------------------------------------
+ TOTAL                                                     88270.0  88521.0 106636.0
+```
+
+\newpage

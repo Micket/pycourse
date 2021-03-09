@@ -1,0 +1,19 @@
+Some random column header Period Value
+Students in Zoom 2020M01 ..
+Students in Zoom 2020M02 ..
+Students in Zoom 2020M03 10
+Students in Zoom 2020M04 200
+Students in Zoom 2020M05 250
+Students in Zoom 2020M06 20
+Teachers in Zoom 2020M01 2
+Teachers in Zoom 2020M02 4
+Teachers in Zoom 2020M03 30
+Teachers in Zoom 2020M04 35
+Teachers in Zoom 2020M05 40
+Teachers in Zoom 2020M06 15
+Total number of available Zoom slots 2020M01 876
+Total number of available Zoom slots 2020M02 848
+Total number of available Zoom slots 2020M03 421
+Total number of available Zoom slots 2020M04 314
+Total number of available Zoom slots 2020M05 285
+Total number of available Zoom slots 2020M06 739
