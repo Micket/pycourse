@@ -1,29 +1,47 @@
 import numpy as np
-from scipy.integrate import odeint
 import matplotlib.pyplot as plt
+from scipy import optimize
 
-C_in = 5.5
-V = 100
-k = 0.18
-F = lambda t: 17.3
-C0 = 0.3
+def f(x):
+    return (x-1)**2 + 10*np.sin(x)
 
-def dC_dt(C, t):
-    return F(t)/V * (C_in - C) - k*C*C
+x = np.arange(-10, 10, 0.1)
 
-t = np.linspace(0, 10, 10001)
-C = odeint(dC_dt, C0, t)[:,0]
+methods = ['CG', 'BFGS', 'Powell']
+starts = [1, 5, 7, 10]
 
-# Many options
-ind = np.where(C >= 1.0)[0][0]
+for i, method in enumerate(methods):
+    plt.subplot(2,2,i+1)
+    plt.plot(x, f(x))
+    plt.xlabel('$x$')
+    plt.ylabel('$f(x)$')
+    plt.title(method)
+    plt.grid()
 
-print('t = {:.2f}, C = {:e}'.format(t[ind], C[ind]))
+    print('Using method:', method)
 
-Cp = dC_dt(C, t)
-mask = Cp < 0.01
-t2 = t[mask][0]
-C2 = C[mask][0]
-print('t = {:.2f}, C = {:e}, dC/dt = {:e}'.format(t2, C2, dC_dt(C2, t2)))
+    for start in starts:
+        res = optimize.minimize(f, start, method=method, options={'disp': False})
+        plt.plot(res.x, f(res.x), 'bo')
+        print(' Start guess of', start, 'found x of', res.x, 'with function value', f(res.x))
 
-plt.plot(t, C, t, Cp)
+print('Global optimization')
+res = optimize.basinhopping(f, 0, disp=False)
+print(' Start guess of', 0, 'found x of', res.x, 'with function value', f(res.x))
+
+plt.subplot(2,2,4)
+plt.plot(x, f(x))
+plt.title('Global and roots')
+plt.xlabel('$x$')
+plt.ylabel('$f(x)$')
+plt.grid()
+plt.plot(res.x, f(res.x), 'bo')
+
+
+for start in [0, -3]:
+    root = optimize.fsolve(f, start)
+    plt.plot(root, f(root), 'rx')
+    print ('Starting at x=', start, ', found root at x=', root, 'with function value', f(root))
+
 plt.show()
+
