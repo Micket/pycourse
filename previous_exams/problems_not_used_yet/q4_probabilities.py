@@ -18,12 +18,30 @@ class NormalDistribution(Distribution):
     def probability(self, start, end):
         return TODO
 
+    def __call__(self, x):
+        return TODO
+
+    # __str__ / __repr__ 
+
 
 class UniformDistribution(Distribution):
     def __init__(self, interval):
         self.interval = interval
 
     def probability(self, start, end):
+        return min() + max() .... 
+
+    def __call__(self, x):
         return TODO
 
+
+class PointDistribution(Distribution):
+    def __init__(self, point):
+        self.point = point
+
+    def probability(self, start, end):
+        return ... 
+
+    def __call__(self, x):
+        return TODO
 
