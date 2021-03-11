@@ -4,6 +4,7 @@ import random
 import textwrap
 import inspect
 
+
 def generate_dat_file():
     random.seed(1337)
     names = ["Cat", "Mouse", "Aligator", "Pikachu"]
@@ -44,7 +45,7 @@ def generate_dat_file():
                     f.write('*')
                 else:
                     f.write(random.choice(bases))
-                if (n+1) % line_length == 0:
+                if (n + 1) % line_length == 0:
                     f.write('\n')
                     n = 0
             f.write("\n\n")
@@ -52,38 +53,13 @@ def generate_dat_file():
 
 # Start of solution
 
-class Nucleotide(enum.Enum):
-    A = 0
-    G = 1
-    C = 2
-    T = 3
-    U = 4
-    WIlDCARD = 5
-
-
-def parse_data(file: str) -> Dict[str, List[Nucleotide]]:
-    def to_enum(x):
-        if x == 'A':
-            return Nucleotide.A
-        elif x == 'G':
-            return Nucleotide.G
-        elif x == 'C':
-            return Nucleotide.C
-        elif x == 'T':
-            return Nucleotide.T
-        elif x == 'U':
-            return Nucleotide.U
-        elif x == '*':
-            return Nucleotide.WIlDCARD
-        else:
-            raise Exception(f"unknown nucleotide {x}")
-
+def parse_data(file: str) -> Dict[str, List[chr]]:
     data = {}
     with open(file, "r") as f:
         while True:
             l = f.readline().strip()
             if l == "":
-                break # Reached end of file
+                break  # Reached end of file
 
             # Read the comments
             while True:
@@ -94,55 +70,51 @@ def parse_data(file: str) -> Dict[str, List[Nucleotide]]:
             # Read the name
             name = l.split("% ")[1]
 
-            # Readh the nucleotide data
+            # Read the nucleotide data
             nucleotides = []
             while True:
                 l = f.readline().strip()
                 if l == "":
                     break
-                nucleotides.extend(map(to_enum, l))
+                nucleotides.extend(list(l))
+
             data[name] = nucleotides
     return data
 
 
-def count_nucleotides(dna: List[Nucleotide]):
-    n_wildcards = dna.count(Nucleotide.WIlDCARD)
-    n_A = dna.count(Nucleotide.A) + n_wildcards
-    n_G = dna.count(Nucleotide.G) + n_wildcards
-    n_C = dna.count(Nucleotide.C) + n_wildcards
-    n_T = dna.count(Nucleotide.A) + n_wildcards
-    return n_A, n_G, n_C, n_T
+def count_nucleotides(dna: List[chr]):
+    n_wildcards = dna.count('*')
+    return [dna.count(c) + n_wildcards for c in ('A', 'G', 'T', 'C')]
 
 
 def count_max(data):
     results = {"A": {}, "G": {}, "C": {}, "T": {}}
     for name, dna in data.items():
-        n_A, n_G, n_C, n_T = count_nucleotides(dna)
+        counts = count_nucleotides(dna)
         l = len(dna)
-        results["A"][name] = n_A / l
-        results["G"][name] = n_G / l
-        results["C"][name] = n_C / l
-        results["T"][name] = n_T / l
+        for (i, c) in enumerate(('A', 'G', 'T', 'C')):
+            results[c][name] = counts[i] / l
 
     for nucleotide, result in results.items():
         k = max(result, key=result.get)
         print(f"Sequence {k} had max average for {nucleotide}")
 
+
 mRNA_mapping = {
-    Nucleotide.T: 'A',
-    Nucleotide.A: 'U',
-    Nucleotide.G: 'C',
-    Nucleotide.C: 'G',
-    Nucleotide.WIlDCARD: '*',
+    'T': 'A',
+    'A': 'U',
+    'G': 'C',
+    'C': 'G',
+    '*': '*',
 }
 
-def export_to_mRNA(file: str, data: Dict[str, List[Nucleotide]]):
+def export_to_mRNA(file: str, data: Dict[str, List[chr]]):
     with open(file, "w") as f:
         for name, dna in data.items():
             f.write(f"% {name}\n")
             for i, c in enumerate(dna):
                 f.write(mRNA_mapping[c])
-                if (i+1) % 40 == 0:
+                if (i + 1) % 40 == 0:
                     f.write("\n")
             f.write("\n\n")
 
