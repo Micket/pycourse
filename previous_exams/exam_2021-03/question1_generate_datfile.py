@@ -3,7 +3,7 @@ import random
 
 def generate_dat_file():
     random.seed(1337)
-    names = ["Cat", "Mouse", "Aligator", "Pikachu"]
+    names = ["Cat", "Mouse", "Alligator", "Pikachu"]
     sequence_lengths = [700, 500, 220, 1000]
     comments = [
         """
@@ -19,7 +19,7 @@ def generate_dat_file():
         """,
 
         """
-        # Author: Ötzi
+        # Author: Unknown
         # Date: 3400 BC
         """,
 
