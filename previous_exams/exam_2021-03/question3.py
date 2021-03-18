@@ -1,11 +1,11 @@
 from math import cos, pi
 
-class CosineSerie:
+class CosineSeries:
     def __init__(self, coef):
         self.coef = coef
 
     def __repr__(self):
-        return f"CosineSerie({self.coef})"
+        return f"CosineSeries({self.coef})"
 
     @staticmethod
     def __add_coefficients(coef_a, coef_b):
@@ -15,7 +15,7 @@ class CosineSerie:
         return c
 
     def __add__(self, other):
-        return CosineSerie(self.__add_coefficients(self.coef, other.coef))
+        return CosineSeries(self.__add_coefficients(self.coef, other.coef))
 
     def __iadd__(self, other):
         self.coef = self.__add_coefficients(self.coef, other.coef)
@@ -40,15 +40,15 @@ class CosineSerie:
             s += c*cos(2*pi*i*x)
         return s
 
-a = CosineSerie([1., 2., 3.])
-b = CosineSerie([4., 6.])
+a = CosineSeries([1., 2., 3.])
+b = CosineSeries([4., 6.])
 
 print("a(0.5) =", a(0.5))
 print("repr(b) =", repr(b))
 
-c = CosineSerie([2., 2.])
+c = CosineSeries([2., 2.])
 c += a
-d = b + CosineSerie([1., 1., 1., 1.])
+d = b + CosineSeries([1., 1., 1., 1.])
 
 print("c.evaluate_term(0, 0.5) =", c.evaluate_term(0, 0.5))
 print("c.evaluate_term(1, 0.5) =", c.evaluate_term(1, 0.5))

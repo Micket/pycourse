@@ -1,12 +1,12 @@
-a = CosineSerie([1., 2., 3.])
-b = CosineSerie([4., 6.])
+a = CosineSeries([1., 2., 3.])
+b = CosineSeries([4., 6.])
 
 print("a(0.5) =", a(0.5))
 print("repr(b) =", repr(b))
 
-c = CosineSerie([2., 2.])
+c = CosineSeries([2., 2.])
 c += a
-d = b + CosineSerie([1., 1., 1., 1.])
+d = b + CosineSeries([1., 1., 1., 1.])
 
 print("c.evaluate_term(0, 0.5) =", c.evaluate_term(0, 0.5))
 print("c.evaluate_term(1, 0.5) =", c.evaluate_term(1, 0.5))
