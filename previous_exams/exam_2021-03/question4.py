@@ -9,6 +9,8 @@ class HTMLElement(metaclass=abc.ABCMeta):
         pass
 
     def style_string(self):
+        # Note: I wasn't picky about whether or not an extra space is added here or not
+        # This just makes calling code a bit neater; either approach is fine.
         return f' style="{self.style}"' if self.style is not None else ''
 
 
@@ -58,7 +60,8 @@ class Paragraph(HTMLElement):
 
     def __str__(self):
         contents = ' '.join([str(element) for element in self.elements])
-        return f'<p>{contents}</p>'
+        s = self.style_string()
+        return f'<p{s}>{contents}</p>'
 
 
 class Body(HTMLElement):
@@ -68,7 +71,8 @@ class Body(HTMLElement):
 
     def __str__(self):
         contents = '\n    '.join([str(element) for element in self.elements])
-        return f'<body>\n    {contents}\n</body>'
+        s = self.style_string()
+        return f'<body{s}>\n    {contents}\n</body>'
 
 
 p0 = Paragraph(["Text can be", ItalicText("cursive,"), BoldText("bold"), "or",
