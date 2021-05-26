@@ -51,8 +51,3 @@ class UniformDistribution(Distribution):
         return f'UniformDistribution(interval={self.interval})'
 
 
-# A: 2p Create Distribution base class
-# B: 2p NormalDistribution and UniformDistribution (just
-# C: 1p Add checks on inputs and ValueError
-# D: 1p Overload integrate in UniformDistribution to give efficient implementation
-

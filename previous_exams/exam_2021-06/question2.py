@@ -62,7 +62,7 @@ def _create_file(in_fn: str, out_fn: str, print_headers: bool = False):
     np.savetxt(out_fn, data.reshape(data.shape[0] * data.shape[1], data.shape[2]))
 
 
-#_create_file("Polutants.csv", "polutants.txt", False)
+_create_file("Polutants.csv", "polutants.txt", False)
 # Extra method and code to create input file ends here
 
 
