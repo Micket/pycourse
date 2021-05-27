@@ -5,7 +5,7 @@ def _read_csv_data(fn: str):
     with open(fn) as f:
         csv_reader = csv.reader(f, delimiter=";")
 
-        polutants = []
+        pollutants = []
         sectors = []
 
         # Read data once to get sizes
@@ -19,18 +19,18 @@ def _read_csv_data(fn: str):
                 continue
 
             polutant, sector = line[:2]
-            if polutant in polutants:
-                p_ind = polutants.index(polutant)
+            if polutant in pollutants:
+                p_ind = pollutants.index(polutant)
             else:
-                p_ind = len(polutants)
-                polutants.append(polutant)
+                p_ind = len(pollutants)
+                pollutants.append(polutant)
             if sector in sectors:
                 s_ind = sectors.index(sector)
             else:
                 s_ind = len(sectors)
                 sectors.append(sector)
 
-        p_len = len(polutants)
+        p_len = len(pollutants)
         s_len = len(sectors)
         data = np.zeros((p_len, s_len, no_years))
 
@@ -42,21 +42,21 @@ def _read_csv_data(fn: str):
                 continue
 
             polutant, sector = line[:2]
-            p_ind = polutants.index(polutant)
+            p_ind = pollutants.index(polutant)
             s_ind = sectors.index(sector)
             data[p_ind][s_ind] = [float(x) for x in line[2:]]
 
-    return data, years, polutants, sectors
+    return data, years, pollutants, sectors
 
 
 def _create_file(in_fn: str, out_fn: str, print_headers: bool = False):
-    data, years, polutants, sectors = _read_csv_data(in_fn)
+    data, years, pollutants, sectors = _read_csv_data(in_fn)
     if print_headers:
         print(years)
-        print(polutants)
+        print(pollutants)
         print(sectors)
     print(f"Input data has shape: {data.shape}")
     np.savetxt(out_fn, data.reshape(data.shape[0] * data.shape[1], data.shape[2]))
 
 
-_create_file("Polutants.csv", "polutants.txt", False)
+_create_file("Pollutants.csv", "pollutants.txt", False)

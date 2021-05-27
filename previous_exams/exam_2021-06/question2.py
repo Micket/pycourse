@@ -2,18 +2,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-data = np.loadtxt("polutants.txt")
+data = np.loadtxt("pollutants.txt")
 print(f"Loaded shape: {data.shape}")
 data = data.reshape(26, 11, 30)
 
 years = np.arange(1990, 2020)
 
-polutants = ['Kväveoxider (t)', 'Flyktiga organiska ämnen, exkl. metan (t)', 'Svaveldioxid (t)',
-             'Ammoniak (t)', 'PM2.5 (t)', 'PM10 (t)', 'TSP (t)', 'Sot (BC) (t)', 'Kolmonoxid (CO) (t)',
-             'Bly (kg)', 'Kadmium (kg)', 'Kvicksilver (kg)', 'Arsenik (kg)', 'Krom (kg)',
-             'Koppar (kg)', 'Nickel (kg)', 'Selen (kg)', 'Zink (kg)', 'Dioxin (g I-Teq)',
-             'benso(a)pyren (kg)', 'benso(b)fluoranten (kg)', 'benso(k)fluoranten (kg)', 'Indeno(1,2,3-cd)pyren (kg)',
-             'PAH 1-4 (kg)', 'HCB (kg)', 'PCB  (kg)']
+pollutants = ['Kväveoxider (t)', 'Flyktiga organiska ämnen, exkl. metan (t)', 'Svaveldioxid (t)',
+              'Ammoniak (t)', 'PM2.5 (t)', 'PM10 (t)', 'TSP (t)', 'Sot (BC) (t)', 'Kolmonoxid (CO) (t)',
+              'Bly (kg)', 'Kadmium (kg)', 'Kvicksilver (kg)', 'Arsenik (kg)', 'Krom (kg)',
+              'Koppar (kg)', 'Nickel (kg)', 'Selen (kg)', 'Zink (kg)', 'Dioxin (g I-Teq)',
+              'benso(a)pyren (kg)', 'benso(b)fluoranten (kg)', 'benso(k)fluoranten (kg)', 'Indeno(1,2,3-cd)pyren (kg)',
+              'PAH 1-4 (kg)', 'HCB (kg)', 'PCB  (kg)']
 
 sectors = ['Nationell total (exkl. utrikes transporter)', 'Nationell total',
            'Arbetsmaskiner', 'Avfall', 'El och fjärrvärme', 'Industri', 'Utrikes transporter', 'Jordbruk',
@@ -28,7 +28,7 @@ print(f"pol_sum shape: {pol_sum.shape}")
 kg_items = []
 t_items = []
 o_items = []
-for i, label in enumerate(polutants):
+for i, label in enumerate(pollutants):
     if "(kg)" in label:
         kg_items.append(i)
     elif "(t)" in label:
@@ -37,7 +37,7 @@ for i, label in enumerate(polutants):
         o_items.append(i)
 
 fig, axs = plt.subplots(2, 3)
-for i, label in enumerate(polutants):
+for i, label in enumerate(pollutants):
     if "(t)" in label:
         axs[0, 0].plot(years, pol_sum[i], label=label)
     elif "(kg)" in label:
