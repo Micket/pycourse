@@ -14,16 +14,17 @@ polutants = ['Kväveoxider (t)', 'Flyktiga organiska ämnen, exkl. metan (t)', '
              'Koppar (kg)', 'Nickel (kg)', 'Selen (kg)', 'Zink (kg)', 'Dioxin (g I-Teq)',
              'benso(a)pyren (kg)', 'benso(b)fluoranten (kg)', 'benso(k)fluoranten (kg)', 'Indeno(1,2,3-cd)pyren (kg)',
              'PAH 1-4 (kg)', 'HCB (kg)', 'PCB  (kg)']
-sectors = ['NATIONELL TOTAL (exkl. utrikes transporter)', 'NATIONELL TOTAL',
-           'ARBETSMASKINER', 'AVFALL', 'EL OCH FJÄRRVÄRME', 'INDUSTRI', 'UTRIKES TRANSPORTER', 'JORDBRUK',
-           'LÖSNINGSMEDEL etc.', 'INRIKES TRANSPORTER', 'EGEN UPPVÄRMNING']
+
+sectors = ['Nationell total (exkl. utrikes transporter)', 'Nationell total',
+           'Arbetsmaskiner', 'Avfall', 'El och fjärrvärme', 'Industri', 'Utrikes transporter', 'Jordbruk',
+           'Lösningsmedel etc.', 'Inrikes transporter', 'Egen uppvärmning']
 
 
 # A 0.5p
 pol_sum = np.sum(data, axis=1)
 print(f"pol_sum shape: {pol_sum.shape}")
 
-# B 2.5p
+# B 2p
 kg_items = []
 t_items = []
 o_items = []
@@ -38,13 +39,13 @@ for i, label in enumerate(polutants):
 fig, axs = plt.subplots(2, 3)
 for i, label in enumerate(polutants):
     if "(t)" in label:
-        axs[0, 0].plot(years, pol_sum  [i], label=label)
+        axs[0, 0].plot(years, pol_sum[i], label=label)
     elif "(kg)" in label:
-        axs[0, 1].plot(years, pol_sum  [i], label=label)
+        axs[0, 1].plot(years, pol_sum[i], label=label)
     else:
-        axs[0, 2].plot(years, pol_sum  [i], label=label)
+        axs[0, 2].plot(years, pol_sum[i], label=label)
 
-# C
+# C 2.5p
 sec_sum_t = np.sum(data[t_items,:,:], axis=0)
 sec_sum_kg = np.sum(data[kg_items,:,:], axis=0)
 sec_sum_o = np.sum(data[o_items,:,:], axis=0)
