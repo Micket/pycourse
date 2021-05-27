@@ -1,53 +1,77 @@
 import abc
 import numpy as np
+import math
 
 class Distribution(metaclass=abc.ABCMeta):
-    def __init__(self, offset=0):
+    def __init__(self, offset):
         self.offset = offset
 
-    def __call__(self, x):
-        return self.__evaluate(x - self.offset)
-
     @abc.abstractmethod
-    def __evaluate(self, x):
+    def __call__(self, x):
         """ Evaluates distribution in reference configuration (without offset) """
 
     def integrate(self, start, end):
-        xs = linspace(start,end,100)
+        xs = np.linspace(start, end, 100)
         ys = [self(x) for x in xs]
         return np.trapz(xs, ys)
 
+    @abc.abstractmethod
+    def random(self):
+        """ Returns a random number based on the distribution parameters """
 
 class NormalDistribution(Distribution):
-    def __init__(self, mean, std_dev):
-        super().__init__(mean)
-        if std_dev <= 0:
+    def __init__(self, sigma, offset=0):
+        super().__init__(offset)
+        if sigma <= 0:
             raise ValueError("Standard deviation must be strictly positive")
-        self.std_dev = std_dev
+        self.sigma = sigma
 
-    def __evaluate(self, x):
-        return TODO
+    def __call__(self, x):
+        return 1/(self.sigma*math.sqrt(2*math.pi)) * math.exp(-0.5*((x-self.offset)/self.sigma)**2)
 
-    def __repr__(self, x):
-        return f'NormalDistribution(mean={self.mean},std_dev={self.self_dev})'
+    def random(self):
+        return np.random.normal(loc=self.offset, scale=self.sigma)
+
+    def __repr__(self):
+        return f'NormalDistribution(sigma={self.sigma}, offset={self.offset})'
 
 
 class UniformDistribution(Distribution):
-    def __init__(self, interval):
-        if interval[0] >= interval[1]:
-            raise ValueError("Ill-defined interval")
-        super().__init__((interval[0] + interval[1])/2)
-        self.p = 1/(interval[1]-interval[0])
+    def __init__(self, width, offset=0):
+        super().__init__(offset)
+        if width <= 0:
+            raise ValueError("Width must be strictly positive")
+        self.width = width
 
-    def __evaluate(self, x):
-        return self.p if -1 <= x <= 1 else 0
+    def __call__(self, x):
+        return 1/self.width if abs(x-self.offset) <= self.width/2 else 0
 
     def integrate(self, start, end):
-        s = max(start - self.offset, -1)
-        e = min(end - self.offset, 1)
-        return (e - s)*self.p
+        s = min(end, self.offset - self.width/2)
+        e = max(start, self.offset + self.width/2)
+        return (e - s)/self.width
 
-    def __repr__(self, x):
-        return f'UniformDistribution(interval={self.interval})'
+    def random(self):
+        return np.random.uniform(self.offset - self.width/2, self.offset + self.width/2)
 
+    def __repr__(self):
+        return f'UniformDistribution(width={self.width}, offset={self.offset})'
+
+
+# Test
+nd = NormalDistribution(sigma=0.25, offset=0.25)
+print(repr(nd))
+print(f'nd(0.3) = {nd(0.3)}')
+print(f'nd(1.0) = {nd(1.0)}')
+print(f'nd.integrate(0., 0.5) = {nd.integrate(0., 0.5)}')
+print([nd.random() for _ in range(10)])  # expect numbers near 0 to 0.5
+
+print()
+
+ud = UniformDistribution(width=0.5, offset=0.25)  # covers the interval 0 to 0.5
+print(repr(ud))
+print(f'ud(0.3) = {ud(0.3)}')
+print(f'ud(1.0) = {ud(1.0)}')
+print(f'ud.integrate(0., 0.5) = {ud.integrate(0., 0.5)}')
+print([ud.random() for _ in range(10)])  # expect numbers within 0 to 0.5
 
