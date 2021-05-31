@@ -3,25 +3,21 @@ class RepeatedList:
         self.sequence = sequence
         self.repetitions = repetitions
 
-    def __getitem__(self, item):
-        return self.sequence[item % len(self.sequence)]
-
     def __len__(self):
         return self.repetitions * len(self.sequence)
-        
-    def __str__(self):
-        if len(self.sequence) == 0: return '[]'
-        s = ', '.join([repr(t) for t in self.sequence])
-        return '[' + ', '.join([s for _ in range(self.repetitions)]) + ']'
- 
-    def expand(self):
-        return self.sequence * self.repetitions
 
+    def __getitem__(self, item):
+        if item < 0 or item >= len(self):
+            raise IndexError("Out of range")
+        return self.sequence[item % len(self.sequence)]
+       
+    def __str__(self):
+        return f'{self.sequence}*{self.repetitions}'
+
+    def tolist(self):
+        return self.sequence * self.repetitions
+ 
     def __iter__(self):
-        # Would be quite a bit trickier with iterator-class. Maybe require it?
-        #for _ in range(self.repetitions):
-        #    for t in self.sequence:
-        #        yield t
         return RepeatedListIterator(self)
 
 
@@ -46,22 +42,22 @@ class RepeatedListIterator:
 
 
 x = RepeatedList([1,2,3], 3)
+assert len(x) == 9
+assert len(x.tolist()) == 9
 print(x)
 for i, v in enumerate(x):
     print(f'{i}: {v}')
-assert len(y) == 9
-assert len(y.expand()) == 9
-print(y.expand())
+print(x.tolist())
 
-y = RepeatedList([1,2,3], 1)
-print(y)
+y = RepeatedList([4,5,6], 0)
 assert len(y) == 0
-for i, v in enumerate(y):
+for v in y:
     assert False  # Should not occur
+print(y)
 
 z = RepeatedList([], 3)
-print(z)
 assert len(y) == 0
-for i, v in enumerate(z):
+print(z)
+for v in z:
     assert False  # Should not occur
 
