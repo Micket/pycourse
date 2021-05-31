@@ -61,3 +61,8 @@ print(z)
 for v in z:
     assert False  # Should not occur
 
+# 3 quintillion floats!
+w = RepeatedList([3.14, 2.72, 1.41], 1000000000000000000)
+assert len(w) == 3000000000000000000
+print(w)
+print(w[2999999999999999999])
