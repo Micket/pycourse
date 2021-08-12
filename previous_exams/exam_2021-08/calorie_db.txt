@@ -1,0 +1,11 @@
+Salt: 0
+milk: 
+chocolate: kJ
+Apple: 123
+flour  : 12kJ
+butter : 1000 J
+lettuce: 130 kcal
+sugar  : 130
+todo
+
+
