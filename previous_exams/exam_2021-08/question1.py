@@ -19,10 +19,10 @@ def read_calorie_data(filename):
             if len(line) == 0: continue # Skip empty lines
             ingredient, calories = line.split(':')
             value = calories.rstrip('kJcal')
-            unit = calories[:len(value)].strip()
+            unit = calories[len(value):].strip()
             scale = 1000 if 'k' in unit else 1
             if 'J' in unit:
-                scale *= 4.184
+                scale /= 4.184
             cal_db[ingredient.strip().lower()] = float(value) * scale
     return cal_db
 
@@ -49,5 +49,5 @@ print(calories)
 for name in os.listdir('recipes/'):
     recipe = read_recipe(f'recipes/{name}')
     calories = compute_calories(cal_db, recipe)
-    print(f'{name} has {calories:.1f} calories')
+    print(f'{name} has {calories:.0f} calories')
     

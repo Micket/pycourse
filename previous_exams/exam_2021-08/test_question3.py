@@ -17,7 +17,3 @@ print('x * y =', x*y)
 print('z * y =', z*y)
 print('y * y =', y*y)
 
-print('abs(x) =', abs(x))
-print('abs(y) =', abs(y))
-print('abs(z) =', abs(z))
-
