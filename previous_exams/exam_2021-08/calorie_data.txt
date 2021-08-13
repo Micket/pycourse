@@ -1,0 +1,24 @@
+Apple: 520 kcal
+Tomato: 750 kJ
+Banana: 890000 cal
+lettuce: 627600J
+
+Salt : 0  J
+brown sugar  : 3800 kcal
+sugar  : 1.62e7J
+flour  : 153230 kJ
+EGG    :   155kcal
+olive oil: 884 kcal
+parmesan cheese :  431 kcal
+goat cheese :  364 kcal
+
+milk : 420kcal
+Cream: 1960  kcal
+butter : 7170 kcal
+ice cream: 2070 kcal
+milk chocolate:535e3 cal
+dark chocolate:546e3 cal
+
+
+chicken breast : 165000cal
+chicken drumstick: 159000 cal

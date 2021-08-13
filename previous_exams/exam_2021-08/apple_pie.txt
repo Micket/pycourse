@@ -1,9 +1,0 @@
-Apple pie recipe
-Apple: 1.8
-flour: 0.4
-sugar: 0.2
-One large egg, which is about
-Egg:    0.06
-butter: 0.26
-salt:   0.0001
-add ginger, cardamom, allspice, nutmeg to taste!
