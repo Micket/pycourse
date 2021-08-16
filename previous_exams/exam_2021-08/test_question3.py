@@ -17,3 +17,6 @@ print('x * y =', x*y)
 print('z * y =', z*y)
 print('y * y =', y*y)
 
+print('float(x) =', float(x))
+print('float(y) =', float(y))
+print('float(z) =', float(z))

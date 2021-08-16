@@ -27,13 +27,8 @@ class Interval:
         values = self.low*x.low, self.low*x.high, self.high*x.low, self.high*x.high
         return Interval(min(values), max(values))
 
-    def __abs__(self):
-        # Check for mixed signs, if so, 0 is the lowest value
-        if self.low * self.high < 0:
-            return Interval(0, max(abs(self.low), abs(self.high)))
-        else:
-            values = abs(self.low), abs(self.high)
-            return Interval(min(values), max(values))
+    def __float__(self):
+        return (self.high + self.low)/2
 
 
 # Test code
@@ -55,3 +50,6 @@ print('x * y =', x*y)
 print('z * y =', z*y)
 print('y * y =', y*y)
 
+print('float(x) =', float(x))
+print('float(y) =', float(y))
+print('float(z) =', float(z))

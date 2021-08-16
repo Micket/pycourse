@@ -1,7 +1,7 @@
 Apple: 520 kcal
-Tomato: 750 kJ
+Tomato: 750 kJ 
 Banana: 890000 cal
-lettuce: 627600J
+lettuce: 627600J 
 
 Salt : 0  J
 brown sugar  : 3800 kcal
@@ -10,7 +10,7 @@ flour  : 15235.0 kJ
 EGG    :   155kcal
 olive oil: 8840   kcal
 parmesan cheese : 4310 kcal
-goat cheese :     3640 kcal
+goat cheese :     3640 kcal  
 
 milk : 420kcal
 Cream: 8200.6  kJ
