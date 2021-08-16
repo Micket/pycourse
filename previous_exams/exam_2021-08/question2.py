@@ -3,7 +3,7 @@ import scipy.interpolate
 import matplotlib.pyplot as plt
 
 # Part A 1p
-data = np.loadtxt('measurements.csv')
+data = np.loadtxt('measurements.txt')
 t_measurement = data[:,0]
 y_measurement = data[:,1]
 
