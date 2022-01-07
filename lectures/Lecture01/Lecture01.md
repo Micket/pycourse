@@ -3,11 +3,10 @@
 * Teachers:
     * Thomas Svedberg, tel. 772 1522, <thomas.svedberg@chalmers.se>
     * Mikael Öhman, tel. 772 3191, <mikael.ohman@chalmers.se>
-    * Kristoffer Carlsson, <kristoffer.carlsson@chalmers.se> 
-    * Fredrik Ekre, tel. 772 1227, <fredrik.ekre@chalmers.se>
-* Find Thomas, Kristoffer and Fredrik at Material & Computational Mechanics (3rd floor M-building)
+    * Kim Auth, <kim.auth@chalmers.se> 
+* Find Thomas and Kim at Material & Computational Mechanics (3rd floor M-building)
 * Find Mikael at Physics / C3SE office (5th floor Origo building)
-* This year we are mostly working from home! Better contact us through mail!
+* We are working from home some times, better contact us through mail first.
 
 Course literature:
 
@@ -69,12 +68,12 @@ The exam will take place in computer rooms. The re-exams are taken in June and i
     * 20 points for grade 5
 
 * Will get back to you later when rooms are booked.
-* The exam will not contain anything on the GUI (5 hours would not be sufficient)
+* The exam will not contain anything on the GUI (5 hours would not be sufficient!)
 
 
 # Computer Assignments
 3 _compulsory_ assignments worth 1 hp each which represents 26 hours of work per student.
-Computer assignments should be done in groups of two (or alone, only if OK:ed with teacher!).
+Computer assignments **will** be done in groups of **two**.
 
 Do not cheat! Ask each other questions, but don't share sections of code etc. directly, it will not help you in the long run.
 _WE'RE REQUIRED TO REPORT CHEATING_
@@ -83,7 +82,9 @@ It is OK to find inspiration from the internet, but for your own sake, please un
 code you are mimicking is doing!
 
 
-# Assignment 1:
+# Assignment 1: Getting started with Python
+
+Start coding with Python
 
 * Getting familiar with Python
 * Reading files
@@ -95,24 +96,28 @@ code you are mimicking is doing!
 * Writing _well structured_ and documented Python code
 
 
-# Assignment 2:
+# Assignment 2: Library and classes
+
+Writing your own library and classes
 
 * Creating a library
-* Creating classes with inheritance
-* Operator overloading
+* Object oriented programming
+  * Creating classes with inheritance
+  * Operator overloading
+* Documentation
 * Testing
 
 
 # Assignment 3: Simple interactive application
-Create a simple interactive graphical application from scratch.
+Create a simple interactive graphical application from scratch
 
 * Create an interactive application
 * Creating a GUI with Qt
-* Creating yet more classes to specialize GUI widgets
+* Creating yet more classes to specialise GUI widgets
 
 
 # Software
-Software will be available on the Windows machines in ES61/62, E-Studion.
+Software will be available on the Windows machines in ES61/62 and E-Studion.
 
 * Python 3
 * NumPy, SciPy, Matplotlib
@@ -120,19 +125,20 @@ Software will be available on the Windows machines in ES61/62, E-Studion.
 * Recommended Integrated Programming Environment (IDE): PyCharm (community edition) <https://www.jetbrains.com/pycharm/download/>
 * Laptops:
     * Anaconda <https://www.anaconda.com/products/individual>
-    * You will have to use the school windows computers too ...
+    * You should try to use the school Windows computers too, to be prepared for the exam
+* Visual Studio Code <https://code.visualstudio.com/download> also popular, but we can not provide support for it in the same way as for PyCharm
 
 
 # Consultation
 * E-mail is preferred before the Canvas message system
 * 3 computer sessions each week (you're expected to work on the assignments on your own in-between sessions!)
-* Thomas, Kristoffer and Fredrik offices on 3rd floor in the M-building (Material & Computational Mechanics / Material & Beräkningsmekanik).
+* Thomas and Kims offices on 3rd floor in the M-building (Material & Computational Mechanics / Material & Beräkningsmekanik).
 * Mikaels office at Physics / C3SE office (5th floor Origo building)
 
 
 # Schedule
-  * L = Lectures Mon: ~~HA3, Thu: HA2~~ Zoom
-  * CS = Computer lab session ~~Mon, Thu: ES61 & ES62, Fri: E-studion~~ Zoom
+  * L = Lectures Mon: HA3, Thu: HA2 Zoom
+  * CS = Computer lab session Mon, Thu: ES61 & ES62, Fri: E-studion. Also over Zoom (see Canvas for details)
  
 
 | Time  | Mon| Tue | Wed | Thu | Fri |
@@ -142,11 +148,12 @@ Software will be available on the Windows machines in ES61/62, E-Studion.
 | 13-15 | L  |     |     |     | CS  |
 | 15-17 | CS |     |     |     |     |
 
-  * Extra lecture on Friday 13-15 ~~(Room HA3)~~ first week!
+  * Extra lecture on Friday 13-15 (Room HA3) first week!
+  * No lecture Thursday morning seventh week.
 
 
 # Lecture overview
-| W | Content |
+| Week | Content |
 |---|---------|
 | 1 | Introduction, lists and loops, functions, libraries |
 | 2 | CA1, files and strings, NumPy and Matplotlib |
@@ -210,7 +217,7 @@ Software will be available on the Windows machines in ES61/62, E-Studion.
       - Proper Unicode
       - Dictionaries: `x.has_key(y)`{.py} $\leadsto$ `y in x`{.python}
       - Renamed functions: `y.iteritems()`{.python} $\leadsto$ `y.items()`{.python}
-  * Python 2.6-2.7 very much widespread, but Python 3.x is the future! Python 2.7 reached end-of-life 2021-01-01!
+  * Python 2.6-2.7 still quite widespread, but Python 3.x is the future! Python 2.7 reached end-of-life 2021-01-01!
 
 
 # Running Python code
@@ -231,7 +238,7 @@ Software will be available on the Windows machines in ES61/62, E-Studion.
 
 # Using an IDE (PyCharm)
 
-  * An Integrated Development Environment (IDE) is a pimped up text editor that integrates the tool-chain.
+  * An Integrated Development Environment (IDE) is a pimped up text editor that integrates the tool-chain, provides easy debugging, code and data inspection and much more.
   * Running a script
       1. Create a small script `foobar.py`
       2. Run $\to$ Run... and select your script.
@@ -253,7 +260,7 @@ Software will be available on the Windows machines in ES61/62, E-Studion.
       * Subversion (a.k.a SVN) - Common centralised VCS
       * GIT - Distributed version control system. <www.github.com> is a popular hosting service.
       * Any decent IDE will integrate support for VCS. 
-      * Dropbox is NOT a VCS.
+      * Dropbox/Box/iCloud/etc. is NOT a VCS.
   * Not really critical in this course
       * Your programs will mostly be short, and a learning experience
       * If you are interested, feel free to ask about it more during the computer session
@@ -270,7 +277,7 @@ Software will be available on the Windows machines in ES61/62, E-Studion.
 10000000 loops, best of 3: 52.4 ns per loop
 ```
 
-  * Jupyter notebooks; "*The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.*"
+  * Jupyter notebooks; "*The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualisations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modelling, data visualisation, machine learning, and much more.*"
     
     Examples: (click to open in browser)
     
@@ -308,7 +315,7 @@ Out[2]: 214896.0817717206
   * Starting a notebook session
 
       - `$ jupyter notebook`
-      - Windows: Start the jupyter notebook from start menu
+      - Windows: Start Jupyter notebook from the start menu
 
     Use web browser to work with documents.
 
