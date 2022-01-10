@@ -36,7 +36,17 @@ Good knowledge of basic programming structures such as variables, conditions, lo
 # Course evaluation
   * Course evaluated at 2 occurrences
   * Course survey after exam
-  * Course board representatives will be listed on homepage
+  * Course board representatives:
+    * TKMAS
+      * Walther Ericsson Porsenklev, <gusporwa@student.gu.se>
+      * Jacob Nir, <jacob.nir@hotmail.com>
+      * Daniel Söderqvist, <soderqvist.daniel@outlook.com>
+      * Gabriel Wendel, <gabrielwendel990217@gmail.com>
+    * TKIEK
+      * Lucas Aronsson, <lucasaronsson@hotmail.com>
+    * MPMOB
+      * Xinhao Wang, <wangxinhao17@foxmail.com>
+      * Shijie Zhang, <473664881@qq.com>
 
 
 # Content
