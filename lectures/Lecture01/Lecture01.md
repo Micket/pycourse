@@ -363,6 +363,7 @@ Students seem to end up with many different paths to anaconda, so here are a few
   * Windows:
      - Often listed directly under system interpreters
      - `C:\ProgramData\Anaconda3\python.exe`
+     - `C:\Users\username\Anaconda3\python.exe`
 
   * Linux:
      - Wherever you unpacked the tarball
