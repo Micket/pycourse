@@ -227,7 +227,7 @@ Software will be available on the Windows machines in ES61/62 and E-Studion.
       - Proper Unicode
       - Dictionaries: `x.has_key(y)`{.py} $\leadsto$ `y in x`{.python}
       - Renamed functions: `y.iteritems()`{.python} $\leadsto$ `y.items()`{.python}
-  * Python 2.6-2.7 still quite widespread, but Python 3.x is the future! Python 2.7 reached end-of-life 2021-01-01!
+  * Python (2.6) 2.7 still quite widespread, but Python 3.x is the now dominating! Python 2.7 reached end-of-life 2021-01-01!
 
 
 # Running Python code
@@ -325,7 +325,7 @@ Out[2]: 214896.0817717206
   * Starting a notebook session
 
       - `$ jupyter notebook`
-      - Windows: Start Jupyter notebook from the start menu
+      - Windows/Mac: Start Jupyter notebook from the start/apps menu
 
     Use web browser to work with documents.
 
@@ -334,7 +334,7 @@ Out[2]: 214896.0817717206
 
 # Starting a PyCharm project
 
-  * Virtual environments (venv) and Conda environments (conda) are methods keeping per-project installations of python packages. While it can be useful in some situations, we want to use have access to the full list of packages from our Anaconda installations when working through the course.
+  * Virtual environments (venv) and Conda environments (conda) are methods keeping per-project installations of Python packages. While it can be useful in some situations, we want to have access to the full list of packages from our Anaconda installations when working throughout the course.
 
 
 # Expand project interpreter menu
@@ -353,7 +353,7 @@ Press the ... to locate your `python` or `python.exe` binary from your Anaconda 
 
 # Finding your Anaconda installation
 
-Students seem to end up with many different paths to anaconda, so here are a few suggested areas to look if you can't find where it ended up:
+Students seem to end up with many different paths to Anaconda, so here are a few suggested areas to look if you can't find where it ended up:
 
   * Mac:
      - `/opt/anaconda3/bin/python`
