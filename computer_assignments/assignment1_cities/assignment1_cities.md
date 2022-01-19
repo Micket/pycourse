@@ -60,24 +60,22 @@ Please stick to the given function prototypes, as it makes correcting reports mu
 5. Extend `plot_points(coord_list, indices)` to also include the graph connections from task 3.
    *Hints: Use Matplotlib:s `LineCollection` instead of plotting the lines individually, since it is much faster.*
    
-6. Create the function `find_shortest_paths(graph, start)` that finds the shortest paths from `start` to all other cities, using the functions in `scipy.sparse.csgraph`.
-   Please make sure you properly document this function!
-   *Hints: The function `shortest_path` finds the shortest path, it lets the user input what indices (starting nodes) the path should be computed for. This saves significant computational effort!*
-   <https://docs.scipy.org/doc/scipy/reference/sparse.csgraph.html>
-
-7. One of the outputs from the shortest path functions in SciPy is a "predecessor matrix".
+6. Create the function `find_shortest_path(graph, start_node, end_node)` that finds the shortest paths from `start_node` to `end_node` as well as its total distance.
+   Use the functions in `scipy.sparse.csgraph` (<https://docs.scipy.org/doc/scipy/reference/sparse.csgraph.html>).
+   One of the outputs from the shortest path functions in SciPy is a "predecessor matrix".
    The columns represent the predecessor when taking the shortest path to the given column index (this seems complicated, but is actually a clever way to store the shortest paths to every possible end node).
-   Write a function `compute_path(predecessor_matrix, start_node, end_node)` that takes a predecessor matrix, start and end nodes, and converts it to a sequence of nodes that represent the shortest path.
-   *Hints: The file `SampleCoordinatex.txt` should generate the sequence `[0, 4, 3, 5]`, the total distance for this path is `0.16446989717973517`.*
+   Please make sure you properly document this function!
+   *Hints: The function `shortest_path` finds the shortest path, it lets the user input what indices (starting nodes) the path should be computed for. This saves significant computational effort!
+   The file `SampleCoordinatex.txt` should generate the sequence `[0, 4, 3, 5]`, the total distance for this path is `0.16446989717973517`.*
 
-8. Extend `plot_points(coord_list, indices, path)` to also include the shortest path. Make the shortest path more visible by making it stand out (thicker line width and a noticeable color for example).
+7. Extend `plot_points(coord_list, indices, path)` to also include the shortest path. Make the shortest path more visible by making it stand out (thicker line width and a noticeable color for example).
 
-9. Record the total time for each of the functions (see the table below for reference).
+8. Record the total time for each of the functions (see the table below for reference).
    Which routine consumes the most time? Do not add anything to your functions in this step,
    just time things at the places where you call the functions.
    *Hints: Use time.time()*
 
-10. Create the function `construct_fast_graph_connections(coord_list, radius)` that computes all the connections between all the points in `coord_list` that are within the radius given.
+9. Create the function `construct_fast_graph_connections(coord_list, radius)` that computes all the connections between all the points in `coord_list` that are within the radius given.
    This time, use the `cKDTree` from SciPy to find the closest coordinates quickly. (The `cKDTree` is an optimized version of the `KDTree`.)
    **Note!** You must be able to swap `construct_graph_connections` with `construct_fast_graph_connections` in your code (without any other alterations)!
    *Hints: Instead of checking a coordinate against all the other coordinates, we can filter the number of points by for example using the method `query_ball_points(coord, radius)` on the KDTree.*
