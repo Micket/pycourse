@@ -104,14 +104,14 @@ Besides the general *General instructions for computer assignments* please consi
 4. Timing information for the major routines must be provided.
    On a quite old machine (Intel Core i7-2600) the following results (to one digit precision) can be used as a hint on the expected results for `GermanyCities.txt`:
 
-| function | time (s) |
-|----------|----------|
-| `read_coordinate_file` | 0.03 |
-| `construct_graph_connections` | 70 |
-| `construct_graph` | 0.002 |
-| Task 6+7 | 0.007 |
-| `plot_points` (from task 8, excluding plt.show) | 2 |
-| `construct_fast_graph_connections` | 0.3 |
+| function                                                              | time (s) |
+|-----------------------------------------------------------------------|----------|
+| `read_coordinate_file`                                                | 0.03 |
+| `construct_graph_connections`                                         | 70 |
+| `construct_graph`                                                     | 0.002 |
+| `find_shortest_path`                                                  | 0.007 |
+| `plot_points` (from task 7, excluding plt.show)                       | 2 |
+| `construct_fast_graph_connections`                                    | 0.3 |
 | Running the entire program using the fast version, excluding plotting | 1 |
 
 ## What should be handed in?
