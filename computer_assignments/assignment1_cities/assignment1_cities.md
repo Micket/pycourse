@@ -4,17 +4,17 @@ header-includes:
 ---
 
 # DAT171 - Computer assignment 1
-(2021-01-14)
+(2022-01-21)
 
 **Note on collaboration:**
 These assignments should be done in groups of two.
 Naturally, you are encouraged to discuss the problem with your classmates, but it is important that you **do not send or receive entire chunks of code between groups**. 
 
 The goal of the first computer assignment is to get you comfortable in reading in data from a text file and using the NumPy, SciPy, and Matplotlib libraries.
-The problem to solve is to construct a graph of neighboring cities and to find the shortest path between two given cities, through the neighboring cities.
+The task is to construct a graph of neighboring cities and to find the shortest path between two given cities, through the neighboring cities.
 **See the example figure at the end of this document.**
 
-Three files are supplied to test your program, with one very small file `SampleCoordinates.txt` suitable for testing your functions.
+Three files are supplied to test your program, with one very small file, `SampleCoordinates.txt`, suitable for testing your functions.
 In task 3 you need a radius that limits what is considered neighboring cities, in task 7 you need to enter start and end cities.
 You can find these values in the table below (the city no. corresponds to the line in the respective city file).
 
@@ -26,7 +26,7 @@ You can find these values in the table below (the city no. corresponds to the li
 
 
 For convenience, the task is divided into steps as listed below.
-Please stick to the given function prototypes, as it makes correcting reports much easier (you are of course allowed to write more sub-functions if you want).
+You are required to stick to the given function prototypes, you are of course allowed to write more sub-functions if you want.
 *Functions must be documented using PyDoc.*
 
 1. Create the function `read_coordinate_file(filename)` that reads the given coordinate file and parses the results into an array of coordinates. 
@@ -38,7 +38,7 @@ Please stick to the given function prototypes, as it makes correcting reports mu
    The radii in the table are given for the normalized $R=1$.
    *(Measuring distances on a Mercator projection isn’t very accurate, but will suffice for this task.)*
 
-   *Hints: Use the function `split` for the strings. Convert a string to a number with the function `float`. Make sure to use a NumPy array to store the data for performance (i.e. the function must return a 2D NumPy array).*
+   *Hints: Use the function `split` for the strings. Convert a string to a number with the function `float`. Make sure to use a NumPy array to store the data for performance (i.e. the function must return a 2D NumPy array with the $x$ and $y$ values).*
 
 2. Create the function `plot_points(coord_list)` that plots the data points read from the file.
    Make sure you use a correct aspect ratio so that the countries look similar in your plot as
