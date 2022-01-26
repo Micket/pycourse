@@ -4,7 +4,7 @@ header-includes:
 ---
 
 # DAT171 - Computer assignment 2
-### (2021-02-04)
+### (2022-01-26)
 
 This assignment will focus on Object-Oriented Programming (OOP). The objective is to write a general library for standard playing cards (52 card decks). This library will be used in assignment 3 to build a simple Texas Hold’em poker game.
 
@@ -26,16 +26,16 @@ You are not required to follow the provided task order. On the next page are spe
 A suggested procedure for tackling this assignment is detailed in these steps, though the order does not really matter:
 
 1. Create the card classes
-2. Create a basic hand class (skip `best_poker_hand` method for now)
+2. Create a basic hand class (skip the `best_poker_hand` method for now)
 3. Create a class to represent the deck
 4. Create a class to represent poker hands (with poker hand we mean for example a pair, flush or straight)
-5. Implement `best_poker_hand` which computes the best poker hand from *an arbitrary set of cards*
+5. Implement `best_poker_hand` which uses the class from 4. to computes the best poker hand for the active cards
 
 In addition to creating the library itself, you will generate a manual from your written docstrings, and write tests to ensure functionality does not regress as you keep making changes to the code. *It is best to work on documentation and testing continuously while you work on the assignment, not as a last step.* Guides on documentation and testing are provided later in this document.
 
 Note that you do not have to create a playable game in this assignment but feel free to try if you want to. It can be a very simple game where you make up the rules for yourself.
 
-Optional step: Create a class to represent a `Player` for a Texas Hold’em poker game (e.g. a `Hand`, name and betting money + associated methods). _This question overlaps with the next assignment, where such a Player class will be put into use._
+Optional step: Create a class to represent a `Player` for a Texas Hold’em poker game (e.g. containing a `Hand`, name and betting money + associated methods). _This question overlaps with the next assignment, where such a Player class will be put into use._
 
 
 ## Requirements
@@ -43,36 +43,39 @@ Optional step: Create a class to represent a `Player` for a Texas Hold’em poke
 The library must be called “cardlib.py” and should contain classes with associated methods and functions that are helpful for creating many types of card games. In particular, it must contain **_classes_** that represent:
 
 1. The playing cards: The classes listed below **must** inherit from an abstract base class `PlayingCard`. They must be comparable with the `<` and `==` operators, and a method `get_value()` must be overloaded in each subclass. The following constructors **must** exist:
-    1. `NumberedCard(value: int, suit: Suit)`
-    2. `JackCard(suit: Suit)`
-    3. `QueenCard(suit: Suit)`
-    4. `KingCard(suit: Suit)`
-    5. `AceCard(suit: Suit)`
+    a. `NumberedCard(value: int, suit: Suit)`
+    b. `JackCard(suit: Suit)`
+    c. `QueenCard(suit: Suit)`
+    d. `KingCard(suit: Suit)`
+    e. `AceCard(suit: Suit)`
 
  Implement `<` so that it gives a strict, sensible ordering, but you will have to decide what to do with Aces and suits yourself (hint: look at how tuples handle `<`). The method `get_value` is intended to help you practice implementing an abstract method, i.e. it should be included even if the need isn’t obvious for this simple class.
 
-2. The class representing the suit must be named `Suit`, with the suits named `Clubs`, `Diamonds`, `Hearts` and `Spades`. The `Suit` class must be of an enum type.
+2. The class representing the suit of a card must be named `Suit`, with the suits named `Hearts`, `Spades`, `Clubs` and `Diamonds` (in that order), . The `Suit` class must be of an enum type.
 
 3. A class representing the hand, `Hand`, which must have methods for
-    * adding a new card
-    * dropping several cards based on an index list
-    * sorting the cards
+    a. adding a new card (named `add_card`)
+    b. dropping several cards based on an *index* list (named `drop_cards`)
+    c. sorting the cards (named `sort`)
 
- There must also be a method `best_poker_hand(self, cards=[])` which computes the best hand out of the cards in the hand and cards in the input argument.
+ There must also be a method `best_poker_hand(self, cards=[])` which computes the best hand out of the cards in the hand and the cards in the input argument.
 
  The `best_poker_hand` method returns a `PokerHand` object. It must be able to handle a total of more than 5 cards (as is the case in Texas Hold ’em). See *[Wikipedia List of poker hands](https://en.wikipedia.org/wiki/List_of_poker_hands)*
 
-4. The deck: The class `StandardDeck()` must create a full deck of (52) cards. There must be functions for shuffling and taking the top card (which removes the card from the deck).
+4. The deck: The class `StandardDeck()` must create a full deck of (52) cards. There must be functions for shuffling (named `shuffle`) and taking the top card (named `draw`, which also removes the card from the deck).
 
-5. The poker hand (for a lack of a better name): A `PokerHand` must contain a hand type (high card, one pair, two pair, three of a kind, straight, flush, full house, four of a kind, straight flush) and the highest value(s). The `PokerHand` must overload the `<` operator to be able to compare which `PokerHand` is valued highest based on the hand type and value(s) of the cards in the best hand.
+5. The poker hand (for a lack of a better name): 
+    a. A `PokerHand` must contain a hand type (high card, one pair, two pair, three of a kind, straight, flush, full house, four of a kind, straight flush) and the value(s) needed to distinguish between two hands of the same type.
+    b. The `PokerHand` must take a list of cards as argument for its constructor.
+    c. The `PokerHand` must overload the `<` operator to be able to compare two `PokerHand` objects.
 
 6. Testing code for most of the functions you have written (see below for tutorial). A sample testing code is available in Canvas. Your code should pass these tests and in addition, you must *at least* add tests for:
-    * More card types and their methods
-    * More hand methods
-    * Further testing the deck and its methods
-    * Card combinations giving the different poker hands
-    * Comparison between different poker-hands
-    * Comparison between hands with card combinations giving the same poker hand, but different card values for both the cards making up the poker hand (for example 2 kings in a pair of kings) and the remaining 3 cards
+    a. More card types and their methods
+    b. More hand methods
+    c. Further testing the deck and its methods
+    d. Card combinations giving the different poker hands
+    e. Comparison between different poker-hands
+    f. Comparison between hands with card combinations giving the same poker hand, but different card values for both the cards making up the poker hand (for example 2 kings in a pair of kings) and the remaining 3 cards
 
 7. HTML-documentation for everything above generated using Sphinx (see below for tutorial). This documentation must include documentation of *all the required and classes and methods*, including a brief description, input parameters, and return values. Also, include documentation for major classes/methods you add.
 
@@ -80,10 +83,11 @@ You are free to introduce additional methods as you see fit. Simple types, like 
 
 You should hand in **a .zip file** with your library, your tests, and your manual (both the generated manual and the source files needed to run Sphinx to generate the output). Try to avoid non-essential/scrap files in the zip file.
 
+\newpage
 
 ## Appendix A: Testing guide
 
-As the codebase you (and your collaborators) are working on becomes bigger, automatic testing becomes more important. As you make changes, if there are no tests, it is easy that things that previously worked stops working.
+As the code-base you (and your collaborator) are working on becomes bigger, automatic testing becomes more important. As you make changes, if there are no tests, it is easy that things that previously worked stops working.
 
 In this assignment, you should create a set of tests that can be run automatically and report back if there are any errors. This is easier than it might sound due to powerful testing toolkits like *[pytest](https://docs.pytest.org)* that comes with Anaconda and is integrated into PyCharm.
 
@@ -129,7 +133,6 @@ Start by going to `Tools -> Sphinx Quickstart` (you might need to install the Sp
 
 ![](images/sphinx4.png){width=75%}
 
-\newpage
 
 Next, Sphinx Quickstart will ask some questions in a terminal. Most of them can be answered with the default answer (by pressing Enter), but the following questions should be answered like this:
 
