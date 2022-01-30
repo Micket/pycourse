@@ -4,7 +4,7 @@ header-includes:
 ---
 
 # DAT171 - Computer assignment 2
-### (2022-01-26)
+### (2022-01-30)
 
 This assignment will focus on Object-Oriented Programming (OOP). The objective is to write a general library for standard playing cards (52 card decks). This library will be used in assignment 3 to build a simple Texas Hold’em poker game.
 
@@ -111,7 +111,7 @@ Below are a few steps to help you get started.
     ```
 
 * To run the tests, right-click the test folder and choose “`Run pytest in test`”. You should get the output that it worked.
- (If you don’t find “`Run pytest in test`” in the menu, please go to `Settings -> Tools -> Python Integrated Tools` and make sure `Default test runner` is set to _pytest_.)
+ (If you don’t find “`Run pytest in test`” in the menu, please go to `File -> Settings -> Tools -> Python Integrated Tools` (Windows) or `PyCharm -> Preferences -> Tools -> Python Integrated Tools` (Mac) and make sure `Default test runner` is set to _pytest_.)
 * Try to make a test fail (by asserting `1 == 2` for example) and see what happens.
 * For the computer assignment, we want most methods you implement to have a test. Be evil towards yourself! Try to break your code.
 * Add your own tests as you progress with your card library.
@@ -190,3 +190,5 @@ To view the generated documentation, open the `doc/build/index.html` file in a w
 
 ![](images/sphinx10.png){width=50%}
 
+
+Note! If you need to restart your Sphinx environment, try and remove the `doc`-directory, then go to `File -> Settings -> Tools -> Python Integrated Tools` (Windows) or `PyCharm -> Preferences -> Tools -> Python Integrated Tools` (Mac) and clear the field `Sphinx working directory`.
