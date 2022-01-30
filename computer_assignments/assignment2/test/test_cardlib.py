@@ -1,9 +1,10 @@
-import pytest
 from enum import Enum
+import pytest
+
 from cardlib import *
 
 
-# This test assumes you call your suit class "Suit" and the colours "Hearts and "Spades"
+# This test assumes you call your suit class "Suit" and the suits "Hearts and "Spades"
 def test_cards():
     h5 = NumberedCard(4, Suit.Hearts)
     assert isinstance(h5.suit, Enum)
@@ -13,6 +14,9 @@ def test_cards():
 
     assert h5 < sk
     assert h5 == h5
+
+    with pytest.raises(TypeError):
+        pc = PlayingCard(Suit.Clubs)
 
 
 # This test assumes you call your shuffle method "shuffle" and the method to draw a card "draw"
@@ -44,8 +48,8 @@ def test_hand():
     assert len(h.cards) == 5
 
     h.sort()
-    for i in range(3):
-        assert h.cards[i] < h.cards[i+1] or h.cards[i] == h.cards[i+1]
+    for i in range(4):
+        assert h.cards[i] < h.cards[i + 1] or h.cards[i] == h.cards[i + 1]
 
     cards = h.cards.copy()
     h.drop_cards([3, 0, 1])
@@ -54,6 +58,8 @@ def test_hand():
     assert h.cards[1] == cards[4]
 
 
+# This test builds on the assumptions above. Add your type and data for the commented out tests
+# and uncomment them!
 def test_pokerhands():
     h1 = Hand()
     h1.add_card(QueenCard(Suit.Diamonds))
@@ -69,8 +75,8 @@ def test_pokerhands():
     ph1 = h1.best_poker_hand(cl)
     assert isinstance(ph1, PokerHand)
     ph2 = h2.best_poker_hand(cl)
-    # assert ph1 == PokerHand( <insert your handtype class and data here> )
-    # assert ph2 == PokerHand( <insert your handtype class and data here> )
+    # assert # Check ph1 handtype class and data here>
+    # assert # Check ph2 handtype class and data here>
 
     assert ph1 < ph2
 
@@ -81,9 +87,9 @@ def test_pokerhands():
     assert ph3 < ph4
     assert ph1 < ph2
 
-    # assert ph3 == PokerHand( <insert your handtype class and data here> )
-    # assert ph4 == PokerHand( <insert your handtype class and data here> )
+    # assert # Check ph3 handtype class and data here>
+    # assert # Check ph4 handtype class and data here>
 
     cl = [QueenCard(Suit.Clubs), QueenCard(Suit.Spades), KingCard(Suit.Clubs), KingCard(Suit.Spades)]
     ph5 = h1.best_poker_hand(cl)
-    # assert ph5 == PokerHand( <insert your handtype for a Full House and data here> )
+    # assert # Check ph5 handtype class and data here>
