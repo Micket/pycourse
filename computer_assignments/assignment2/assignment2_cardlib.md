@@ -49,7 +49,7 @@ The library must be called “cardlib.py” and should contain classes with asso
     d. `KingCard(suit: Suit)`
     e. `AceCard(suit: Suit)`
 
- Implement `<` so that it gives a strict, sensible ordering, but you will have to decide what to do with Aces and suits yourself (hint: look at how tuples handle `<`). The method `get_value` is intended to help you practice implementing an abstract method, i.e. it should be included even if the need isn’t obvious for this simple class.
+ Implement `<` so that it gives a strict, sensible ordering, but you will have to decide what to do with Aces and suits yourself (hint: look at how tuples handle `<`). The method `get_value` is intended to help you practice implementing an abstract method, i.e. it is mandatory (and can be put to good use here!).
 
 2. The class representing the suit of a card must be named `Suit`, with the suits named `Hearts`, `Spades`, `Clubs` and `Diamonds` (in that order), . The `Suit` class must be of an enum type.
 
