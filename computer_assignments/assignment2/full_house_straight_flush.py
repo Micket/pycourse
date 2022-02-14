@@ -4,7 +4,7 @@ def check_straight_flush(cards):
     """
     Checks for the best straight flush in a list of cards (may be more than just 5)
 
-    :param cards: A list of playing cards.
+    :param cards: A list of playing cards sorted by value.
     :return: None if no straight flush is found, else the value of the top card.
     """
     vals = [(c.get_value(), c.suit) for c in cards] \
