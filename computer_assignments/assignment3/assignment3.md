@@ -3,7 +3,7 @@ header-includes:
         - \usepackage[left=1.9cm, right=1.9cm, top=1.5cm, bottom=1.9cm]{geometry}
 ---
 
-# DAT171 - Computer assignment 3 (2021-02-15)
+# DAT171 - Computer assignment 3 (2022-02-21)
 
 The objective is to make use of the library from the previous assignment in a graphical user interface for a Texas Hold ‘em game.
 The design must follow the Model-View-Controller concept.
@@ -45,12 +45,12 @@ You are free to use any of the code from the card view widget, modify it to fit 
 You can do basic stuff like checking user input for correctness in the GUI-code, but keep a clear separation of the graphical interface and the underlying model (game state).
 
 ## Deliverables
-Please submit a zip with
+Please submit a zip (with exact filenames)
 
 1. Your `cardlib` from the previous assignment.
 2. `pokermodel.py` that contains all the game logic. This class may not import anything from your `pokerview` and only `QObject` and `pyqtSignal` from PyQt.
 3. `pokerview.py` that contains all the GUI elements. This class may import `pokermodel` if needed.
-4. `pokergame.py` the (short) main script that launches a game.
+4. `pokergame.py` the (short) main script that launches a game. This is where you should put the `QApplication` part.
 
 If you use the graphical components, please also include the directory with graphics `cards` in your zip. I should be able to run your code.
 
