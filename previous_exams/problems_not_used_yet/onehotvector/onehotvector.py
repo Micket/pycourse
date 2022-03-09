@@ -17,13 +17,13 @@ class OneHotVector:
 
     def __mul__(self, matrix):
         if matrix.shape[1] == self.length:
-            raise IndexError("Incompatible matrix size")
+            raise IndexError("incompatible matrix size")
 
         return matrix[:, self.index]
 
     def __rmul__(self, matrix):
         if matrix.shape[0] == self.length:
-            raise IndexError("Incompatible matrix size")
+            raise IndexError("incompatible matrix size")
 
         return matrix[self.index, :]
 
@@ -31,3 +31,7 @@ class OneHotVector:
         x = np.zeros(self.length)
         x[self.index] = 1
         return x
+
+    def __repr__(self):
+        return f'OneHotVector({length}, {index})'
+
