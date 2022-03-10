@@ -19,73 +19,79 @@ class TUIWidget(abc.ABC):
 class TextField(TUIWidget):
     def __init__(self, columns, rows, text=''):
         super().__init__(columns, rows)
+        self.text = text
 
     def set_text(self, new_text):
         self.text = text
 
     def render(self):
         lines = []
-        for n in range(rows):
+        for n in range(self.rows):
             lines.append(self.text[(self.columns*n):(self.columns*(n+1))])
         return lines
 
 
-# A bit tricky.. but it would be nice to have something here
-#class Equalizer(TUIWidget):
-#    def __init__(self, columns, max_value, data):
-#        self.max_value = max_value
-#        self.data = data
-#
-#    def set_data(self, data):
-#        self.data = data
-#
-#    def render(self):
-#        block = numpy.zeros(self.columns, self.rows)
-#        block[np.array(self.data) / max_value * self.columns]
-#        rendered_data = [[' ' for _ in self.rows] for _ in self.columns]
-#        return [''.join(row) for row in rows]
+class ProgressBar(TUIWidget):
+    def __init__(self, columns, progress: float=0):
+        super().__init__(columns, 1)
+        self.progress = progress
 
+    def set_progress(self, value: float):
+        self.progress = value
 
-class CheckerBoard(TUIWidget):
     def render(self):
-        # Create a big board that is to big and just trim it
-        # We could be more clever, but lets keep this simple
-        bw = ('█ ' * self.columns)[:self.columns]
-        wb = (' █' * self.columns)[:self.columns]
-        lines = []
-        for i in range(self.rows):
-            lines.append(bw)
-            lines.append(wb)
-        return lines[:self.rows]
+        percentage = round(self.progress * 100)
+        wblocks = round((self.columns-2) * self.progress)
+        bblocks = self.columns - 2 - wblocks
+        return ['[' + '█'*wblocks + ' '*bblocks + ']']
 
 
 class Box(TUIWidget):
     def __init__(self, widget):
-        super().__init__(self, widget.columns + 2, widget.rows + 2)
+        super().__init__(widget.columns + 2, widget.rows + 2)
         self.widget = widget
 
     def render(self):
         lines = self.widget.render()
         for i, line in enumerate(lines):
-            padding = widget.columns - len(line)
+            padding = self.widget.columns - len(line)
             lines[i] = '|' + line + ' '*padding + '|'
     
-        horizontal_border = '+' + '-'*widget.columns + '+'
+        horizontal_border = '+' + '-'*self.widget.columns + '+'
         lines.append(horizontal_border)
-        lines.prepend(horizontal_border)
+        lines.insert(0, horizontal_border)  # "prepend"
         return lines
 
 
 class GroupBox(Box):
     def __init__(self, name, widget):
-        super().__init__(self, widget)
+        super().__init__(widget)
         self.name = name
 
     def render(self):
         lines = super().render()
         # Just replace the top horizontal bar
         before = '+-['
-        after = ']' + '-'*(self.columns-len(self.name)-3) + '+'
-        lines[0] = '+' + before + self.name + after + '+'
+        after = ']' + '-'*(self.widget.columns-len(self.name)-3) + '+'
+        lines[0] = before + self.name + after
+        return lines
 
+
+# Test
+p = ProgressBar(40)
+p.show()
+p = ProgressBar(40, 0.1)
+p.show()
+
+print()
+
+t = TextField(20, 3, 'Learning Python sure is fun. Even the exam is fun!')
+b = Box(t)
+b.show()
+
+print()
+
+g = GroupBox("Download", p)
+p.set_progress(0.75)
+g.show()
 
