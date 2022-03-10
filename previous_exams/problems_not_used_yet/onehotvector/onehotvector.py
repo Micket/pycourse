@@ -11,27 +11,60 @@ class OneHotVector:
     def __getitem__(self, item):
         if item < 0:
             item += len(self)
-        if item < 0 or item >= length:
+        if item < 0 or item >= self.length:
             raise IndexError("out of bounds")
         return 1 if item == self.index else 0
 
-    def __mul__(self, matrix):
-        if matrix.shape[1] == self.length:
-            raise IndexError("incompatible matrix size")
-
-        return matrix[:, self.index]
-
-    def __rmul__(self, matrix):
+    def dot(self, matrix):
         if matrix.shape[0] == self.length:
             raise IndexError("incompatible matrix size")
 
         return matrix[self.index, :]
 
-    def toarray(self):
-        x = np.zeros(self.length)
+    # Problematic: numpy arrays will pick up on this call first so this won't be used.
+    #def __mul__(self, matrix):
+    #    if matrix.shape[1] == self.length:
+    #        raise IndexError("incompatible matrix size")
+    #    return matrix[:, self.index]
+
+    #def __rmul__(self, matrix):
+    #    if matrix.shape[0] == self.length:
+    #        raise IndexError("incompatible matrix size")
+    #    return matrix[self.index, :]
+
+    def toarray(self, dtype=int):
+        x = np.zeros(self.length, dtype=dtype)
         x[self.index] = 1
         return x
 
     def __repr__(self):
-        return f'OneHotVector({length}, {index})'
+        return f'OneHotVector(length={self.length}, index={self.index})'
+
+
+# Test code
+import numpy as np
+
+a = np.array([[1,2,3], [4,5,6], [7,8,9], [10,11,12]])
+b = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
+
+v = OneHotVector(length=3, index=2)
+w = OneHotVector(length=4, index=1)
+u = OneHotVector(length=1000000000000, index=0)
+
+print(u)
+
+assert len(v) == 3
+
+assert w[0] == 0
+assert w[1] == 1
+assert w[2] == 0
+
+assert w[-3] == 1
+assert w[-2] == 0
+
+print(f'v as np.array: {w.toarray()}')
+print(f'w as float np.array: {w.toarray(dtype=float)}')
+
+print('v . a =', v.dot(a))
+print('w . b =', w.dot(b))
 
