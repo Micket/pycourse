@@ -15,6 +15,20 @@ class TUIWidget(abc.ABC):
             print(line)
 
 
+class ProgressBar(TUIWidget):
+    def __init__(self, columns, progress: float=0):
+        super().__init__(columns, 1)
+        self.progress = progress
+
+    def set_progress(self, value: float):
+        self.progress = value
+
+    def render(self):
+        percentage = round(self.progress * 100)
+        wblocks = round((self.columns-2) * self.progress)
+        bblocks = self.columns - 2 - wblocks
+        return ['[' + '#'*wblocks + ' '*bblocks + ']']
+
 
 class TextField(TUIWidget):
     def __init__(self, columns, rows, text=''):
@@ -29,21 +43,6 @@ class TextField(TUIWidget):
         for n in range(self.rows):
             lines.append(self.text[(self.columns*n):(self.columns*(n+1))])
         return lines
-
-
-class ProgressBar(TUIWidget):
-    def __init__(self, columns, progress: float=0):
-        super().__init__(columns, 1)
-        self.progress = progress
-
-    def set_progress(self, value: float):
-        self.progress = value
-
-    def render(self):
-        percentage = round(self.progress * 100)
-        wblocks = round((self.columns-2) * self.progress)
-        bblocks = self.columns - 2 - wblocks
-        return ['[' + '█'*wblocks + ' '*bblocks + ']']
 
 
 class Box(TUIWidget):
