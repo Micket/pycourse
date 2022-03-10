@@ -6,14 +6,14 @@ def directory_info(path):
         files[filename] = os.path.getsize(path + '/' + filename)
     return files
 
-def prefix(byte):
-    if byte > 1024**3:
+def format_bytes(byte):
+    if byte >= 1024**3:
         suffix = 'GiB'
         value = f'{byte/1024**3:.2f}'
-    elif byte > 1024**2:
+    elif byte >= 1024**2:
         suffix = 'MiB'
         value = f'{byte/1024**2:.2f}'
-    elif byte > 1024:
+    elif byte >= 1024:
         suffix = 'KiB'
         value = f'{byte/1024:.2f}'
     else:
@@ -24,20 +24,22 @@ def prefix(byte):
 
 def show_directory_info(path, directory_info):
     total_size = sum(directory_info.values())
-    print(f'{path}: {prefix(total_size)}')
-    for filename, size in directory_info.items():
-        print(f'    {filename}: {prefix(size)}')
-    # Use these?
-    #    "├──"
-    #    "└──"
+    print(f'{path}: {format_bytes(total_size)}')
+    
+    data = sorted(directory_info.items(), key=lambda v: v[1], reverse=True)
+    for i, (filename, size) in enumerate(data):
+        prefix = "└──" if i == len(data)-1 else "├──"
+        print(f'{prefix} {filename}: {format_bytes(size)}')
 
 # Testing
 directory = '..'
 info = directory_info(directory)
 
-print(prefix(1024))
-print(prefix(10240))
-print(prefix(200000))
-print(prefix(1234567890))
+print(format_bytes(42))
+print(format_bytes(1024))
+print(format_bytes(12288))
+print(format_bytes(200000))
+print(format_bytes(1234567890))
+print()
 
 show_directory_info(directory, info)
