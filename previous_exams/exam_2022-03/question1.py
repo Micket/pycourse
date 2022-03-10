@@ -32,8 +32,9 @@ def show_directory_info(path, directory_info):
         print(f'{prefix} {filename}: {format_bytes(size)}')
 
 # Testing
-directory = 'example_directory'
-info = directory_info(directory)
+path = 'example_directory'
+dinfo = directory_info(path)
+print(dinfo)
 
 print(format_bytes(42))
 print(format_bytes(1024))
@@ -42,4 +43,4 @@ print(format_bytes(200000))
 print(format_bytes(1234567890))
 print()
 
-show_directory_info(directory, info)
+show_directory_info(path, dinfo)

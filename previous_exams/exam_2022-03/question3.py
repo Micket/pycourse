@@ -21,17 +21,6 @@ class OneHotVector:
 
         return matrix[self.index, :]
 
-    # Problematic: numpy arrays will pick up on this call first so this won't be used.
-    #def __mul__(self, matrix):
-    #    if matrix.shape[1] == self.length:
-    #        raise IndexError("incompatible matrix size")
-    #    return matrix[:, self.index]
-
-    #def __rmul__(self, matrix):
-    #    if matrix.shape[0] == self.length:
-    #        raise IndexError("incompatible matrix size")
-    #    return matrix[self.index, :]
-
     def toarray(self, dtype=int):
         x = np.zeros(self.length, dtype=dtype)
         x[self.index] = 1
