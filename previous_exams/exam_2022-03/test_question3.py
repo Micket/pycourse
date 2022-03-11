@@ -1,8 +1,8 @@
 # Test code
 import numpy as np
 
-a = np.array([[1,2,3], [4,5,6], [7,8,9], [10,11,12]])
-b = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
+a = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
+b = np.array([[1,2,3], [4,5,6], [7,8,9], [10,11,12]])
 
 v = OneHotVector(length=3, index=2)
 w = OneHotVector(length=4, index=1)
@@ -19,9 +19,8 @@ assert w[2] == 0
 assert w[-3] == 1
 assert w[-2] == 0
 
-print(f'v as np.array: {w.toarray()}')
+print(f'v as np.array: {v.toarray()}')
 print(f'w as float np.array: {w.toarray(dtype=float)}')
 
 print('v . a =', v.dot(a))
 print('w . b =', w.dot(b))
-
