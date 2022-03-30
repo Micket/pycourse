@@ -1,6 +1,6 @@
 import os
 
-def directory_info(path):
+def read_directory(path):
     files = dict()
     for filename in os.listdir(path):
         files[filename] = os.path.getsize(path + '/' + filename)
@@ -33,7 +33,7 @@ def show_directory_info(path, directory_info):
 
 # Testing
 path = 'example_directory'
-dinfo = directory_info(path)
+dinfo = read_directory(path)
 print(dinfo)
 
 print(format_bytes(42))

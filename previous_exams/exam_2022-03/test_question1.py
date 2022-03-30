@@ -1,6 +1,6 @@
 # Testing
 path = 'example_directory'
-dinfo = directory_info(path)
+dinfo = read_directory(path)
 
 print(format_bytes(42))
 print(format_bytes(1024))
