@@ -3,24 +3,27 @@ import os
 def read_directory(path):
     files = dict()
     for filename in os.listdir(path):
-        files[filename] = os.path.getsize(path + '/' + filename)
+        files[filename] = os.path.getsize(os.path.join(path, filename))
     return files
 
 def format_bytes(byte):
     if byte >= 1024**3:
         suffix = 'GiB'
-        value = f'{byte/1024**3:.2f}'
+        value = byte/1024**3
     elif byte >= 1024**2:
         suffix = 'MiB'
-        value = f'{byte/1024**2:.2f}'
+        value = byte/1024**2
     elif byte >= 1024:
         suffix = 'KiB'
-        value = f'{byte/1024:.2f}'
+        value = byte/1024
     else:
         return f'{byte}B'  # just show as integer
 
-    value = value.rstrip('0').rstrip('.')
-    return f'{value}{suffix}'
+    # Many ways to achieve this
+    if value.is_integer():
+        return f'{value:.0f}{suffix}'
+    else:
+        return f'{value:.2f}{suffix}'
 
 def show_directory_info(path, directory_info):
     total_size = sum(directory_info.values())
@@ -28,6 +31,7 @@ def show_directory_info(path, directory_info):
     
     data = sorted(directory_info.items(), key=lambda v: v[1], reverse=True)
     for i, (filename, size) in enumerate(data):
+        # Exam requested pipes, plus and dashes. but we can also use unicode to make it really fancy
         prefix = "└──" if i == len(data)-1 else "├──"
         print(f'{prefix} {filename}: {format_bytes(size)}')
 
