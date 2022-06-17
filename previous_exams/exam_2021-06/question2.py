@@ -25,36 +25,27 @@ pol_sum = np.sum(data, axis=1)
 print(f"pol_sum shape: {pol_sum.shape}")
 
 # B 2p
-kg_items = []
-t_items = []
-o_items = []
-for i, label in enumerate(pollutants):
-    if "(kg)" in label:
-        kg_items.append(i)
-    elif "(t)" in label:
-        t_items.append(i)
-    else:
-        o_items.append(i)
+# Looping is over pollutants would be fine here, but numpy has many tools:
+t_items = np.char.find(pollutants, '(t)')  != -1 # -1 denotes no substring was found
+kg_items = np.char.find(pollutants, '(kg)') != -1
+o_items = np.logical_not(t_items | kg_items)
+
+pollutants = np.array(pollutants)
 
 fig, axs = plt.subplots(2, 3)
-for i, label in enumerate(pollutants):
-    if "(t)" in label:
-        axs[0, 0].plot(years, pol_sum[i], label=label)
-    elif "(kg)" in label:
-        axs[0, 1].plot(years, pol_sum[i], label=label)
-    else:
-        axs[0, 2].plot(years, pol_sum[i], label=label)
+axs[0, 0].plot(years, pol_sum[t_items].T, label=pollutants[t_items])
+axs[0, 1].plot(years, pol_sum[kg_items].T, label=pollutants[kg_items])
+axs[0, 2].plot(years, pol_sum[o_items].T, label=pollutants[o_items])
 
 # C 2.5p
-sec_sum_t = np.sum(data[t_items,:,:], axis=0)
-sec_sum_kg = np.sum(data[kg_items,:,:], axis=0)
-sec_sum_o = np.sum(data[o_items,:,:], axis=0)
+sec_sum_t = np.sum(data[t_items], axis=0)
+sec_sum_kg = np.sum(data[kg_items], axis=0)
+sec_sum_o = np.sum(data[o_items], axis=0)
 print(f"sec_sum shapes: {sec_sum_t.shape}, {sec_sum_kg.shape}, {sec_sum_o.shape}")
 
-for i, label in enumerate(sectors):
-    axs[1, 0].plot(years, sec_sum_t[i], label=label)
-    axs[1, 1].plot(years, sec_sum_kg[i], label=label)
-    axs[1, 2].plot(years, sec_sum_o[i], label=label)
+axs[1, 0].plot(years, sec_sum_t.T, label=sectors)
+axs[1, 1].plot(years, sec_sum_kg.T, label=sectors)
+axs[1, 2].plot(years, sec_sum_o.T, label=sectors)
 
 for ax in axs.flat:
     ax.legend()

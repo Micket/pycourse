@@ -14,7 +14,7 @@ outputfile = 'readable_code.py'
 with open(outputfile, 'w') as fout:
     with open(inputfile, 'r') as fin:
         for line in fin:
-            if line.startswith('class'):
+            if line.startswith('class '):
                 w = line.split(' ')
                 w[1] = camel_caser(w[1])
                 new_line = ' '.join(w)
