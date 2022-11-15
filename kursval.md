@@ -41,7 +41,7 @@
     * NumPy (matriser, vektorer, linjär algebra)
     * SciPy (paket för numeriska beräkningar)
     * Matplotlib (grafritning mm.)
-    * IPython (interactive Python)
+    * Jupyter notebooks
 
 # Examination
 
