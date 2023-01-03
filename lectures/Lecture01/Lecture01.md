@@ -3,9 +3,10 @@
 * Teachers:
     * Thomas Svedberg, tel. 772 1522, <thomas.svedberg@chalmers.se>
     * Mikael Öhman, tel. 772 3191, <mikael.ohman@chalmers.se>
-    * Kim Auth, <kim.auth@chalmers.se> 
-* Find Thomas and Kim at Material & Computational Mechanics (3rd floor M-building)
-* Find Mikael at Physics / C3SE office (5th floor Origo building)
+    * Kim Auth, <kim.auth@chalmers.se>
+    * Björn Andersson <abjorn@chalmers.se>
+* Find Thomas and Mikael at Physics / C3SE office (6th floor Origo South building)
+* Find Kim and Björn at Material & Computational Mechanics (2nd floor M-building)
 * We are working from home some times, better contact us through mail first.
 
 Course literature:
@@ -38,15 +39,9 @@ Good knowledge of basic programming structures such as variables, conditions, lo
   * Course survey after exam
   * Course board representatives:
     * TKMAS
-      * Walther Ericsson Porsenklev, <gusporwa@student.gu.se>
-      * Jacob Nir, <jacob.nir@hotmail.com>
-      * Daniel Söderqvist, <soderqvist.daniel@outlook.com>
-      * Gabriel Wendel, <gabrielwendel990217@gmail.com>
-    * TKIEK
-      * Lucas Aronsson, <lucasaronsson@hotmail.com>
+      * not decided yet
     * MPMOB
-      * Xinhao Wang, <wangxinhao17@foxmail.com>
-      * Shijie Zhang, <473664881@qq.com>
+      * not decided yet
 
 
 # Content
@@ -84,6 +79,9 @@ The exam will take place in computer rooms. The re-exams are taken in June and i
 # Computer Assignments
 3 _compulsory_ assignments worth 1 hp each which represents 26 hours of work per student.
 Computer assignments **will** be done in groups of **two**.
+
+**Note:** All assignments must be handed in before their respective deadline (found in the course schedule), and, also passed before the exam. Some of the assignments might have earlier final deadlines depending on teacher availability, please make sure to follow Canvas announcements.
+Also remember to give teachers time to correct your assignments!
 
 Do not cheat! Ask each other questions, but don't share sections of code etc. directly, it will not help you in the long run.
 _WE'RE REQUIRED TO REPORT CHEATING_
@@ -134,7 +132,7 @@ Software will be available on the Windows machines in ES61/62 and E-Studion.
 * PyQt
 * Recommended Integrated Programming Environment (IDE): PyCharm (community edition) <https://www.jetbrains.com/pycharm/download/>
 * Laptops:
-    * Anaconda <https://www.anaconda.com/products/individual>
+    * Anaconda <https://www.anaconda.com/products/distribution>
     * You should try to use the school Windows computers too, to be prepared for the exam
 * Visual Studio Code <https://code.visualstudio.com/download> also popular, but we can not provide support for it in the same way as for PyCharm
 
@@ -142,8 +140,8 @@ Software will be available on the Windows machines in ES61/62 and E-Studion.
 # Consultation
 * E-mail is preferred before the Canvas message system
 * 3 computer sessions each week (you're expected to work on the assignments on your own in-between sessions!)
-* Thomas and Kims offices on 3rd floor in the M-building (Material & Computational Mechanics / Material & Beräkningsmekanik).
-* Mikaels office at Physics / C3SE office (5th floor Origo building)
+* Thomas and Mikaels offices is at Physics / C3SE office (6th floor Origo South building)
+* Kim and Björns offices on 2nd floor in the M-building (Material & Computational Mechanics / Material & Beräkningsmekanik)
 
 
 # Schedule
