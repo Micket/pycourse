@@ -334,21 +334,6 @@ Out[2]: 214896.0817717206
 
   * Virtual environments (venv) and Conda environments (conda) are methods keeping per-project installations of Python packages. While it can be useful in some situations, we want to have access to the full list of packages from our Anaconda installations when working throughout the course.
 
-
-# Expand project interpreter menu
-![pycharm project step 0](pycharm-project-0.png) \
-
-# Select existing interpreter
-![pycharm project step 1](pycharm-project-1.png) \
-
-# Select system interpreter
-![pycharm project step 2](pycharm-project-2.png) \
-If listed, simply select your Anaconda python3 installation
-
-# Locate anaconda installation
-![pycharm project step 3](pycharm-project-3.png) \
-Press the ... to locate your `python` or `python.exe` binary from your Anaconda installation.
-
 # Finding your Anaconda installation
 
 Students seem to end up with many different paths to Anaconda, so here are a few suggested areas to look if you can't find where it ended up:
@@ -365,3 +350,17 @@ Students seem to end up with many different paths to Anaconda, so here are a few
 
   * Linux:
      - Wherever you unpacked the tarball
+
+# Expand project interpreter menu
+![pycharm project step 0](pycharm-project-0.png) \
+
+# Select existing interpreter
+![pycharm project step 1](pycharm-project-1.png) \
+
+# Select system interpreter
+![pycharm project step 2](pycharm-project-2.png) \
+If listed, simply select your Anaconda python3 installation
+
+# Locate anaconda installation
+![pycharm project step 3](pycharm-project-3.png) \
+Press the ... to locate your `python` or `python.exe` binary from your Anaconda installation.
