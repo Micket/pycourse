@@ -80,8 +80,7 @@ The exam will take place in computer rooms. The re-exams are taken in June and i
 3 _compulsory_ assignments worth 1 hp each which represents 26 hours of work per student.
 Computer assignments **will** be done in groups of **two**.
 
-**Note:** All assignments must be handed in before their respective deadline (found in the course schedule), and, also passed before the exam. Some of the assignments might have earlier final deadlines depending on teacher availability, please make sure to follow Canvas announcements.
-Also remember to give teachers time to correct your assignments!
+**Note:** All assignments must be handed in before their respective deadline (found in the course schedule). You can also find the deadlines for handing in the final corrections there.
 
 Do not cheat! Ask each other questions, but don't share sections of code etc. directly, it will not help you in the long run.
 _WE'RE REQUIRED TO REPORT CHEATING_
