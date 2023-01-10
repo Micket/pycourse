@@ -1,7 +1,7 @@
 
 # **DAT171** Object-oriented programming in Python
 
-Given at the Automation and Mechatronics Engineering programme at [Chalmers University of Technology](https://www.chalmers.se) the first quarter (Q1) of 2021.
+Given at the Mechanical Engineering programme at [Chalmers University of Technology](https://www.chalmers.se) the third study period.
 
 - Examiner: Thomas Svedberg
 - Lecturer: Mikael Öhman
