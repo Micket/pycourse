@@ -38,10 +38,13 @@ Good knowledge of basic programming structures such as variables, conditions, lo
   * Course evaluated at 2 occurrences
   * Course survey after exam
   * Course board representatives:
-    * TKMAS
-      * not decided yet
-    * MPMOB
-      * not decided yet
+      * Axel Guttman<<axel.kristian@gmail.com>> (MPMOB)
+      * Halime Selimoglu<<halimeselimoglu@gmail.com>> (MPMOB)
+      * Joakim Kindström<<joakim.kindstrom@telia.com>> (FK)
+      * John Tran<<johntran1@hotmail.se>> (FK)
+      * Oskar Ståhlbom<<oskar.stahlbom@live.se>> (TKMAS)
+      * Samuel Rydz Wullens<<samuelrw99@gmail.com>> (TKMAS)
+      * Sheik Meeran Rasheed Abdul<<sheik.meeran13@yahoo.com>> (MPCAS)
 
 
 # Content
