@@ -147,8 +147,8 @@ Software will be available on the Windows machines in ES61/62 and E-Studion.
 
 
 # Schedule
-  * L = Lectures Mon: HA3, Thu: HA2 Zoom
-  * CS = Computer lab session Mon, Thu: ES61 & ES62, Fri: E-studion. Also over Zoom (see Canvas for details)
+  * L = Lectures Mon: HA3, Thu: HA2 
+  * CS = Computer lab session Mon, Thu: ES61 & ES62, Fri: E-studion. 
  
 
 | Time  | Mon| Tue | Wed | Thu | Fri |
