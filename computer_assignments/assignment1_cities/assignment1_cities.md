@@ -11,11 +11,11 @@ These assignments should be done in groups of two.
 Naturally, you are encouraged to discuss the problem with your classmates, but it is important that you **do not send or receive entire chunks of code between groups**. 
 
 The goal of the first computer assignment is to get you comfortable in reading in data from a text file and using the NumPy, SciPy, and Matplotlib libraries.
-The task is to construct a graph of neighboring cities and to find the shortest path between two given cities, through the neighboring cities.
+The task is to construct a graph of neighbouring cities and to find the shortest path between two given cities, through the neighbouring cities.
 **See the example figure at the end of this document.**
 
 Three files are supplied to test your program, with one very small file, `SampleCoordinates.txt`, suitable for testing your functions.
-In task 3 you need a radius that limits what is considered neighboring cities, in task 6 you need to enter start and end cities.
+In task 3 you need a radius that limits what is considered neighbouring cities, in task 6 you need to enter start and end cities.
 You can find these values in the table below (the city no. corresponds to the line in the respective city file).
 
 | Filename                | Radius | Start city | End city |
@@ -35,7 +35,7 @@ You are required to stick to the given function prototypes, you are of course al
    $$
    x = R \frac{\pi b}{180},\quad y = R \ln\left(\tan\left(\frac{\pi}{4} +\frac{\pi a}{360}\right)\right)
    $$
-   The radii in the table are given for the normalized $R=1$. Return a 2D `ndarray` with the $x$ and $y$ values. 
+   The radii in the table are given for the normalised $R=1$. Return a 2D `ndarray` with the $x$ and $y$ values. 
 
    *Hints: Use the function `split` for the strings. Convert a string to a number with the function `float`.*
 
@@ -70,7 +70,7 @@ You are required to stick to the given function prototypes, you are of course al
    *Hints: The function `shortest_path` finds the shortest path, it lets the user input what indices (starting nodes) the path should be computed for. This saves significant computational effort!
    The file `SampleCoordinatex.txt` should generate the sequence `[0, 4, 3, 5]`, the total distance for this path is `0.16446989717973517`.*
 
-7. Extend `plot_points(coord_list, indices, path)` to also include the shortest path. Make the shortest path more visible by making it stand out (thicker line width and a noticeable color for example).
+7. Extend `plot_points(coord_list, indices, path)` to also include the shortest path. Make the shortest path more visible by making it stand out (thicker line width and a noticeable colour for example).
 
 8. Record the total time for each of the functions (see the table below for reference).
    Which routine consumes the most time? Do not add anything to your functions in this step,
@@ -99,13 +99,13 @@ Total distance: 0.1114486118821533
 
 Besides the general *General instructions for computer assignments* please consider the items below for Computer Assignment 1:
 
-1. Write a single main code. For chosing between the different files, define the following variables at the beginning of your main code:
+1. Write a single main code. For choosing between the different files, define the following variables at the beginning of your main code:
    - `filename`
    - `start_city`
    - `end_city`
    - `radius`
 
-   Parametrize the file for `GermanyCities.txt` when you hand in the code. 
+   Parameterise the file for `GermanyCities.txt` when you hand in the code. 
 2. Reading the input file:
    - Read the file line by line, process each line as it is read.
    - Use `strip`, `split`, and so on for processing each line, not indexing or similar.
