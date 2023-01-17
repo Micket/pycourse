@@ -4,7 +4,7 @@ header-includes:
 ---
 
 # DAT171 - Computer assignment 1
-(2022-01-21)
+(2023-01-17)
 
 **Note on collaboration:**
 These assignments should be done in groups of two.
