@@ -5,7 +5,7 @@ header-includes:
 
 # General instructions for computer assignments DAT171
 To receive the grade *Passed* on the computer assignments please follow the instructions below.  
-All groups work individually and write their own code etc. No code-sharing is allowed. Automatic cheating detection is run on the handed in assignments (of course human judgment is used in cases of suspected cheating).
+All groups work individually and write their own code etc. No code-sharing is allowed. Automatic cheating detection is run on the handed in assignments (of course human judgement is used in cases of suspected cheating).
 
 ## Style Guide
 Style recommendations for Python can be found in the PEP8 style guide (<https://www.python.org/dev/peps/pep-0008/>). If you are using PyCharm as an __IDE__ you will see a yellow line where you have broken the style guide. You do not have to follow everything in the style guide, but if PyCharm has yellow stuff everywhere you probably want to fix some.
