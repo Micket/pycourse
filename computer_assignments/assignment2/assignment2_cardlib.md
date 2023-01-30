@@ -21,10 +21,6 @@ The OOP-part of the assignment will try out the possibilities for:
 
 The specific requirements of what you are supposed to include in your code are described in the following text. Though you are not required to follow the provided task order, the suggested procedure for tackling this assignment is following these steps:
 
-[comment]: <> (**See the requirements below.**)
-
-[comment]: <> (A suggested procedure for tackling this assignment is detailed in these steps, though the order does not really matter:)
-
 1. Create the card classes
 2. Create a class to represent the deck
 3. Create a basic hand class (skip the `best_poker_hand` method for now)
@@ -42,9 +38,10 @@ Optional step: Create a class to represent a `Player` for a Texas Hold’em poke
 
 The library must be called “cardlib.py” and should contain classes with associated methods and functions that are helpful for creating many types of card games. In particular, it must contain **_classes_** that according to what is listed below. However, note that you are recommenced to implement the classes in the order described previously. 
 
-A. The class representing the suit of a card must be named `Suit`, with the suits named `Hearts`, `Spades`, `Clubs` and `Diamonds` (in that order), . The `Suit` class must be of an `Enum` type.
+A.  The class representing the suit of a card must be named `Suit`, with the suits named `Hearts`, `Spades`, `Clubs` and `Diamonds` (in that order), . The `Suit` class must be of an `Enum` type.
 
-B. The playing cards: The classes listed below **must** inherit from an abstract base class `PlayingCard`. They must be comparable with the `<` and `==` operators, and a method `get_value()` must be overloaded in each subclass using an abstract method. The following constructors **must** exist:
+B.  The playing cards: The classes listed below **must** inherit from an abstract base class `PlayingCard`. They must be comparable with the `<` and `==` operators, and a method `get_value()` must be overloaded in each subclass using an abstract method. The following constructors **must** exist:
+
     a. `NumberedCard(value: int, suit: Suit)`
     b. `JackCard(suit: Suit)`
     c. `QueenCard(suit: Suit)`
@@ -53,21 +50,21 @@ B. The playing cards: The classes listed below **must** inherit from an abstract
 
      Implement `<` so that it gives a strict, sensible ordering, but you will have to decide what to do with Aces and suits yourself (hint: look at how tuples handle `<`). The method `get_value` is intended to help you practice implementing an abstract method, i.e. it is mandatory (and can be put to good use here!).
 
-C. The deck: The class `StandardDeck()` must create a full deck of (52) cards. There must be functions for shuffling (named `shuffle`) and taking the top card (named `draw`, which also removes the card from the deck).
+C.  The deck: The class `StandardDeck()` must create a full deck of (52) cards. There must be functions for shuffling (named `shuffle`) and taking the top card (named `draw`, which also removes the card from the deck).
 
-D. A `PokerHand` class constructed as follows: 
+D.  A `PokerHand` class constructed as follows: 
     a. A `PokerHand` must contain a hand type (high card, one pair, two pair, three of a kind, straight, flush, full house, four of a kind, straight flush) and the value(s) needed to distinguish between two hands of the same type. See *[Wikipedia List of poker hands](https://en.wikipedia.org/wiki/List_of_poker_hands)* 
     b. The `PokerHand` must take a list of cards as argument for its constructor.
     c. The `PokerHand` must overload the `<` operator to be able to compare two `PokerHand` objects.
 
-E. A class representing the hand, `Hand`, which must have methods for
+E.  A class representing the hand, `Hand`, which must have methods for
     a. adding a new card (named `add_card`)
     b. dropping several cards based on an *index* list (named `drop_cards`)
     c. sorting the cards (named `sort`)
     d. There must also be a method `best_poker_hand(self, cards=[])` which computes the best hand out of the cards in the hand and the cards in the input argument. The `best_poker_hand` method returns a `PokerHand` object. It must be able to handle a total of more than 5 cards (as is the case in Texas Hold ’em). 
     Note that the `Hand` class represents the playing cards in your hand and the `PokerHand` class what poker hand you make of these playing cards.
 
-F. Testing code for most of the functions you have written (see below for tutorial). A sample testing code is available in Canvas. Your code should pass these tests and in addition, you must *at least* add tests for:
+F.  Testing code for most of the functions you have written (see below for tutorial). A sample testing code is available in Canvas. Your code should pass these tests and in addition, you must *at least* add tests for:
     a. More card types and their methods
     b. More hand methods
     c. Further testing the deck and its methods
@@ -75,7 +72,7 @@ F. Testing code for most of the functions you have written (see below for tutori
     e. Comparison between different poker-hands
     f. Comparison between hands with card combinations giving the same poker hand, but different card values for both the cards making up the poker hand (for example 2 kings in a pair of kings) and the remaining 3 cards
 
-G. HTML-documentation for everything above generated using Sphinx (see below for tutorial). This documentation must include documentation of *all the required and classes and methods*, including a brief description, input parameters, and return values. Also, include documentation for major classes/methods you add.
+G.  HTML-documentation for everything above generated using Sphinx (see below for tutorial). This documentation must include documentation of *all the required and classes and methods*, including a brief description, input parameters, and return values. Also, include documentation for major classes/methods you add.
 
 You are free to introduce additional methods and classes as you see fit. Simple types, like the `Suit` and the type of poker hand, **must** be represented by an `Enum` type, not raw integers or strings. All classes should be printable in a nice way. Hint: Unicode characters can be used: *[Wikipedia](https://en.wikipedia.org/wiki/Playing_cards_in_Unicode)*.
 
