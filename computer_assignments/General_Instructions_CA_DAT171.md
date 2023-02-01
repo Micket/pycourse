@@ -4,20 +4,34 @@ header-includes:
 ---
 
 # General instructions for computer assignments DAT171
-To receive the grade Passed on the computer assignments please follow the instructions below.
+To receive the grade *Passed* on the computer assignments please follow the instructions below.  
+All groups work individually and write their own code etc. No code-sharing is allowed. Automatic cheating detection is run on the handed in assignments (of course human judgement is used in cases of suspected cheating).
 
-1. All groups work individually and write their own code etc. No code-sharing is allowed. Automatic cheating detection is run on the handed in assignments (of course human judgment is used in cases of suspected cheating).
-2. In Python, classes are written in *CamelCase* where a capital letter is used for each new word, i.e. `ClassName`. Libraries, variables, and functions are generally written in lowercase using underscores for word separation, i.e. `variable_name`.
-3. There are many more style recommendations for Python which can be read here: <https://www.python.org/dev/peps/pep-0008/>. If you are using PyCharm as an __IDE__ you will see a yellow line where you have broken the style guide. You do not have to follow everything in the style guide, but if PyCharm has yellow stuff everywhere you probably want to fix some.
-4. Do not use global variables where it easily can be avoided.
-5. Constants should be defined at the beginning of the program (or function/class etc. when they are local).
-6. Constants are usually written in all caps, i.e. `BASE_RADIUS`. 
-7. Methods that change the state of the program should generally be written as a verb. For example, a method that removes a player from a game should be called `remove_player(player)` instead of `player_remove(player)`.
-8. It is almost always a bad idea to import things in the middle of a function. I.e. gather all your import statements at the top of the code-unit they belong to.
-9. Keep your function declaration above the main code. I.e. the main code of your program should be at the end of the program file.
-10. Use the methods of an object directly, and not through the defining class.
-11. Try not to have unused variables in your program. *An unused variable hints that something is wrong*, did you forget to use the variable?
-12. As with Matlab, avoid using loops where it easily can be avoided. Use more efficient NumPy-arrays or similar. However, sometimes a loop is the most straightforward way to implement something and in non-performance sensitive parts of the code, they are perfectly fine to use.
+## Style Guide
+Style recommendations for Python can be found in the PEP8 style guide (<https://www.python.org/dev/peps/pep-0008/>). If you are using PyCharm as an __IDE__ you will see a yellow line where you have broken the style guide. You do not have to follow everything in the style guide, but if PyCharm has yellow stuff everywhere you probably want to fix some.
+In particular, consider the following points:
+
+1. In Python, classes are written in *CamelCase* where a capital letter is used for each new word, i.e. `ClassName`.
+   Libraries, variables, and functions are generally written in lowercase using underscores for word separation, i.e. `variable_name`. 
+2. Constants are usually written in all caps, i.e. `BASE_RADIUS`. 
+3. It is almost always a bad idea to import things in the middle of a function. I.e. gather all your import statements at the top of the code-unit they belong to.
+
+## Good programming practices
+
+1. Keep your function declaration above the main code. I.e. the main code of your program should be at the end of the program file.
+2. Constants should be defined at the beginning of the program (or function/class etc. when they are local).
+3. Do not use global variables where it easily can be avoided.
+4. Methods that change the state of the program should generally be written as a verb. For example, a method that removes a player from a game should be called `remove_player(player)` instead of `player_remove(player)`.
+5. Whenever possible, use the methods of an object directly, and not through the defining class. I.e.
+
+    ```py
+    mylist = [1,2]
+    mylist.append(3) # Correct, uses method of object directly
+    list.append(mylist, 3) # Wrong, uses method though defining class
+    ```
+
+6. Try not to have unused variables in your program. *An unused variable hints that something is wrong*, did you forget to use the variable?
+7. As with Matlab, avoid using loops where it easily can be avoided. Use more efficient NumPy-arrays or similar. However, sometimes a loop is the most straightforward way to implement something and in non-performance sensitive parts of the code, they are perfectly fine to use.
 
 ## Documentation
 1. Comment on lines or blocks of code to make the intent of it clear.
