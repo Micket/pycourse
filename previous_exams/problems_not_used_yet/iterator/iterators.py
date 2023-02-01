@@ -20,6 +20,9 @@ class Window:
         self.array = array
         self.size = size
 
+    def __len__(self):
+        return len(self.array) - self.size + 1
+
 
 
 class EachColumn:
@@ -44,6 +47,9 @@ class EachColumn:
 
     def __init__(self, matrix):
         self.matrix = matrix
+
+    def __len__(self):
+        return self.matrix.shape[1]
 
 
 # Alternative
