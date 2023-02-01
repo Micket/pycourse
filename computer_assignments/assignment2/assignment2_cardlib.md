@@ -4,7 +4,7 @@ header-includes:
 ---
 
 # DAT171 - Computer assignment 2
-### (2022-01-30)
+### (2023-02-01)
 
 This assignment will focus on Object-Oriented Programming (OOP). The objective is to write a general library for standard playing cards (52 card decks). This library will be used in assignment 3 to build a simple Texas Hold’em poker game.
 
@@ -17,11 +17,9 @@ The OOP-part of the assignment will try out the possibilities for:
 
 **Please read through the whole assignment before you start working!**
 
-[comment]: <> (The task is set up as a top-down design, where the top-level functions are written before the core functionality is implemented. Insert placeholders as you go along!)
-
 The specific requirements of what you are supposed to include in your code are described in the following text. Though you are not required to follow the provided task order, the suggested procedure for tackling this assignment is following these steps:
 
-1. Create the card classes
+1. Create the suit and card classes
 2. Create a class to represent the deck
 3. Create a basic hand class (skip the `best_poker_hand` method for now)
 4. Create a class to represent poker hands (with poker hand we mean for example a pair, flush or straight)
@@ -48,21 +46,23 @@ B.  The playing cards: The classes listed below **must** inherit from an abstrac
     d. `KingCard(suit: Suit)`
     e. `AceCard(suit: Suit)`
 
-     Implement `<` so that it gives a strict, sensible ordering, but you will have to decide what to do with Aces and suits yourself (hint: look at how tuples handle `<`). The method `get_value` is intended to help you practice implementing an abstract method, i.e. it is mandatory (and can be put to good use here!).
+     Implement `<` (and `==`) so that it gives a strict, sensible ordering, but you will have to decide what to do with Aces suits yourself (hint: look at how tuples handle `<`).
+     
+     The method `get_value` is intended to help you practice implementing an abstract method, i.e. it is mandatory (and can be put to good use here!).
 
 C.  The deck: The class `StandardDeck()` must create a full deck of (52) cards. There must be functions for shuffling (named `shuffle`) and taking the top card (named `draw`, which also removes the card from the deck).
 
-D.  A `PokerHand` class constructed as follows: 
-    a. A `PokerHand` must contain a hand type (high card, one pair, two pair, three of a kind, straight, flush, full house, four of a kind, straight flush) and the value(s) needed to distinguish between two hands of the same type. See *[Wikipedia List of poker hands](https://en.wikipedia.org/wiki/List_of_poker_hands)* 
-    b. The `PokerHand` must take a list of cards as argument for its constructor.
-    c. The `PokerHand` must overload the `<` operator to be able to compare two `PokerHand` objects.
-
-E.  A class representing the hand, `Hand`, which must have methods for
+D.  A class representing the hand, `Hand`, which must have methods for
     a. adding a new card (named `add_card`)
     b. dropping several cards based on an *index* list (named `drop_cards`)
     c. sorting the cards (named `sort`)
     d. There must also be a method `best_poker_hand(self, cards=[])` which computes the best hand out of the cards in the hand and the cards in the input argument. The `best_poker_hand` method returns a `PokerHand` object. It must be able to handle a total of more than 5 cards (as is the case in Texas Hold ’em). 
     Note that the `Hand` class represents the playing cards in your hand and the `PokerHand` class what poker hand you make of these playing cards.
+
+E.  A `PokerHand` class constructed as follows: 
+    a. A `PokerHand` must contain a hand type (high card, one pair, two pair, three of a kind, straight, flush, full house, four of a kind, straight flush) and the value(s) needed to distinguish between two hands of the same type. See *[Wikipedia List of poker hands](https://en.wikipedia.org/wiki/List_of_poker_hands)* 
+    b. The `PokerHand` must take a list of cards as argument for its constructor.
+    c. The `PokerHand` must overload the `<` and `==` operators to be able to compare two `PokerHand` objects.
 
 F.  Testing code for most of the functions you have written (see below for tutorial). A sample testing code is available in Canvas. Your code should pass these tests and in addition, you must *at least* add tests for:
     a. More card types and their methods
@@ -118,7 +118,7 @@ Below are a few steps to help you get started.
 
 In addition to the normal documentation of the code, you must also generate a HTML (or PDF) manual for the API of your library, using the tool *[Sphinx](http://www.sphinx-doc.org/en/stable/)*. This section will give a short tutorial on how to generate such a manual from within PyCharm.
 
-Start by going to `Tools -> Sphinx Quickstart` (you might need to install the Sphinx package, https://www.sphinx-doc.org/en/master/usage/installation.html). The first time you run this in a project, it will ask for a working directory. For this project, choose “[project directory]/doc” by creating a new folder.
+Start by going to `Tools -> Sphinx Quickstart` (you might need to install the Sphinx package through Anaconda Navigator). The first time you run this in a project, it will ask for a working directory. For this project, choose “[project directory]/doc” by creating a new folder.
 
 ![](images/sphinx1.png){width=80%}
 
