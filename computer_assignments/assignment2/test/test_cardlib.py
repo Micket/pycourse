@@ -52,10 +52,11 @@ def test_hand():
         assert h.cards[i] < h.cards[i + 1] or h.cards[i] == h.cards[i + 1]
 
     cards = h.cards.copy()
-    h.drop_cards([3, 0, 1])
+    h.drop_cards([4, 0, 1])
+
     assert len(h.cards) == 2
     assert h.cards[0] == cards[2]
-    assert h.cards[1] == cards[4]
+    assert h.cards[1] == cards[3]
 
 
 # This test builds on the assumptions above. Add your type and data for the commented out tests
