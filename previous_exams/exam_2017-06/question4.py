@@ -42,11 +42,11 @@ class CircularWriter(Writer):
 
     def flush(self):
         with open(self.filename, 'w') as fout:
-            for i in range(self.pos, self.n):
-                if self.buffer[i]:
-                    fout.write(self.buffer[i] + '\n')
-            for i in range(self.pos):
-                fout.write(self.buffer[i] + '\n')
+            for line in self.buffer[self.pos:]:
+                if line:
+                    fout.write(line + '\n')
+            for line in self.buffer[:self.pos]:
+                fout.write(line + '\n')
 
 
 # Part B

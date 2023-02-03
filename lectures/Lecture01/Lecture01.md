@@ -3,9 +3,10 @@
 * Teachers:
     * Thomas Svedberg, tel. 772 1522, <thomas.svedberg@chalmers.se>
     * Mikael Öhman, tel. 772 3191, <mikael.ohman@chalmers.se>
-    * Kim Auth, <kim.auth@chalmers.se> 
-* Find Thomas and Kim at Material & Computational Mechanics (3rd floor M-building)
-* Find Mikael at Physics / C3SE office (5th floor Origo building)
+    * Kim Auth, <kim.auth@chalmers.se>
+    * Björn Andersson <abjorn@chalmers.se>
+* Find Thomas and Mikael at Physics / C3SE office (6th floor Origo South building)
+* Find Kim and Björn at Material & Computational Mechanics (2nd floor M-building)
 * We are working from home some times, better contact us through mail first.
 
 Course literature:
@@ -37,16 +38,13 @@ Good knowledge of basic programming structures such as variables, conditions, lo
   * Course evaluated at 2 occurrences
   * Course survey after exam
   * Course board representatives:
-    * TKMAS
-      * Walther Ericsson Porsenklev, <gusporwa@student.gu.se>
-      * Jacob Nir, <jacob.nir@hotmail.com>
-      * Daniel Söderqvist, <soderqvist.daniel@outlook.com>
-      * Gabriel Wendel, <gabrielwendel990217@gmail.com>
-    * TKIEK
-      * Lucas Aronsson, <lucasaronsson@hotmail.com>
-    * MPMOB
-      * Xinhao Wang, <wangxinhao17@foxmail.com>
-      * Shijie Zhang, <473664881@qq.com>
+      * Axel Guttman<<axel.kristian@gmail.com>> (MPMOB)
+      * Halime Selimoglu<<halimeselimoglu@gmail.com>> (MPMOB)
+      * Joakim Kindström<<joakim.kindstrom@telia.com>> (FK)
+      * John Tran<<johntran1@hotmail.se>> (FK)
+      * Oskar Ståhlbom<<oskar.stahlbom@live.se>> (TKMAS)
+      * Samuel Rydz Wullens<<samuelrw99@gmail.com>> (TKMAS)
+      * Sheik Meeran Rasheed Abdul<<sheik.meeran13@yahoo.com>> (MPCAS)
 
 
 # Content
@@ -84,6 +82,8 @@ The exam will take place in computer rooms. The re-exams are taken in June and i
 # Computer Assignments
 3 _compulsory_ assignments worth 1 hp each which represents 26 hours of work per student.
 Computer assignments **will** be done in groups of **two**.
+
+**Note:** All assignments must be handed in before their respective deadline (found in the course schedule). You can also find the deadlines for handing in the final corrections there.
 
 Do not cheat! Ask each other questions, but don't share sections of code etc. directly, it will not help you in the long run.
 _WE'RE REQUIRED TO REPORT CHEATING_
@@ -134,7 +134,7 @@ Software will be available on the Windows machines in ES61/62 and E-Studion.
 * PyQt
 * Recommended Integrated Programming Environment (IDE): PyCharm (community edition) <https://www.jetbrains.com/pycharm/download/>
 * Laptops:
-    * Anaconda <https://www.anaconda.com/products/individual>
+    * Anaconda <https://www.anaconda.com/products/distribution>
     * You should try to use the school Windows computers too, to be prepared for the exam
 * Visual Studio Code <https://code.visualstudio.com/download> also popular, but we can not provide support for it in the same way as for PyCharm
 
@@ -142,13 +142,13 @@ Software will be available on the Windows machines in ES61/62 and E-Studion.
 # Consultation
 * E-mail is preferred before the Canvas message system
 * 3 computer sessions each week (you're expected to work on the assignments on your own in-between sessions!)
-* Thomas and Kims offices on 3rd floor in the M-building (Material & Computational Mechanics / Material & Beräkningsmekanik).
-* Mikaels office at Physics / C3SE office (5th floor Origo building)
+* Thomas and Mikaels offices is at Physics / C3SE office (6th floor Origo South building)
+* Kim and Björns offices on 2nd floor in the M-building (Material & Computational Mechanics / Material & Beräkningsmekanik)
 
 
 # Schedule
-  * L = Lectures Mon: HA3, Thu: HA2 Zoom
-  * CS = Computer lab session Mon, Thu: ES61 & ES62, Fri: E-studion. Also over Zoom (see Canvas for details)
+  * L = Lectures Mon: HA3, Thu: HA2 
+  * CS = Computer lab session Mon, Thu: ES61 & ES62, Fri: E-studion. 
  
 
 | Time  | Mon| Tue | Wed | Thu | Fri |
@@ -336,21 +336,6 @@ Out[2]: 214896.0817717206
 
   * Virtual environments (venv) and Conda environments (conda) are methods keeping per-project installations of Python packages. While it can be useful in some situations, we want to have access to the full list of packages from our Anaconda installations when working throughout the course.
 
-
-# Expand project interpreter menu
-![pycharm project step 0](pycharm-project-0.png) \
-
-# Select existing interpreter
-![pycharm project step 1](pycharm-project-1.png) \
-
-# Select system interpreter
-![pycharm project step 2](pycharm-project-2.png) \
-If listed, simply select your Anaconda python3 installation
-
-# Locate anaconda installation
-![pycharm project step 3](pycharm-project-3.png) \
-Press the ... to locate your `python` or `python.exe` binary from your Anaconda installation.
-
 # Finding your Anaconda installation
 
 Students seem to end up with many different paths to Anaconda, so here are a few suggested areas to look if you can't find where it ended up:
@@ -367,3 +352,17 @@ Students seem to end up with many different paths to Anaconda, so here are a few
 
   * Linux:
      - Wherever you unpacked the tarball
+
+# Expand project interpreter menu
+![pycharm project step 0](pycharm-project-0.png) \
+
+# Select existing interpreter
+![pycharm project step 1](pycharm-project-1.png) \
+
+# Select system interpreter
+![pycharm project step 2](pycharm-project-2.png) \
+If listed, simply select your Anaconda python3 installation
+
+# Locate anaconda installation
+![pycharm project step 3](pycharm-project-3.png) \
+Press the ... to locate your `python` or `python.exe` binary from your Anaconda installation.

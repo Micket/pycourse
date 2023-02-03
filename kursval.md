@@ -10,6 +10,7 @@
     * Thomas Svedberg, <thomas.svedberg@chalmers.se> (E-Commons/C3SE) (examinator)
     * Mikael Öhman, <mikael.ohman@chalmers.se> (E-Commons/C3SE)
     * Kim Auth, <kim.auth@chalmers.se> (Material- och beräkningsmekanik)
+    * Björn Andersson, <abjorn@chalmers.se> (Material- och beräkningsmekanik)
 
 # Varför Python
 
@@ -40,7 +41,7 @@
     * NumPy (matriser, vektorer, linjär algebra)
     * SciPy (paket för numeriska beräkningar)
     * Matplotlib (grafritning mm.)
-    * IPython (interactive Python)
+    * Jupyter notebooks
 
 # Examination
 
