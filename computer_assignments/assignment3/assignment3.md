@@ -3,7 +3,7 @@ header-includes:
         - \usepackage[left=1.9cm, right=1.9cm, top=1.5cm, bottom=1.9cm]{geometry}
 ---
 
-# DAT171 - Computer assignment 3 (2022-02-21)
+# DAT171 - Computer assignment 3 (2023-02-16)
 
 The objective is to make use of the library from the previous assignment in a graphical user interface for a Texas Hold ‘em game.
 The design must follow the Model-View-Controller concept.
@@ -15,7 +15,7 @@ The first step is to create a suitable layout for buttons, players, displaying c
 1. Make a sketch (on paper) of how you want to display your Poker game (do a simple "boxy" design).
    Add sections for all the data you wish to display, for example, each player's hand and money, the cards on the table and the pot, bet, and fold buttons, and whatever you think you may need.
    Think through how you want this game to work on paper first instead of fixing things later.
-   You must make a reuseable view for each player, so you should allocate a rectangular area that displays all the player information.
+   You must make a reusable view for each player, so you should allocate a rectangular area that displays all the player information.
    *Tip: It is easier to only have one setup of input buttons (bet, fold etc.), representing the action for the active player.*
 2. Find suitable QT-layouts to construct your sketch.
    Draw these on paper as well, to get a good idea of the hierarchies of the layouts and in what order to construct the widgets.
