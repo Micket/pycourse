@@ -25,7 +25,7 @@ The first step is to create a suitable layout for buttons, players, displaying c
    The buttons don't need to do anything yet.
 
 See Lecture 11 for some examples of layouts, and links to even more tutorials and examples on the available layouts.
-Primarily, you will probably want to use the HBox and VBox layouts, but feel free to investigate other layouts (like the grid layout).
+Primarily, you will probably only want to use the HBox and VBox layouts, but feel free to investigate other layouts (like the grid layout).
 
 The second step is to model the game state, and connect it to the GUI code:
 
@@ -39,7 +39,7 @@ The second step is to model the game state, and connect it to the GUI code:
    It is recommended to make a signal for alerting the GUI that the game has ended.
    You should be able to play several rounds of poker until a player runs out of money.
 
-See the `card_view.py` (available on the homepage) example for the split between model and view.
+See the `cardsview.py` and `cardsmodel.py` (available on the homepage) example for the split between model and view.
 You are free to use any of the code from the card view widget, modify it to fit your game (or not use it at all).
 
 You can do basic stuff like checking user input for correctness in the GUI-code, but keep a clear separation of the graphical interface and the underlying model (game state).
