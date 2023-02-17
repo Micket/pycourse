@@ -43,6 +43,7 @@ See the `cardsview.py` and `cardsmodel.py` (available on the homepage) example f
 You are free to use any of the code from the card view widget, modify it to fit your game (or not use it at all).
 
 You can do basic stuff like checking user input for correctness in the GUI-code, but keep a clear separation of the graphical interface and the underlying model (game state).
+Signals must be used for communication. It must follow an MVC-design, so do not embed game logic in the GUI-code, and don't call GUI-code from the game logic!
 
 ## Deliverables
 Please submit a zip (with exact filenames)
@@ -54,4 +55,3 @@ Please submit a zip (with exact filenames)
 
 If you use the graphical components, please also include the directory with graphics `cards` in your zip. I should be able to run your code.
 
-Signals must be used for communication. It must follow an MVC-design, so do not embed game logic in the GUI-code, and don't call GUI-code from the game logic!
