@@ -131,16 +131,22 @@ class CardsView(QGraphicsView):
 import sys
 from cardsmodel import HandModel
 
-app = QApplication(sys.argv)
-hand = HandModel()
-
-card_view = CardsView(hand)
-
 # Creating a small demo window to work with, and put the card_view inside:
-box = QVBoxLayout()
-box.addWidget(card_view)
-player_view = QGroupBox("Player 1")
-player_view.setLayout(box)
+class TestWindow(QWidget):
+    def __init__(self, hand):
+        super().__init__()
+        box = QVBoxLayout()
+        card_view = CardsView(hand, card_spacing=50)
+        box.addWidget(card_view)
+        button = QPushButton("Flip!")
+        button.clicked.connect(hand.flip)
+        box.addWidget(button)
+        self.setLayout(box)
+
+qt_app = QApplication.instance()
+hand = HandModel()
+player_view = TestWindow(hand)
 player_view.show()
+qt_app.exec_()
 
 app.exec_()
