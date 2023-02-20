@@ -143,10 +143,8 @@ class TestWindow(QWidget):
         box.addWidget(button)
         self.setLayout(box)
 
-qt_app = QApplication.instance()
+qt_app = QApplication(sys.argv)
 hand = HandModel()
 player_view = TestWindow(hand)
 player_view.show()
 qt_app.exec_()
-
-app.exec_()
