@@ -64,4 +64,19 @@ area
 (no meaningful shared state or methods though?)
 
 
+# question 1: irregular swedish verbs
+Parse `verblista.txt` (which was read in from a pdf file and only cleaned up by removing lines that are not verbs). 
+Parsing is a little bit difficult because there are varying amounts of spaces and some verbs have several possible forms in some of the tenses. Should work if two spaces are used as a split criterion.
+
+Perhaps print table with a random choice of verbs and only one form, similar to 
+___________________________________________________________________________
+|                 |                  |                  | varit            |
+___________________________________________________________________________
+|                 | finnas           |                  |                  |
+___________________________________________________________________________
+...
+(I originaly read in this file to generate tasks for training the different forms of the irregular verbs.)
+Perhaps the formatting of such a table is a little difficult though.
+
+
 # 
