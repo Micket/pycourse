@@ -34,21 +34,6 @@ implement mul, add
 123 * 456   +   (456 * 456 * 1e4  +   123 * 7891 * 1e3  +  123 * 7891 * 1e0) * 1e-7
 
 
-# question 1 "du" like table from directory of files, showing filesize on files and recursively on directories in a nice format
-store file hierarchy in dictionary, along with recursive file size
-
-directory: 1.1MiB
-├── foo: 200kiB
-│   └── file.txt 200kiB
-└── bar: 900kiB
-   ├── baz.init: 400kiB
-   └── foobar.exe: 500kiB 
-
-write function for bytes -> kiB/MiB/GiB 
-
-(indented rendering like that might be a bit difficult)
-
-
 # question 4: "Series"  (TaylorSeries, FourierSeries)
 __iter__ # One term at the time?
 __len__ / count
