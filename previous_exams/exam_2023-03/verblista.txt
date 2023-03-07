@@ -1,10 +1,10 @@
-    beﬁinn!   beﬁinna (sig)  beﬁinner (sig)  befann (sig)  befunnit (sig)
+    befinn!   befinna (sig)  befinner (sig)  befann (sig)  befunnit (sig)
     bind!    binda    binder   band    bundit
     brinn!   brinna   brinner   brann   brunnit
     brist!    brista    brister   brast    brustit
     drick!    dricka   dricker   drack    druckit
-    ﬁinn!    ﬁinna    ﬁinner   fann    funnit
-    ---    ﬁinnas   ﬁinns    fanns    funnits
+    finn!    finna    finner   fann    funnit
+    ---    finnas   finns    fanns    funnits
     förbind!   förbinda   förbinder   förband   förbundit
     försvinn!   försvinna   försvinner  försvann   försvunnit
     (hinn!)   hinna   hinner   hann    hunnit
@@ -50,8 +50,8 @@
               avbryt!           avbryta          avbryter          avbröt           avbrutit
               bryt!            bryta            bryter           bröt             brutit
               dyk!             dyka            dyker            dök             dykt
-              ﬂyg!             ﬂyga            ﬂyger            ﬂög             ﬂugit
-              ﬂyt!             ﬂyta             ﬂyter            ﬂöt             ﬂutit
+              flyg!             flyga            flyger            flög             flugit
+              flyt!             flyta             flyter            flöt             flutit
               frys!             frysa            fryser            frös             frusit
               smyg!            smyga           smyger           smög            smugit
               stryk!            stryka           stryker           strök            strukit
@@ -94,7 +94,7 @@
           dö!          dö          dör          dog          dött
           ersätt!         ersätta        ersätter        ersatte        ersatt
           framstå!        framstå        framstår       framstod       framstått
-          få!           få           får          ﬁck          fått
+          få!           få           får          fck          fått
           förstå!         förstå         förstår        förstod        förstått
           förutsätt!       förutsätta       förutsätter      förutsatte       förutsatt
           ge!          ge           ger          gav          gett/givit
