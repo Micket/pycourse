@@ -1,11 +1,11 @@
 class Bijection:
-    def __init__(self, items):
-        self.foward = dict()
+    def __init__(self, items = ()):
+        self.forward = dict()
         self.backward = dict()
         for item in items:
             self.add(item)
 
-    def map_foward(self, item):
+    def map_forward(self, item):
         self.forward[item]
 
     def map_backward(self, item):
@@ -14,19 +14,26 @@ class Bijection:
     def add(self, item):
         a, b = item
 
-        if a in self.foward or b in self.backward:
-            raise IndexError("item already mapped")
+        if a in self.forward or b in self.backward:
+            raise ValueError("item already mapped")
 
-        self.foward[a] = b
+        self.forward[a] = b
         self.backward[b] = a
 
-    def __del__(self, item):
-        b = self.forward[item]
-        del self.forward[item]
-        del self.backward[b]
+    def delete(self, i):
+        if i in self.forward:
+            j = self.forward[i]
+            del self.forward[i]
+            del self.backward[j]
+        elif i in self.backward:
+            j = self.backward[i]
+            del self.backward[i]
+            del self.forward[j]
+        else:
+            raise IndexError(f"can't delete non-mapped item {i}")
 
     def __iter__(self):
-        return iter(self.forward)
+        return iter(self.forward.items())
 
     def __repr__(self):
         return f'Bijection({repr(forward)})'
@@ -34,4 +41,23 @@ class Bijection:
     def __str__(self):
         return '{' + ', '.join(f'{a}::{b}' for a, b in self.forward.items()) + '}'
 
+
+# Test
+db = Bijection()
+
+db.add(('a', 1))
+db.add(('b', 2))
+db.add(('c', 3))
+
+# db.add(('c', 2))  # vad händer...
+
+
+for a, b in db:
+    print(a, '<-->', b)
+
+print(db)
+
+db.delete(3)
+
+print(db)
 
