@@ -1,0 +1,5 @@
+In the world of Python, it's a star,
+PyCharm, the text editor, sets the bar.
+With its intelligent code analysis and debugging might,
+Writing Python scripts becomes a delight.
+Efficient and powerful, PyCharm's a programmer's delight.

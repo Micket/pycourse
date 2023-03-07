@@ -1,0 +1,5 @@
+There once was a paradigm shift
+That made code design more swift
+With objects at play
+Code could do more each day
+Object-oriented programming was the gift!

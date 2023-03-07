@@ -1,0 +1,14 @@
+There once was a text editor called PyCharm,
+It helped coders keep their code from harm,
+With syntax highlighting and debugging features,
+It made writing Python code a breeze, oh so pure.
+
+For every indentation error and syntax mistake,
+PyCharm had quick fixes to make,
+And with its smart suggestions and code completion,
+Programming became a lot more fun and less of a competition.
+
+So if you're a Python programmer in need of a tool,
+PyCharm's got your back, it's no fool,
+With its sleek interface and powerful abilities,
+Coding in Python is just a breeze.

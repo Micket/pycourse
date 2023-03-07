@@ -1,0 +1,5 @@
+In programming, there's an approach
+That's good for keeping things afloat
+It's object-oriented, you see
+And it's as clear as it can be
+With encapsulation, polymorphism, and inheritance, it's no joke!
