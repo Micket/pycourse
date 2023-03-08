@@ -21,7 +21,6 @@ class Dataset(abc.ABC):
 
 
 class ListDataset(Dataset):
-    """ Dataset simply stored in list """
     def __init__(self, name, data):
         super().__init__(name)
         self.data = data
@@ -37,29 +36,20 @@ class ListDataset(Dataset):
 
 
 class DirectoryDataset(Dataset):
-    # a bit boring maybe?
+    def __init__(self, path):
+        super().__init__(path.split('/')[-1])
+        self.path = path
+
     def __len__(self):
-        return len(os.listdir(self.name))
+        return len(os.listdir(self.path))
 
     def __getitem__(self, item):
-        filename = os.listdir(self.name)[item]
-        with open(os.path.join(self.name, filename)) as file:
-            return filename.read()
+        filename = os.listdir(self.path)[item]
+        with open(os.path.join(self.path, filename)) as file:
+            return file.read()
 
     def __repr__(self):
         return f'DirectoryDataset({self.name})'
-
-
-class H5Dataset(Dataset):
-    def __init__(self, archivepath):
-        super().__init__(archivepath.split('/')[-1])
-        self.archive = h5py.File(archivepath, 'r')
-
-    def __getitem__(self, item):
-        return self.archive[str(item)][()]
-
-    def __repr__(self):
-        return f'H5Dataset({self.name})'
 
 
 class SubsetDataset(Dataset):
@@ -78,15 +68,36 @@ class SubsetDataset(Dataset):
         return f'SubsetDataset({self.dataset}, {self.subrange})'
 
 
+class RandomDataset(Dataset):
+    def __getitem__(self, _):
+        return ''.join(random.choice('abcdefghijklmnopqrstuvwxyz') for i in range(10))
+
+    def __len__(self):
+        return 1
+
+    def __repr__(self):
+        return f'RandomDataset({self.name})'
+
+
+
 
 # Test
 
 a = ListDataset('test strings', ["some", "simple", "example data", "here"])
-b = DirectoryDataset('example/limericks')
-c = DirectoryDataset('example/poems')
-d = SubsetDataset(c, range(1,3))
+b = DirectoryDataset('example/poems')
+c = DirectoryDataset('example/limericks')
+d = SubsetDataset(c, range(1,7,2))
+e = RandomDataset('testing')
 
-#assert len(c) == 6
-#assert len(d) == 2
+assert a[1] == "simple"
+assert b[3].startswith("There once was a text editor called PyCharm")
+assert c.name == "limericks"
+assert d.name == "limericks"
+assert d[1] == 
+assert len(c) == 6  # 6 example limericks
+assert len(d) == 2
+assert e.rand() == 10  # should be a random 10 character string
 
+print(a.rand())
+print(b.rand())
 print(d.rand())
