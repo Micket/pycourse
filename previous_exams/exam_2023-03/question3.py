@@ -44,20 +44,16 @@ class Bijection:
 
 # Test
 db = Bijection()
+db2 = Bijection((('a', 1), ('b', 2)))
 
 db.add(('a', 1))
 db.add(('b', 2))
 db.add(('c', 3))
 
-# db.add(('c', 2))  # vad händer...
-
-
-for a, b in db:
+for a, b in db2:
     print(a, '<-->', b)
 
+print()
 print(db)
-
 db.delete(3)
-
 print(db)
-
