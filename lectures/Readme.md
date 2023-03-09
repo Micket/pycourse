@@ -90,10 +90,11 @@
   - Iterators: next() and iter() with examples
 
 ## [Lecture 10: Exceptions, decorators and static methods](./Lecture10/Lecture10.ipynb)
+  - Static and class method
+  - Decorators
   - Try and except
   - Finally and else
   - Creating custom exceptions
-  - Using decurators, e.g. @staticmethod, @enum.unique
   - Creating custom decorators
 
 ## [Lecture 11: Main and command line arguments + basic GUI](./Lecture11/Lecture11.ipynb)
