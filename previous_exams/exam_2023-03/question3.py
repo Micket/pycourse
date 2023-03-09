@@ -6,10 +6,10 @@ class Bijection:
             self.add(item)
 
     def map_forward(self, item):
-        self.forward[item]
+        return self.forward[item]
 
     def map_backward(self, item):
-        self.backward[item]
+        return self.backward[item]
 
     def add(self, item):
         a, b = item
@@ -49,6 +49,9 @@ db2 = Bijection((('a', 1), ('b', 2)))
 db.add(('a', 1))
 db.add(('b', 2))
 db.add(('c', 3))
+
+assert db.map_forward('b') == 2
+assert db.map_backward(1) == 'a'
 
 for a, b in db2:
     print(a, '<-->', b)
