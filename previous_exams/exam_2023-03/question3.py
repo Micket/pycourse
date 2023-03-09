@@ -39,7 +39,7 @@ class Bijection:
         return f'Bijection({repr(forward)})'
 
     def __str__(self):
-        return '{' + ', '.join(f'{a}::{b}' for a, b in self.forward.items()) + '}'
+        return '{' + ', '.join(f'{a}::{b}' for a, b in self) + '}'
 
 
 # Test
