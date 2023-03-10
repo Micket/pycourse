@@ -53,7 +53,7 @@ def select_form(verb: tuple) -> int:
     return index
 
 
-def print_practice_sheet(verbs: str) -> None:
+def print_practice_sheet(verbs: list[tuple]) -> None:
     # First select verb forms
     indices = []
     for verb in verbs:
@@ -80,7 +80,7 @@ def print_practice_sheet(verbs: str) -> None:
     print("=" * (np.sum(widths) + 6 + 5 * 2))  # Total width of words, plus separators "|", plus one empty space around each word
 
 
-def print_sheet(verbs: str) -> None:
+def print_sheet(verbs: list[tuple]) -> None:
     # Now find max column width, min width = 8 characters
     widths = [8] * 5
     for verb in verbs:
