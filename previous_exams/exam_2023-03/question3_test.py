@@ -18,3 +18,4 @@ db.delete(second=3)
 print(db)
 db.delete(first='a')
 print(db)
+# db.delete(first='x')  # should raise an exception
