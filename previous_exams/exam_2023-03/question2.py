@@ -1,5 +1,6 @@
 import numpy as np
 from scipy.optimize import linprog
+import matplotlib.pyplot as plt
 
 # Part A
 """
@@ -16,6 +17,27 @@ Constraints: (using unit m^2 for cotton and polyester)
     Pants:      Must be positive: x >= 0
     Jackets:    Must be positive: y >= 0
 """
+
+def f(x, y): return 50*x + 40*y
+
+cotton, polyester = 750, 1000
+x = np.linspace(0, 500)
+y = np.linspace(0, 500)
+X, Y = np.meshgrid(x, y)
+Z = f(X, Y)
+
+#plt.pcolormesh(x, y, Z)   # alterantive
+plt.contourf(X, Y, Z)
+plt.colorbar(label='Profit')
+plt.plot(x, (cotton-x)/1.5, 'k')
+plt.plot(x, polyester-2*x, 'k')
+plt.xlim([0, 500])
+plt.ylim([0, 500])
+plt.xlabel('Pants')
+plt.ylabel('Jackets')
+plt.title("Profit from jacket and pants sales")
+plt.show()
+
 
 # Part B
 """
