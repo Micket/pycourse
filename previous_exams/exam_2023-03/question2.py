@@ -3,6 +3,8 @@ from scipy.optimize import linprog
 
 # Part A
 """
+x is the no. of pants, and y the no. of jackets.
+
 The objective function is the profit, it is stated to be: f(x, y) = 50 * x + 40 * y
 
 Constraints: (using unit m^2 for cotton and polyester)
@@ -12,9 +14,8 @@ Constraints: (using unit m^2 for cotton and polyester)
                 In total this should be less than what is available (1000): 2 * x + 1 * y <= 1000
 
     Pants:      Must be positive: x >= 0
-    jackets:    Must be positive: y >= 0
+    Jackets:    Must be positive: y >= 0
 """
-
 
 # Part B
 """
@@ -41,7 +42,7 @@ c = np.array([-50, -40])
 A_ub = np.array([[1.0, 1.5],
                  [2.0, 1.0]])
 b_ub = np.array([750, 1000])
-bounds = [(0, None), (0, None)] # Lower and Upper bounds on x and y
+bounds = [(0, None), (0, None)]  # Lower and Upper bounds on x and y
 
 result = linprog(c, A_ub=A_ub, b_ub=b_ub, bounds=bounds)
 # print(result)

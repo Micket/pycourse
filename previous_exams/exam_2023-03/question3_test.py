@@ -14,5 +14,5 @@ for a, b in db2:
 
 print()
 print(db)
-db.delete(3)
+db.delete(second=3)
 print(db)

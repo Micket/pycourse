@@ -8,8 +8,8 @@ def parse_line(line: str) -> tuple:
 
     for item in line.strip().split("  "):
         item = item.strip()
-        if item != "":              # Do not add empty strings
-            if item == "---":       # Handle non existing forms
+        if item != "":  # Do not add empty strings
+            if item == "---":  # Handle non existing forms
                 items.append(None)
             else:
                 items.append(item)
@@ -23,9 +23,9 @@ def read_file(filename: str) -> list[tuple]:
     with open(filename) as file:
         for line in file:
             verb = parse_line(line)
-            if verb:                    # Handle empty lines
+            if verb:  # Handle empty lines
                 verbs.append(verb)
-    
+
     return verbs
 
 
@@ -35,7 +35,7 @@ def select_verbs(count: int, verbs: list[tuple]) -> list[tuple]:
     indices = set()
 
     while len(indices) < count:
-        indices.add(randint(0 , max - 1))
+        indices.add(randint(0, max - 1))
 
     my_verbs = []
     for index in indices:
@@ -63,9 +63,9 @@ def print_practice_sheet(verbs: str) -> None:
     widths = [8] * 5
     for verb, index in zip(verbs, indices):
         if len(verb[index]) > widths[index]:
-           widths[index] = len(verb[index])
+            widths[index] = len(verb[index])
 
-    print("=" * (np.sum(widths) + 6 + 5*2)) # Total width of words, plus separators "|", plus one empty space around each word
+    print("=" * (np.sum(widths) + 6 + 5 * 2))  # Total width of words, plus separators "|", plus one empty space around each word
     for verb, index in zip(verbs, indices):
         print("|", end="")
         for pos in range(0, 5):
@@ -77,18 +77,18 @@ def print_practice_sheet(verbs: str) -> None:
                 print("|", end="")
             else:
                 print("|")
-    print("=" * (np.sum(widths) + 6 + 5*2)) # Total width of words, plus separators "|", plus one empty space around each word
+    print("=" * (np.sum(widths) + 6 + 5 * 2))  # Total width of words, plus separators "|", plus one empty space around each word
 
 
 def print_sheet(verbs: str) -> None:
     # Now find max column width, min width = 8 characters
     widths = [8] * 5
     for verb in verbs:
-        for pos in range(0,5):
+        for pos in range(0, 5):
             if verb[pos] != None and len(verb[pos]) > widths[pos]:
                 widths[pos] = len(verb[pos])
 
-    print("=" * (np.sum(widths) + 6 + 5*2)) # Total width of words, plus separators "|", plus one empty space around each word
+    print("=" * (np.sum(widths) + 6 + 5 * 2))  # Total width of words, plus separators "|", plus one empty space around each word
     for verb in verbs:
         print("|", end="")
         for pos in range(0, 5):
@@ -100,7 +100,7 @@ def print_sheet(verbs: str) -> None:
                 print("|", end="")
             else:
                 print("|")
-    print("=" * (np.sum(widths) + 6 + 5*2)) # Total width of words, plus separators "|", plus one empty space around each word
+    print("=" * (np.sum(widths) + 6 + 5 * 2))  # Total width of words, plus separators "|", plus one empty space around each word
 
 
 filename = "verblista.txt"

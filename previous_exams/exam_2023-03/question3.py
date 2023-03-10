@@ -1,5 +1,5 @@
 class Bijection:
-    def __init__(self, items = ()):
+    def __init__(self, items=()):
         self.forward = dict()
         self.backward = dict()
         for item in items:
@@ -20,17 +20,22 @@ class Bijection:
         self.forward[a] = b
         self.backward[b] = a
 
-    def delete(self, i):
-        if i in self.forward:
-            j = self.forward[i]
-            del self.forward[i]
-            del self.backward[j]
-        elif i in self.backward:
-            j = self.backward[i]
-            del self.backward[i]
-            del self.forward[j]
+    def delete(self, first=None, second=None):
+        if first is not None and second is not None:
+            raise ValueError(f"Only specify one item for delete")
+        elif first is None and second is None:
+            raise ValueError(f"Must specify one item for delete")
+
+        if first is not None and first in self.forward:
+            second = self.forward[first]
+            del self.forward[first]
+            del self.backward[second]
+        elif second is not None and second in self.backward:
+            first = self.backward[second]
+            del self.backward[second]
+            del self.forward[first]
         else:
-            raise IndexError(f"can't delete non-mapped item {i}")
+            raise IndexError(f"can't delete non-mapped item first={first}, second={second}")
 
     def __iter__(self):
         return iter(self.forward.items())
@@ -58,5 +63,5 @@ for a, b in db2:
 
 print()
 print(db)
-db.delete(3)
+db.delete(second=3)
 print(db)

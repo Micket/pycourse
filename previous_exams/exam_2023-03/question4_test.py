@@ -9,10 +9,10 @@ assert a[1] == "simple"
 assert b[2].startswith("There once was a text editor called PyCharm")
 assert c.name == "limericks"
 assert d.name == "test strings"
-assert d[2] =="always"
+assert d[2] == "always"
 assert len(c) == 6  # 6 example limericks
 assert len(d) == 3
-assert len(e.rand()) == 10 and type(e.rand()) == str # should be a random 10 character string
+assert len(e.rand()) == 10 and type(e.rand()) == str  q# should be a random 10 character string
 
 print(a.rand())
 print(b.rand())
