@@ -4,24 +4,28 @@ from PyQt5.QtCore import QObject, pyqtSignal
 
 
 class PotModel(QObject):
-    new_pot = pyqtSignal()
+    value_changed = pyqtSignal()
 
     def __init__(self):
         super().__init__()
-        self.value = 0
+        self.__value = 0
+
+    @property
+    def value(self):
+        return self.__value
 
     def __iadd__(self, money: int):
-        self.value += money
-        self.new_pot.emit()
+        self.__value += money
+        self.value_changed.emit()
         return self
 
     def clear(self):
-        self.value = 0
-        self.new_pot.emit()
+        self.__value = 0
+        self.value_changed.emit()
 
 
 class CardModel(QObject):
-    new_cards = pyqtSignal()
+    cards_changed = pyqtSignal()
 
     @abc.abstractmethod
     def __iter__(self):
@@ -39,11 +43,11 @@ class TableModel(CardModel):
 
     def add_card(self, card: cl.PlayingCard):
         self.cards.append(card)
-        self.new_cards.emit()
+        self.cards_changed.emit()
 
     def clear(self):
         self.cards.clear()
-        self.new_cards.emit()
+        self.cards_changed.emit()
 
     def flipped(self):
         return False
@@ -63,30 +67,30 @@ class HandModel(cl.Hand, CardModel):
 
     def add_card(self, card: cl.PlayingCard):
         super().add_card(card)
-        self.new_cards.emit()
+        self.cards_changed.emit()
 
     def clear(self):
         self.cards.clear()
-        self._flipped = True
-        self.new_cards.emit()
+        self.__flipped = True
+        self.cards_changed.emit()
 
     def flipped(self):
-        return self._flipped
+        return self.__flipped
 
     def flip(self):
-        self._flipped = not self._flipped
-        self.new_cards.emit()
+        self.__flipped = not self.__flipped
+        self.cards_changed.emit()
 
     def reveal(self):
-        self._flipped = False
-        self.new_cards.emit()
+        self.__flipped = False
+        self.cards_changed.emit()
 
 
 class PlayerModel(QObject):
-    new_money = pyqtSignal()
+    money_changed = pyqtSignal()
     
     def __init__(self, name: str, money: int = 100):
-        super().__init__()  # Necessary for signals to work!
+        super().__init__()
         self.name = name
         self.money = money
         self.current_bet = 0
@@ -95,16 +99,16 @@ class PlayerModel(QObject):
     def bet(self, money: int):
         self.money -= money
         self.current_bet += money
-        self.new_money.emit()
+        self.money_changed.emit()
 
     def win(self, money: int):
         self.money += money
         self.current_bet = 0
-        self.new_money.emit()
+        self.money_changed.emit()
 
 
 class TexasHoldEm(QObject):
-    new_active_player = pyqtSignal()
+    active_player_changed = pyqtSignal()
     round_winner = pyqtSignal(int, cl.HandType)
     final_winner = pyqtSignal(int)
 
@@ -135,36 +139,37 @@ class TexasHoldEm(QObject):
             for _ in range(2):
                 player.hand.add_card(self.deck.draw())
 
-        self.active_player().hand.flip()
+        self.active_player.hand.flip()
         self._next_player()
 
     def _next_player(self):
-        self.active_player().hand.flip()
+        self.active_player.hand.flip()
         self.player_turn = (self.player_turn + 1) % len(self.players)
-        self.active_player().hand.flip()
-        self.new_active_player.emit()
+        self.active_player.hand.flip()
+        self.active_player_changed.emit()
 
+    @property
     def active_player(self) -> PlayerModel:
         return self.players[self.player_turn]
 
     def fold(self):
         self._next_player()
-        self.active_player().win(self.pot.value)
+        self.active_player.win(self.pot.value)
         self._next_round()
 
     def minimum_bet(self) -> int:
-        return 1 + (self.min_bet - self.active_player().current_bet)
+        return 1 + (self.min_bet - self.active_player.current_bet)
 
     def bet(self, money: int):
-        self.active_player().bet(money)
-        self.min_bet = self.active_player().current_bet
+        self.active_player.bet(money)
+        self.min_bet = self.active_player.current_bet
         self.pot += money
         self._next_player()
 
     def call(self):
         max_bet = max([player.current_bet for player in self.players])
-        diff = max_bet - self.active_player().current_bet
-        self.active_player().bet(diff)
+        diff = max_bet - self.active_player.current_bet
+        self.active_player.bet(diff)
         self.pot += diff
 
         if len(self.table.cards) == 0:

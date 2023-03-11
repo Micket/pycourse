@@ -64,7 +64,7 @@ class CardsView(QGraphicsView):
         # Whenever the this window should update, it should call the "__change_cards" method.
         # This can, for example, be done by connecting it to a signal.
         # The view can listen to changes:
-        self.model.new_cards.connect(self.__change_cards)
+        self.model.cards_changed.connect(self.__change_cards)
 
         # Add the cards the first time around to represent the initial state.
         self.__change_cards()

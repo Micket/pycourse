@@ -16,7 +16,7 @@ class QABCMeta(abc.ABCMeta, type(QObject)):
 class CardsModel(QObject, metaclass=QABCMeta):
     """ Base class that described what is expected from the CardsView widget. """
 
-    new_cards = pyqtSignal()  #: Signal should be emited when cards change.
+    cards_changed = pyqtSignal()  # note: past tense and specific
 
     @abc.abstractmethod
     def __iter__(self):
@@ -59,24 +59,30 @@ class HandModel(Hand, CardsModel):
     def __init__(self):
         Hand.__init__(self)
         CardsModel.__init__(self)
-        # Additional state needed by the UI
-        self.flipped_cards = False
+        # Additional state
+        self.__flipped = False  # Private so noone is tempted to modify it
 
     def __iter__(self):
         return iter(self.cards)
 
     def flip(self):
         # Flips over the cards (to hide them)
-        self.flipped_cards = not self.flipped_cards
+        self.__flipped = not self.__flipped
         self.new_cards.emit()  # something changed, better emit the signal!
 
     def flipped(self):
         # This model only flips all or no cards, so we don't care about the index.
         # Might be different for other games though!
-        return self.flipped_cards
+        return self.__flipped
+
+    def hide(self):
+        if not self.__flipped:
+            self.__flipped = True
+            self.new_cards.emit()  # something changed, better emit the signal!
 
     def add_card(self, card):
         # This method mutates the object, so we must of course 
         super().add_card(card)
         self.new_cards.emit()  # something changed, better emit the signal!
 
+    # Do you have other methods that modify the state?

@@ -62,14 +62,14 @@ class CardView(QGraphicsView):
         # Whenever the this window should update, it should call the "change_cards" method.
         # This can, for example, be done by connecting it to a signal.
         # The view can listen to changes:
-        cards_model.new_cards.connect(self.change_cards)
+        cards_model.cards_changed.connect(self.__change_cards)
         # It is completely optional if you want to do it this way, or have some overreaching Player/GameState
         # call the "change_cards" method instead. z
 
         # Add the cards the first time around to represent the initial state.
-        self.change_cards()
+        self.__change_cards()
 
-    def change_cards(self):
+    def __change_cards(self):
         # Add the cards from scratch
         self.scene.clear()
         for i, card in enumerate(self.model.cards):
@@ -115,7 +115,7 @@ class PotView(QLabel):
     def __init__(self, pot: pm.PotModel):
         super().__init__()
         self.pot = pot
-        self.pot.new_pot.connect(self.update_value)
+        self.pot.value_changed.connect(self.update_value)
         self.update_value()
 
     def update_value(self):
@@ -135,7 +135,7 @@ class PlayerView(QGroupBox):
 
         # Connect signals:
         self.player = player
-        self.player.new_money.connect(self.update_money)
+        self.player.money_changed.connect(self.update_money)
         self.update_money()  # Trigger an initial refresh
     
     def update_money(self):
@@ -158,7 +158,7 @@ class GameView(QWidget):
         # Button box [Active player; Pot; Bet; Fold; Call]
         buttonbox = QVBoxLayout()
         self.active_player = QLabel()
-        self.game.new_active_player.connect(self.update_active_player)
+        self.game.active_player_changed.connect(self.update_active_player)
         buttonbox.addWidget(self.active_player)
         buttonbox.addWidget(PotView(game.pot))
 
@@ -189,10 +189,10 @@ class GameView(QWidget):
         self.show()
 
     def update_active_player(self):
-        self.active_player.setText("{}'s turn".format(self.game.active_player().name))
+        self.active_player.setText("{}'s turn".format(self.game.active_player.name))
 
     def place_bet(self):
-        amount, did_input = QInputDialog.getInt(self, 'Placing bet', 'Bet', 1, self.game.minimum_bet(), self.game.active_player().money, 1)
+        amount, did_input = QInputDialog.getInt(self, 'Placing bet', 'Bet', 1, self.game.minimum_bet(), self.game.active_player.money, 1)
         if did_input:
             self.game.bet(amount)
 
