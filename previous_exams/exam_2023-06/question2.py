@@ -1,7 +1,7 @@
 import numpy as np
 
 # Read data into "a", print "a"
-a = np.loadtxt("values.txt", dtype=np.int)
+a = np.loadtxt("values.txt", dtype=int)
 print('a = ', a)
 
 # create "b" by reshaping "a" into 2 blocks, 4 rows and 3 columns

@@ -1,9 +1,9 @@
 cyan = Colour(0, 1, 1)
 magenta = Colour(1, 0, 1)
-white = Colour.from_hex('#FFFFFF')
+white = Colour.from_html('#FFFFFF')
 
 if cyan + magenta == white:
-    print('{} and {} makes {}'.format(cyan.html(), magent, repr(white))
+    print('{} and {} makes {}'.format(cyan.html(), magenta, repr(white)))
 
 try:
     Colour(1.1, 0.5, 0.5)

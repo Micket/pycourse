@@ -1,5 +1,7 @@
+from __future__ import annotations
+
 class Colour:
-    def __init__(self, r, g, b):
+    def __init__(self, r: float, g: float, b: float):
          # 1p for exception
         if r < 0 or g < 0 or b < 0 or r > 1 or g > 1 or b > 1:
             raise ValueError("RGB values {} are out of range", (r, g, b))
@@ -9,25 +11,25 @@ class Colour:
         self.b = b
 
     @staticmethod
-    def from_html(v):
+    def from_html(v: str) -> Colour:
         r = int(v[1:3],16)/255
         g = int(v[3:5],16)/255
         b = int(v[5:7],16)/255
         return Colour(r, g, b)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return 'Colour(r={},g={},b={})'.format(self.r, self.g, self.b)
 
-    def html(self):
+    def html(self) -> str:
         return '#{:02x}{:02x}{:02x}'.format(int(self.r*255), int(self.g*255), int(self.b*255))
 
-    def __eq__(self, other):
+    def __eq__(self, other: Colour) -> Bool:
         return self.r == other.r and self.g == other.g and self.b == other.b
 
-    def __hash__(self):
+    def __hash__(self) -> int:
         return hash((self.r, self.g, self.b))
 
-    def __add__(self, other):
+    def __add__(self, other: Colour) -> Colour:
         r = min(self.r + other.r, 1)
         g = min(self.g + other.g, 1)
         b = min(self.b + other.b, 1)
