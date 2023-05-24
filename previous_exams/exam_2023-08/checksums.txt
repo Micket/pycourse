@@ -1,0 +1,5 @@
+"testfiles/correcting_exams.png"          md5:eaee750bfa65f941f75f709b8209828c  sha256:a53f94c4f5c452455e0a2dd9b12665b78ab003524657554cb29c982b78634750
+"testfiles/filename with spaces.txt"      md5:83b0a5d49ef66f4b40c2c5b7d1daebf9  sha256:152b9acaa5a0bfafc9da59e1f80e544b46583db4ed009c19e1059c1ae775245b
+"testfiles/another dir/missing.txt"       sha256:78e4951917b0a757455ff93201e98b4ac2f21bd7669d1b75e3a1bccebf1b04f3 md5:f1faa20ffe7dc568a54ef20387a2e32c  
+"testfiles/another dir/another file.md"   md5:f35117cd46ec96fb2649ab63de610b10
+"testfiles/another dir/python_script.py"  sha256:6f5efc63cc37876c0ff786e258f8184a88b67ad576b6c7ead7bbc6d5810911ac
