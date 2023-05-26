@@ -87,4 +87,3 @@ print()
 body = Body([p0, p1])
 print("whole body as HTML:")
 print(body)
-

@@ -28,5 +28,5 @@ for sigma in [0, 8, 16, 32]:
     # C
     sob = np.hypot(sx, sy)
     plt.subplot(2,2,4)
-    plt.imshow(sob.astype(np.float), cmap=plt.cm.gray)
+    plt.imshow(sob.astype(float), cmap=plt.cm.gray)
     plt.show()

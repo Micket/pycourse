@@ -1,7 +1,7 @@
 class Interval:
     def __init__(self, low, high):
         if high < low:
-            raise ValueError("high must be larger or equal to low")
+            raise ValueError('"high" must be larger or equal to "low"!')
         self.low = low
         self.high = high
 
@@ -14,17 +14,17 @@ class Interval:
     def __neg__(self):
         return Interval(-self.high, -self.low)
 
-    def __add__(self, x):
-        return Interval(self.low + x.low, self.high + x.high)
+    def __add__(self, other):
+        return Interval(self.low + other.low, self.high + other.high)
 
-    def __sub__(self, x):
+    def __sub__(self, other):
         # Alternatively:
-        # return self + (-x)
-        return Interval(self.low - x.high, self.high - x.low)
+        # return self + (-other)
+        return Interval(self.low - other.high, self.high - other.low)
 
-    def __mul__(self, x):
+    def __mul__(self, other):
         # Compute all possible extreme values low*low, low*high, high*low, high*high
-        values = self.low*x.low, self.low*x.high, self.high*x.low, self.high*x.high
+        values = self.low * other.low, self.low * other.high, self.high * other.low, self.high * other.high
         return Interval(min(values), max(values))
 
     def __float__(self):

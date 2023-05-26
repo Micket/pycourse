@@ -1,7 +1,7 @@
 from collections import defaultdict
 import hashlib
 
-def read_checksums(filename):
+def read_checksums(filename: str) -> defaultdict(dict):
     filedb = defaultdict(dict)
     with open(filename) as f:
         for line in f:
@@ -12,7 +12,7 @@ def read_checksums(filename):
     return filedb
 
 
-def verify_files(hashdb):
+def verify_files(hashdb: defaultdict(dict)) -> None:
     for path, hashes in hashdb.items():
         try:
             with open(path, 'rb') as f:
