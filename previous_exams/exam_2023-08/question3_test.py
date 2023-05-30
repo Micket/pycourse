@@ -23,5 +23,5 @@ print('float(x) =', float(x))
 print('float(y) =', float(y))
 print('float(z) =', float(z))
 
-# v = y.union(Interval(4,7))  # should raise your exception
+w = y.union(Interval(4,7))  # should raise your exception
 
