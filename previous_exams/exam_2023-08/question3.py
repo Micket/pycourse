@@ -46,7 +46,7 @@ z = Interval(-10., 0.)
 v = y.union(z)
 
 print('x overlaps z =', x.overlaps(z))
-print('y overlaps z =', x.overlaps(y))
+print('x overlaps y =', x.overlaps(y))
 print('v =', v)
 print('-x = ', -x)
 print('-y = ', -y)
@@ -64,4 +64,4 @@ print('float(x) =', float(x))
 print('float(y) =', float(y))
 print('float(z) =', float(z))
 
-w = x.union(Interval(4,7))  # should raise exception
+w = x.union(Interval(4,7))  # should raise your exception
