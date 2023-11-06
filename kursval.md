@@ -2,15 +2,15 @@
 
 * 3 Inlämningsuppgifter (3.0hp)
 * Tentamen i datorsal   (4.5hp)
-* Förkunskapskrav: Grundläggande kunskap i programmering, såsom variabler, villkor, loopar, och funktioner i något programmeringsspråk
+* Förkunskapskrav: Grundläggande kurs i programmering; variabler, villkor, loopar, och funktioner i något programmeringsspråk
 * Kurslitteratur: Föreläsningsanteckningar, onlinematerial
 * 2 föreläsningar per vecka. Ges på Engelska
 * 3 handledda datorlabbstillfällen per vecka
-* Lärare från e-Commons (C3SE)
+* Lärare
     * Thomas Svedberg, <thomas.svedberg@chalmers.se> (E-Commons/C3SE) (examinator)
     * Mikael Öhman, <mikael.ohman@chalmers.se> (E-Commons/C3SE)
-    * Kim Auth, <kim.auth@chalmers.se> (Material- och beräkningsmekanik)
-    * Björn Andersson, <abjorn@chalmers.se> (Material- och beräkningsmekanik)
+    * Huixin Chen, (Material- och beräkningsmekanik)
+    * Ahmet Semih Ertürk, (Material- och beräkningsmekanik)
 
 # Varför Python
 
@@ -27,7 +27,7 @@
 * Låter oss bygga nya datastrukturer, som höjer abstraktionsnivån av programmet genom att ge betydelse av rå, underliggande, data
 * Man kombinerar data och funktioner för att skapa objekt
 * Du har förmodligen redan använt objekt även i MATLAB; Matriser, textsträngar, filer, etc., men här får du även lära dig att designa dina egna datatyper
-* Exempel på objekt man skapar/använder är brett; interaktiva knappar, bilder, datum och tider, siffror med enheter, färger, databasfrågor, koordinater, grafer, funktioner
+* Exempel på objekt man skapar/använder är brett; tensorer, interaktiva knappar, bilder, datum och tider, siffror med enheter, färger, databasfrågor, koordinater
 
 # Kursmål
 
