@@ -3,10 +3,11 @@
 * Teachers:
     * Thomas Svedberg, tel. 772 1522, <thomas.svedberg@chalmers.se>
     * Mikael Öhman, tel. 772 3191, <mikael.ohman@chalmers.se>
-    * Kim Auth, <kim.auth@chalmers.se>
-    * Björn Andersson <abjorn@chalmers.se>
-* Find Thomas and Mikael at Physics / C3SE office (6th floor Origo South building)
-* Find Kim and Björn at Material & Computational Mechanics (2nd floor M-building)
+  * Assistants:
+    * Chia-Jung Hsu, <chiajung.hsu@chalmers.se>
+    * Ahmet Semih Ertürk, <erturk@chalmers.se>
+* Find Thomas, Mikael and Chia-Jung at Physics / C3SE office (6th floor Origo South building)
+* Find Ahmet at Material & Computational Mechanics (2nd floor M-building)
 * We are working from home some times, better contact us through mail first.
 
 Course literature:
@@ -38,13 +39,7 @@ Good knowledge of basic programming structures such as variables, conditions, lo
   * Course evaluated at 2 occurrences
   * Course survey after exam
   * Course board representatives:
-      * Axel Guttman<<axel.kristian@gmail.com>> (MPMOB)
-      * Halime Selimoglu<<halimeselimoglu@gmail.com>> (MPMOB)
-      * Joakim Kindström<<joakim.kindstrom@telia.com>> (FK)
-      * John Tran<<johntran1@hotmail.se>> (FK)
-      * Oskar Ståhlbom<<oskar.stahlbom@live.se>> (TKMAS)
-      * Samuel Rydz Wullens<<samuelrw99@gmail.com>> (TKMAS)
-      * Sheik Meeran Rasheed Abdul<<sheik.meeran13@yahoo.com>> (MPCAS)
+      * (not decided yet)
 
 
 # Content
@@ -127,14 +122,14 @@ Create a simple interactive graphical application from scratch
 
 
 # Software
-Software will be available on the Windows machines in ES61/62 and E-Studion.
+Software will be available on the Windows machines in ES61/62.
 
 * Python 3
 * NumPy, SciPy, Matplotlib
 * PyQt
-* Recommended Integrated Programming Environment (IDE): PyCharm (community edition) <https://www.jetbrains.com/pycharm/download/>
+* Recommended Integrated Programming Environment (IDE): PyCharm (community edition) <https://www.jetbrains.com/pycharm/download/other.html>
 * Laptops:
-    * Anaconda <https://www.anaconda.com/products/distribution>
+    * Anaconda <https://www.anaconda.com/download>
     * You should try to use the school Windows computers too, to be prepared for the exam
 * Visual Studio Code <https://code.visualstudio.com/download> also popular, but we can not provide support for it in the same way as for PyCharm
 
@@ -142,13 +137,13 @@ Software will be available on the Windows machines in ES61/62 and E-Studion.
 # Consultation
 * E-mail is preferred before the Canvas message system
 * 3 computer sessions each week (you're expected to work on the assignments on your own in-between sessions!)
-* Thomas and Mikaels offices is at Physics / C3SE office (6th floor Origo South building)
-* Kim and Björns offices on 2nd floor in the M-building (Material & Computational Mechanics / Material & Beräkningsmekanik)
+* Thomas, Mikael and Chia-Jungs offices is at Physics / C3SE office (6th floor Origo South building)
+* Ahmets office on 2nd floor in the M-building (Material & Computational Mechanics / Material & Beräkningsmekanik)
 
 
 # Schedule
   * L = Lectures Mon: HA3, Thu: HA2 
-  * CS = Computer lab session Mon, Thu: ES61 & ES62, Fri: E-studion. 
+  * CS = Computer lab sessions: ES61 & ES62 
  
 
 | Time  | Mon| Tue | Wed | Thu | Fri |
@@ -227,7 +222,7 @@ Software will be available on the Windows machines in ES61/62 and E-Studion.
       - Proper Unicode
       - Dictionaries: `x.has_key(y)`{.py} $\leadsto$ `y in x`{.python}
       - Renamed functions: `y.iteritems()`{.python} $\leadsto$ `y.items()`{.python}
-  * Python (2.6) 2.7 still quite widespread, but Python 3.x is the now dominating! Python 2.7 reached end-of-life 2021-01-01!
+  * Python 2.7 still quite widespread, but Python 3.x is the now dominating! Python 2.7 reached end-of-life 2021-01-01!
 
 
 # Running Python code
@@ -354,15 +349,15 @@ Students seem to end up with many different paths to Anaconda, so here are a few
      - Wherever you unpacked the tarball
 
 # Expand project interpreter menu
-![pycharm project step 0](pycharm-project-0.png) \
+![pycharm project step 0](pycharm-project-0.png){ width=450px } \
 
 # Select existing interpreter
-![pycharm project step 1](pycharm-project-1.png) \
+![pycharm project step 1](pycharm-project-1.png){ width=450px } \
 
 # Select system interpreter
-![pycharm project step 2](pycharm-project-2.png) \
+![pycharm project step 2](pycharm-project-2.png){ width=450px } \
 If listed, simply select your Anaconda python3 installation
 
 # Locate anaconda installation
-![pycharm project step 3](pycharm-project-3.png) \
+![pycharm project step 3](pycharm-project-3.png){ width=450px } \
 Press the ... to locate your `python` or `python.exe` binary from your Anaconda installation.
