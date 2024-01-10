@@ -39,7 +39,12 @@ Good knowledge of basic programming structures such as variables, conditions, lo
   * Course evaluated at 2 occurrences
   * Course survey after exam
   * Course board representatives:
-      * (not decided yet)
+    * Nicola Dobler	<n.dobler@campus.tu-berlin.de>
+    * Abdi-Rahman Dubad	<abdirahmandubad7@gmail.com>
+    * Gustav Enocson	<guseno99@gmail.com>
+    * Khesraw Hasem	<khesraw62@gmail.com>
+    * Erik Sjöberg	<erik.sjoberg@live.com>
+    * Adam Spreitz	<a.spreitz@hotmail.com>
 
 
 # Content
