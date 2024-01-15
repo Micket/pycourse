@@ -15,9 +15,12 @@ class Suit(IntEnum):
     Clubs = 2
     Diamonds = 3
 
+    def symbol(self):
+        return '♥♠♣♦'[self.value]
+
 
 @unique
-class HandType(IntEnum):
+class PokerType(IntEnum):
     HighCard = 0
     OnePair = 1
     TwoPair = 2
@@ -36,27 +39,18 @@ class PlayingCard(metaclass=ABCMeta):
     Abstract base class, children need to implement the following methods:
     get_value(self)
     """
-    Names = u'♥♠♣♦'
 
     def __init__(self, suit: Suit):
         """
-
         :param suit: The cards suit
-        :type suit: Suit
         """
         self.suit = suit
-
-    def __repr__(self) -> str:
-        return PlayingCard.Names[self.suit] + str(self.get_value())
 
     def __eq__(self, other: PlayingCard) -> bool:
         return self.suit == other.suit and self.get_value() == other.get_value()
 
     def __lt__(self, other: PlayingCard) -> bool:
-        if self.get_value() == other.get_value():
-            return self.suit < other.suit
-
-        return self.get_value() < other.get_value()
+        return (self.get_value(), other.get_value()) < (self.suit, other.suit)
 
     @abstractmethod
     def get_value(self) -> int:
@@ -69,93 +63,73 @@ class NumberedCard(PlayingCard):
     """
 
     def __init__(self, value: int, suit: Suit):
-        self.value = value
         super().__init__(suit)
+        self.value = value
 
     def get_value(self) -> int:
         return self.value
+
+    def __str__(self) -> str:
+        return f'{self.value}{self.suit.symbol()}'
 
 
 class JackCard(PlayingCard):
     """
     JackCard: class to represent a Jack
     """
-
-    def __init__(self, suit: Suit):
-        super().__init__(suit)
-
     def get_value(self) -> int:
         return 11
 
-    def __repr__(self) -> str:
-        return PlayingCard.Names[self.suit] + 'Jack'
+    def __str__(self) -> str:
+        return f'J{self.suit.symbol()}'
 
 
 class QueenCard(PlayingCard):
     """
     QueenCard: class to represent a Queen
     """
-
-    def __init__(self, suit: Suit):
-        super().__init__(suit)
-
     def get_value(self) -> int:
         return 12
 
-    def __repr__(self) -> str:
-        return PlayingCard.Names[self.suit] + 'Queen'
+    def __str__(self) -> str:
+        return f'Q{self.suit.symbol()}'
 
 
 class KingCard(PlayingCard):
     """
     KingCard: class to represent a King
     """
-
-    def __init__(self, suit: Suit):
-        super().__init__(suit)
-
     def get_value(self) -> int:
         return 13
 
-    def __repr__(self) -> str:
-        return PlayingCard.Names[self.suit] + 'King'
+    def __str__(self) -> str:
+        return f'K{self.suit.symbol()}'
 
 
 class AceCard(PlayingCard):
     """
     AceCard: class to represent an Ace
     """
-
-    def __init__(self, suit: Suit):
-        super().__init__(suit)
-
     def get_value(self) -> int:
         return 14
 
-    def __repr__(self) -> str:
-        return PlayingCard.Names[self.suit] + 'Ace'
+    def __str__(self) -> str:
+        return f'A{self.suit.symbol()}'
 
 
-class StandardDeck(object):
+class StandardDeck:
     """
     StandardDeck: A standard deck with 52 cards
     """
+    def __init__(self):
+        self.cards = []
 
-    def __init__(self, ordered: bool = True, no_decks: int = 1):
-        self.cards = list()
+        for suit in Suit:
+            for value in range(2, 11):
+                self.cards.append(NumberedCard(value, suit))
+            for ctor in [JackCard, QueenCard, KingCard, AceCard]:
+                self.cards.append(ctor(suit))
 
-        for _ in range(no_decks):
-            for suit in Suit:
-                for value in range(2, 11):
-                    self.cards.append(NumberedCard(value, suit))
-
-                self.cards.append(JackCard(suit))
-                self.cards.append(QueenCard(suit))
-                self.cards.append(KingCard(suit))
-                self.cards.append(AceCard(suit))
-
-        if not ordered:
-            self.shuffle()
 
     def shuffle(self):
         """
@@ -176,152 +150,155 @@ class StandardDeck(object):
         return self.cards.pop()
 
 
-class PokerHand(object):
+class PokerHand:
+    @staticmethod
+    def check_high_card(cards):
+        return max(v.get_value() for v in cards)
+
+    @staticmethod
+    def check_pair(cards):
+        value_count = Counter()
+        for c in cards:
+            value_count[c.give_value()] += 1
+        # Find the card ranks that have at least a pair
+        twos = [v[0] for v in value_count.items() if v[1] >= 2]
+        if twos:
+            return max(twos)
+
+    @staticmethod
+    def check_two_pair(cards):
+        value_count = Counter()
+        for c in cards:
+            value_count[c.give_value()] += 1
+        # Find the card ranks that have at least a pair
+        twos = [v[0] for v in value_count.items() if v[1] >= 2]
+    
+        if len(twos) >= 2:
+            twos.sort(reverse=True)
+            return twos[:2]
+
+    @staticmethod
+    def check_three_of_a_kind(cards):
+        value_count = Counter()
+        for c in cards:
+            value_count[c.give_value()] += 1
+        # Find the card ranks that have at least 3
+        threes = [v[0] for v in value_count.items() if v[1] >= 3]
+        if threes:
+            return max(threes)
+
+    @staticmethod
+    def check_straight(cards):
+        vals = [c.give_value() for c in cards] \
+            + [1 for c in cards if c.give_value() == 14]  # Add the aces!
+        for c in reversed(cards): # Starting point (high card)
+            # Check if we have the value - k in the set of cards:
+            found_straight = True
+            for k in range(1, 5):
+                if (c.give_value() - k) not in vals:
+                    found_straight = False
+                    break
+            if found_straight:
+                return c.give_value()
+
+    @staticmethod
+    def check_flush(cards):
+        """
+        Checks for the best full house in a list of cards (may be more than just 5)
+    
+        :param cards: A list of playing cards
+        :return: None if no flush is found, else highest 5 values of flush
+        """
+    
+        # Needlessly general for conventional poker games:
+        # this makes no assumptions on the total number of cards
+        by_suit = defaultdict(list)
+        for c in cards:
+            by_suit[c.suit].append(c.get_value())
+    
+        best_values = [0]
+        for values in by_suit.values():
+            if len(cards) >= 5 and max(values) > max(best_values):
+                best_values = values
+        if max(best_values) > 0:
+            return best_values[:5]
+
+    @staticmethod
+    def check_full_house(cards):
+        value_count = Counter()
+        for c in cards:
+            value_count[c.give_value()] += 1
+        # Find the card ranks that have at least three of a kind
+        threes = [v[0] for v in value_count.items() if v[1] >= 3]
+        threes.sort(reverse=True)
+        # Find the card ranks that have at least a pair
+        twos = [v[0] for v in value_count.items() if v[1] >= 2]
+        twos.sort(reverse=True)
+    
+        # Threes are dominant in full house, lets check that value first:
+        for three in threes:
+            for two in twos:
+                if two != three:
+                    return three, two
+
+    @staticmethod
+    def check_four_of_a_kind(cards):
+        value_count = Counter()
+        for c in cards:
+            value_count[c.give_value()] += 1
+        # Find the card ranks that have at least 4
+        fours = [v[0] for v in value_count.items() if v[1] >= 4]
+        if fours:
+            return max(fours)
+
+    @staticmethod
+    def check_straight_flush(cards):
+        vals = [(c.give_value(), c.suit) for c in cards] \
+            + [(1, c.suit) for c in cards if c.give_value() == 14]  # Add the aces!
+        for c in reversed(cards): # Starting point (high card)
+            # Check if we have the value - k in the set of cards:
+            found_straight = True
+            for k in range(1, 5):
+                if (c.give_value() - k, c.suit) not in vals:
+                    found_straight = False
+                    break
+            if found_straight:
+                return c.give_value()
+
     def __init__(self, cards: List[PlayingCard]):
         assert len(cards) >= 5
 
+        checks = [
+            self.check_high_card,
+            self.check_pair,
+            self.check_two_pair,
+            self.check_three_of_a_kind,
+            self.check_straight,
+            self.check_flush,
+            self.check_full_house,
+            self.check_four_of_a_kind,
+            self.check_straight_flush,
+        ]
+
         cards.sort(reverse=True)
-        card_values = [c.get_value() for c in cards]
-        # print(all_cards)
-
-        is_straight, highest_value = self._is_straight(card_values)
-        if is_straight:
-            straight_cards = [c for c in cards if highest_value - 5 < c.get_value() <= highest_value]
-            is_flush, _ = self._is_flush(straight_cards)
-            if is_flush:
-                self.hand_type = HandType.StraightFlush
-                self.values = [straight_cards[0].get_value()]
-                return
-
-        is_flush, suit = self._is_flush(cards)
-        if is_flush:
-            vals = [c.get_value() for c in cards if c.suit == suit]
-            self.hand_type = HandType.Flush
-            self.values = vals[:5]
-            return
-
-        if is_straight:
-            self.hand_type = HandType.Straight
-            self.values = [highest_value]
-            return
-
-        # Will return dictionary with count as key, and values for each count in list
-        counts = self._get_counts(cards)
-
-        if max(counts.keys()) == 4:
-            my_values = [sorted(counts[4])[-1]]
-            sorted_values = my_values.copy()
-            sorted_values.extend(self._filter_out_values(card_values, my_values))
-            self.hand_type = HandType.FourOfAKind
-            self.values = sorted_values[:2]
-            return
-
-        if max(counts.keys()) == 3:
-            my_values = sorted(counts[3])[::-1]
-
-            if len(my_values) < 2 and 2 in counts.keys():
-                my_values.append(sorted(counts[2])[-1])
-
-            sorted_values = my_values.copy()
-            sorted_values.extend(self._filter_out_values(card_values, my_values))
-
-            if len(my_values) >= 2:
-                self.hand_type = HandType.FullHouse
-                self.values = sorted_values[:2]
-            else:
-                self.hand_type = HandType.ThreeOfAKind
-                self.values = sorted_values[:3]
-            return
-
-        if max(counts.keys()) == 2:
-            pair_values = sorted(counts[2])[::-1]
-            sorted_values = pair_values.copy()
-            sorted_values.extend(self._filter_out_values(card_values, pair_values))
-
-            if len(pair_values) >= 2:
-                self.hand_type = HandType.TwoPair
-                self.values = sorted_values[:3]
-            else:
-                self.hand_type = HandType.OnePair
-                self.values = sorted_values[:4]
-            return
-
-        self.hand_type = HandType.HighCard
-        self.values = card_values[:5]
+        for check, ptype in reversed(zip(checks, PokerType)):
+            values = check(cards)
+            if values is not None:
+                self.values = values
+                self.poker_type = ptype
+                break
 
     def __lt__(self, other: PokerHand) -> bool:
-        return (self.hand_type, self.values) < (other.hand_type, other.values)
+        return (self.poker_type, self.values) < (other.poker_type, other.values)
 
     def __eq__(self, other: PokerHand) -> bool:
-        return (self.hand_type, self.values) == (other.hand_type, other.values)
+        return (self.poker_type, self.values) == (other.poker_type, other.values)
 
     def __repr__(self) -> str:
-        return self.hand_type.name + ' ' + str(self.values)
-
-    @staticmethod
-    def _is_flush(cards: List[PlayingCard]) -> Tuple[bool, Suit or None]:
-        counts = []
-        for suit in range(4):
-            counts.append(sum([x.suit == suit for x in cards]))
-
-        for i, suit in enumerate(Suit):
-            if counts[i] >= 5:
-                return True, suit
-        return False, None
-
-    @staticmethod
-    def _is_straight(card_values: List[int]) -> Tuple[bool, int]:
-        count = max_count = 0
-        highest_num = 0
-
-        # Build list of unique values (using a set!), add Ace as 14 and 1!
-        values = set(card_values)
-        if 14 in values:
-            values.add(1)
-        if 1 in values:
-            values.add(14)
-
-        values = sorted(list(values))
-
-        for i in range(1, len(values)):
-            if values[i - 1] + 1 == values[i]:
-                count += 1
-                highest_num = values[i]
-            else:
-                if count > max_count:
-                    max_count = count
-                count = 0
-                highest_num = 0
-            if count > max_count:
-                max_count = count
-
-        return max_count + 1 >= 5, highest_num
-
-    @staticmethod
-    def _get_counts(cards: List[PlayingCard]) -> Dict[int: List[int]]:
-        counts = dict()
-        for card in cards:
-            if card.get_value() in counts.keys():
-                counts[card.get_value()] += 1
-            else:
-                counts[card.get_value()] = 1
-        # Create reverse-dict, i.e. count as key, values as items (in list)
-        values = dict()
-        for value, count in counts.items():
-            if count in values:
-                values[count] += [value]
-            else:
-                values[count] = [value]
-
-        return values
-
-    @staticmethod
-    def _filter_out_values(all_values: List[int], filter_values: List[int]) -> List[int]:
-        filtered_values = [val for val in all_values if val not in filter_values]
-        return filtered_values
+        return f'PokerHand({self.poker_type}, {self.values})'
 
 
-class Hand(object):
+class Hand:
     """
     Hand: a class representing the hand of cards for a player
     """
@@ -346,10 +323,7 @@ class Hand(object):
             self.cards.pop(i)
 
     def best_poker_hand(self, cards: List[PlayingCard] = []) -> PokerHand:
-        all_cards = cards.copy()
-        all_cards.extend(self.cards)
-
-        return PokerHand(all_cards)
+        return PokerHand(self.cards + cards)
 
     def __str__(self) -> str:
         return " ".join(str(c) for c in self.cards)
@@ -360,168 +334,3 @@ class Hand(object):
     def count(self) -> int:
         return len(self.cards)
 
-
-class Player:
-    """
-    Player: A class representing the player
-    """
-
-    def __init__(self, name: str, wallet=0):
-        self.name = name
-        self.wallet = wallet
-        self.hand = Hand()
-        self.poker_hand = None
-
-    def __str__(self) -> str:
-        return 'Player: "{}", Wallet: {}, No. cards: {}'.format(self.name, self.wallet, self.hand.count())
-
-    def add_money(self, amount):
-        self.wallet += amount
-
-    def bet(self, amount):
-        if amount > self.wallet or amount <= 0:
-            raise ValueError
-
-        self.wallet -= amount
-        return amount
-
-    def add_cards(self, cards: List[PlayingCard]):
-        self.hand.add_cards(cards)
-
-    def find_poker_hand(self, cards: List[PlayingCard] = []):
-        self.poker_hand = self.hand.best_poker_hand(cards)
-
-
-def five_card_draw(no_players: int, rounds: int):
-    # Create (shuffled) deck
-    deck = StandardDeck(ordered=False)
-
-    # Create players
-    players = list()
-    for player in range(no_players):
-        name = "Player " + str(player + 1)
-        players.append(Player(name, 100))
-
-    # Give first hand
-    for player in players:
-        for _ in range(5):
-            player.hand.add_card(deck.draw())
-        player.hand.sort()
-
-    for _ in range(rounds):
-        print('\n Round :', round)
-
-        for player in players:
-            player.hand.sort()
-            print(player, '  ', player.hand)
-
-            input_ok = False
-            while not input_ok:
-                text = input(" comma separated list index of cards to drop (starting from 1, empty for none): ")
-                if not text:
-                    input_ok = True
-                    continue
-
-                try:
-                    drops = [int(a) for a in text.split(',')]
-                except ValueError:
-                    continue
-
-                no_drops = len(drops)
-
-                # Validate input
-                input_ok = True
-                for i in drops:
-                    if not 1 <= i <= 5:
-                        input_ok = False
-                        break
-
-                drops = np.array(drops) - 1
-                player.hand.drop_cards(drops.tolist())
-                for _ in range(no_drops):
-                    player.hand.add_card(deck.draw())
-
-    print('\nResults:')
-    for player in players:
-        player.hand.sort()
-        print(player, '  ', player.hand)
-        player.find_poker_hand()
-        print(' Hand:', player.poker_hand)
-
-    print('\nSorted results:')
-    for player in sorted(players, key=lambda x: x.poker_hand):
-        print(player, '  ', player.hand)
-        print(' Hand:', player.hand.best_poker_hand())
-
-
-def texas_holdem(no_players: int):
-    # Create (shuffled) deck
-    deck = StandardDeck(ordered=False, no_decks=int(no_players / 10) + 1)
-
-    # Create players
-    players = list()
-    for player in range(no_players):
-        name = "Player " + str(player + 1)
-        players.append(Player(name, 100))
-
-    # Give first hand
-    for player in players:
-        player.add_cards([deck.draw(), deck.draw()])
-        player.hand.sort()
-        print(player, '  ', player.hand)
-
-    table = Hand()
-    for _ in range(3):
-        table.add_card(deck.draw())
-    print('Table:  ', table, '\n')
-
-    for player in players:
-        print(player, end='  ')
-        player.find_poker_hand(table.cards)
-        print(player.poker_hand)
-
-    for _ in range(2):
-        table.add_card(deck.draw())
-        print('\nTable:  ', table)
-
-        for player in players:
-            print(player, end='  ')
-            player.find_poker_hand(table.cards)
-            print(player.poker_hand)
-        print()
-
-    print('Table:', end='  ')
-    table.sort()
-    print(table)
-    print('\nSorted results:')
-    for player in sorted(players, key=lambda x: x.poker_hand):
-        print(player, '  ', player.hand)
-        print(' PokerHand:', player.poker_hand)
-
-
-if __name__ == "__main__":
-
-    game_type = 0
-    while not 0 < game_type < 3:
-        text = input("Choose game type: 1 for 5 card draw, 2 for Texas Hold'em: ")
-        try:
-            game_type = int(text)
-        except ValueError:
-            print('"%s" is not an integer!' % text)
-
-    no_players = None
-    rounds = 2
-
-    while not isinstance(no_players, int):
-        text = input("Enter no. of players: ")
-        try:
-            no_players = int(text)
-        except ValueError:
-            print('"%s" is ot an integer!' % text)
-
-    print("No players:", no_players)
-
-    if game_type == 1:
-        five_card_draw(no_players, rounds)
-    else:
-        texas_holdem(no_players)
