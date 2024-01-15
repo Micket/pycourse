@@ -6,7 +6,7 @@
   * Assistants:
     * Chia-Jung Hsu, <chiajung.hsu@chalmers.se>
     * Ahmet Semih Ertürk, <erturk@chalmers.se>
-* Find Thomas, Mikael and Chia-Jung at Physics / C3SE office (6th floor Origo South building)
+* Find Thomas, Mikael and Chia-Jung at Physics / Chalmers e-Commons office (6th floor Origo South building)
 * Find Ahmet at Material & Computational Mechanics (2nd floor M-building)
 * We are working from home some times, better contact us through mail first.
 
@@ -142,7 +142,7 @@ Software will be available on the Windows machines in ES61/62.
 # Consultation
 * E-mail is preferred before the Canvas message system
 * 3 computer sessions each week (you're expected to work on the assignments on your own in-between sessions!)
-* Thomas, Mikael and Chia-Jungs offices is at Physics / C3SE office (6th floor Origo South building)
+* Thomas, Mikael and Chia-Jungs offices is at Physics / Chalmers e-Commons office (6th floor Origo South building)
 * Ahmets office on 2nd floor in the M-building (Material & Computational Mechanics / Material & Beräkningsmekanik)
 
 
