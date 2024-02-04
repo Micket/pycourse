@@ -64,19 +64,17 @@ E.  A `PokerHand` class constructed as follows:
     b. The `PokerHand` must take a list of cards as argument for its constructor.
     c. The `PokerHand` must overload the `<` and `==` operators to be able to compare two `PokerHand` objects.
 
-F.  Testing code for most of the functions you have written (see below for tutorial). A sample testing code is available in Canvas. Your code should pass these tests and in addition, you must *at least* add tests for:
-    a. More card types and their methods
-    b. More hand methods
-    c. Further testing the deck and its methods
-    d. Card combinations giving the different poker hands
-    e. Comparison between different poker-hands
-    f. Comparison between hands with card combinations giving the same poker hand, but different card values for both the cards making up the poker hand (for example 2 kings in a pair of kings) and the remaining 3 cards
+F.  Testing code for most of the functions you have written (see below for tutorial). A sample testing code is available in Canvas. Your code should pass these tests and in addition, you must *at least* add tests for different card combinations generating finding different poker hands, ensuring it can correctly find each type. You can take the opportunity to test your code via these methods as you develop it. 
 
-G.  HTML-documentation for everything above generated using Sphinx (see below for tutorial). This documentation must include documentation of *all the required and classes and methods*, including a brief description, input parameters, and return values. Also, include documentation for major classes/methods you add.
+G. Document classes, methods, and functions using pydoc strings, describing input and return values.
 
 You are free to introduce additional methods and classes as you see fit. Simple types, like the `Suit` and the type of poker hand, **must** be represented by an `Enum` type, not raw integers or strings. All classes should be printable in a nice way. Hint: Unicode characters can be used: *[Wikipedia](https://en.wikipedia.org/wiki/Playing_cards_in_Unicode)*.
 
 You should hand in **a .zip file** with your library, your tests, and your manual (both the generated manual and the source files needed to run Sphinx to generate the output). Try to avoid non-essential/scrap files in the zip file.
+
+## Optional
+
+You can use the Sphinx tutorial in appendix B to generate a HTML-documentation using the pydoc strings, but this step is optional.
 
 \newpage
 
