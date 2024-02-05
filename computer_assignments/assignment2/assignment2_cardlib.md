@@ -66,11 +66,11 @@ E.  A `PokerHand` class constructed as follows:
 
 F.  Testing code for most of the functions you have written (see below for tutorial). A sample testing code is available in Canvas. Your code should pass these tests and in addition, you must *at least* add tests for different card combinations generating finding different poker hands, ensuring it can correctly find each type. You can take the opportunity to test your code via these methods as you develop it. 
 
-G. Document classes, methods, and functions using pydoc strings, describing input and return values.
+G.  Document classes, methods, and functions using pydoc strings, describing input and return values.
 
 You are free to introduce additional methods and classes as you see fit. Simple types, like the `Suit` and the type of poker hand, **must** be represented by an `Enum` type, not raw integers or strings. All classes should be printable in a nice way. Hint: Unicode characters can be used: *[Wikipedia](https://en.wikipedia.org/wiki/Playing_cards_in_Unicode)*.
 
-You should hand in **a .zip file** with your library, your tests, and your manual (both the generated manual and the source files needed to run Sphinx to generate the output). Try to avoid non-essential/scrap files in the zip file.
+You should hand in **a .zip file** with your library, your tests. Try to avoid non-essential/scrap files in the zip file.
 
 ## Optional
 
