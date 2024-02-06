@@ -4,6 +4,7 @@ from abc import ABCMeta, abstractmethod
 from enum import IntEnum, unique
 from random import shuffle
 from typing import List, Dict, Tuple
+from collections import Counter, defaultdict
 
 import numpy as np
 
@@ -50,7 +51,7 @@ class PlayingCard(metaclass=ABCMeta):
         return self.suit == other.suit and self.get_value() == other.get_value()
 
     def __lt__(self, other: PlayingCard) -> bool:
-        return (self.get_value(), other.get_value()) < (self.suit, other.suit)
+        return (self.get_value(), self.suit) < (other.get_value(), other.suit)
 
     @abstractmethod
     def get_value(self) -> int:
@@ -159,7 +160,7 @@ class PokerHand:
     def check_pair(cards):
         value_count = Counter()
         for c in cards:
-            value_count[c.give_value()] += 1
+            value_count[c.get_value()] += 1
         # Find the card ranks that have at least a pair
         twos = [v[0] for v in value_count.items() if v[1] >= 2]
         if twos:
@@ -169,7 +170,7 @@ class PokerHand:
     def check_two_pair(cards):
         value_count = Counter()
         for c in cards:
-            value_count[c.give_value()] += 1
+            value_count[c.get_value()] += 1
         # Find the card ranks that have at least a pair
         twos = [v[0] for v in value_count.items() if v[1] >= 2]
     
@@ -181,7 +182,7 @@ class PokerHand:
     def check_three_of_a_kind(cards):
         value_count = Counter()
         for c in cards:
-            value_count[c.give_value()] += 1
+            value_count[c.get_value()] += 1
         # Find the card ranks that have at least 3
         threes = [v[0] for v in value_count.items() if v[1] >= 3]
         if threes:
@@ -189,17 +190,17 @@ class PokerHand:
 
     @staticmethod
     def check_straight(cards):
-        vals = [c.give_value() for c in cards] \
-            + [1 for c in cards if c.give_value() == 14]  # Add the aces!
+        vals = [c.get_value() for c in cards] \
+            + [1 for c in cards if c.get_value() == 14]  # Add the aces!
         for c in reversed(cards): # Starting point (high card)
             # Check if we have the value - k in the set of cards:
             found_straight = True
             for k in range(1, 5):
-                if (c.give_value() - k) not in vals:
+                if (c.get_value() - k) not in vals:
                     found_straight = False
                     break
             if found_straight:
-                return c.give_value()
+                return c.get_value()
 
     @staticmethod
     def check_flush(cards):
@@ -227,7 +228,7 @@ class PokerHand:
     def check_full_house(cards):
         value_count = Counter()
         for c in cards:
-            value_count[c.give_value()] += 1
+            value_count[c.get_value()] += 1
         # Find the card ranks that have at least three of a kind
         threes = [v[0] for v in value_count.items() if v[1] >= 3]
         threes.sort(reverse=True)
@@ -245,7 +246,7 @@ class PokerHand:
     def check_four_of_a_kind(cards):
         value_count = Counter()
         for c in cards:
-            value_count[c.give_value()] += 1
+            value_count[c.get_value()] += 1
         # Find the card ranks that have at least 4
         fours = [v[0] for v in value_count.items() if v[1] >= 4]
         if fours:
@@ -253,35 +254,35 @@ class PokerHand:
 
     @staticmethod
     def check_straight_flush(cards):
-        vals = [(c.give_value(), c.suit) for c in cards] \
-            + [(1, c.suit) for c in cards if c.give_value() == 14]  # Add the aces!
+        vals = [(c.get_value(), c.suit) for c in cards] \
+            + [(1, c.suit) for c in cards if c.get_value() == 14]  # Add the aces!
         for c in reversed(cards): # Starting point (high card)
             # Check if we have the value - k in the set of cards:
             found_straight = True
             for k in range(1, 5):
-                if (c.give_value() - k, c.suit) not in vals:
+                if (c.get_value() - k, c.suit) not in vals:
                     found_straight = False
                     break
             if found_straight:
-                return c.give_value()
+                return c.get_value()
 
     def __init__(self, cards: List[PlayingCard]):
         assert len(cards) >= 5
 
         checks = [
-            self.check_high_card,
-            self.check_pair,
-            self.check_two_pair,
-            self.check_three_of_a_kind,
-            self.check_straight,
-            self.check_flush,
-            self.check_full_house,
-            self.check_four_of_a_kind,
             self.check_straight_flush,
+            self.check_four_of_a_kind,
+            self.check_full_house,
+            self.check_flush,
+            self.check_straight,
+            self.check_three_of_a_kind,
+            self.check_two_pair,
+            self.check_pair,
+            self.check_high_card,
         ]
 
         cards.sort(reverse=True)
-        for check, ptype in reversed(zip(checks, PokerType)):
+        for check, ptype in zip(checks, reversed(PokerType)):
             values = check(cards)
             if values is not None:
                 self.values = values
