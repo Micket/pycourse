@@ -7,7 +7,7 @@ from cardlib import *
 # This test assumes you call your suit class "Suit" and the suits "Hearts and "Spades"
 def test_cards():
     card = NumberedCard(5, Suit.Hearts)
-    assert isinstance(h5.suit, Enum)
+    assert isinstance(card.suit, Enum)
 
     kcard = KingCard(Suit.Spades)
     assert kcard.get_value() == 13
