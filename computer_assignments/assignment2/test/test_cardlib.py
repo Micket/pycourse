@@ -6,14 +6,17 @@ from cardlib import *
 
 # This test assumes you call your suit class "Suit" and the suits "Hearts and "Spades"
 def test_cards():
-    h5 = NumberedCard(4, Suit.Hearts)
+    card = NumberedCard(5, Suit.Hearts)
     assert isinstance(h5.suit, Enum)
 
-    sk = KingCard(Suit.Spades)
-    assert sk.get_value() == 13
+    kcard = KingCard(Suit.Spades)
+    assert kcard.get_value() == 13
 
-    assert h5 < sk
-    assert h5 == h5
+    assert card < kcard
+    assert card != kcard
+
+    cardb = NumberedCard(5, Suit.Hearts)  # another identical card
+    assert card == cardb
 
     with pytest.raises(TypeError):
         pc = PlayingCard(Suit.Clubs)
