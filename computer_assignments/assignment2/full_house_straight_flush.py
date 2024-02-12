@@ -62,7 +62,7 @@ def check_flush(cards):
     # Look for best suit-grouped cards
     best_values = [0]
     for values in by_suit.values():
-        if len(cards) >= 5 and max(values) > max(best_values):
+        if len(values) >= 5 and max(values) > max(best_values):
             best_values = values
     if max(best_values) > 0:
         return best_values[:5]
