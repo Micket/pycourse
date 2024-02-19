@@ -48,6 +48,7 @@ You can do basic stuff like checking user input for correctness in the GUI-code,
 
 You may simplify some rules like the big vs small blind, but the game should be recognizable as Texas Hold'em by allowing users to call, fold, or raise bets (and eventually win/lose/draw) each round.
 
+\newpage
 ## Deliverables
 Please submit a zip (with exact filenames)
 
