@@ -3,10 +3,10 @@ header-includes:
         - \usepackage[left=1.9cm, right=1.9cm, top=1.5cm, bottom=1.9cm]{geometry}
 ---
 
-# DAT171 - Computer assignment 3 (2023-02-16)
+# DAT171 - Computer assignment 3 (2024-02-19)
 
 The objective is to make use of the library from the previous assignment in a graphical user interface for a Texas Hold ‘em game.
-The design must follow the Model-View-Controller concept.
+The design must follow the **Model-View-Controller** concept.
 It should be possible to play the game until losing or winning.
 There need to be at least 2 players.
 
@@ -15,7 +15,7 @@ The first step is to create a suitable layout for buttons, players, displaying c
 1. Make a sketch (on paper) of how you want to display your Poker game (do a simple "boxy" design).
    Add sections for all the data you wish to display, for example, each player's hand and money, the cards on the table and the pot, bet, and fold buttons, and whatever you think you may need.
    Think through how you want this game to work on paper first instead of fixing things later.
-   You must make a reusable view for each player, so you should allocate a rectangular area that displays all the player information.
+   You **must** make a reusable view for **each** player, so you must allocate a rectangular area that displays all information for one player.
    *Tip: It is easier to only have one setup of input buttons (bet, fold etc.), representing the action for the active player.*
 2. Find suitable QT-layouts to construct your sketch.
    Draw these on paper as well, to get a good idea of the hierarchies of the layouts and in what order to construct the widgets.
@@ -34,7 +34,7 @@ The second step is to model the game state, and connect it to the GUI code:
    Make methods for betting/folding etc. that manipulate this game state. E.g. a class `TexasHoldEm` with the methods `fold`, `call`, `bet` could be suitable.
    You must also create a class representing a player. Avoid using enumerated variables such as `hand1, hand2, player1, player2`, use lists or tuples instead.
 2. Connect the GUI widgets to the models, and add update functions in the view which display the current state of the model (player cards, money, pot, player turn, etc.).
-   You must use signals.
+   You must use signals that the view can use to determine when to update. 
 3. Make the game playable, with a definite win/lose state (a popup message is sufficient for notifying losses/victories).
    It is recommended to make a signal for alerting the GUI that the game has ended.
    You should be able to play several rounds of poker until a player runs out of money.
@@ -44,6 +44,8 @@ You are free to use any of the code from the card view widget, modify it to fit 
 
 You can do basic stuff like checking user input for correctness in the GUI-code, but keep a clear separation of the graphical interface and the underlying model (game state).
 Signals must be used for communication. It must follow an MVC-design, so do not embed game logic in the GUI-code, and don't call GUI-code from the game logic!
+
+You may simplify some rules like the big vs small blind, but the game should be recognizable as Texas Hold'em by allowing users to call, fold, or raise bets (and eventually win/lose/draw) each round.
 
 ## Deliverables
 Please submit a zip (with exact filenames)
