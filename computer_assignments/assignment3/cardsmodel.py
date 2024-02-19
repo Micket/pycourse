@@ -68,7 +68,7 @@ class HandModel(Hand, CardsModel):
     def flip(self):
         # Flips over the cards (to hide them)
         self.__flipped = not self.__flipped
-        self.new_cards.emit()  # something changed, better emit the signal!
+        self.cards_changed.emit()  # something changed, better emit the signal!
 
     def flipped(self):
         # This model only flips all or no cards, so we don't care about the index.
@@ -78,11 +78,11 @@ class HandModel(Hand, CardsModel):
     def hide(self):
         if not self.__flipped:
             self.__flipped = True
-            self.new_cards.emit()  # something changed, better emit the signal!
+            self.cards_changed.emit()  # something changed, better emit the signal!
 
     def add_card(self, card):
         # This method mutates the object, so we must of course 
         super().add_card(card)
-        self.new_cards.emit()  # something changed, better emit the signal!
+        self.cards_changed.emit()  # something changed, better emit the signal!
 
     # Do you have other methods that modify the state?
