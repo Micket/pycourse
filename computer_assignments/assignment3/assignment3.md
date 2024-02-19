@@ -41,6 +41,7 @@ The second step is to model the game state, and connect it to the GUI code:
 
 See the `cardsview.py` and `cardsmodel.py` (available on the homepage) example for the split between model and view.
 You are free to use any of the code from the card view widget, modify it to fit your game (or not use it at all).
+*Note:* Don't be tempted to place all information into a single big graphical widget; as noted you must use layouts and make widgets.
 
 You can do basic stuff like checking user input for correctness in the GUI-code, but keep a clear separation of the graphical interface and the underlying model (game state).
 Signals must be used for communication. It must follow an MVC-design, so do not embed game logic in the GUI-code, and don't call GUI-code from the game logic!
@@ -50,7 +51,7 @@ You may simplify some rules like the big vs small blind, but the game should be 
 ## Deliverables
 Please submit a zip (with exact filenames)
 
-1. Your `cardlib` from the previous assignment.
+1. Your `cardlib.py` from the previous assignment.
 2. `pokermodel.py` that contains all the game logic. This class may not import anything from your `pokerview` and only `QObject` and `pyqtSignal` from PyQt.
 3. `pokerview.py` that contains all the GUI elements. This class may import `pokermodel` if needed.
 4. `pokergame.py` the (short) main script that launches a game. This is where you should put the `QApplication` part.
