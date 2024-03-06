@@ -1,5 +1,8 @@
 class IPAddress:
     def __init__(self, vals: tuple):
+        if len(vals) != 4:
+            raise ValueError("The address must be made up of four parts")
+
         for val in vals:
             if val < 0 or val > 255:
                 raise ValueError("IP segment out of range 0-255")
@@ -11,11 +14,12 @@ class IPAddress:
     def __eq__(self, other):
         return self.vals == other.vals
 
-    def __getitem__(self, i):
-        return self.vals[i]
+    #def __getitem__(self, i):
+    #    return self.vals[i]
 
     def __str__(self):
         return '{}.{}.{}.{}'.format(*self.vals)
+
 
 class IPMask:
     def __init__(self, vals: tuple, maskbits: int):
@@ -63,6 +67,7 @@ class IPMask:
                 return False
 
         return True
+
 
 class IPRange:
     def __init__(self, start: IPAddress, end: IPAddress):
