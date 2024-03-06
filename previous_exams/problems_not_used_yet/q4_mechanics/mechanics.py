@@ -33,7 +33,7 @@ class ParallelCoupled(StructuralComponent):
         self.components = components
 
     def force(self, disp, vel):
-        return sum([comp.force(disp, vel) for comp in self.components)])
+        return sum([comp.force(disp, vel) for comp in self.components])
 
 
 class SerieCoupled:
