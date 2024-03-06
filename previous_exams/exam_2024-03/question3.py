@@ -1,9 +1,18 @@
 class IPAddress:
     def __init__(self, vals: tuple):
+        for val in vals:
+            if val < 0 or val > 255:
+                raise ValueError("IP segment out of range 0-255")
         self.vals = vals
+
+    def __lt__(self, other):
+        return self.vals < other.vals
 
     def __eq__(self, other):
         return self.vals == other.vals
+
+    def __getitem__(self, i):
+        return self.vals[i]
 
     def __str__(self):
         return '{}.{}.{}.{}'.format(*self.vals)
@@ -57,7 +66,7 @@ class IPMask:
 
 class IPRange:
     def __init__(self, start: IPAddress, end: IPAddress):
-        if end.vals < start.vals:
+        if end < start:
             raise ValueError("End address is smaller than start address!")
 
         self.start = start
