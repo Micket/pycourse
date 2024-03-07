@@ -36,18 +36,30 @@ def collect_license_data(logfile):
     return users_use, last_use
 
 users_use, last_use = collect_license_data('example.txt')
-print(users_use, last_use)
+print("Philip used v1.2.4", users_use['philip'][(1, 2, 4)], "times")
+print("Conrad used v1.2.4", users_use['conrad'][(1, 2, 4)], "times")
+print("0.1.4 was last used", last_use[(0, 1, 4)])
 
 # 3. 1p write a function that displays the stats for a paricular version:
 def check_usage(version, last_use, users_use):
     if version in last_use:
-        print(f"version {version[0]}.{version[1]}.{version[2]} was used as recently as {last_use[version]}")
+        print(f"v{version[0]}.{version[1]}.{version[2]} was used as recently as {last_use[version]}")
         for user, user_use in users_use.items():
             if version in user_use:
-                print(f"{user}: {user_use[version]} times")
+                print(f"{user:<10}: {user_use[version]:>2} times")
     else:
         print(f"version {version[0]}.{version[1]}.{version[2]} has not been used")
 
 check_usage((1, 2, 3), last_use, users_use)
 check_usage((1, 2, 4), last_use, users_use)
 
+# 4. maybe something like this, but i think it's to complicated for so little points left.
+def oldest_version(last_use, days_back):
+    last_date = max(last_use.values()) - datetime.timedelta(days=days_back)
+    max_version = (0,0,0)
+    for version, date in last_use.items():
+        if date >= last_date:
+            max_version = max(version, max_version)
+    return max_version
+
+print(oldest_version(last_use, 180))

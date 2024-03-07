@@ -25,7 +25,7 @@ def generate_random_usernames(num_usernames):
 
 start_date = datetime.date(2020, 1, 1)
 end_date = datetime.date(2023, 12, 31)
-num = 200
+num = 2000
 dates = generate_random_dates(start_date, end_date, num)
 usernames = generate_random_usernames(num)
 versions = generate_random_tuples(num)
@@ -34,5 +34,10 @@ for date, username, version in zip(dates, usernames, versions):
         continue
     if date.year == 2022 and version[0] < 1:
         continue
+    if date.year == 2021 and version[0] == 2:
+        continue
+    if date.year == 2020 and version[0] > 0:
+        continue
+
     print(f'{date} username={username} version={version[0]}.{version[1]}.{version[2]}')
 
