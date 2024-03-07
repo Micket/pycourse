@@ -4,7 +4,7 @@ from collections import Counter, defaultdict
 # 1. 1p: parse lines from the license server
 #2023-01-12 user=ohmanm version=1.0.1
 
-def parse_line(line: str):
+def parse_line(line: str) -> tuple:
     date, user, version = line.split(' ')
     year, month, day = date.split('-')
     user = user.split('=')[-1]
@@ -21,7 +21,7 @@ print(x)
 # A. that maps each version to its latest usage date
 # B. that maps each user to how many times they've used each version
 
-def collect_license_data(logfile):
+def collect_license_data(logfile) -> tuple:
     last_use = dict()
     users_use = defaultdict(Counter)
     with open(logfile) as file:
