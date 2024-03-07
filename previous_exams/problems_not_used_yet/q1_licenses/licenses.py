@@ -40,7 +40,7 @@ print("Philip used v1.2.4", users_use['philip'][(1, 2, 4)], "times")
 print("Conrad used v1.2.4", users_use['conrad'][(1, 2, 4)], "times")
 print("0.1.4 was last used", last_use[(0, 1, 4)])
 
-# 3. 1p write a function that displays the stats for a paricular version:
+# 3. 1.5p write a function that displays the stats for a paricular version:
 def check_usage(version, last_use, users_use):
     if version in last_use:
         print(f"v{version[0]}.{version[1]}.{version[2]} was used as recently as {last_use[version]}")
@@ -53,13 +53,11 @@ def check_usage(version, last_use, users_use):
 check_usage((1, 2, 3), last_use, users_use)
 check_usage((1, 2, 4), last_use, users_use)
 
-# 4. maybe something like this, but i think it's to complicated for so little points left.
-def oldest_version(last_use, days_back):
-    last_date = max(last_use.values()) - datetime.timedelta(days=days_back)
-    max_version = (0,0,0)
-    for version, date in last_use.items():
-        if date >= last_date:
-            max_version = max(version, max_version)
-    return max_version
+# 4. 1p check major version usage
+def check_major(major_version, last_use):
+    print(f"Major version {major_version}:")
+    for version, date in sorted(last_use.items()):
+        if version[0] == major_version:
+            print(f'v{version[0]}.{version[1]}.{version[2]}: {date}')
 
-print(oldest_version(last_use, 180))
+check_major(1, last_use)

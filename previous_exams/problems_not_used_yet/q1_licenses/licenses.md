@@ -3,12 +3,13 @@ header-includes:
         - \usepackage[a4paper,left=1.9cm, right=1.9cm, top=1.5cm, bottom=1.9cm]{geometry}
 ---
 
-# Question 1: License log (6p)
+# Question 1: License log (6.5p)
 
 We have a license server that logs each license checkout with the username and version.
 In order to save on license costs, we will investigate which versions we need to keep paying for based on the log.
 
 The server logs the lines in the following format: `"YEAR-MONTH-DAY user=USERNAME version=VERSIONSTRING"`
+where `VERSIONSTRING` has the format `MAJOR.MINOR.PATCH`.
 
 ## Part A: Parse log line (1p)
 
@@ -48,9 +49,9 @@ Conrad used v1.2.4 9 times
 0.1.4 was last used 2021-12-30
 ```
 
-*Hint* `collections` has the useful `Counter` and `defaultdict` objects.
+*Hint* `collections` has the useful `Counter` and `defaultdict` classes.
 
-## Part C: Check usage (2p)
+## Part C: Check usage (1.5p)
 
 Write the function `check_usage(version, last_use, user_use)` which looks up the given `version` and prints:
 
@@ -73,4 +74,23 @@ hubert    : 10 times
 philip    :  6 times
 rodriquez :  9 times
 wong      :  6 times
+```
+
+## Part D: Check major version (1p)
+
+Write the function `check_major_version(major_version, last_use)` which prints a table with the latest usage for all versions matching the given `major_version`.
+It must be sorted based on the full version number.
+
+**Example**
+```python3
+check_major(1, last_use)
+```
+**Output**
+```
+v1.1.0: 2022-12-18
+v1.1.4: 2022-12-17
+v1.2.0: 2022-12-17
+v1.2.4: 2022-12-29
+v1.3.0: 2022-12-29
+v1.3.4: 2022-12-14
 ```
