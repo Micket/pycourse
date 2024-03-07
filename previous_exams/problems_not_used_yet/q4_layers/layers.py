@@ -52,24 +52,6 @@ class Activation(Layer):
         return d
 
 
-class Normalization(Layer):
-    def __init__(self, name, size):
-        super().__init__(name, size, size)
-
-    def call(self, inputs):
-        print(self.input_size, len(inputs))
-        if self.input_size != len(inputs):
-            raise IndexError("Input size mismatch")
-        imax = max(inputs)
-        imin = min(inputs)
-        return [(i-imin)/(imax-imin) for i in inputs]
-
-    def get_config(self):
-        d = super().get_config()
-        d['type'] = 'Normalization'
-        return d
-
-
 class MultiLayer(Layer):
     def __init__(self, name, layers):
         super().__init__(name, layers[0].input_size, layers[-1].output_size)
@@ -98,19 +80,22 @@ weights2 = np.array([[1, 3], [0, 1], [2, 2], [3, 1]])
 biases2 = np.array([2, 4])
 
 start = DenseLayer('start', weights, biases)
-normal = Normalization('normal', 4)
+process = Activation('process', 4, abs)
 middle = DenseLayer('middle', weights2, biases2)
 end = Activation('end', 2, math.sqrt)
-full = MultiLayer('full', [start, normal, middle, end])
+full = MultiLayer('full', [start, process, middle, end])
 
 print(start.get_config())
 print(start.call([1, 3, 2]))
+print()
 
-print(normal.get_config())
-print(normal.call([1, 3, 5, 4]))
+print(process.get_config())
+print(process.call([-1, 3, -5, 4]))
+print()
 
 print(end.get_config())
 print(end.call([1, 3]))
+print()
 
 print(full.get_config())
-print(full.call([1, 3, 2]))
+print(full.call([-1, -3, 2]))
