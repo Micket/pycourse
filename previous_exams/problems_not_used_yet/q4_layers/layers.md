@@ -19,10 +19,10 @@ Create an abstract base class **Layer** which:
 ## Part B: DenseLayer (1.5p)
 
 Create a subclass of **Layer**, **DenseLayer** which takes a set of `weights` and `biases` (`NumPy` arrays) as input.
-Here `weights` is a 2D array where the rows match the output size, and the columns match the input size. `biases` is 1D array which has the same size as the output.
+Here `weights` is a 2D array where the rows match the input size, and the columns match the output size. `biases` is 1D array which has the same size as the output.
 
 - The constructor takes `weights` and `biases` and should verify that the sizes of them are compatible, if not raise an appropriate exception with a helpful message.
-- `call` computes $w \cdot x + b$ where $x$ is the input vector, $w$ are the weights and $b$ are the biases.
+- `call` computes $x \cdot w + b$ where $x$ is the input vector, $w$ are the weights and $b$ are the biases.
 - `get_config` should be overloaded to add `type` set to `'DenseLayer'` as well as the additional `weights` and `biases`.
 
 ## Part C: Activation (1.5p)
