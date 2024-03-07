@@ -20,12 +20,16 @@ class Layer(abc.ABC):
 
 class DenseLayer(Layer):
     def __init__(self, name, weights, biases):
+
+        if weights.shape[1] != len(biases):
+            raise ValueError("Size if weights and biases does not match!")
+
         super().__init__(name, weights.shape[0], weights.shape[1])
         self.weights = weights
         self.biases = biases
 
     def call(self, inputs):
-        return np.dot(inputs, self.weights) + self.biases
+        return inputs.dot(self.weights) + self.biases
 
     def get_config(self):
         d = super().get_config()
@@ -36,14 +40,14 @@ class DenseLayer(Layer):
 
 
 class Activation(Layer):
-    def __init__(self, name, shape, fun):
-        super().__init__(name, shape, shape)
+    def __init__(self, name, size, fun):
+        super().__init__(name, size, size)
         self.fun = fun
 
     def call(self, inputs):
         if self.input_size != len(inputs):
             raise IndexError("Input size mismatch")
-        return [self.fun(i) for i in inputs]
+        return np.array([self.fun(i) for i in inputs])
 
     def get_config(self):
         d = super().get_config()
@@ -86,16 +90,16 @@ end = Activation('end', 2, math.sqrt)
 full = MultiLayer('full', [start, process, middle, end])
 
 print(start.get_config())
-print(start.call([1, 3, 2]))
+print(start.call(np.array([1, 3, 2])))
 print()
 
 print(process.get_config())
-print(process.call([-1, 3, -5, 4]))
+print(process.call(np.array([-1, 3, -5, 4])))
 print()
 
 print(end.get_config())
-print(end.call([1, 3]))
+print(end.call(np.array([1, 3])))
 print()
 
 print(full.get_config())
-print(full.call([-1, -3, 2]))
+print(full.call(np.array([-1, -3, 2])))
