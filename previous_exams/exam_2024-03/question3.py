@@ -21,54 +21,6 @@ class IPAddress:
         return '{}.{}.{}.{}'.format(*self.vals)
 
 
-class IPMask:
-    def __init__(self, vals: tuple, maskbits: int):
-        self.vals = vals
-        self.maskbits = maskbits
-
-        mask_val = 0
-        for i in range(maskbits):
-            mask_val = mask_val * 2 + 1
-
-        mask = []
-        for group in range(4):
-            mask.append(self.__mask_group(mask_val, group))
-        mask.reverse()
-
-        self.__mask = tuple(mask)
-        self.__masked_vals = self.__mask_vals(self.vals)
-
-
-    @staticmethod
-    def __mask_group(val: int, group: int) -> int:
-        factor = 256**group
-        return int((val & 255 * factor) / factor)
-
-
-    def __str__(self):
-        return '{}.{}.{}.{}/{}'.format(*self.vals, self.maskbits)
-
-
-    def mask_address(self, ipaddr: IPAddress) -> IPAddress:
-
-        return IPAddress(self.__mask_vals(ipaddr.vals))
-
-    def __mask_vals(self, vals: tuple) -> tuple:
-        masked = []
-        for m, v in zip(self.__mask, vals):
-            masked.append(m | v)
-
-        return masked        
-
-
-    def in_mask(self, ipaddr: IPAddress) -> bool:
-        for m, a in zip(self.__masked_vals, ipaddr.vals):
-            if m | a != m:
-                return False
-
-        return True
-
-
 class IPRange:
     def __init__(self, start: IPAddress, end: IPAddress):
         if end < start:
@@ -113,26 +65,18 @@ class IPRange:
 
         return IPRangeIter(self)
 
-m1 = IPMask((129,16,1,1),32)
-m2 = IPMask((129,16,1,1),16)
-m3 = IPMask((129,16,1,1),15)
-m4 = IPMask((129,16,1,1),12)
 
-a1 = IPAddress((129,16,1,1))
-a2 = IPAddress((129,17,254,10))
-a3 = IPAddress((129,16,1,32))
+# Test code
+print(IPAddress((129,16,225,208)))
 
-print(a1, m2, m2.mask_address(a1))
-print(a1, m4, m4.mask_address(a1))
+assert (IPAddress((129,16,225,204)) < IPAddress((129,16,230,1))) == True
+assert (IPAddress((129,16,225,204)) == IPAddress((130,16,225,204))) == False
 
-print(a2, m2, m2.mask_address(a1))
-print(a2, m4, m4.mask_address(a1))
+ip_range = IPRange(IPAddress((129,17,1,1)), IPAddress((129,17,3,32)))
+print(f"{ip_range} has {len(ip_range)} addresses")
 
-r1 = IPRange(a1, a3)
-print(r1, len(r1))
+ip_range2 = IPRange(IPAddress((129,17,1,254)), IPAddress((129,17,2,3)))
+for ip in ip_range2:
+    print(ip)
 
-for i in r1:
-    print(i)
-
-print(a2, m2, m2.in_mask(a2))
-print(a1, m1, m1.in_mask(a1))
+print(len(ip_range2))

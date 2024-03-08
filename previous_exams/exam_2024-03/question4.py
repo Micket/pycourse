@@ -1,4 +1,3 @@
-# Idea here is to borrow from what TF/Keras/PyTorch does and implement "Layer" classes for machine learning.
 import abc
 
 
@@ -25,10 +24,14 @@ class DenseLayer(Layer):
             raise ValueError("Size if weights and biases does not match!")
 
         super().__init__(name, weights.shape[0], weights.shape[1])
+
         self.weights = weights
         self.biases = biases
 
     def call(self, inputs):
+        if self.weights.shape[0] != len(inputs):
+            raise IndexError("Input size mismatch")
+
         return inputs.dot(self.weights) + self.biases
 
     def get_config(self):
