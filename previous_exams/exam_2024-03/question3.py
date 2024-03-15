@@ -23,8 +23,8 @@ class IPAddress:
 
 class IPRange:
     def __init__(self, start: IPAddress, end: IPAddress):
-        if end < start:
-            raise ValueError("End address is smaller than start address!")
+        if not end > start:
+            raise ValueError("End address is smaller or equal than start address!")
 
         self.start = start
         self.end = end
