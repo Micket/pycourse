@@ -1,0 +1,10 @@
+# Apple pie recipe!
+Apple = 1.5
+flour=  0.35
+Sugar = 0.1
+brown sugar=  0.1
+# One large egg, which is about
+Egg   =   0.06
+butter= 0.2
+salt  = 1e-4
+# add spices to taste!

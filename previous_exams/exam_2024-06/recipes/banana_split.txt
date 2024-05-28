@@ -1,0 +1,4 @@
+banana = 0.4
+cream = 0.1
+ice cream = 0.2
+milk chocolate = 0.03

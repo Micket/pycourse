@@ -1,0 +1,8 @@
+# A very plain salad
+Lettuce = 0.2
+tomato = 0.3
+olive oil   = 0.05
+goat cheese= 0.1
+Chicken breast = 0.25
+# Who needs spices? Just salt it.
+salt = 0.005
