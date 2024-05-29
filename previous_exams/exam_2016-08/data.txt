@@ -1,0 +1,7 @@
+beast, snarfl, 12
+beast, brauler, 3
+foe, krasmer, 4
+friend, john, 15
+foe, forge, 5
+friend, paula, 17
+

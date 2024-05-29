@@ -2,6 +2,10 @@ import abc, math
 
 class Function(metaclass=abc.ABCMeta):
     @abc.abstractmethod
+    def __call__(self):
+        pass
+
+    @abc.abstractmethod
     def derivative(self):
         pass
 
