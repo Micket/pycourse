@@ -1,33 +1,41 @@
 class OneHotVector:
+    # A
     def __init__(self, length, index):
+        if index < 0:
+            raise IndexError("index must be positive!")
         if index >= length:
-            raise IndexError("index can not exceed length")
+            raise IndexError("index can not exceed length!")
         self.length = length
         self.index = index
 
+    # B
+    def __repr__(self):
+        return f'OneHotVector(length={self.length}, index={self.index})'
+
+    # C
     def __len__(self):
         return self.length
 
+    # D
     def __getitem__(self, item):
         if item < 0:
             item += len(self)
         if item < 0 or item >= self.length:
-            raise IndexError("out of bounds")
+            raise IndexError("index out of bounds")
         return 1 if item == self.index else 0
 
-    def dot(self, matrix):
-        if matrix.shape[0] != self.length:
-            raise IndexError("incompatible matrix size")
-
-        return matrix[self.index, :]
-
+    # E
     def toarray(self, dtype=int):
         x = np.zeros(self.length, dtype=dtype)
         x[self.index] = 1
         return x
 
-    def __repr__(self):
-        return f'OneHotVector(length={self.length}, index={self.index})'
+    # F
+    def dot(self, matrix):
+        if matrix.shape[0] != self.length:
+            raise IndexError("incompatible matrix size")
+
+        return matrix[self.index, :]
 
 
 # Test code
