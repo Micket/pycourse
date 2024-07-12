@@ -1,7 +1,7 @@
 # Test
 p = ProgressBar(22)
 p.show()
-p = ProgressBar(22, 0.2)  # 10% progress
+p = ProgressBar(22, 0.2)  # 20% progress
 p.show()
 assert p.render() == ['[####                ]']
 
@@ -14,7 +14,7 @@ b.show()
 
 print()
 
-g = GroupBox("Download", p)
+g = GroupBox(p, "Download")
 p.set_progress(0.75)
 g.show()
 
