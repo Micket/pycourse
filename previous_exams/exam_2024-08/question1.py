@@ -45,6 +45,16 @@ def apply_overrides(config, user):
             print('Section \'{}\' not found in default config. Skipping.'.format(user_section))
 
 
+# A
+config = read_ini('default_config.ini')
+print(config)
+
+# B
+game_options = {'Graphics': {'resolution': '1920x1080', 'texture_quality': 'high'},
+                'Gameplay': {'difficulty': 'medium', 'lives': '9'}}
+write_ini('game_options.ini', game_options)
+
+# C
 config = read_ini('default_config.ini')
 user = read_ini('user_overrides.ini')
 apply_overrides(config, user)
